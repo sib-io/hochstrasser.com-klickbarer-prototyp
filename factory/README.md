@@ -29,7 +29,7 @@ prototyp/
 …
 ```
 - `nav`: `projekte` | `auszeichnungen` | `expertise` | `profil` | `buero` | `null` → setzt den aktiven Menüpunkt.
-- `proto`: nur setzen, wenn der Ausgangstext eine Prototyp-Leiste mit „offene Punkte einblenden“ hat. Die `.note`-Hinweise bleiben 1:1 erhalten (Markup `<div class="note"><b>Titel</b> Text</div>`), der Schalter kommt aus dem Build.
+- `proto`: nur setzen, wenn der Ausgangstext eine Prototyp-Leiste mit „offene Punkte einblenden“ hat. Die `.note`-Hinweise bleiben 1:1 erhalten (Markup `<div class="note"><b>Titel</b> Text</div>`), der Schalter kommt aus dem Build. Die Leiste ist im Prototyp verborgen und erscheint mit Alt+Shift+P (gilt für die Sitzung im Tab, `site.js`).
 - `body`: zusätzliche Attribute für `<body>` (nur Digitales Bauen: Akzentfarbe).
 - **Kein** `<header>`, `<footer>`, Menü, `<html>`/`<head>` in der Seitenquelle. Keine Inline-`<style>`. Seitenskript entweder als Datei (`js`) oder als `<script>` am Ende der Seitenquelle.
 - `site.js` läuft nach dem Seiteninhalt und blendet alle `.rv` ein, die beim Laden im DOM sind. Per JS erzeugte Elemente bekommen **kein** `.rv` (oder das Skript steht inline in der Seitenquelle, dann läuft es vorher).

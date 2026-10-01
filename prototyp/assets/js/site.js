@@ -26,13 +26,27 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) shut(); });
   }
 
-  /* Prototyp-Leiste: offene Punkte ein- und ausblenden */
+  /* Prototyp-Leiste: verborgen, Alt+Shift+P blendet sie ein (gilt für die
+     Sitzung im Tab); darin werden offene Punkte ein- und ausgeblendet */
   var tgl = document.getElementById('notesToggle');
   if (tgl) {
-    tgl.addEventListener('click', function () {
-      var on = document.body.classList.toggle('show-notes');
+    var setNotes = function (on) {
+      document.body.classList.toggle('show-notes', on);
       tgl.setAttribute('aria-pressed', String(on));
       tgl.textContent = on ? 'Offene Punkte ausblenden' : 'Offene Punkte einblenden';
+    };
+    var setProto = function (on) {
+      document.body.classList.toggle('show-proto', on);
+      if (!on) setNotes(false);
+      try { sessionStorage.setItem('proto', on ? '1' : ''); } catch (e) {}
+    };
+    try { if (sessionStorage.getItem('proto')) setProto(true); } catch (e) {}
+    tgl.addEventListener('click', function () { setNotes(!document.body.classList.contains('show-notes')); });
+    document.addEventListener('keydown', function (e) {
+      if (e.altKey && e.shiftKey && !e.ctrlKey && !e.metaKey && e.code === 'KeyP') {
+        e.preventDefault();
+        setProto(!document.body.classList.contains('show-proto'));
+      }
     });
   }
 

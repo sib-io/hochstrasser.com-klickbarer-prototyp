@@ -416,9 +416,11 @@ a.ext::after{content:'\2197';font-size:.72em;margin-left:.15em;color:var(--mute)
 .sources li{color:var(--mute);font-size:var(--fs-small);line-height:1.55}
 
 /* 9 Prototyp-Leiste und offene Punkte -------------------------
+   Die Leiste ist verborgen und erscheint mit Alt+Shift+P (site.js).
    Redaktionelle Hinweise (.note) sind standardmäßig verborgen und
    werden über die Leiste eingeblendet. */
-.proto{background:var(--ink);color:var(--on-dark-2)}
+.proto{display:none;background:var(--ink);color:var(--on-dark-2)}
+body.show-proto .proto{display:block}
 .proto__in{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-3);align-items:center;justify-content:space-between;min-height:2.75rem;padding-block:var(--sp-1)}
 .proto .t-label{color:var(--on-dark-mute)}
 .proto button{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;border:1px solid var(--on-dark-rule);padding:.3rem .8rem;transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
