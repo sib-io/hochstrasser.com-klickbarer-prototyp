@@ -1,9 +1,15 @@
 /* Büro — Claim, Bildband, Team, Anschluss, Leitbild, Anfahrt */
 
 .buero-claim{max-width:none}
-.buero-lead{margin-top:var(--sp-5)}
-.buero-tri{margin-top:var(--sp-7)}
-.buero-tri>li{row-gap:var(--sp-1);align-items:baseline;padding-block:var(--sp-4)}
+/* Claim + Lead links, Dreiklang ab 1200 in der Seitenspalte 10–12, mittig zum linken Block;
+   darunter folgt er dem Lead (wie das Leistungsband der Startseite) */
+@media (min-width:1200px){
+  .buero-intro>.buero-claim{grid-column:1/span 9}
+  .buero-intro>.buero-tri{grid-column:10/span 3;grid-row:1/span 2;align-self:center}
+}
+/* Dreiklang in der Optik der Begriffsliste der Startseite (.idx-terms) */
+.buero-tri>li{display:grid;row-gap:var(--sp-1)}
+.buero-tri__sub{font-size:var(--fs-small);color:var(--mute)}
 
 /* Bildband: vollflächig, Tonwertkurve hebt nur die Tiefen */
 .buero-filter{position:absolute}
