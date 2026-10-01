@@ -1,0 +1,14 @@
+/* ============================================================
+   DGNB / Zertifizierung – nur Seitenspezifisches
+   Die Auszeichnungsstufen-Zeichnung (viewBox 1280 × 320) nutzt die
+   gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css;
+   Knoten à drei Spalten (297,5 + 30 Gutter).
+   Hier: gestrichelte Mindestlinie, Fußnote, Gruppenköpfe.
+   ============================================================ */
+.x-node__floor.dg-min{stroke:var(--mute);stroke-dasharray:4 4}
+.x-node.is-on .x-node__floor.dg-min{stroke:var(--paper);opacity:.6}
+.dg-note{display:none}
+.dg-grp{margin-top:var(--sp-4)}
+@media (min-width:900px){
+  .dg-note{display:block}
+}

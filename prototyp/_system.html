@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design-System — hochstrasser.</title>
+<meta name="description" content="Bausteine des Prototyps">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<div class="proto">
+  <div class="wrap proto__in">
+    <span class="t-label">Design-System · Referenz für alle Seiten</span>
+    <button id="notesToggle" aria-pressed="false">Offene Punkte einblenden</button>
+  </div>
+</div>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="index.html">hochstrasser.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="projekte.html">Projekte</a>
+      <a href="auszeichnungen.html">Auszeichnungen</a>
+      <a href="expertise.html">Expertise</a>
+      <a href="profil.html">Profil</a>
+      <a href="buero.html">Büro</a>
+    </nav>
+    <button class="dots" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="sheet"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <button class="sheet__close" id="menuClose">Schließen</button>
+  <a href="projekte.html">Projekte</a>
+  <a href="auszeichnungen.html">Auszeichnungen</a>
+  <a href="expertise.html">Expertise</a>
+  <a href="profil.html">Profil</a>
+  <a href="buero.html">Büro</a>
+</div>
+
+<main id="inhalt">
+<section class="wrap hero">
+    <p class="t-label hero__eyebrow">Design-System</p>
+    <h1 class="t-display hero__title">Architektur<em>.</em><br>Verantwortung<em>.</em><br>Lösungen<em>.</em></h1>
+    <p class="t-lead hero__sub">Integraler Planungspartner aus Ulm. Wir verbinden Architektur, Technik und Wirtschaftlichkeit zu einer integralen Planung.</p>
+    <div class="hero__foot btn-row"><a class="btn" href="#">Alle über 120 Projekte <span aria-hidden="true">→</span></a><a class="link-arrow" href="#">Das Büro kennenlernen <span aria-hidden="true">→</span></a></div>
+  </section>
+
+  <section class="wrap band rule-top">
+    <div class="sec-head">
+      <h2 class="t-rubric sec-head__title">Typografie</h2>
+      <a class="link-arrow sec-head__aside" href="#">Alle Auszeichnungen <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="grid">
+      <div class="s-4"><p class="t-label">t-h1 · PX Grotesk Light</p></div>
+      <div class="s-7 o-6"><p class="t-h1">Brandschutz ist eine Entwurfsentscheidung</p></div>
+      <div class="s-4"><p class="t-label">t-h2 · PX Grotesk Light</p></div>
+      <div class="s-7 o-6"><h2 class="t-h2">Der teure Moment kommt immer zu spät</h2></div>
+      <div class="s-4"><p class="t-label">t-h3 · PX Grotesk Regular</p></div>
+      <div class="s-7 o-6"><h3 class="t-h3">Weniger Schnittstellen</h3></div>
+      <div class="s-4"><p class="t-label">t-h4 · PX Grotesk Regular</p></div>
+      <div class="s-7 o-6"><h4 class="t-h4">Winterlicher Wärmeschutz</h4></div>
+      <div class="s-4"><p class="t-label">t-lead · Carlito</p></div>
+      <div class="s-7 o-6"><p class="t-lead">Wir planen nicht für die Planung. Wir planen für Menschen, Unternehmen und Kommunen.</p></div>
+      <div class="s-4"><p class="t-label">prose · Carlito</p></div>
+      <div class="s-7 o-6 prose"><p>Wir verbinden Architektur mit den Fachdisziplinen Bauphysik, Energieplanung, Brandschutz und Nachhaltigkeit zu einem integralen Planungsprozess. Dadurch schaffen wir klare Verantwortlichkeiten, kurze Entscheidungswege sowie eine hohe Termin-, Kosten- und Planungssicherheit.</p><p>Der gesamte Umbau erfolgte während des laufenden Betriebs. <a href="#">Ein Link im Text</a>.</p></div>
+    </div>
+  </section>
+
+  <section class="band band--tint">
+    <div class="wrap grid">
+      <div class="s-6 stack">
+        <h2 class="t-h2">Zeilenliste und Kennwerte</h2>
+        <p>Getöntes Band, Aufteilung 6 | 1 | 5.</p>
+      </div>
+      <div class="s-5 o-8">
+        <dl class="facts">
+          <div><dt>Standort</dt><dd>Ulm</dd></div>
+          <div><dt>Fertigstellung</dt><dd>2020</dd></div>
+          <div><dt>Bauherr</dt><dd>Vermögen und Bau Baden-Württemberg, Amt Ulm</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--dark">
+    <div class="wrap grid grid--center">
+      <div class="s-3"><div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div></div>
+      <div class="s-8 o-5">
+        <blockquote class="quote">„Man fühlt sich, als betrete man eine Kathedrale.“</blockquote>
+        <div class="quote__src"><span class="quote__who">Dorothea Schrade, Bauherrin</span><span>Hugo-Häring-Auszeichnung 2023.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band">
+    <div class="sec-head"><h2 class="t-rubric sec-head__title">Häufige Fragen</h2></div>
+    <div class="grid">
+      <div class="s-8">
+        <div class="faq">
+          <details><summary>Was bedeutet nachhaltiges Bauen in der Architektur?</summary><div class="faq__answer"><p>Antworttext.</p></div></details>
+          <details><summary>Ist eine Sanierung nachhaltiger als Abriss und Neubau?</summary><div class="faq__answer"><p>Antworttext.</p></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band--s">
+    <div class="contact-card">
+      <div class="ph"><span>Foto folgt</span></div>
+      <div class="contact-card__body">
+        <p class="t-h2">Sprechen wir über den Entwurf, nicht über Brandabschnitte</p>
+        <p class="t-mute">Gebäudeklasse, Sonderbautatbestand und Zugang lassen sich meist schon im Telefonat einordnen.</p>
+        <div class="btn-row"><a class="btn" href="tel:+49731935110">07 31 . 9 35 11-0</a><a class="link-arrow" href="mailto:info@hochstrasser.com">Nachricht schreiben <span aria-hidden="true">→</span></a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="grid">
+      <div class="s-6">
+        <span class="brand">hochstrasser.</span>
+        <p class="ftr__addr">Gesellschaft für Architektur mbH<br>Karpfengasse 5 · 89073 Ulm</p>
+        <p class="ftr__big"><a href="tel:+49731935110">07 31 . 9 35 11-0</a></p>
+        <p class="ftr__big"><a href="mailto:info@hochstrasser.com">info@hochstrasser.com</a></p>
+      </div>
+      <div class="s-5 o-8 ftr__right">
+        <nav class="ftr__links" aria-label="Weitere Seiten">
+          <a href="kontakt.html">Kontakt</a>
+          <a href="#">Bauen im Bestand</a>
+          <a href="jobs.html">Jobs</a>
+          <a href="expertise-nachhaltigkeit.html">Nachhaltigkeit</a>
+          <a href="#">BDA-Berufung</a>
+          <a href="expertise-bauphysik.html">Bauphysik</a>
+          <a href="#">FAQs</a>
+        </nav>
+        <div class="ftr__social">
+          <a href="https://www.instagram.com/hochstrasser.architekten" aria-label="hochstrasser. auf Instagram" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.15"/><circle cx="17.15" cy="6.85" r="1.05" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="hochstrasser. auf LinkedIn" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3.4"/><circle cx="7.7" cy="7.7" r="1.05" fill="currentColor" stroke="none"/><path d="M7.7 10.9V17"/><path d="M11.7 17v-6.1"/><path d="M11.7 13.7a2.5 2.5 0 0 1 5 0V17"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="grid ftr__base">
+      <span class="t-label s-6">© 2026 hochstrasser. Gesellschaft für Architektur mbH</span>
+      <span class="t-label s-6 o-7"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

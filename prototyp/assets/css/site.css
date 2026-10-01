@@ -1,0 +1,440 @@
+/* ============================================================
+   hochstrasser. — gemeinsames Design-System des Prototyps
+   ------------------------------------------------------------
+   1  Schriften
+   2  Tokens (Farben, Raster, Abstände, Schriftgrade)
+   3  Basis
+   4  Raster (12 Spalten, 1280 px am Desktop)
+   5  Typografie-Rollen
+   6  Bänder / Sektionen
+   7  Header, Menü, Footer
+   8  Komponenten
+   9  Prototyp-Leiste und offene Punkte
+   10 Bewegung
+   Regel: Seiten-CSS nutzt ausschließlich diese Tokens.
+   ============================================================ */
+
+/* 1 Schriften ------------------------------------------------
+   PX Grotesk  -> alles, was Überschrift, Menü, Button, Rubrik
+                  oder Label ist
+   Carlito     -> Fließtext (metrisch identischer Calibri-Ersatz,
+                  per Google Fonts im Kopf geladen) */
+@font-face{font-family:'PX Grotesk';font-style:normal;font-weight:300;font-display:swap;
+  src:url('../fonts/px-grotesk-light.woff2') format('woff2')}
+@font-face{font-family:'PX Grotesk';font-style:normal;font-weight:400;font-display:swap;
+  src:url('../fonts/px-grotesk-regular.woff2') format('woff2')}
+@font-face{font-family:'PX Grotesk';font-style:normal;font-weight:700;font-display:swap;
+  src:url('../fonts/px-grotesk-bold.woff2') format('woff2')}
+
+/* 2 Tokens --------------------------------------------------- */
+:root{
+  /* Farben */
+  --paper:#ffffff;
+  --ink:#161616;
+  --ink-2:#2c2c2c;          /* Fließtext */
+  --mute:#6e6e6e;           /* Sekundärtext, Labels */
+  --rule:#e4e5e7;           /* feine Trennlinie auf Weiß */
+  --rule-tint:rgba(22,22,22,.14); /* Trennlinie auf getöntem Grund */
+  --shade:#f2f2f2;          /* getönte Bänder, Bildplatzhalter */
+  --accent:var(--ink);      /* nur Digitales Bauen überschreibt */
+  --wash:var(--shade);
+  /* auf dunklem Grund */
+  --on-dark:#ffffff;
+  --on-dark-2:rgba(255,255,255,.74);
+  --on-dark-mute:rgba(255,255,255,.52);
+  --on-dark-rule:rgba(255,255,255,.2);
+
+  /* Schriften */
+  --font-ui:'PX Grotesk','Helvetica Neue',Arial,sans-serif;
+  --font-text:'Carlito','Calibri','Segoe UI',sans-serif;
+
+  /* Raster: 12 Spalten, 1280 px Inhaltsbreite am Desktop */
+  --container:1280px;
+  --gutter:16px;
+  --side:20px;
+  --col:calc((min(100vw - 2 * var(--side), var(--container)) - 11 * var(--gutter)) / 12);
+
+  /* Abstände (8er-System) */
+  --sp-1:.5rem;   /*   8 */
+  --sp-2:1rem;    /*  16 */
+  --sp-3:1.5rem;  /*  24 */
+  --sp-4:2rem;    /*  32 */
+  --sp-5:3rem;    /*  48 */
+  --sp-6:4rem;    /*  64 */
+  --sp-7:6rem;    /*  96 */
+  --sp-8:8rem;    /* 128 */
+  /* Sektionsrhythmus */
+  --band:clamp(5rem, 2.5rem + 7vw, 9rem);       /*  80 → 144 */
+  --band-s:clamp(3.5rem, 2rem + 4vw, 6rem);     /*  56 →  96 */
+  --head-gap:clamp(2.5rem, 1.5rem + 2.6vw, 4rem); /* Kopf → Inhalt: 40 → 64 */
+  --stack:clamp(1.25rem, 1rem + .8vw, 1.75rem); /* Abstand Überschrift → Text */
+  --hdr-h:64px;
+  --hero-gap:var(--band-s);                     /* Hero → erste Sektion */
+
+  /* Schriftgrade */
+  --fs-display:clamp(2.5rem, 1.35rem + 4.6vw, 4.75rem);  /* 40 → 76 */
+  --fs-h1:clamp(2.125rem, 1.35rem + 3.2vw, 3.625rem);    /* 34 → 58 */
+  --fs-h2:clamp(1.625rem, 1.15rem + 1.9vw, 2.5rem);      /* 26 → 40 */
+  --fs-h3:clamp(1.25rem, 1.05rem + .75vw, 1.625rem);     /* 20 → 26 */
+  --fs-h4:clamp(1.0625rem, 1rem + .3vw, 1.25rem);        /* 17 → 20 */
+  --fs-lead:clamp(1.1875rem, 1.05rem + .55vw, 1.4375rem);/* 19 → 23 */
+  --fs-body:clamp(1.0625rem, 1rem + .2vw, 1.1875rem);    /* 17 → 19 */
+  --fs-small:.9375rem;                                   /* 15 */
+  --fs-ui:1rem;                                          /* 16: Menü, Buttons */
+  --fs-label:.8125rem;                                   /* 13 */
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+@media (min-width:600px){ :root{ --gutter:24px; --side:32px; } }
+@media (min-width:900px){ :root{ --side:40px; --hdr-h:88px; } }
+@media (min-width:1200px){ :root{ --gutter:30px; } }
+
+/* 3 Basis ---------------------------------------------------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr-h) + var(--sp-3))}
+body{
+  background:var(--paper);color:var(--ink-2);
+  font-family:var(--font-text);font-weight:400;
+  font-size:var(--fs-body);line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+img,svg,video{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-ui);font-weight:400;color:var(--ink);line-height:1.2;letter-spacing:-.005em;text-wrap:balance}
+p{text-wrap:pretty}
+b,strong{font-weight:700}
+em{font-style:italic}
+::selection{background:var(--ink);color:var(--paper)}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--ink);color:var(--paper);padding:var(--sp-2) var(--sp-3);font-family:var(--font-ui)}
+.skip:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 4 Raster ---------------------------------------------------
+   .wrap  = zentrierter Container (1280 px Inhalt am Desktop)
+   .grid  = 12-Spalten-Raster mit festem Gutter
+   Spaltenklassen greifen ab 900 px; darunter stapelt alles.
+     .s-N  = über N Spalten     .o-N = beginnt in Spalte N
+   ab 600 px zusätzlich:  .sm-s-N
+   Kanonische Aufteilungen (bitte bevorzugen):
+     6 | 1 frei | 5     Text + Text / Text + Liste
+     4 | 1 frei | 7     Überschrift links, Inhalt rechts
+     8                  große Aussage
+     6 oder 7           Fließtext-Spalte (≈ 65 Zeichen)
+     4 + 4 + 4 / 3+3+3+3 Karten, Kacheln */
+.wrap{width:100%;max-width:calc(var(--container) + 2 * var(--side));margin-inline:auto;padding-inline:var(--side)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-5);align-items:start}
+.grid>*{grid-column:1/-1;min-width:0}
+.grid--tight{row-gap:var(--sp-3)}
+.grid--center{align-items:center}
+@media (min-width:600px){
+  .grid>.sm-s-3{grid-column:span 3}.grid>.sm-s-4{grid-column:span 4}
+  .grid>.sm-s-6{grid-column:span 6}.grid>.sm-s-8{grid-column:span 8}
+}
+@media (min-width:900px){
+  .grid>.s-1{grid-column-end:span 1}.grid>.s-2{grid-column-end:span 2}.grid>.s-3{grid-column-end:span 3}
+  .grid>.s-4{grid-column-end:span 4}.grid>.s-5{grid-column-end:span 5}.grid>.s-6{grid-column-end:span 6}
+  .grid>.s-7{grid-column-end:span 7}.grid>.s-8{grid-column-end:span 8}.grid>.s-9{grid-column-end:span 9}
+  .grid>.s-10{grid-column-end:span 10}.grid>.s-11{grid-column-end:span 11}.grid>.s-12{grid-column-end:span 12}
+  .grid>[class*=" s-"],.grid>[class^="s-"]{grid-column-start:auto}
+  .grid>.o-1{grid-column-start:1}.grid>.o-2{grid-column-start:2}.grid>.o-3{grid-column-start:3}
+  .grid>.o-4{grid-column-start:4}.grid>.o-5{grid-column-start:5}.grid>.o-6{grid-column-start:6}
+  .grid>.o-7{grid-column-start:7}.grid>.o-8{grid-column-start:8}.grid>.o-9{grid-column-start:9}
+  .grid>.o-10{grid-column-start:10}.grid>.o-11{grid-column-start:11}.grid>.o-12{grid-column-start:12}
+}
+
+/* 5 Typografie-Rollen -----------------------------------------
+   Alle Überschriften-Rollen in PX Grotesk. Fließtext in Carlito. */
+.t-display{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-display);line-height:1.02;letter-spacing:-.028em;color:var(--ink)}
+.t-h1{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h1);line-height:1.06;letter-spacing:-.024em;color:var(--ink)}
+.t-h2{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1.14;letter-spacing:-.018em;color:var(--ink)}
+.t-h3{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-h3);line-height:1.24;letter-spacing:-.012em;color:var(--ink)}
+.t-h4{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-h4);line-height:1.3;letter-spacing:-.004em;color:var(--ink)}
+/* Rubrik: der kurze Sektionstitel („Projekte“, „Auszeichnungen“) */
+.t-rubric{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h4);line-height:1.25;letter-spacing:.01em;color:var(--ink)}
+/* Label: Kategorie, Jahr, Kennwert-Bezeichnung */
+.t-label{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-label);line-height:1.4;letter-spacing:.04em;color:var(--mute)}
+.t-lead{font-family:var(--font-text);font-size:var(--fs-lead);line-height:1.5;color:var(--ink)}
+.t-small{font-size:var(--fs-small);line-height:1.55}
+.t-mute{color:var(--mute)}
+.t-display em,.t-h1 em,.t-h2 em{font-style:normal;color:var(--mute)}
+:is(.t-display,.t-h1,.t-h2,.t-h3,.t-h4,.quote){text-wrap:balance}
+
+/* Fließtext-Block */
+.prose{max-width:66ch;color:var(--ink-2)}
+.prose>*+*{margin-top:1em}
+.prose h3,.prose h4{margin-top:1.8em}
+.prose a{border-bottom:1px solid var(--rule);transition:border-color .2s var(--ease)}
+.prose a:hover{border-bottom-color:var(--ink)}
+.prose ul>li{position:relative;padding-left:1.1em}
+.prose ul>li::before{content:'–';position:absolute;left:0;color:var(--mute)}
+.prose ul>li+li{margin-top:.35em}
+/* Abstand Überschrift → Folgeelement */
+.stack>*+*{margin-top:var(--stack)}
+
+/* 6 Bänder ----------------------------------------------------
+   .band          Standard-Sektion (große Weißräume)
+   .band--s       kleinere Sektion
+   .band--tint    getönter Grund (vollflächig)
+   .band--dark    dunkler Grund (vollflächig)
+   Ein Band ist immer vollflächig; der Inhalt sitzt in .wrap.
+   Zwei getönte/dunkle Bänder hintereinander verschmelzen nicht. */
+.band{padding-block:var(--band)}
+.band--s{padding-block:var(--band-s)}
+.band--tint{background:var(--wash)}
+.band--dark{background:var(--ink);color:var(--on-dark-2)}
+.band--dark :is(h1,h2,h3,h4,.t-display,.t-h1,.t-h2,.t-h3,.t-h4,.t-rubric,.t-lead){color:var(--on-dark)}
+.band--dark .t-label,.band--dark .t-mute{color:var(--on-dark-mute)}
+.band--tint+.band--tint,.band--dark+.band--dark{padding-top:0}
+.band--flush-top{padding-top:0}
+.band--flush-bottom{padding-bottom:0}
+.rule-top{border-top:1px solid var(--rule)}
+/* auf .wrap: Linie nur über die Inhaltsbreite, nicht in den Seitenrand */
+.wrap.rule-top{border-top:0;background:linear-gradient(var(--rule),var(--rule)) no-repeat top center/calc(100% - 2 * var(--side)) 1px}
+
+/* Sektionskopf: Rubrik links, optionaler Link rechts */
+.sec-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-2);align-items:baseline;margin-bottom:var(--head-gap)}
+.sec-head>*{grid-column:1/-1}
+.sec-head>.t-h2,.sec-head>.t-h1{margin-top:var(--sp-2)}
+@media (min-width:900px){
+  .sec-head>.sec-head__title{grid-column:1/span 7}
+  .sec-head>.sec-head__aside{grid-column:8/span 5;justify-self:end;text-align:right}
+}
+.sec-head--flat{margin-bottom:0}
+
+/* Seiteneinstieg */
+.hero{padding-block:clamp(3.5rem, 1.5rem + 6vw, 8rem) var(--hero-gap)}
+.hero+.band:not(.band--tint):not(.band--dark){padding-top:var(--hero-gap)}
+.hero__eyebrow{margin-bottom:var(--sp-4)}
+.hero__title{max-width:20ch}
+/* Hero-Überschriften eine Stufe kräftiger als die übrigen Light-Rollen */
+.hero :is(.t-display,.t-h1,.t-h2){font-weight:400}
+.hero__sub{margin-top:var(--sp-4);max-width:56ch}
+.hero__foot{margin-top:var(--sp-5)}
+
+/* 7 Header --------------------------------------------------- */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(180%) blur(10px);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--rule)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);height:var(--hdr-h)}
+.brand{font-family:var(--font-ui);font-weight:700;font-size:clamp(1.1875rem, 1.05rem + .5vw, 1.4375rem);letter-spacing:-.015em;color:var(--ink);line-height:1}
+.nav{display:none;gap:clamp(1.5rem, .5rem + 2vw, 2.5rem);align-items:center}
+.nav a{position:relative;font-family:var(--font-ui);font-size:var(--fs-ui);letter-spacing:.01em;color:var(--ink);opacity:.62;padding-block:var(--sp-1);transition:opacity .22s var(--ease)}
+.nav a::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav a:hover{opacity:1}
+.nav a[aria-current]{opacity:1}
+.nav a[aria-current]::after{transform:none}
+.dots{display:flex;flex-direction:column;gap:4px;padding:var(--sp-1) var(--sp-1);margin-right:calc(-1 * var(--sp-1))}
+.dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);display:block;transition:transform .3s var(--ease)}
+.dots:hover i:nth-child(1){transform:translateX(-3px)}
+.dots:hover i:nth-child(3){transform:translateX(3px)}
+@media (min-width:900px){.nav{display:flex}.dots{display:none}}
+
+/* Menü-Overlay (mobil) */
+.sheet{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;justify-content:center;gap:var(--sp-1);padding:var(--side);transform:translateY(-100%);transition:transform .5s var(--ease)}
+.sheet[data-open]{transform:none}
+.sheet a{font-family:var(--font-ui);font-weight:300;font-size:clamp(2rem, 8vw, 2.75rem);letter-spacing:-.02em;line-height:1.25;color:var(--ink)}
+.sheet a[aria-current]{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+.sheet__close{position:absolute;top:calc((var(--hdr-h) - 2.5rem) / 2);right:var(--side);height:2.5rem;font-family:var(--font-ui);font-size:var(--fs-ui);color:var(--mute)}
+
+/* Footer ----------------------------------------------------- */
+.ftr{background:var(--ink);color:var(--on-dark-2);padding-block:var(--band) var(--sp-5)}
+.ftr .brand{display:block;color:var(--on-dark);font-size:clamp(1.75rem, 1.2rem + 2vw, 2.625rem);letter-spacing:-.02em;margin-bottom:var(--sp-3)}
+.ftr__addr{color:var(--on-dark-mute);max-width:32ch}
+.ftr__big{margin-top:var(--sp-4);font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h3);letter-spacing:-.01em;line-height:1.35;color:var(--on-dark)}
+.ftr__big+.ftr__big{margin-top:var(--sp-1)}
+.ftr__big a{border-bottom:1px solid var(--on-dark-rule);transition:border-color .25s var(--ease)}
+.ftr__big a:hover{border-bottom-color:var(--on-dark)}
+.ftr__right{display:flex;flex-direction:column;gap:var(--sp-5)}
+@media (min-width:900px){.ftr__right{padding-top:var(--sp-1)}}
+.ftr__links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-2) var(--gutter)}
+.ftr__links a{font-family:var(--font-ui);font-size:var(--fs-ui);color:var(--on-dark-2);transition:color .22s var(--ease)}
+.ftr__links a:hover{color:var(--on-dark)}
+.ftr__social{display:flex;gap:var(--sp-1)}
+.ftr__social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--on-dark-rule);color:var(--on-dark-2);transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
+.ftr__social a:hover{border-color:var(--on-dark);background:var(--on-dark);color:var(--ink)}
+.ftr__social svg{width:19px;height:19px}
+.ftr__base{margin-top:var(--sp-7);padding-top:var(--sp-3);border-top:1px solid var(--on-dark-rule);row-gap:var(--sp-1)}
+.ftr__base .t-label{color:var(--on-dark-mute)}
+.ftr__base a:hover{color:var(--on-dark)}
+@media (min-width:900px){.ftr__base>:last-child{justify-self:end}}
+
+/* 8 Komponenten ---------------------------------------------- */
+
+/* Button (Umriss) und Pfeil-Link */
+.btn{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:3.5rem;padding:.875rem 1.75rem;border:1px solid var(--ink);font-family:var(--font-ui);font-size:var(--fs-ui);letter-spacing:.01em;line-height:1.2;color:var(--ink);transition:background .3s var(--ease),color .3s var(--ease)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn>span[aria-hidden]{display:inline-block;transition:transform .3s var(--ease)}
+.btn:hover>span[aria-hidden]{transform:translateX(4px)}
+.btn--back:hover>span[aria-hidden]{transform:translateX(-4px)}
+.band--dark .btn{border-color:var(--on-dark);color:var(--on-dark)}
+.band--dark .btn:hover{background:var(--on-dark);color:var(--ink)}
+.btn-row{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-5);align-items:center}
+.btn-row--center{justify-content:center}
+
+.link-arrow{display:inline-block;font-family:var(--font-ui);font-size:var(--fs-ui);letter-spacing:.01em;line-height:1.3;color:var(--ink);border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap}
+.link-arrow>span[aria-hidden]{display:inline-block;margin-left:.35em;transition:transform .3s var(--ease)}
+.link-arrow:hover>span[aria-hidden]{transform:translateX(5px)}
+.band--dark .link-arrow{color:var(--on-dark)}
+
+/* externer Link im Text */
+a.ext{border-bottom:1px solid var(--rule);transition:border-color .2s var(--ease)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--ink)}
+a.ext::after{content:'\2197';font-size:.72em;margin-left:.15em;color:var(--mute);vertical-align:.18em}
+.band--dark a.ext{border-bottom-color:var(--on-dark-rule);color:var(--on-dark)}
+.band--dark a.ext:hover{border-bottom-color:var(--on-dark)}
+
+/* Zeilenliste: oben kräftige Linie, Zeilen fein getrennt
+   .rows > li  — beliebiger Inhalt, optional .rows__row als 12er-Raster */
+.rows{border-top:1px solid var(--ink)}
+.rows>*{border-bottom:1px solid var(--rule);padding-block:var(--sp-3)}
+.band--tint .rows>*{border-bottom-color:var(--rule-tint)}
+.band--dark .rows{border-top-color:var(--on-dark-rule)}
+.band--dark .rows>*{border-bottom-color:var(--on-dark-rule)}
+.rows--compact>*{padding-block:var(--sp-2)}
+.rows__row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:baseline}
+.rows__row>*{grid-column:1/-1;min-width:0}
+/* nummerierte/markierte Zeile: Marke links, Text rechts */
+.rows--marked>*{display:grid;grid-template-columns:3rem minmax(0,1fr);column-gap:var(--sp-2);align-items:baseline}
+.rows--marked>*>:first-child{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;color:var(--mute)}
+
+/* Definitionsliste (Kennwerte) */
+.facts{border-top:1px solid var(--ink)}
+.facts>div{display:grid;grid-template-columns:minmax(0,1fr);row-gap:2px;padding-block:var(--sp-2);border-bottom:1px solid var(--rule)}
+.facts dt{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;line-height:1.5;color:var(--mute)}
+.facts dd{color:var(--ink)}
+@media (min-width:600px){
+  .facts>div{grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--gutter);align-items:baseline}
+}
+.band--tint .facts>div{border-bottom-color:var(--rule-tint)}
+.band--dark .facts{border-top-color:var(--on-dark-rule)}
+.band--dark .facts>div{border-bottom-color:var(--on-dark-rule)}
+.band--dark .facts dd{color:var(--on-dark)}
+.band--dark .facts dt{color:var(--on-dark-mute)}
+
+/* Begriff (Tag) */
+.tags{display:flex;flex-wrap:wrap;gap:var(--sp-1)}
+.tag{display:inline-block;border:1px solid var(--rule);padding:.3rem .75rem;font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.02em;color:var(--mute);line-height:1.4}
+.band--tint .tag{border-color:var(--rule-tint)}
+
+/* Auswahlknopf (Chip) */
+.chip{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.01em;line-height:1.25;border:1px solid var(--ink);padding:.75rem 1rem;text-align:left;color:var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
+.chip:hover{background:var(--shade)}
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+
+/* Zitat */
+.quote{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h1);line-height:1.1;letter-spacing:-.022em;color:var(--ink);max-width:18ch}
+.quote__src{margin-top:var(--sp-5);padding-top:var(--sp-3);border-top:1px solid var(--rule);display:grid;gap:var(--sp-1)}
+.quote__who{font-family:var(--font-ui);color:var(--ink)}
+.band--dark .quote{color:var(--on-dark)}
+.band--dark .quote__src{border-top-color:var(--on-dark-rule)}
+.band--dark .quote__who{color:var(--on-dark)}
+
+/* Bildplatzhalter / Porträt folgt */
+.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-2);background:var(--shade);color:var(--mute);aspect-ratio:3/4}
+.ph svg{width:clamp(2.25rem, 1.5rem + 2vw, 3.5rem);height:auto}
+.ph span{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em}
+.band--dark .ph{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--on-dark-rule);color:var(--on-dark-mute)}
+.band--tint .ph{background:var(--paper)}
+
+/* Bild mit fester Proportion */
+.media{position:relative;overflow:hidden;background:var(--shade)}
+.media>img{width:100%;height:100%;object-fit:cover}
+.media--16x9{aspect-ratio:16/9}
+.media--16x10{aspect-ratio:16/10}
+.media--4x3{aspect-ratio:4/3}
+.media--3x2{aspect-ratio:3/2}
+.media--1x1{aspect-ratio:1/1}
+.media--3x4{aspect-ratio:3/4}
+.media--2x3{aspect-ratio:2/3}
+.band--tint .media{background:var(--paper)}
+.caption{margin-top:var(--sp-2)}
+
+/* Projektkachel: quadratisch, Titel bei Hover */
+.tiles{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gutter)}
+.tile{grid-column:span 6;position:relative;display:block;overflow:hidden;background:var(--shade);aspect-ratio:1/1}
+@media (min-width:600px){.tile{grid-column:span 4}}
+@media (min-width:900px){.tile{grid-column:span 3}}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.04)}
+.tile__cap{position:absolute;inset:auto 0 0 0;display:flex;flex-wrap:wrap;gap:2px var(--sp-2);align-items:baseline;justify-content:space-between;padding:var(--sp-2);background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transform:translateY(101%);transition:transform .38s var(--ease)}
+.tile:hover .tile__cap,.tile:focus-visible .tile__cap{transform:none}
+.tile__title{font-family:var(--font-ui);font-size:var(--fs-small);line-height:1.3;color:var(--ink);overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
+.tile__year{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;color:var(--mute);flex:none}
+.tile__star{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--ink);margin-left:.45em;vertical-align:.18em}
+.tile[hidden]{display:none}
+@media (hover:none){
+  .tile{aspect-ratio:auto;background:none}
+  .tile img{aspect-ratio:1/1;height:auto}
+  .tile__cap{position:static;transform:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:var(--sp-1) 0 0}
+}
+
+/* Kontaktkarte (Ansprechpartner) */
+.contact-card{border:1px solid var(--ink);padding:clamp(1.5rem, .8rem + 2.6vw, 3.5rem);display:grid;gap:var(--sp-4)}
+@media (min-width:600px){.contact-card{grid-template-columns:clamp(6rem, 4rem + 6vw, 9rem) minmax(0,1fr);gap:var(--sp-5);align-items:start}}
+/* ab 900 px liegt das Innenleben auf dem Seitenraster: Foto Spalte 2–3, Text 5–11.
+   Der Rahmen sitzt als Innenlinie auf der Außenkante. */
+@media (min-width:900px){
+  .contact-card{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);padding:var(--sp-6) 0;border:0;box-shadow:inset 0 0 0 1px var(--ink)}
+  .contact-card>.ph{grid-column:2/span 2}
+  .contact-card__body{grid-column:5/span 7}
+}
+.contact-card .ph{aspect-ratio:1/1}
+.contact-card__body>*+*{margin-top:var(--stack)}
+.contact-card .btn-row{margin-top:var(--sp-4)}
+
+/* Kontaktweg: Label, große Zeile mit Link, Notiz – unter kräftiger Linie */
+.way{border-top:1px solid var(--ink);padding-top:var(--sp-3)}
+.way .t-h3 a{border-bottom:1px solid var(--rule);transition:border-color .25s var(--ease)}
+.way .t-h3 a:hover{border-bottom-color:var(--ink)}
+.band--tint .way .t-h3 a{border-bottom-color:var(--rule-tint)}
+
+/* Anfahrt: Wege untereinander (Bahn, Auto, Parken) */
+.routes{display:grid;gap:var(--sp-4)}
+.routes h3{margin-bottom:var(--sp-1)}
+.routes p{max-width:34ch}
+
+/* Häufige Fragen (details/summary) */
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--rule)}
+.band--tint .faq details{border-bottom-color:var(--rule-tint)}
+.faq summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--sp-3);align-items:baseline;padding-block:var(--sp-3);cursor:pointer;list-style:none;font-family:var(--font-ui);font-size:var(--fs-h4);line-height:1.35;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--ink)}
+.faq summary:hover::after{color:var(--ink)}
+.faq__answer{padding-bottom:var(--sp-4);max-width:66ch}
+.faq__answer>*+*{margin-top:1em}
+
+/* Quellen am Seitenende */
+.sources{border-top:1px solid var(--rule);padding-block:var(--band-s)}
+.sources ul{display:grid;gap:var(--sp-1);margin-top:var(--sp-3);max-width:82ch}
+.sources li{color:var(--mute);font-size:var(--fs-small);line-height:1.55}
+
+/* 9 Prototyp-Leiste und offene Punkte -------------------------
+   Redaktionelle Hinweise (.note) sind standardmäßig verborgen und
+   werden über die Leiste eingeblendet. */
+.proto{background:var(--ink);color:var(--on-dark-2)}
+.proto__in{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-3);align-items:center;justify-content:space-between;min-height:2.75rem;padding-block:var(--sp-1)}
+.proto .t-label{color:var(--on-dark-mute)}
+.proto button{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;border:1px solid var(--on-dark-rule);padding:.3rem .8rem;transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+.proto button:hover{border-color:var(--on-dark)}
+.proto button[aria-pressed="true"]{background:var(--on-dark);color:var(--ink);border-color:var(--on-dark)}
+.note{display:none}
+body.show-notes .note{display:block;margin-top:var(--sp-3);padding:var(--sp-3);border:1px dashed var(--mute);color:var(--mute);font-size:var(--fs-small);max-width:66ch;grid-column:1/-1}
+body.show-notes .note b{display:block;margin-bottom:var(--sp-1);font-family:var(--font-ui);font-weight:400;font-size:var(--fs-label);letter-spacing:.04em;color:var(--ink)}
+.band--dark .note{border-color:var(--on-dark-mute)!important;color:var(--on-dark-mute)!important}
+.band--dark .note b{color:var(--on-dark)!important}
+
+/* 10 Bewegung ------------------------------------------------- */
+.rv{opacity:0;transform:translateY(14px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}

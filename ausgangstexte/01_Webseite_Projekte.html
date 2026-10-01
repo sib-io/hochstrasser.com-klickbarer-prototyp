@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>projekte — hochstrasser. architekturbüro ulm</title>
+<meta name="description" content="über 120 projekte seit 2002. wohnen, arbeiten, lernen, parken, bauen im bestand — die projekte von hochstrasser., architekturbüro in ulm.">
+<style>
+/* ============================================================
+   PROJEKT-LANDINGPAGE
+   uebernimmt tokens, raster und bausteine des startseiten-
+   entwurfs (Webseite_Startseite.html) 1:1.
+
+   PX Grotesk  -> logo, navigation, buttons, sec-titles
+   Calibri     -> alles andere
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --ink:#161616;
+  --ink-mute:#6e6e6e;
+  --rule:#e4e5e7;
+  --shade:#f2f2f2;
+  --pad: clamp(1.25rem, 5.2vw, 6.25rem);
+  --band: clamp(3.75rem, 8.5vw, 7.5rem);
+  --gut: clamp(.65rem, 1.35vw, 1.15rem);
+  /* 12-spalten-basisraster fuer alle sektionen */
+  --grid: repeat(12, minmax(0,1fr));
+  --row: clamp(1.4rem, 2.8vw, 2.4rem);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --font-body:'Calibri',sans-serif;
+  --font-light:'Calibri Light','Calibri',sans-serif;
+  --font-ui:'PX Grotesk',sans-serif;
+  --font-logo:var(--font-ui);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);
+  font-weight:400;
+  font-size:clamp(.95rem,.92rem + .2vw,1.0625rem);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+.wrap{max-width:1620px;margin:0 auto;padding-inline:var(--pad)}
+.label{font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.band{padding-block:var(--band)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:99}
+.skip:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.sec-title{
+  font-family:var(--font-ui);
+  font-weight:600;
+  font-size:clamp(1.05rem,1.45vw,1.3rem);
+  letter-spacing:.055em;line-height:1.2;
+}
+
+/* ---- 12-spalten-raster ---- */
+.g12{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);row-gap:var(--row);
+  align-items:start;
+}
+
+.arrow{font-weight:600;font-size:.9rem;letter-spacing:.02em;border-bottom:1px solid var(--ink);padding-bottom:.15rem;white-space:nowrap}
+.arrow span{display:inline-block;transition:transform .3s var(--ease)}
+.arrow:hover span{transform:translateX(5px)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--ink);padding:.9rem 1.9rem;font-family:var(--font-ui);font-weight:600;font-size:.92rem;letter-spacing:.05em;transition:background .3s var(--ease),color .3s var(--ease)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn span{display:inline-block;transition:transform .3s var(--ease)}
+.btn:hover span{transform:translateX(4px)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--rule)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:clamp(62px,7vw,88px)}
+.brand{font-family:var(--font-logo);font-weight:700;font-size:clamp(1.05rem,1.7vw,1.32rem);letter-spacing:-.012em}
+.nav{display:none;gap:clamp(1.1rem,2.2vw,2.1rem);align-items:baseline}
+.nav a{font-family:var(--font-ui);font-size:.92rem;letter-spacing:.05em;color:var(--ink);opacity:.72;transition:opacity .22s var(--ease)}
+.nav a:hover{opacity:1}
+.nav a[aria-current="page"]{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:.15rem}
+.dots{display:flex;flex-direction:column;gap:4px;padding:.6rem .35rem}
+.dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);display:block;transition:transform .3s var(--ease)}
+.dots:hover i:nth-child(1){transform:translateX(-3px)}
+.dots:hover i:nth-child(3){transform:translateX(3px)}
+@media(min-width:820px){.nav{display:flex}.dots{display:none}}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:var(--pad);transform:translateY(-100%);transition:transform .5s var(--ease)}
+.sheet[data-open]{transform:none}
+.sheet a{font-family:var(--font-ui);font-size:clamp(1.7rem,8vw,2.4rem);letter-spacing:.03em;font-weight:600}
+.sheet-close{position:absolute;top:1.1rem;right:var(--pad);color:var(--ink-mute);font-family:var(--font-ui)}
+
+/* ============================================================
+   HERO — text links (1–5), laufende projektspalten rechts (7–12)
+   die drei spalten sind exakt 2 rasterspalten breit und nutzen
+   dieselbe fuge wie das grundraster.
+   ============================================================ */
+.hero{padding-block:clamp(2.5rem,5.5vw,4.5rem) clamp(4.5rem,9.5vw,8.5rem)}
+.hero-text{grid-column:1/-1;align-self:center}
+.claim{
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(2.35rem,6.2vw,4.6rem);line-height:1.02;
+  letter-spacing:-.012em;max-width:14ch;
+}
+.claim em{font-style:normal;color:var(--ink-mute)}
+.hero-text p{color:var(--ink-mute);max-width:42ch;margin-top:clamp(1.4rem,2.6vw,2.1rem)}
+.hero-text p+p{margin-top:clamp(.85rem,1.5vw,1.15rem)}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:baseline;gap:1rem 2rem;margin-top:clamp(1.75rem,3.2vw,2.6rem)}
+
+.hero .eyebrow{grid-column:1/-1;margin-bottom:clamp(1.1rem,2.4vw,1.9rem)}
+@media(min-width:900px){.hero-text{grid-column:1/span 5}}
+
+/* ============================================================
+   BILDFELD — hero
+   ein projektbild liegt gross im feld und wird von zwei
+   haarfeinen fugen in neun teile zerschnitten. drei dieser
+   felder sind gegen andere projekte getauscht — keines hat
+   einen nachbarn in derselben zeile oder spalte. aus einem
+   bild wird so ein feld aus vielen.
+   im aufbau: grundbild und die drei eingesetzten projekte
+   redaktionell waehlbar.
+   ============================================================ */
+.mosaik{
+  grid-column:1/-1;position:relative;
+  aspect-ratio:1/1;overflow:hidden;background:var(--shade);
+  margin-top:clamp(2rem,4vw,3rem);
+}
+@media(min-width:900px){.mosaik{grid-column:8/span 5;margin-top:0}}
+.mosaik img{position:absolute;object-fit:cover;display:block}
+.mosaik .base{inset:0;width:100%;height:100%}
+/* die eingesetzten projekte sitzen exakt auf den feldern */
+.mosaik .in{
+  width:33.334%;height:33.334%;
+  left:calc((var(--c) - 1) * 33.333%);
+  top:calc((var(--r) - 1) * 33.333%);
+  z-index:1;
+}
+/* die fugen liegen ueber allem und schneiden auch die
+   eingesetzten bilder */
+.mosaik i{position:absolute;background:var(--paper);z-index:2}
+.mosaik i.v{top:0;bottom:0;width:3px;left:calc(var(--p) * 33.333% - 1.5px)}
+.mosaik i.h{left:0;right:0;height:3px;top:calc(var(--p) * 33.333% - 1.5px)}
+
+/* ============================================================
+   RISSREIHE — im grauen band, ueber der zeile
+   dieselben sechs projekte, masshaltig zueinander gezeichnet:
+   das wohnhaus bleibt klein, das parkhaus wird lang, die
+   unterfuehrung liegt als einziges unter der linie.
+   platzhaltergeometrie — im aufbau aus den echten fassaden-
+   schnitten ableiten.
+   ============================================================ */
+.plate{margin-bottom:clamp(2.75rem,6vw,4.5rem)}
+.plate-frame{overflow-x:auto;overscroll-behavior-x:contain}
+.riss-plate{width:100%;min-width:600px;height:auto;display:block}
+.riss-plate .datum,.riss-plate .sil{stroke:var(--ink);vector-effect:non-scaling-stroke}
+.riss-plate .datum{stroke-width:1}
+.riss-plate .sil{fill:none;stroke-width:1;stroke-linejoin:round}
+.riss-plate .void{fill:var(--ink)}
+.riss-plate .tex line{stroke:var(--ink);stroke-width:.5;vector-effect:non-scaling-stroke;opacity:.4}
+
+/* ============================================================
+   ARCHIV — kopfzeile, filter, kachelraster
+   ============================================================ */
+#archiv{scroll-margin-top:clamp(78px,9vw,104px)}
+.proj-head{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);row-gap:1rem;align-items:baseline;
+}
+.proj-head .sec-title{grid-column:1/-1}
+.filterbar{
+  grid-column:1/-1;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem .95rem;
+}
+@media(min-width:900px){
+  .proj-head .sec-title{grid-column:1/span 3}
+  .filterbar{grid-column:4/span 9;justify-content:flex-end}
+}
+.fchip{
+  font-family:var(--font-ui);
+  font-size:clamp(.88rem,1.08vw,.95rem);letter-spacing:.055em;
+  color:var(--ink);opacity:.72;padding-bottom:.2rem;
+  border-bottom:1px solid transparent;transition:opacity .22s var(--ease)
+}
+.fchip:hover{opacity:1}
+.fchip[aria-pressed="true"]{opacity:1;border-bottom-color:var(--ink)}
+.fmore{
+  display:inline-flex;align-items:baseline;gap:.5rem;
+  font-family:var(--font-ui);
+  font-size:clamp(.85rem,1.02vw,.92rem);letter-spacing:.055em;
+  color:var(--ink);
+  border:1px solid var(--rule);padding:.45rem .85rem;
+  margin-left:clamp(.85rem,2vw,2rem);
+  transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+}
+.fmore:hover{border-color:var(--ink)}
+.fmore[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.fmore b{font-weight:400;font-size:1.15em;line-height:1;letter-spacing:0}
+
+.advanced{display:none;background:var(--shade);padding:clamp(1.15rem,2.2vw,1.85rem);margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.advanced[data-open]{display:block}
+.adv-grid{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);row-gap:1.4rem;
+}
+.adv-grid fieldset{grid-column:1/-1;border:0}
+@media(min-width:720px){.adv-grid fieldset{grid-column:span 4}}
+.adv-grid legend{font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute);margin-bottom:.65rem}
+.opts{display:flex;flex-wrap:wrap;gap:.4rem}
+.opt{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--rule);background:var(--paper);padding:.4rem .75rem;font-family:var(--font-ui);font-size:.85rem;letter-spacing:.02em;transition:border-color .2s var(--ease)}
+.opt:hover{border-color:var(--ink-mute)}
+.opt input{appearance:none;width:8px;height:8px;border-radius:50%;border:1px solid var(--ink-mute);margin:0;flex:none}
+.opt input:checked{background:var(--ink);border-color:var(--ink)}
+.opt:has(input:checked){border-color:var(--ink)}
+.adv-foot{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);row-gap:.75rem;align-items:baseline;
+  margin-top:1.35rem;padding-top:.95rem;border-top:1px solid var(--rule);
+}
+.adv-foot>*{grid-column:1/-1;justify-self:start}
+@media(min-width:720px){
+  .adv-foot>*:first-child{grid-column:1/span 6}
+  .adv-foot>*:last-child{grid-column:9/span 4;justify-self:end}
+}
+.reset{font-family:var(--font-ui);font-weight:600;font-size:.72rem;letter-spacing:.15em;border-bottom:1px solid var(--ink);padding-bottom:.1rem;color:var(--ink)}
+
+.count-line{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);
+  margin-top:clamp(1.5rem,3vw,2.4rem);padding-bottom:.85rem;
+  border-bottom:1px solid var(--rule);
+}
+.count-line span{grid-column:1/-1}
+
+/* kachelraster: quadratisch, enge fugen, titel bei hover */
+.tiles{
+  display:grid;grid-template-columns:var(--grid);
+  gap:var(--gut);margin-top:clamp(1.4rem,2.6vw,2rem);
+}
+.tile{grid-column:span 6}
+@media(min-width:680px){.tile{grid-column:span 4}}
+@media(min-width:1020px){.tile{grid-column:span 3}}
+.tile{position:relative;display:block;overflow:hidden;background:var(--shade);aspect-ratio:1/1}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.04)}
+.tile-cap{
+  position:absolute;inset:auto 0 0 0;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(4px);
+  padding:.7rem .8rem;display:flex;flex-wrap:wrap;gap:.1rem .6rem;
+  align-items:baseline;justify-content:space-between;
+  transform:translateY(101%);transition:transform .38s var(--ease);
+}
+.tile:hover .tile-cap,.tile:focus-visible .tile-cap,.tile:focus-within .tile-cap{transform:none}
+.tile-cap h3{font-size:.9rem;letter-spacing:.02em;font-weight:600;line-height:1.3}
+.tile-cap h3::after{content:'.'}
+.tile-cap .yr{font-weight:600;font-size:.68rem;letter-spacing:.15em;color:var(--ink-mute);flex:none}
+.tile .star{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--ink);margin-left:.4rem;vertical-align:.15em}
+@media(hover:none){
+  .tile-cap{transform:none;position:static;background:none;backdrop-filter:none;padding:.55rem 0 0}
+  .tile{aspect-ratio:auto;background:none}
+  .tile img{aspect-ratio:1/1;height:auto}
+}
+.tile[hidden]{display:none}
+
+.empty{padding:clamp(2rem,5vw,4rem) 0;color:var(--ink-mute);max-width:44ch}
+.empty[hidden]{display:none}
+
+/* ---- abschluss ---- */
+.close-band{background:var(--shade);padding-block:clamp(3rem,7vw,5.5rem)}
+.close-grid{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);row-gap:clamp(1.75rem,3.5vw,2.75rem);align-items:end;
+}
+.close-grid h2{
+  grid-column:1/-1;
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(1.7rem,4.4vw,3.1rem);line-height:1.14;letter-spacing:-.016em;
+  max-width:20ch;
+}
+.close-grid .btn{grid-column:1/-1;justify-self:start}
+@media(min-width:900px){
+  .close-grid h2{grid-column:1/span 7}
+  .close-grid .btn{grid-column:9/span 4;justify-self:end}
+}
+
+/* footer */
+.ftr{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem) 2.25rem;border-top:1px solid rgba(255,255,255,.14)}
+.ftr-top{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);row-gap:clamp(2rem,4vw,3.5rem);
+}
+.ftr-left{grid-column:1/-1}
+.ftr-right{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-left{grid-column:1/span 6}
+  .ftr-right{grid-column:8/span 5}
+}
+.ftr .brand{font-size:clamp(1.6rem,3.2vw,2.35rem);letter-spacing:-.018em;display:block;margin-bottom:1.1rem}
+.ftr-addr{color:rgba(255,255,255,.62);max-width:32ch}
+.ftr-big{margin-top:1.4rem;font-size:clamp(1.15rem,2.1vw,1.55rem);letter-spacing:.02em;font-weight:600;line-height:1.35}
+.ftr-big+.ftr-big{margin-top:.35rem}
+.ftr-big a{border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:.1rem;transition:border-color .25s var(--ease)}
+.ftr-big a:hover{border-bottom-color:var(--paper)}
+.ftr-right{display:flex;flex-direction:column;gap:clamp(1.75rem,3vw,2.5rem)}
+@media(min-width:860px){.ftr-right{padding-top:.5rem}}
+.ftr-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 2rem;align-content:start}
+.ftr-links a{color:rgba(255,255,255,.78);transition:color .22s var(--ease)}
+.ftr-links a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-social{display:flex;gap:.7rem;justify-content:flex-end}
+.ftr-social a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:42px;flex:none;
+  border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.78);
+  transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease);
+}
+.ftr-social a:hover{border-color:var(--paper);color:var(--ink);background:var(--paper)}
+.ftr-social svg{width:19px;height:19px;display:block}
+.ftr .label{color:rgba(255,255,255,.5)}
+.ftr .label a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-base{
+  display:grid;grid-template-columns:var(--grid);
+  column-gap:var(--gut);row-gap:.6rem;
+  margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.1rem;
+  border-top:1px solid rgba(255,255,255,.18);
+}
+.ftr-base>*{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-base>*:first-child{grid-column:1/span 6}
+  .ftr-base>*:last-child{grid-column:8/span 5;justify-self:end}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .tile:hover img{transform:none}
+  .tile-cap{transform:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#inhalt">zum inhalt springen</a>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#">hochstrasser.</a>
+    <nav class="nav" aria-label="hauptnavigation">
+      <a href="#projekte" aria-current="page">projekte</a>
+      <a href="#">expertise</a>
+      <a href="#">auszeichnungen</a>
+      <a href="#">profil</a>
+      <a href="#buero">büro</a>
+    </nav>
+    <button class="dots" id="menuBtn" aria-label="menü öffnen" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <button class="sheet-close" id="menuClose">schließen</button>
+  <a href="#projekte">projekte</a>
+  <a href="#">expertise</a>
+  <a href="#">auszeichnungen</a>
+  <a href="#">profil</a>
+  <a href="#buero">büro</a>
+</div>
+
+<main id="inhalt">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="wrap hero g12">
+    <p class="eyebrow label">projekte</p>
+
+    <div class="hero-text">
+      <h1 class="claim">kein projekt<br>wie das andere<em>.</em></h1>
+      <p>über 120 projekte seit 2002. jedes eine antwort auf einen ort, eine aufgabe und die menschen, die dort wohnen, arbeiten, lernen.</p>
+      <p>erfolgreiche projekte entstehen nicht mehr allein durch gute architektur. sie entstehen dort, wo architektur, technik, nachhaltigkeit und wirtschaftlichkeit von beginn an gemeinsam gedacht werden.</p>
+    </div>
+
+    <div class="mosaik" role="img" aria-label="bildfeld aus projekten von hochstrasser.: wohnbebauung neu-ulm, darin eingesetzt kriegsspital neu-ulm, parkhaus am bahnhof und sanierung vh ulm">
+      <img class="base" src="https://hochstrasser.com/wp-content/uploads/2024/06/842_landscape-01-scaled.jpg" alt="wohnbebauung neu-ulm">
+      <img class="in" style="--r:1;--c:3" src="https://hochstrasser.com/wp-content/uploads/2024/05/799_lanscape-02-scaled.jpg" alt="kriegsspital neu-ulm">
+      <img class="in" style="--r:2;--c:1" src="https://hochstrasser.com/wp-content/uploads/2018/03/jobs-e1530280090729.jpg" alt="parkhaus am bahnhof und fußgängerpassage">
+      <img class="in" style="--r:3;--c:2" src="https://hochstrasser.com/wp-content/uploads/2018/09/14_landscape-1.jpg" alt="sanierung vh ulm">
+      <i class="v" style="--p:1"></i>
+      <i class="v" style="--p:2"></i>
+      <i class="h" style="--p:1"></i>
+      <i class="h" style="--p:2"></i>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       KONTAKT — direkt nach dem hero
+       ============================================================ -->
+  <section class="close-band" id="kontakt">
+    <div class="wrap">
+      <div class="plate rv">
+        <div class="plate-frame">
+  <svg class="riss-plate" viewBox="0 0 1049.4 78" aria-hidden="true" focusable="false">
+    <line class="datum" x1="0" y1="58" x2="1049.4" y2="58"/>
+    <path class="sil" d="M0,58 L0,25.6 L52.8,25.6 L52.8,32.8 L91.2,32.8 L91.2,58 Z"/>
+    <g class="tex">
+      <line x1="0" y1="49.8" x2="91.2" y2="49.8"/>
+      <line x1="0" y1="41.7" x2="91.2" y2="41.7"/>
+      <line x1="0" y1="33.5" x2="91.2" y2="33.5"/>
+      <line x1="52.8" y1="58" x2="52.8" y2="25.6"/>
+    </g>
+    <path class="sil" d="M183,58 L183,31.6 L252.6,17.2 L322.2,31.6 L322.2,58 Z"/>
+    <g class="tex">
+      <line x1="183" y1="31.6" x2="322.2" y2="31.6"/>
+      <line x1="183" y1="49.1" x2="322.2" y2="49.1"/>
+      <line x1="183" y1="40.2" x2="322.2" y2="40.2"/>
+      <line x1="202.2" y1="58" x2="202.2" y2="31.6"/>
+      <line x1="221.4" y1="58" x2="221.4" y2="31.6"/>
+      <line x1="240.6" y1="58" x2="240.6" y2="31.6"/>
+      <line x1="264.6" y1="58" x2="264.6" y2="31.6"/>
+      <line x1="283.8" y1="58" x2="283.8" y2="31.6"/>
+      <line x1="303" y1="58" x2="303" y2="31.6"/>
+    </g>
+    <path class="sil" d="M414,58 L414,29.2 L476.4,29.2 L476.4,58 Z"/>
+    <g class="tex">
+      <line x1="418.8" y1="33" x2="471.6" y2="33"/>
+    </g>
+    <path class="sil" d="M568.2,58 L568.2,17.2 L726.6,17.2 L726.6,58 L673.8,58 L673.8,44.6 L621,44.6 L621,58 Z"/>
+    <g class="tex">
+      <line x1="568.2" y1="51.3" x2="621" y2="51.3"/>
+      <line x1="673.8" y1="51.3" x2="726.6" y2="51.3"/>
+      <line x1="568.2" y1="44.6" x2="726.6" y2="44.6"/>
+      <line x1="568.2" y1="37.8" x2="726.6" y2="37.8"/>
+      <line x1="568.2" y1="31.1" x2="726.6" y2="31.1"/>
+      <line x1="568.2" y1="24.4" x2="726.6" y2="24.4"/>
+    </g>
+    <rect class="void" x="621" y="44.6" width="52.8" height="13.4"/>
+    <path class="sil" d="M818.4,58 L828,73.6 L866.4,73.6 L876,58 Z"/>
+    <g class="tex">
+      <line x1="831.4" y1="70.5" x2="863" y2="70.5"/>
+      <line x1="840" y1="58" x2="840" y2="71.9"/>
+      <line x1="854.4" y1="58" x2="854.4" y2="71.9"/>
+    </g>
+    <path class="sil" d="M967.8,58 L967.8,12.4 L1049.4,12.4 L1049.4,58 Z"/>
+    <g class="tex">
+      <line x1="967.8" y1="48.9" x2="1049.4" y2="48.9"/>
+      <line x1="967.8" y1="39.8" x2="1049.4" y2="39.8"/>
+      <line x1="967.8" y1="30.6" x2="1049.4" y2="30.6"/>
+      <line x1="967.8" y1="21.5" x2="1049.4" y2="21.5"/>
+      <line x1="976.9" y1="58" x2="976.9" y2="12.4"/>
+      <line x1="986" y1="58" x2="986" y2="12.4"/>
+      <line x1="995.2" y1="58" x2="995.2" y2="12.4"/>
+      <line x1="1004.3" y1="58" x2="1004.3" y2="12.4"/>
+      <line x1="1013.4" y1="58" x2="1013.4" y2="12.4"/>
+      <line x1="1022.5" y1="58" x2="1022.5" y2="12.4"/>
+      <line x1="1031.6" y1="58" x2="1031.6" y2="12.4"/>
+      <line x1="1040.8" y1="58" x2="1040.8" y2="12.4"/>
+    </g>
+  </svg>
+        </div>
+      </div>
+      <div class="close-grid rv">
+        <h2>ihr ort, ihre aufgabe. das nächste projekt beginnt mit einem gespräch.</h2>
+        <a class="btn" href="#buero">kontakt aufnehmen <span>&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARCHIV
+       ============================================================ -->
+  <section class="wrap band" id="projekte">
+    <div id="archiv"></div>
+    <div class="proj-head rv">
+      <h2 class="sec-title">projekte</h2>
+      <div class="filterbar" role="group" aria-label="projekte nach nutzung filtern">
+        <button class="fchip" data-cat="alle" aria-pressed="true">alle</button>
+        <button class="fchip" data-cat="arbeiten" aria-pressed="false">arbeiten</button>
+        <button class="fchip" data-cat="beleben" aria-pressed="false">beleben</button>
+        <button class="fchip" data-cat="erhalten" aria-pressed="false">erhalten</button>
+        <button class="fchip" data-cat="essen" aria-pressed="false">essen</button>
+        <button class="fchip" data-cat="lernen" aria-pressed="false">lernen</button>
+        <button class="fchip" data-cat="parken" aria-pressed="false">parken</button>
+        <button class="fchip" data-cat="umnutzen" aria-pressed="false">umnutzen</button>
+        <button class="fchip" data-cat="verkaufen" aria-pressed="false">verkaufen</button>
+        <button class="fchip" data-cat="wohnen" aria-pressed="false">wohnen</button>
+        <button class="fchip" data-cat="wettbewerbe" aria-pressed="false">wettbewerbe</button>
+        <button class="fmore" id="advBtn" aria-expanded="false" aria-controls="advanced">erweiterte filter <b id="advGlyph" aria-hidden="true">+</b></button>
+      </div>
+    </div>
+
+    <div class="advanced" id="advanced">
+      <div class="adv-grid">
+        <fieldset>
+          <legend>zeitraum</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" data-f="era" value="2020"> 2020 – 2026</label>
+            <label class="opt"><input type="checkbox" data-f="era" value="2010"> 2010 – 2019</label>
+            <label class="opt"><input type="checkbox" data-f="era" value="2000"> 2002 – 2009</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>status</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" data-f="status" value="realisiert"> realisiert</label>
+            <label class="opt"><input type="checkbox" data-f="status" value="bau"> im bau</label>
+            <label class="opt"><input type="checkbox" data-f="status" value="wettbewerb"> wettbewerbsbeitrag</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>bauherrschaft</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" data-f="client" value="oeffentlich"> öffentlich</label>
+            <label class="opt"><input type="checkbox" data-f="client" value="gewerblich"> gewerblich</label>
+            <label class="opt"><input type="checkbox" data-f="client" value="privat"> privat</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>weitere nutzungen</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" data-f="use" value="ausstellen"> ausstellen</label>
+            <label class="opt"><input type="checkbox" data-f="use" value="möblieren"> möblieren</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="adv-foot">
+        <label class="opt"><input type="checkbox" id="onlyAward"> nur ausgezeichnete projekte</label>
+        <button class="reset" id="resetBtn">alle filter zurücksetzen</button>
+      </div>
+    </div>
+
+    <p class="count-line"><span class="label" id="count" aria-live="polite">24 von über 120 projekten</span></p>
+
+    <div class="tiles" id="tiles"></div>
+    <p class="empty" id="empty" hidden>diese kombination gibt es noch nicht. einzelne filter lösen oder zurücksetzen.</p>
+  </section>
+
+</main>
+
+<footer class="ftr" id="buero">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-left">
+        <span class="brand">hochstrasser.</span>
+        <p class="ftr-addr">gesellschaft für architektur mbh<br>karpfengasse 5 · 89073 ulm</p>
+        <p class="ftr-big"><a href="tel:+49731935110">07 31 . 9 35 11-0</a></p>
+        <p class="ftr-big"><a href="mailto:info@hochstrasser.com">info@hochstrasser.com</a></p>
+      </div>
+      <div class="ftr-right">
+        <nav class="ftr-links" aria-label="weitere seiten">
+          <a href="#">kontakt</a>
+          <a href="#">bauen im bestand</a>
+          <a href="#">jobs</a>
+          <a href="#">nachhaltigkeit</a>
+          <a href="#">bda-berufung</a>
+          <a href="#">bauphysik</a>
+          <a href="#">faqs</a>
+        </nav>
+        <div class="ftr-social">
+          <a href="https://www.instagram.com/hochstrasser.architekten" aria-label="hochstrasser. auf instagram" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4.15"/>
+              <circle cx="17.15" cy="6.85" r="1.05" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="hochstrasser. auf linkedin" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="3.4"/>
+              <circle cx="7.7" cy="7.7" r="1.05" fill="currentColor" stroke="none"/>
+              <path d="M7.7 10.9V17"/>
+              <path d="M11.7 17v-6.1"/>
+              <path d="M11.7 13.7a2.5 2.5 0 0 1 5 0V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-base">
+      <span class="label">© 2026 hochstrasser. gesellschaft für architektur mbh</span>
+      <span class="label"><a href="#">impressum</a> · <a href="#">datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   BILDER
+   platzhalter aus dem bestand der aktuellen website. im echten
+   aufbau steht hier je projekt das beitragsbild aus wordpress.
+   die reihenfolge ist bewusst unregelmaessig (11er-muster),
+   damit sich die wiederholung im raster nicht auf einer
+   diagonale sammelt.
+   ============================================================ */
+const IMG={
+  a:'https://hochstrasser.com/wp-content/uploads/2024/06/842_landscape-01-scaled.jpg',
+  b:'https://hochstrasser.com/wp-content/uploads/2024/11/NU-Schwabenstr_0025-scaled.jpg',
+  c:'https://hochstrasser.com/wp-content/uploads/2024/05/799_lanscape-02-scaled.jpg',
+  d:'https://hochstrasser.com/wp-content/uploads/2023/06/744_landscape_Treppenhaus-3-scaled.jpg',
+  e:'https://hochstrasser.com/wp-content/uploads/2018/09/14_landscape-1.jpg',
+  f:'https://hochstrasser.com/wp-content/uploads/2018/03/jobs-e1530280090729.jpg'
+};
+const PATTERN=['a','c','e','b','f','d','c','a','d','e','b'];
+const pic=i=>IMG[PATTERN[i%PATTERN.length]];
+
+/* ============================================================
+   PROJEKTE — vollstaendige liste von hochstrasser.com,
+   in der reihenfolge der bestehenden uebersicht.
+
+   titel und links sind echt.
+   jahr, nutzung, status und bauherrschaft sind gesetzt, aber
+   nur fuer die ersten sechzehn eintraege gegengelesen — der
+   rest ist als platzhalter zu behandeln und beim aufbau aus
+   wordpress zu uebernehmen.
+
+   format: titel | slug | jahr | nutzung | status | bauherrschaft | ausgezeichnet
+   ============================================================ */
+const RAW=`
+wohnbebauung neu-ulm|/wohnbebauung-neu-ulm/|2024|wohnen|realisiert|gewerblich|0
+kriegsspital neu-ulm|/kriegsspital-neu-ulm/|2024|erhalten|realisiert|privat|0
+ba3 baubetriebshof der stadt ulm|/ba3-baubetriebshof-der-stadt-ulm/|2024|arbeiten|realisiert|oeffentlich|0
+wohnbebauung laichingen|/mehrfamilienhaeuser-laichingen/|2024|wohnen|realisiert|gewerblich|0
+fassadenvarianten wärmespeicher hkw der fernwärme ulm|/fassadenvarianten-waermespeicher-hkw-der-fernwaerme-ulm/|2023|arbeiten|realisiert|oeffentlich|0
+rechenzentrum swu|/rechenzentrum-swu/|2023|arbeiten|realisiert|oeffentlich|0
+erweiterung witec|/erweiterung-fa-witec/|2023|arbeiten|realisiert|gewerblich|0
+friesenhofen – an der sägemühle|/frisenhofen-an-der-saegemuehle/|2023|wohnen|realisiert|gewerblich|0
+wbw ehemaliges kriegsspital|/wbw-ehemaliges-kriegsspital/|2023|wettbewerbe|wettbewerb|privat|0
+haus mk|/haus-mk/|2023|erhalten|realisiert|privat|0
+wbw betreuungs- und verpflegungsgebäude|/wbw-betreuungs-und-verpflegungsgebaeude/|2023|wettbewerbe|wettbewerb|oeffentlich|0
+strohballenatelier|/strohballenatelier/|2022|arbeiten|realisiert|privat|1
+hubschrauberdachlandeplatz bwk|/hubschrauberdachlandeplatz-bwk/|2022|arbeiten|realisiert|oeffentlich|0
+wbw neubau wohnbebauung weißenhorn|/wbw-neubau-wohnbebauung-weissenhorn/|2022|wettbewerbe|wettbewerb|gewerblich|0
+haus s4|/haus-s4/|2022|wohnen|realisiert|privat|0
+parkhaus am bahnhof und fußgängerpassage|/parkhaus-am-bahnhof-und-fussgaengerpassage/|2022|parken|realisiert|oeffentlich|0
+wbw bauliche entwicklung heigeleshof|/wbw-heigeleshof-2-wengengasse-27/|2021|wettbewerbe|wettbewerb|gewerblich|0
+wbw schweinemarkt 6-8|/wbw-schweinemarkt-6-8/|2021|wettbewerbe|wettbewerb|gewerblich|0
+z4 science park 3|/z4-geschaeftshaus-mit-parken/|2021|arbeiten|realisiert|gewerblich|0
+haus b3|/haus-b-2/|2021|wohnen|realisiert|privat|0
+entwicklung „am weinberg“ ulm|/entwicklung-am-weinberg-ulm/|2020|beleben|wettbewerb|oeffentlich|0
+unterführung blaubeurer straße|/unterfuehrung-blaubeurerstrasse/|2020|beleben|realisiert|oeffentlich|0
+sanitätsversorgungszentrum wilhelmsburgkaserne|/sanitaetsversorgungszentrum-wilhelmsburgkaserne/|2020|erhalten|realisiert|oeffentlich|0
+wbw wohnbebauung safranberg|/wbw-wohnbebauung-safranberg-2/|2020|wettbewerbe|wettbewerb|gewerblich|0
+wbw jahnsportpark friedrichsau|/wbw-jahnsportpark-friedrichsau/|2019|wettbewerbe|wettbewerb|oeffentlich|0
+ba2 baubetriebshof der stadt ulm|/ba2-baubetriebshof-der-stadt-ulm/|2019|arbeiten|realisiert|oeffentlich|0
+wbw jörg-syrlin-grundschule und astrid-lindgren schule|/wbw-joerg-syrlin-grundschule-und-astrid-lindgren-schule-mit-kindergarten/|2019|wettbewerbe|wettbewerb|oeffentlich|0
+wbw gemeindehaus langenau|/wbw-gemeindehaus-langenau/|2019|wettbewerbe|wettbewerb|oeffentlich|0
+wbw wohngebäude mit café biberach|/wbw-wohngebaeude-mit-cafe-biberach/|2019|wettbewerbe|wettbewerb|gewerblich|0
+wbw wohnungsbau balingen|/wbw-wohnungsbau-balingen/|2018|wettbewerbe|wettbewerb|gewerblich|0
+produktionshalle nagel|/produktionshalle-nagel/|2018|arbeiten|realisiert|gewerblich|0
+wbw neubau kindertagesstätte hauderboschen|/wbw-munk/|2018|wettbewerbe|wettbewerb|oeffentlich|0
+nordsee 2018|/nordsee-2018/|2018|essen|realisiert|gewerblich|0
+möbel haus s|/moebel-haus-s/|2018|möblieren|realisiert|privat|0
+haus s3|/haus-s3/|2018|wohnen|realisiert|privat|0
+wbw söflingen-welz areal|/wbw-soeflingen-welzareal/|2017|wettbewerbe|wettbewerb|gewerblich|0
+stauferkaserne pfullendorf|/stauferkaserne-pfullendorf/|2017|erhalten|realisiert|oeffentlich|0
+wbw ludwig-erhard-brücke|/wbw-ludwig-erhard-bruecke/|2017|wettbewerbe|wettbewerb|oeffentlich|0
+wbw z4 science park 3|/wbw-z4-science-park-3/|2017|wettbewerbe|wettbewerb|gewerblich|0
+wbw erweiterung witec|/wbw-erweiterung-witec/|2017|wettbewerbe|wettbewerb|gewerblich|0
+nordsee 2017|/nordsee-2017/|2017|essen|realisiert|gewerblich|0
+flz im „neuen bau“ ulm|/flz-der-polizei-ulm/|2017|umnutzen|realisiert|oeffentlich|0
+lagerbürogebäude setzingen|/lagerbuerogebaeude-setzingen-2/|2016|arbeiten|realisiert|gewerblich|0
+wetterschutzhütte new golf club neu-ulm|/wetterschutzhuette-new-golf-club-neu-ulm/|2016|beleben|realisiert|gewerblich|0
+neubau kettenhäuser lettenwald|/neubau-kettenhaeuser-lettenwald/|2016|wohnen|realisiert|gewerblich|0
+haus marner-walk-straße|/haus-marner-walk-strasse/|2016|wohnen|realisiert|privat|0
+haus r|/haus-r/|2016|wohnen|realisiert|privat|0
+wbw gummi-welz-areal söflingen|/wbw-welz-areal-soeflingen/|2016|wettbewerbe|wettbewerb|gewerblich|0
+new golf club neu-ulm|/new-golf-club-neu-ulm/|2016|essen|realisiert|gewerblich|0
+umbau neue straße | barfüßer und riku hotel|/umbau-neue-strasse/|2015|umnutzen|realisiert|gewerblich|0
+umbau neue straße | wohnungsbau|/umbau-neue-strasse-wohnungsbau/|2015|wohnen|realisiert|gewerblich|0
+wohnbebauung senden|/reihenhaeuser-senden/|2015|wohnen|realisiert|gewerblich|0
+nordsee 2016|/nordsee-2016/|2016|essen|realisiert|gewerblich|0
+k5|/k5/|2016|beleben|realisiert|gewerblich|1
+haus e|/haus-e/|2015|wohnen|realisiert|privat|0
+wbw erweiterung der grundschule eichenplatz|/wbw-schule-eichengrund/|2015|wettbewerbe|wettbewerb|oeffentlich|0
+wbw untermarchtal|/wbw-untermarchtal/|2014|wettbewerbe|wettbewerb|privat|0
+unterkunftsgebäude s|/unterkunftsgebaeude-s/|2014|arbeiten|realisiert|oeffentlich|0
+fahrradverleih am rathaus|/fahrradverleih-am-rathaus/|2014|parken|realisiert|oeffentlich|0
+wbw reutlinger straße 30-88|/wbw-reutlinger-strasse-30-88/|2014|wettbewerbe|wettbewerb|gewerblich|0
+praxis m|/praxis-m/|2014|arbeiten|realisiert|privat|0
+gartenstraße nu|/gartenstrasse-nu/|2013|wohnen|realisiert|gewerblich|0
+wohnbau pfaffenhofen|/wohnbau-pfaffenhofen/|2013|wohnen|realisiert|gewerblich|0
+sonja quandt silbermanufaktur|/messestand-quandt-paris/|2013|verkaufen|realisiert|gewerblich|0
+bootshaus ulm|/bootshaus-ulm/|2013|beleben|realisiert|oeffentlich|0
+wbw meininger allee|/wbw-meininger-allee/|2013|wettbewerbe|wettbewerb|gewerblich|0
+sanierung vh ulm|/sanierung-vh-ulm/|2013|lernen|realisiert|oeffentlich|1
+baubetriebshof|/baubetriebshof/|2012|arbeiten|realisiert|oeffentlich|0
+haus g2|/haus-g-2/|2012|wohnen|realisiert|privat|0
+haus s|/haus-s/|2012|wohnen|realisiert|privat|0
+haus m|/haus-m/|2012|wohnen|realisiert|privat|0
+haus v|/haus-v/|2011|wohnen|realisiert|privat|0
+radstadel dh|/radstadel-dh/|2011|parken|realisiert|oeffentlich|0
+haus b2|/haus-b2/|2011|wohnen|realisiert|privat|0
+wilken gmbh|/wilken-gmbh/|2011|arbeiten|realisiert|gewerblich|0
+zentrum für gestaltung hfg ulm|/zentrum-fuer-gestaltung-hfg-ulm/|2011|lernen|realisiert|oeffentlich|0
+waldorf kindergarten blaustein|/waldorf-kindergarten-blaustein/|2010|lernen|realisiert|privat|0
+haus s2|/haus-s2/|2010|wohnen|realisiert|privat|0
+wohnbebauung lettenwald|/wohnbebauung-lettenwald/|2010|wohnen|realisiert|gewerblich|0
+wbw lönsstraße|/wbw-loensstrasse/|2010|wettbewerbe|wettbewerb|gewerblich|0
+ehs @ hfg|/ehs-hfg/|2010|lernen|realisiert|oeffentlich|0
+wbw konzertsaal|/wbw-konzertsaal/|2009|wettbewerbe|wettbewerb|oeffentlich|0
+kita illerblick|/kita-illerblick/|2009|lernen|realisiert|oeffentlich|0
+wbw parkhaus laupheim|/wbw-parkhaus-laupheim/|2009|wettbewerbe|wettbewerb|oeffentlich|0
+wbw mehrfachbeauftragung lettenwald|/mehrfachbeauftragung-lettenwald/|2009|wettbewerbe|wettbewerb|gewerblich|0
+wbw sedanstraße|/wbw-sedanstrasse/|2009|wettbewerbe|wettbewerb|gewerblich|0
+wbw u3 ausbauoffensive|/wbw-u3-ausbauoffensive/|2009|wettbewerbe|wettbewerb|oeffentlich|0
+parkhaus am rathaus|/parkhaus-am-rathaus/|2009|parken|realisiert|oeffentlich|1
+wohn- und geschäftshaus pranger|/wohn-und-geschaeftshaus-pranger/|2008|beleben|realisiert|gewerblich|0
+wbw finanzamt biberach|/wbw-finanzamt-biberach/|2008|wettbewerbe|wettbewerb|oeffentlich|0
+ausstellung 200 jahre nu|/ausstellung-200-jahre-nu/|2008|ausstellen|realisiert|oeffentlich|0
+wbw karpfengasse|/wbw-karpfengasse/|2008|wettbewerbe|wettbewerb|gewerblich|0
+anbau scholl-gymnasium|/anbau-scholl-gymnasium/|2008|lernen|realisiert|oeffentlich|0
+wbw bürogebäude wilken|/wbw-buerogebaeude-wilken/|2007|wettbewerbe|wettbewerb|gewerblich|0
+restaurantgebäude la bagatta|/restaurantgebaeude-la-bagatta/|2007|essen|realisiert|gewerblich|0
+geschäftsstelle ssv ulm|/geschaeftsstelle-ssv-ulm/|2007|arbeiten|realisiert|gewerblich|0
+büro t|/buero-t/|2007|arbeiten|realisiert|gewerblich|0
+radhaus heilbronn|/radhaus-heilbronn/|2007|parken|realisiert|oeffentlich|0
+flz der saarländischen vollzugspolizei|/flz-der-saarlaendischen-vollzugspolizei/|2006|arbeiten|realisiert|oeffentlich|0
+nordsee am viktualienmarkt|/nordsee-am-viktualienmarkt/|2006|essen|realisiert|gewerblich|0
+wbw kita ost|/wbw-kita-ost/|2006|wettbewerbe|wettbewerb|oeffentlich|0
+wbw stadtregal ulm|/wbw-stadtregal-ulm/|2006|wettbewerbe|wettbewerb|gewerblich|0
+pavillon nu21|/pavillon-nu21/|2006|ausstellen|realisiert|oeffentlich|0
+haus der wirtschaft|/haus-der-wirtschaft/|2005|arbeiten|realisiert|gewerblich|0
+infopunkt citybahnhof|/infopunkt-citybahnhof/|2005|ausstellen|realisiert|oeffentlich|0
+wbw htw saarbrücken|/wbw-htw-saarbruecken/|2005|wettbewerbe|wettbewerb|oeffentlich|0
+gründerzeithaus s|/gruenderzeithaus-s/|2005|erhalten|realisiert|privat|0
+radhaus ulm|/radhaus-ulm/|2005|parken|realisiert|oeffentlich|0
+wbw finanzamt hersbruck|/wbw-finanzamt-hersbruck/|2004|wettbewerbe|wettbewerb|oeffentlich|0
+haus k|/haus-k/|2004|wohnen|realisiert|privat|0
+puma eventbox|/puma-eventbox/|2004|ausstellen|realisiert|gewerblich|0
+haus n|/haus-n/|2004|wohnen|realisiert|privat|0
+bischof sproll haus|/bischof-sproll-haus/|2003|erhalten|realisiert|privat|0
+wbw ausstellungsgestaltung|/wbw-ausstellungsgestaltung/|2003|wettbewerbe|wettbewerb|oeffentlich|0
+wbw donaubastion|/wbw-donaubastion/|2003|wettbewerbe|wettbewerb|oeffentlich|0
+wbw judenhof|/wbw-judenhof/|2003|wettbewerbe|wettbewerb|oeffentlich|0
+wbw obergericht zürich|/wbw-obergericht-zuerich/|2003|wettbewerbe|wettbewerb|oeffentlich|0
+kardiologische klinik|/kardiologische-klinik/|2003|arbeiten|realisiert|privat|0
+haus h|/haus-h/|2003|wohnen|realisiert|privat|0
+wbw entertainment center|/wbw-entertainment-center/|2002|wettbewerbe|wettbewerb|gewerblich|0
+gesundheitsbox|/gesundheitsbox/|2002|ausstellen|realisiert|gewerblich|0
+haus b|/haus-b/|2002|wohnen|realisiert|privat|0
+haus g|/haus-g/|2002|wohnen|realisiert|privat|0
+hörsaalgebäude uni ulm|/hoersaalgebaeude-uni-ulm/|2002|lernen|realisiert|oeffentlich|0
+saftbar smothees|/saftbar-smothees/|2002|essen|realisiert|gewerblich|0
+parkhaus deutschhaus|/parkhaus-deutschhaus/|2002|parken|realisiert|oeffentlich|1
+musikpavillon|/musikpavillon/|2002|beleben|realisiert|oeffentlich|0
+`;
+
+/* der titel „umbau neue straße | …“ enthaelt selbst einen strich,
+   deshalb wird von hinten getrennt. */
+const P=RAW.trim().split('\n').map((row,i)=>{
+  const f=row.split('|');
+  const aw=+f.pop(), k=f.pop(), s=f.pop(), c=f.pop(), y=+f.pop(), u=f.pop();
+  return {t:f.join('|').trim(), u, y, c, s, k, aw, img:pic(i)};
+});
+
+/* ---- archiv: alle projekte untereinander ---- */
+const tiles=document.getElementById('tiles');
+tiles.innerHTML=P.map(p=>`
+  <a class="tile" href="https://hochstrasser.com${p.u}" data-cat="${p.c}" data-year="${p.y}" data-status="${p.s}" data-client="${p.k}" data-award="${p.aw}">
+    <img src="${p.img}" alt="${p.t}" loading="lazy">
+    <div class="tile-cap">
+      <h3>${p.t}${p.aw?'<span class="star" title="ausgezeichnet"></span>':''}</h3>
+      <span class="yr">${p.y}</span>
+    </div>
+  </a>`).join('');
+
+const chips=[...document.querySelectorAll('.fchip')];
+const advBtn=document.getElementById('advBtn');
+const advPanel=document.getElementById('advanced');
+const countEl=document.getElementById('count');
+const emptyEl=document.getElementById('empty');
+const onlyAward=document.getElementById('onlyAward');
+let cat='alle';
+
+advBtn.addEventListener('click',()=>{
+  const open=advPanel.hasAttribute('data-open');
+  if(open){advPanel.removeAttribute('data-open')}else{advPanel.setAttribute('data-open','')}
+  advBtn.setAttribute('aria-expanded',String(!open));
+  document.getElementById('advGlyph').textContent = open ? '+' : '\u2212';
+});
+chips.forEach(ch=>ch.addEventListener('click',()=>setCat(ch.dataset.cat)));
+function setCat(c){
+  cat=c;
+  chips.forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.cat===c)));
+  /* eine nutzung aus der leiste und eine aus „weitere nutzungen“
+     schliessen sich aus — sonst bleibt die liste leer. */
+  if(c!=='alle')document.querySelectorAll('.advanced input[data-f="use"]').forEach(i=>i.checked=false);
+  apply();
+}
+document.querySelectorAll('.advanced input').forEach(i=>i.addEventListener('change',e=>{
+  if(e.target.dataset.f==='use'&&e.target.checked&&cat!=='alle'){
+    cat='alle';chips.forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.cat==='alle')));
+  }
+  apply();
+}));
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  cat='alle';
+  chips.forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.cat==='alle')));
+  document.querySelectorAll('.advanced input').forEach(i=>i.checked=false);
+  apply();
+});
+
+function picked(name){
+  return [...document.querySelectorAll('.advanced input[data-f="'+name+'"]:checked')].map(i=>i.value);
+}
+function apply(){
+  const eras=picked('era'), st=picked('status'), cl=picked('client'), use=picked('use');
+  let n=0;
+  document.querySelectorAll('.tile').forEach(t=>{
+    const y=+t.dataset.year;
+    const era=y>=2020?'2020':(y>=2010?'2010':'2000');
+    let ok=true;
+    if(use.length){ if(!use.includes(t.dataset.cat))ok=false }
+    else if(cat!=='alle'&&t.dataset.cat!==cat)ok=false;
+    if(eras.length&&!eras.includes(era))ok=false;
+    if(st.length&&!st.includes(t.dataset.status))ok=false;
+    if(cl.length&&!cl.includes(t.dataset.client))ok=false;
+    if(onlyAward.checked&&t.dataset.award!=='1')ok=false;
+    t.hidden=!ok;
+    if(ok)n++;
+  });
+  const none=(cat==='alle'&&!eras.length&&!st.length&&!cl.length&&!use.length&&!onlyAward.checked);
+  countEl.textContent = none
+    ? P.length+' projekte'
+    : (n===1 ? '1 projekt für diese auswahl' : n+' projekte für diese auswahl');
+  emptyEl.hidden=n>0;
+}
+apply();
+
+/* menü */
+const btn=document.getElementById('menuBtn'),sheet=document.getElementById('sheet'),closeBtn=document.getElementById('menuClose');
+function openSheet(){sheet.hidden=false;requestAnimationFrame(()=>sheet.setAttribute('data-open',''));btn.setAttribute('aria-expanded','true');closeBtn.focus()}
+function shutSheet(){sheet.removeAttribute('data-open');btn.setAttribute('aria-expanded','false');btn.focus();setTimeout(()=>sheet.hidden=true,480)}
+btn.addEventListener('click',openSheet);
+closeBtn.addEventListener('click',shutSheet);
+sheet.querySelectorAll('a').forEach(a=>a.addEventListener('click',shutSheet));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)shutSheet()});
+
+/* reveal */
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+}else{
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>

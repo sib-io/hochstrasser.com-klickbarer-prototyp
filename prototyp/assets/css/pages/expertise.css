@@ -1,0 +1,265 @@
+/* ============================================================
+   Expertise-Unterseiten – gemeinsame Module
+   ------------------------------------------------------------
+   Gilt für: Brandschutz (Vorlage), Nachhaltigkeit, Bauphysik,
+   Generalplanung, DGNB, Digitales Bauen, Architektur.
+   Nutzt ausschließlich Tokens und Komponenten aus site.css.
+   Präfix .x-  (nicht mit Seitenklassen mischen).
+
+   SEITENGERÜST (Reihenfolge der Sektionen, Töne wechseln)
+     Hero                       <section class="wrap hero">
+     Ton A  (getönt)            <section class="band band--tint"><div class="wrap …">
+     Ton B  (weiß)              <section class="wrap band">
+     Creed  (dunkel)            <section class="band band--dark"><div class="wrap">
+     Kontakt                    <section class="wrap band"> + contact-card
+     Zurück                     <section class="wrap band--s band--flush-top">
+     Quellen                    <section class="wrap"><div class="sources">
+   Kanonische Aufteilungen (immer .grid auf dem Container):
+     6 | 1 | 5   <div class="s-6 stack"> + <div class="s-5 o-8 stack">
+     4 | 1 | 7   <div class="s-4"> + <div class="s-7 o-6">
+   „Split“ (zwei Spalten mit je Überschrift, Text, Paarliste) ist
+   daher kein eigenes CSS-Modul, sondern .grid + 6 | 1 | 5.
+
+   MODULE
+   ------------------------------------------------------------
+   1  .x-aims    Ziele-Liste (Ziel 01 … 04), meist in 6 | 1 | 5 rechts
+        <dl class="x-aims">
+          <div>
+            <dt class="t-label">Ziel 01</dt>
+            <dd><span class="t-h3 x-aims__t">Titel</span>
+                <span class="t-small t-mute x-aims__d">Beschreibung</span></dd>
+          </div>
+        </dl>
+
+   2  .x-lph     Leistungsphasen-Balken (Skala + Zeilen, 10 Phasen 0–9)
+        <div class="x-lph__scale" aria-hidden="true">
+          <span class="t-label">Leistungsphase</span>
+          <span class="x-lph__ticks"><span class="t-label">0</span> … <span class="t-label">9</span></span>
+        </div>
+        <div class="x-lph">
+          <div class="x-lph__row">
+            <span class="t-h4 x-lph__name">Name</span>
+            <span class="x-lph__what t-mute">Beschreibung</span>
+            <span class="x-lph__track"><span class="x-lph__bar x-s0 x-e3"></span></span>
+            <span class="t-label x-lph__span">LPH 0–2</span>
+          </div>
+        </div>
+      Balken: Start x-s0 … x-s9, Ende x-e1 … x-e10 (Zehntel der Skala).
+      Desktop: Name/Beschreibung Spalten 1–4, Balken Spalten 6–12.
+      Mobil: Zeilen gestapelt, Phasen als Text (.x-lph__span).
+
+   3  .x-risks   Risiken-Liste (Titel | Beschreibung, 4 | 1 | 7)
+        <ul class="x-risks">
+          <li><b class="t-h4">Titel</b><span>Beschreibung</span></li>
+        </ul>
+      Folgesatz unter der Liste:  <div class="grid"><p class="t-h3 s-7 o-6">…</p></div>
+
+   4  .x-pairs   Paarliste (Begriff | Erläuterung) in Spaltenbreite
+        <ul class="x-pairs">
+          <li><b>Begriff</b><span>Erläuterung</span></li>
+        </ul>
+      In der schmalen Spalte (s-5 o-8): zusätzlich .x-pairs--stack (Begriff
+      über dem Text). Kopfzeile darüber: <p class="t-label x-pairs-label">
+      (richtet sich optisch an der Überschrift der Nachbarspalte aus).
+      Auf getöntem Band automatisch mit feiner Tönungslinie.
+
+   5  .x-areas   Bereiche (Name + Rolle | Beschreibung + Begriffe, 4 | 1 | 7)
+        <ol class="x-areas">
+          <li>
+            <div class="x-areas__head"><p class="t-h4">Name</p><p class="t-label">Rolle</p></div>
+            <div class="x-areas__body"><p>Beschreibung</p>
+              <ul class="tags"><li class="tag">Begriff</li></ul></div>
+          </li>
+        </ol>
+
+   6  .x-steps   Schritte (Marke | Text, 4 | 1 | 7), hell und dunkel
+        <ul class="x-steps">
+          <li><b class="t-label">Marke</b><span>Text</span></li>
+        </ul>
+      Creed-Band: <section class="band band--dark"><div class="wrap">
+        <h2 class="t-rubric">Titel</h2> (in .sec-head)
+        <div class="grid">
+          <p class="t-h2 s-6 x-creed__claim">Aussage</p>
+          <div class="s-5 o-8 stack x-creed__txt"><p>…</p></div>
+          <ul class="x-steps s-12">…</ul>
+        </div>
+
+   7  .x-draw / .x-node / .x-ref   interaktive Zeichnung (SVG) mit
+      auswählbaren Knoten; dazu .x-chips (mobil) und .x-panel.
+      JS: assets/js/pages/expertise.js  →  Expertise.drawPanel(…)
+        <section class="wrap band" id="…">
+          <div class="sec-head">
+            <h2 class="t-rubric sec-head__title">Titel</h2>
+            <p class="t-label sec-head__aside">Hinweis zur Bedienung</p>
+          </div>
+          <svg class="x-draw" viewBox="0 0 1280 H" role="img" aria-label="…">
+            <line class="x-ref" …/> <text class="x-ref__t" …>22 m</text>
+            <g class="x-node" data-k="a" role="button" tabindex="0" aria-pressed="false">
+              <rect class="x-node__body" …/> <line class="x-node__floor" …/>
+              <text class="x-node__no" …>GK 1</text> <text class="x-node__cap" …>…</text>
+            </g>
+            <line class="x-ground" …/>
+          </svg>
+          <p class="t-label x-draw__cap">Fußnote zur Zeichnung</p>
+          <div class="x-chips" role="group" aria-label="…">
+            <button class="chip" data-k="a" aria-pressed="false">…</button>
+          </div>
+          <div class="x-panel grid" aria-live="polite">
+            <div class="s-4"><p class="t-label" data-f="name"></p>
+                             <p class="t-h2" data-f="claim"></p></div>
+            <div class="s-7 o-6"><dl class="facts"><div><dt>…</dt><dd data-f="size"></dd></div></dl></div>
+          </div>
+        </section>
+      SVG-ViewBox-Breite 1280 = Containerbreite (1 Einheit = 1 px am Desktop).
+      Knotenraster: 2-Spalten-Körper bei x = 0 | 218,33 | 436,67 | 655 | 873,33, Breite 188,33
+      (Spaltenbreite 79,17 + Gutter 30). Die Zeichnung ist ab 900 px sichtbar,
+      darunter übernehmen die Chips.
+
+   8  .x-way     Wege-Grafik (Schema mit Linien, Pfaden, Beschriftung)
+        <svg class="x-way" viewBox="…" role="img" aria-label="…">
+          <rect class="x-way__frame"/> <line class="x-way__thin"/>
+          <path class="x-way__path1"/> (durchgezogen, Hauptweg)
+          <path class="x-way__path2"/> (gestrichelt, zweiter Weg)
+          <rect class="x-way__win"/> <circle class="x-way__dot"/>
+          <text class="x-way__t">Beschriftung</text> <text class="x-way__t is-on">…</text>
+        </svg>
+      Im Raster: .grid mit s-6 (Text) + s-5 o-8 (Grafik).
+   ============================================================ */
+
+/* 1 Ziele ---------------------------------------------------- */
+.x-aims{border-top:1px solid var(--ink)}
+.x-aims>div{display:grid;grid-template-columns:5rem minmax(0,1fr);column-gap:var(--gutter);align-items:baseline;padding-block:var(--sp-3);border-bottom:1px solid var(--rule)}
+.band--tint .x-aims>div{border-bottom-color:var(--rule-tint)}
+.x-aims dt{white-space:nowrap}
+.x-aims dd{min-width:0}
+.x-aims__t,.x-aims__d{display:block}
+.x-aims__d{margin-top:var(--sp-1)}
+
+/* 2 Leistungsphasen ------------------------------------------ */
+.x-lph{border-top:1px solid var(--ink)}
+.x-lph__row{display:grid;grid-template-columns:minmax(0,1fr);row-gap:var(--sp-1);padding-block:var(--sp-3);border-bottom:1px solid var(--rule)}
+.band--tint .x-lph__row{border-bottom-color:var(--rule-tint)}
+.x-lph__what{max-width:48ch}
+.x-lph__track{display:none}
+.x-lph__scale{display:none}
+.x-lph__bar{position:absolute;inset-block:.3125rem;left:calc(var(--s) * 10%);width:calc((var(--e) - var(--s)) * 10%);background:var(--ink)}
+.x-s0{--s:0}.x-s1{--s:1}.x-s2{--s:2}.x-s3{--s:3}.x-s4{--s:4}
+.x-s5{--s:5}.x-s6{--s:6}.x-s7{--s:7}.x-s8{--s:8}.x-s9{--s:9}
+.x-e1{--e:1}.x-e2{--e:2}.x-e3{--e:3}.x-e4{--e:4}.x-e5{--e:5}
+.x-e6{--e:6}.x-e7{--e:7}.x-e8{--e:8}.x-e9{--e:9}.x-e10{--e:10}
+@media (min-width:900px){
+  .x-lph__scale{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:end;margin-bottom:var(--sp-2)}
+  .x-lph__scale>:first-child{grid-column:1/span 4}
+  .x-lph__ticks{grid-column:6/span 7;display:grid;grid-template-columns:repeat(10,minmax(0,1fr))}
+  .x-lph__ticks>*{padding-left:var(--sp-1)}
+  .x-lph__row{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:center}
+  .x-lph__name{grid-column:1/span 4;grid-row:1}
+  .x-lph__what{grid-column:1/span 4;grid-row:2}
+  .x-lph__span{display:none}
+  .x-lph__track{display:block;grid-column:6/span 7;grid-row:1/span 2;position:relative;height:1.25rem;border-right:1px solid var(--rule);
+    background:repeating-linear-gradient(to right,var(--rule) 0 1px,transparent 1px 10%)}
+  .band--tint .x-lph__track{border-right-color:var(--rule-tint);background:repeating-linear-gradient(to right,var(--rule-tint) 0 1px,transparent 1px 10%)}
+}
+
+/* 3 Risiken -------------------------------------------------- */
+.x-risks{border-top:1px solid var(--ink)}
+.x-risks>li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);padding-block:var(--sp-3);border-bottom:1px solid var(--rule)}
+.band--tint .x-risks>li{border-bottom-color:var(--rule-tint)}
+.x-risks>li>*{grid-column:1/-1;min-width:0}
+.x-risks>li>span{color:var(--ink-2);max-width:60ch}
+@media (min-width:900px){
+  .x-risks>li{padding-block:var(--sp-4)}
+  .x-risks>li>:first-child{grid-column:1/span 4}
+  .x-risks>li>:last-child{grid-column:6/span 7}
+}
+
+/* 4 Paarliste ------------------------------------------------ */
+.x-pairs{border-top:1px solid var(--ink)}
+.x-pairs>li{display:grid;grid-template-columns:minmax(0,1fr);row-gap:2px;padding-block:var(--sp-2);border-bottom:1px solid var(--rule)}
+.band--tint .x-pairs>li{border-bottom-color:var(--rule-tint)}
+.x-pairs b{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-label);letter-spacing:.04em;line-height:1.5;color:var(--mute)}
+.x-pairs span{min-width:0;color:var(--ink)}
+@media (min-width:600px){
+  .x-pairs>li{grid-template-columns:9.5rem minmax(0,1fr);column-gap:var(--gutter);align-items:baseline}
+}
+.stack>.x-pairs{margin-top:var(--sp-5)}
+/* schmale Spalte (s-5): Begriff über dem Text */
+.x-pairs.x-pairs--stack>li{grid-template-columns:minmax(0,1fr)}
+/* Kopfzeile über einer Paarliste, optisch auf Höhe der Nachbar-Überschrift */
+@media (min-width:900px){.stack>.x-pairs-label{padding-top:var(--sp-2)}}
+.stack>.x-pairs-label+.x-pairs{margin-top:var(--sp-3)}
+
+/* 5 Bereiche ------------------------------------------------- */
+.x-areas{border-top:1px solid var(--ink)}
+.x-areas>li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-2);padding-block:var(--sp-4);border-bottom:1px solid var(--rule)}
+.band--tint .x-areas>li{border-bottom-color:var(--rule-tint)}
+.x-areas__head,.x-areas__body{grid-column:1/-1;min-width:0}
+.x-areas__head>*+*{margin-top:var(--sp-1)}
+.x-areas__body>*+*{margin-top:var(--sp-3)}
+.x-areas__body>p{max-width:60ch}
+@media (min-width:900px){
+  .x-areas>li{padding-block:var(--sp-5)}
+  .x-areas__head{grid-column:1/span 4}
+  .x-areas__body{grid-column:6/span 7}
+}
+
+/* 6 Schritte, Creed ------------------------------------------ */
+.x-steps{border-top:1px solid var(--ink)}
+.x-steps>li{display:grid;grid-template-columns:minmax(0,1fr);row-gap:var(--sp-1);padding-block:var(--sp-3);border-bottom:1px solid var(--rule)}
+.x-steps>li>b{font-weight:400}
+.x-steps>li>span{min-width:0;max-width:62ch}
+.band--tint .x-steps>li{border-bottom-color:var(--rule-tint)}
+.band--dark .x-steps{border-top-color:var(--on-dark-rule)}
+.band--dark .x-steps>li{border-bottom-color:var(--on-dark-rule)}
+.band--dark .x-steps>li>b{color:var(--on-dark-mute)}
+.band--dark .x-steps>li>span{color:var(--on-dark-2)}
+@media (min-width:900px){
+  .x-steps>li{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);padding-block:var(--sp-4)}
+  .x-steps>li>b{grid-column:1/span 4}
+  .x-steps>li>span{grid-column:6/span 7}
+}
+.x-creed__claim{max-width:none}
+.band--dark .x-creed__txt{color:var(--on-dark-2)}
+.band--dark .x-creed__txt a.ext{color:var(--on-dark)}
+
+/* 7 Zeichnung mit Auswahl -------------------------------------- */
+.x-draw{display:none;width:100%;height:auto;overflow:visible}
+.x-draw__cap{margin-block:var(--sp-3);max-width:66ch}
+.x-ref{stroke:var(--mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;opacity:.7}
+.x-ref__t{font-family:var(--font-ui);font-weight:400;font-size:13px;letter-spacing:.06em;fill:var(--mute)}
+.x-ground{stroke:var(--ink);stroke-width:1}
+.x-node{cursor:pointer;transition:opacity .25s var(--ease)}
+.x-node__body{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
+.x-node__floor{stroke:var(--rule);stroke-width:1;transition:stroke .3s var(--ease)}
+.x-node__no{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.02em;fill:var(--ink);transition:fill .3s var(--ease)}
+.x-node__cap{font-family:var(--font-ui);font-weight:400;font-size:13px;letter-spacing:.04em;fill:var(--mute);transition:fill .3s var(--ease)}
+.x-node:hover .x-node__body{fill:var(--shade)}
+.x-node:focus{outline:none}
+.x-node:focus-visible .x-node__body{stroke-width:2}
+.x-draw.has-on .x-node:not(.is-on){opacity:.4}
+.x-node.is-on .x-node__body,.x-node.is-on:hover .x-node__body{fill:var(--ink)}
+.x-node.is-on .x-node__no{fill:var(--paper)}
+.x-node.is-on .x-node__floor{stroke:rgba(255,255,255,.28)}
+.x-node.is-on .x-node__cap{fill:var(--ink)}
+.x-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-1)}
+.x-panel{margin-top:var(--sp-5);padding-top:var(--sp-5);border-top:1px solid var(--ink);transition:opacity .25s var(--ease)}
+.x-panel.is-fading{opacity:0}
+.x-panel [data-f="name"]{margin-bottom:var(--sp-2)}
+@media (min-width:900px){
+  .x-draw{display:block}
+  .x-chips{display:none}
+  .x-panel{margin-top:var(--sp-6);padding-top:var(--sp-6)}
+}
+
+/* 8 Wege-Grafik ---------------------------------------------- */
+.x-way{width:100%;height:auto;overflow:visible}
+.x-way__frame{fill:none;stroke:var(--ink);stroke-width:1}
+.x-way__thin{fill:none;stroke:var(--rule-tint);stroke-width:1}
+.x-way__path1{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.x-way__path2{fill:none;stroke:var(--ink);stroke-width:1;stroke-dasharray:4 4;stroke-linecap:round;stroke-linejoin:round}
+.x-way__t{font-family:var(--font-ui);font-weight:400;font-size:15px;letter-spacing:.04em;fill:var(--mute)}
+.x-way__t.is-on{fill:var(--ink)}
+/* am Desktop nicht unter 13 px Darstellungsgröße (viewBox 600 auf ca. 458 px Spalte) */
+@media (min-width:1200px){.x-way__t{font-size:17px}}
+.x-way__win{fill:var(--paper);stroke:none}
+.x-way__dot{fill:var(--ink)}

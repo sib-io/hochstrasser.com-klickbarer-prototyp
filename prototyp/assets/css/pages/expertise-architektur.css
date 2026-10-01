@@ -1,0 +1,80 @@
+/* ============================================================
+   Architektur – nur Seitenspezifisches
+   Präfix .arch-  ·  Gemeinsame Module: expertise.css
+   ------------------------------------------------------------
+   .arch-triad     Dreiklang im Hero (Zeile: Label | drei Begriffe)
+   .arch-chain     Zitat in Kette (Zeilen rücken unter das wiederholte
+                   Wort; Ausrichtung: expertise-architektur.js)
+   .arch-hit / .arch-no / .arch-pct / .arch-open / .arch-curve
+                   Ergänzungen zur Balkenzeichnung (Modul 7)
+   .arch-p0__*     Leistungsphase 0 (Ergebnis, Freigabe, Mitbringen)
+   .arch-list      einfache Linienliste
+   ============================================================ */
+
+/* Dreiklang */
+.arch-triad{margin-top:var(--sp-6);border-top:1px solid var(--ink)}
+.arch-triad>div{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);padding-block:var(--sp-3);border-bottom:1px solid var(--rule);align-items:baseline}
+.arch-triad dt,.arch-triad dd{grid-column:1/-1}
+.arch-triad dd{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-1)}
+.arch-triad>div+div dd{color:var(--mute)}
+.arch-triad dd>span{color:inherit}
+@media (min-width:600px){
+  .arch-triad dd{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gutter)}
+}
+@media (min-width:900px){
+  .arch-triad dt{grid-column:1/span 4}
+  .arch-triad dd{grid-column:6/span 7;grid-template-columns:repeat(7,minmax(0,1fr))}
+  /* drei Begriffe auf dem Seitenraster: Spalten 6–7 | 8–9 | 10–12 */
+  .arch-triad dd>span{grid-column:span 2}
+  .arch-triad dd>span:last-child{grid-column:span 3}
+}
+
+/* Zitat in Kette */
+.arch-chain{position:relative;font-family:var(--font-ui);font-weight:300;font-size:var(--fs-display);line-height:1.05;letter-spacing:-.025em;color:var(--on-dark)}
+.arch-chain__ln{position:relative;white-space:normal}
+.arch-chain__ln+.arch-chain__ln{margin-top:.2em}
+.arch-chain__v{color:var(--on-dark-mute)}
+.arch-chain__k{display:inline-block}
+.arch-chain__hang{margin-right:.04em;color:var(--on-dark-mute)}
+.arch-chain__ln[data-from="1"]{margin-left:var(--sp-3)}
+.arch-chain__ln[data-from="2"]{margin-left:var(--sp-5)}
+.arch-chain__foot{margin-top:var(--sp-6);padding-top:var(--sp-3);border-top:1px solid var(--on-dark-rule)}
+.arch-chain__foot>p+p{color:var(--on-dark-2)}
+.arch-chain__foot>p:last-child{max-width:56ch}
+@media (min-width:700px){
+  .arch-chain__ln{white-space:nowrap;width:max-content}
+  .arch-chain__ln[data-from]{margin-left:0}
+}
+@media (min-width:1260px){
+  .arch-chain__hang{position:absolute;right:100%}
+}
+
+/* Balkenzeichnung */
+.arch-hit{fill:transparent;stroke:none}
+.arch-no{font-family:var(--font-ui);font-weight:400;font-size:16px;letter-spacing:.02em;fill:var(--ink)}
+.arch-pct{font-family:var(--font-ui);font-weight:400;font-size:13px;letter-spacing:.04em;fill:var(--mute);transition:fill .3s var(--ease)}
+.x-node.is-on .arch-pct{fill:var(--ink)}
+.arch-open{fill:none;stroke-dasharray:4 4}
+.x-node.is-on .arch-open{stroke-dasharray:none}
+.arch-curve{fill:none;stroke:var(--mute);stroke-width:1.2;stroke-dasharray:5 4;stroke-linejoin:round;pointer-events:none}
+.arch-curve__dot{fill:var(--mute);pointer-events:none}
+.arch-curve__t{pointer-events:none}
+.band--tint .x-node__body{fill:var(--paper)}
+.band--tint .x-node:hover .x-node__body{fill:var(--rule)}
+.band--tint .x-node.is-on .x-node__body,.band--tint .x-node.is-on:hover .x-node__body{fill:var(--ink)}
+.band--tint .arch-open{fill:none}
+.band--tint .x-node:hover .arch-open{fill:var(--rule)}
+.band--tint .x-node.is-on .arch-open,.band--tint .x-node.is-on:hover .arch-open{fill:var(--ink)}
+
+/* Leistungsphase 0 */
+.arch-p0__why{margin-top:var(--sp-6);align-items:start}
+.arch-p0__rail{margin-top:var(--sp-6)}
+.arch-p0__out{display:grid;gap:2px;max-width:none;padding-top:var(--sp-2);border-top:1px solid var(--rule);color:var(--ink-2)}
+.arch-p0__gate{margin-top:var(--sp-6);padding-block:var(--sp-4);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.arch-p0__hand{margin-top:var(--sp-6)}
+.arch-list{margin-top:var(--sp-2);border-top:1px solid var(--ink)}
+.arch-list>li{padding-block:var(--sp-2);border-bottom:1px solid var(--rule)}
+
+/* FAQ in 4 | 1 | 7 */
+.arch-faq{margin-top:var(--sp-5);align-items:start}
+.arch-faq a.ext-in{border-bottom:1px solid var(--rule-tint)}

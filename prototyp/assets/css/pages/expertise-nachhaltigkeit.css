@@ -1,0 +1,25 @@
+/* ============================================================
+   Nachhaltigkeit – nur Seitenspezifisches
+   Die Lebenszyklus-Zeichnung (viewBox 1280 × 264) nutzt die
+   gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css;
+   Knoten sitzen auf dem 12er-Raster (Spalten 1–2 | 3 | 4–6 | 7–9 | 10–11 | 12).
+   Das Balkenschema nutzt .x-way aus expertise.css.
+   Hier: Systemgrenze, Balken, Kernbereich-Piktogramme.
+   ============================================================ */
+
+/* Systemgrenze der Bilanz (gestrichelter Rahmen um A bis C) */
+.nh-sys{fill:none;stroke:var(--mute);stroke-width:1;stroke-dasharray:4 5;opacity:.75}
+
+/* Balkenschema „Graue Emissionen“ */
+.nh-bar{fill:var(--ink)}
+.nh-bar--l{fill:var(--shade);stroke:var(--ink);stroke-width:1}
+.nh-ghost{fill:none;stroke:var(--ink);stroke-width:1;stroke-dasharray:4 4}
+
+/* Kernbereiche: Einleitungssatz auf gleicher Höhe, Piktogramm */
+@media (min-width:900px){.nh-kb__lead{min-height:4.8em}}
+@media (min-width:1200px){.nh-kb__lead{min-height:3.2em}}
+.nh-pic{width:100%;max-width:12rem;height:auto;overflow:visible}
+.nh-pic__l{fill:none;stroke:var(--ink);stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+.nh-pic__t{fill:none;stroke:var(--rule-tint);stroke-width:1;stroke-linecap:round}
+.nh-pic__d{stroke-dasharray:3 4}
+

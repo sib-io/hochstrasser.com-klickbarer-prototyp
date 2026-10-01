@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>digitales bauen — hochstrasser.</title>
+<meta name="description" content="digitales bauen und bim: informationsanforderungen, bim-koordination, modellprüfung, bestand und betrieb. hochstrasser. architekten und generalplaner in ulm.">
+<link rel="canonical" href="https://hochstrasser.com/expertise/digitales-bauen/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="hochstrasser.">
+<meta property="og:url" content="https://hochstrasser.com/expertise/digitales-bauen/">
+<meta property="og:title" content="digitales bauen — hochstrasser.">
+<meta property="og:description" content="bim ist keine software, sondern eine bestellung. wer weiß, welche information er wann braucht, bekommt sie auch.">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ============================================================
+   EXPERTISESEITE DIGITALES BAUEN
+   roter faden: nicht das modell ist das ziel, sondern die
+   information. die seite fuehrt von der frage, wer welche
+   information wann braucht, ueber die lieferkette und die
+   koordination zum bestand und zum betrieb.
+
+   das hauptelement ist die informationslieferkette: eine
+   linienzeichnung, in der ein glied ausgewaehlt wird und
+   die zugehoerigen festlegungen erscheinen.
+
+   ZWEITER ENTWURF: farbvariante. raster, schriften und alle
+   bauteile bleiben identisch zur expertiseseite brandschutz.
+   neu ist genau eine akzentfarbe, die nur dort steht, wo sie
+   etwas bedeutet: auswahl, rueckkopplung, handlung. dazu ein
+   leicht getoenter grundton in den baendern statt neutralgrau.
+   gedacht als system: jedes expertisethema bekommt eine eigene
+   farbe derselben helligkeit, brandschutz zum beispiel rost.
+
+   bauteile, raster, schriften sind identisch zur
+   expertiseseite brandschutz. wer beide seiten nacheinander
+   sieht, soll dieselbe handschrift erkennen.
+
+   schriften wie startseite, projektseite und profilseite:
+   PX Grotesk           -> logo, navigation, rubriken, knoten
+   Calibri/Calibri Light -> fliesstext und grosse aussagen
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --ink:#161616;
+  --ink-mute:#6e6e6e;
+  --rule:#e4e5e7;
+  --shade:#f2f2f2;
+  /* akzentfarbe: eine farbe je expertisethema, funktional eingesetzt.
+     --accent traegt bedeutung (auswahl, rueckkopplung, handlung),
+     --wash ersetzt den neutralen grauton der getoenten baender. */
+  --accent:#1e4b8f;
+  --wash:#f1f4f9;
+  --pad: clamp(1.25rem, 5.2vw, 6.25rem);
+  --band: clamp(3.75rem, 8.5vw, 7.5rem);
+  --gut: clamp(.65rem, 1.35vw, 1.15rem);
+  --grid: repeat(12, minmax(0,1fr));
+  --row: clamp(1.4rem, 2.8vw, 2.4rem);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --font-body:'Calibri',sans-serif;
+  --font-light:'Calibri Light','Calibri',sans-serif;
+  --font-ui:'PX Grotesk',sans-serif;
+  --font-logo:var(--font-ui);
+}
+body[data-accent="petrol"]{--accent:#12615f;--wash:#eef5f4}
+body[data-accent="rost"]{--accent:#8c3a1c;--wash:#f8f3f0}
+body[data-accent="ohne"]{--accent:#161616;--wash:#f2f2f2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(.95rem,.92rem + .2vw,1.0625rem);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+.wrap{max-width:1620px;margin:0 auto;padding-inline:var(--pad)}
+.label{font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.band{padding-block:var(--band)}
+.band-s{padding-block:clamp(2.25rem,4.6vw,4rem)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:99}
+.skip:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.g12{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:var(--row);align-items:start}
+.sec-title{font-family:var(--font-ui);font-weight:600;font-size:clamp(1.05rem,1.45vw,1.3rem);letter-spacing:.055em;line-height:1.2}
+.sec-head{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:1rem;align-items:baseline}
+.sec-head .sec-title{grid-column:1/-1}
+.sec-head .arrow,.sec-head .hint{grid-column:1/-1;justify-self:start}
+.sec-head .hint{align-self:end}
+@media(min-width:900px){
+  .sec-head .sec-title{grid-column:1/span 5}
+  .sec-head .arrow,.sec-head .hint{grid-column:7/span 6;justify-self:end}
+}
+.statement{font-size:clamp(1.35rem,2.7vw,2.1rem);letter-spacing:-.024em;line-height:1.22;font-weight:400;max-width:30ch}
+.arrow{font-weight:600;font-size:.9rem;letter-spacing:.02em;border-bottom:1px solid var(--ink);padding-bottom:.15rem;white-space:nowrap;display:inline-block}
+.arrow span{display:inline-block;transition:transform .3s var(--ease)}
+.arrow:hover span{transform:translateX(5px)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--ink);padding:.9rem 1.9rem;font-family:var(--font-ui);font-weight:600;font-size:.92rem;letter-spacing:.05em;transition:background .3s var(--ease),color .3s var(--ease)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.btn span{display:inline-block;transition:transform .3s var(--ease)}
+.btn:hover span{transform:translateX(4px)}
+.btn-back:hover span{transform:translateX(-4px)}
+.prose{max-width:62ch;font-size:clamp(1rem,.95rem + .3vw,1.15rem);line-height:1.68;color:#2c2c2c;margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.prose p + p{margin-top:1.05em}
+
+/* prototyp-leiste */
+.proto{position:relative;z-index:70;background:var(--ink);color:var(--paper)}
+.proto-in{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:center;justify-content:space-between;padding-block:.55rem}
+.proto .label{color:rgba(255,255,255,.62)}
+.proto button{
+  font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;
+  border:1px solid rgba(255,255,255,.3);padding:.35rem .8rem;
+  transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+}
+.proto button:hover{border-color:var(--paper)}
+.proto button[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.proto-tools{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center}
+.acc{display:flex;flex-wrap:wrap;gap:.35rem}
+.sw i{display:inline-block;width:9px;height:9px;margin-right:.45rem;vertical-align:0}
+
+/* offene punkte */
+.note{display:none}
+body.show-notes .note{
+  display:block;border:1px dashed var(--rule);padding:clamp(.9rem,1.8vw,1.35rem);
+  margin-top:clamp(1.1rem,2.2vw,1.6rem);color:var(--ink-mute);font-size:.95rem;max-width:62ch;
+}
+body.show-notes .note b{
+  display:block;font-family:var(--font-ui);font-weight:600;font-size:.7rem;
+  letter-spacing:.15em;color:var(--ink);margin-bottom:.5rem;
+}
+.note ul{list-style:none;margin-top:.5rem}
+.note li{padding-block:.15rem}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--rule)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:clamp(62px,7vw,88px)}
+.brand{font-family:var(--font-logo);font-weight:700;font-size:clamp(1.05rem,1.7vw,1.32rem);letter-spacing:-.012em}
+.nav{display:none;gap:clamp(1.1rem,2.2vw,2.1rem);align-items:baseline}
+.nav a{font-family:var(--font-ui);font-size:.92rem;letter-spacing:.05em;color:var(--ink);opacity:.72;transition:opacity .22s var(--ease)}
+.nav a:hover,.nav a[aria-current]{opacity:1}
+.dots{display:flex;flex-direction:column;gap:4px;padding:.6rem .35rem}
+.dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);display:block;transition:transform .3s var(--ease)}
+.dots:hover i:nth-child(1){transform:translateX(-3px)}
+.dots:hover i:nth-child(3){transform:translateX(3px)}
+@media(min-width:820px){.nav{display:flex}.dots{display:none}}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:var(--pad);transform:translateY(-100%);transition:transform .5s var(--ease)}
+.sheet[data-open]{transform:none}
+.sheet a{font-family:var(--font-ui);font-size:clamp(1.7rem,8vw,2.4rem);letter-spacing:.03em;font-weight:600}
+.sheet-close{position:absolute;top:1.1rem;right:var(--pad);color:var(--ink-mute);font-family:var(--font-ui)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(2.25rem,5vw,4rem) clamp(3.5rem,7vw,6.5rem)}
+.hero .eyebrow{grid-column:1/-1;margin-bottom:clamp(1.1rem,2.4vw,1.9rem)}
+/* hero-aufbau wie auf der projektseite: text auf fuenf spalten,
+   daneben ein quadratisches medienfeld auf den spalten 8 bis 12 */
+.hero-text{grid-column:1/-1;align-self:center}
+.hero-anim{
+  grid-column:1/-1;position:relative;overflow:hidden;
+  aspect-ratio:1/1;background:var(--wash);
+  margin-top:clamp(2rem,4vw,3rem);
+}
+.hero-anim iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.hero-cap{grid-column:1/-1;margin-top:.7rem}
+.claim{
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(1.95rem,4.4vw,3.6rem);line-height:1.05;letter-spacing:-.015em;max-width:22ch;
+}
+.claim em{font-style:normal;color:var(--accent)}
+.hero .eyebrow{color:var(--accent)}
+.claim{max-width:14ch}
+.hero-sub{margin-top:clamp(.9rem,1.8vw,1.4rem);color:var(--ink-mute);max-width:46ch}
+.hero .note{grid-column:1/-1}
+@media(min-width:900px){
+  .hero-text{grid-column:1/span 5}
+  .hero-anim{grid-column:8/span 5;margin-top:0}
+  .hero-cap{grid-column:8/span 5}
+}
+
+/* ---------- der kritische moment: risikoliste am 12er-raster ---------- */
+.risks{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.6rem,3vw,2.5rem)}
+.risks li{
+  display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.35rem;
+  padding-block:1.05rem;border-bottom:1px solid var(--rule);
+}
+.risks b{grid-column:1/-1;font-weight:400;font-size:clamp(1.05rem,1.6vw,1.28rem);letter-spacing:-.014em;line-height:1.25}
+.risks span{grid-column:1/-1;color:var(--ink-mute);max-width:58ch}
+@media(min-width:900px){
+  .risks b{grid-column:1/span 4}
+  .risks span{grid-column:6/span 7}
+}
+.after{margin-top:clamp(1.9rem,3.6vw,2.75rem);font-size:clamp(1.15rem,2vw,1.5rem);letter-spacing:-.018em;line-height:1.3;max-width:34ch}
+
+/* ---------- vier fragen: graues band ---------- */
+.about{background:var(--wash)}
+.about-txt{grid-column:1/-1}
+.about-side{grid-column:1/-1}
+@media(min-width:900px){
+  .about-txt{grid-column:1/span 6}
+  .about-side{grid-column:8/span 5}
+}
+.aims{border-top:1px solid var(--ink);counter-reset:aim}
+.aims>div{
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;
+  padding:.95rem 0;border-bottom:1px solid rgba(22,22,22,.14);align-items:baseline;
+}
+.aims dt{
+  font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;
+  color:var(--ink-mute);padding-top:.35em;
+}
+.aims dd{font-family:var(--font-light);font-weight:300;font-size:clamp(1.25rem,2.2vw,1.8rem);line-height:1.15;letter-spacing:-.02em}
+.aims dd i{display:block;font-style:normal;font-family:var(--font-body);font-size:.88rem;line-height:1.5;color:var(--ink-mute);letter-spacing:0;margin-top:.35rem}
+
+/* ---------- externe verweise ---------- */
+a.ext{border-bottom:1px solid var(--rule);transition:border-color .2s var(--ease)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
+a.ext::after{content:'\2197';font-size:.72em;margin-left:.15em;color:var(--ink-mute);vertical-align:.18em}
+.creed a.ext{border-bottom-color:rgba(255,255,255,.35);color:var(--paper)}
+.creed a.ext:hover,.creed a.ext:focus-visible{border-bottom-color:var(--paper)}
+.creed a.ext::after{color:rgba(255,255,255,.55)}
+
+/* ---------- getoentes vollband ---------- */
+.tint{background:var(--wash)}
+.tint .plist{border-top-color:var(--ink)}
+.tint .plist li{border-bottom-color:rgba(22,22,22,.14)}
+.tint .note{border-color:rgba(22,22,22,.22)}
+.tint .risks{border-top-color:var(--ink)}
+.tint .risks li{border-bottom-color:rgba(22,22,22,.14)}
+
+/* ---------- vier rollen im modell ---------- */
+.areas{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.6rem,3vw,2.5rem)}
+.areas>li{
+  display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.45rem;
+  padding-block:clamp(1.2rem,2.4vw,1.85rem);border-bottom:1px solid var(--rule);
+}
+.areas .an{
+  grid-column:1/-1;font-family:var(--font-ui);font-weight:600;
+  font-size:clamp(1rem,1.5vw,1.18rem);letter-spacing:.035em;line-height:1.3;
+}
+.areas .role{grid-column:1/-1;font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.areas .ad{grid-column:1/-1;color:#2c2c2c;max-width:60ch}
+.areas .parts{grid-column:1/-1;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.85rem}
+.areas .parts>li{
+  border:1px solid var(--rule);padding:.35rem .75rem;
+  font-size:.85rem;letter-spacing:.02em;color:var(--ink-mute);
+}
+@media(min-width:900px){
+  .areas .an{grid-column:1/span 3}
+  .areas .role{grid-column:1/span 3;align-self:start}
+  .areas .ad{grid-column:5/span 8;grid-row:1}
+  .areas .parts{grid-column:5/span 8;grid-row:2}
+}
+
+/* ---------- informationslieferkette ---------- */
+.flow-sec{padding-block:var(--band)}
+.flow-head{margin-bottom:clamp(1.9rem,3.6vw,3rem)}
+.flow-draw{width:100%;height:auto;display:block;overflow:visible}
+@media(max-width:759px){.flow-draw{display:none}}
+
+.fl-ground{stroke:var(--ink);stroke-width:1}
+.fl-ref{stroke:var(--ink-mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;opacity:.7}
+.fl-ref-t{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.12em;fill:var(--ink-mute)}
+
+.fln{cursor:pointer;transition:opacity .25s var(--ease)}
+.fln rect.body{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
+.fln line.floor{stroke:var(--rule);stroke-width:1;transition:stroke .3s var(--ease)}
+.fln text.no{font-family:var(--font-ui);font-weight:600;font-size:15px;letter-spacing:.03em;fill:var(--ink);transition:fill .3s var(--ease)}
+.fln text.cap{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.12em;fill:var(--ink-mute);transition:fill .3s var(--ease)}
+.fln:hover rect.body{fill:var(--wash)}
+.fln:focus{outline:none}
+.fln:focus-visible rect.body{stroke-width:2}
+.flow-draw.has-on .fln:not(.is-on){opacity:.4}
+.fln.is-on rect.body{fill:var(--accent);stroke:var(--accent)}
+.fln.is-on:hover rect.body{fill:var(--accent)}
+.fln.is-on text.no{fill:var(--paper)}
+.fln.is-on line.floor{stroke:rgba(255,255,255,.28)}
+.fln.is-on text.cap{fill:var(--accent)}
+
+/* kleine schirme: glieder als schaltflaechen */
+.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+@media(min-width:760px){.chips{display:none}}
+.chip{
+  font-family:var(--font-ui);font-weight:600;font-size:.85rem;letter-spacing:.03em;line-height:1.25;
+  border:1px solid var(--ink);padding:.75rem .8rem;text-align:left;
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+
+.flow-panel{
+  margin-top:clamp(1.9rem,3.6vw,3rem);padding-top:clamp(1.4rem,2.6vw,2rem);
+  border-top:1px solid var(--ink);transition:opacity .25s var(--ease);
+}
+.flow-panel.is-fading{opacity:0}
+.flow-head-txt{grid-column:1/-1}
+.flow-facts{grid-column:1/-1}
+@media(min-width:900px){
+  .flow-head-txt{grid-column:1/span 4}
+  .flow-facts{grid-column:6/span 7}
+}
+.flow-name{margin-bottom:.6rem}
+.flow-claim{font-family:var(--font-light);font-weight:300;font-size:clamp(1.45rem,3vw,2.35rem);line-height:1.18;letter-spacing:-.02em}
+.dl{border-top:1px solid var(--ink)}
+.dl>div{display:flex;flex-wrap:wrap;gap:.15rem 1.5rem;align-items:baseline;padding:.95rem 0;border-bottom:1px solid var(--rule)}
+.dl dt{flex:0 0 clamp(8.5rem,13vw,12.5rem);font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.dl dd{flex:1 1 22ch;min-width:0}
+
+/* ---------- koordinationszyklus ---------- */
+/* der zyklus steht auf weiss, damit das schema zwischen zwei toenen atmet */
+.ways-txt{grid-column:1/-1}
+.ways-fig{grid-column:1/-1}
+@media(min-width:900px){
+  .ways-txt{grid-column:1/span 5}
+  .ways-fig{grid-column:7/span 6}
+}
+.rw{width:100%;height:auto;display:block;overflow:visible}
+.rw .frame{fill:none;stroke:var(--ink);stroke-width:1}
+.rw .thin{fill:none;stroke:rgba(22,22,22,.28);stroke-width:1}
+.rw .path1{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rw .path2{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-dasharray:4 4;stroke-linecap:round;stroke-linejoin:round}
+.rw .t{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.1em;fill:var(--ink-mute)}
+.rw .t.on{fill:var(--ink)}
+.rw .dot{fill:var(--ink)}
+
+/* ---------- dunkles band: verantwortung ---------- */
+.creed{background:var(--ink);color:var(--paper);padding-block:clamp(3.25rem,7.5vw,6.5rem)}
+.creed .sec-title{color:var(--paper)}
+.creed-in{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(1.75rem,3.5vw,2.75rem);margin-top:clamp(2rem,4vw,3.25rem)}
+.creed-claim{grid-column:1/-1;font-family:var(--font-light);font-weight:300;font-size:clamp(1.7rem,4.2vw,3.1rem);line-height:1.08;letter-spacing:-.024em}
+.creed-txt{grid-column:1/-1;color:rgba(255,255,255,.72);max-width:56ch}
+.creed-txt p + p{margin-top:1em}
+@media(min-width:900px){
+  .creed-claim{grid-column:1/span 6}
+  .creed-txt{grid-column:8/span 5}
+}
+.creed .steps{list-style:none;margin-top:clamp(2rem,4vw,3rem);border-top:1px solid rgba(255,255,255,.28);grid-column:1/-1}
+.creed .steps li{
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;
+  padding-block:.9rem;border-bottom:1px solid rgba(255,255,255,.18);align-items:baseline;
+}
+.creed .steps b{font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:rgba(255,255,255,.5)}
+.creed .steps span{color:rgba(255,255,255,.85)}
+
+/* ---------- leistungen ueber die leistungsphasen ---------- */
+/* leistungsachse steht auf weiss, damit sie nicht neben dem fragenband klebt */
+.lph-scale{display:none}
+.lph-list{border-top:1px solid var(--ink);margin-top:clamp(1.4rem,2.6vw,2rem)}
+.lph-row{
+  display:grid;grid-template-columns:1fr;gap:.3rem;
+  padding-block:.85rem;border-bottom:1px solid rgba(22,22,22,.14);
+}
+.lph-name{letter-spacing:.02em}
+.lph-what{color:var(--ink-mute);font-size:.9rem}
+.lph-span{color:var(--ink-mute);font-size:.9rem}
+.lph-track{display:none}
+@media(min-width:760px){
+  .lph-scale{
+    display:grid;grid-template-columns:var(--grid);
+    column-gap:var(--gut);align-items:end;margin-bottom:.6rem;
+  }
+  .lph-scale>.label{grid-column:1/span 4}
+  .lph-scale .ticks{grid-column:5/span 8;display:grid;grid-template-columns:repeat(10,minmax(0,1fr))}
+  .lph-scale .ticks span{padding-left:.3rem}
+  .lph-row{grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.25rem;align-items:center}
+  .lph-name{grid-column:1/span 4}
+  .lph-what{grid-column:1/span 4;grid-row:2}
+  .lph-span{display:none}
+  .lph-track{
+    grid-column:5/span 8;grid-row:1/span 2;display:block;position:relative;height:16px;
+    border-right:1px solid rgba(22,22,22,.16);
+  }
+  .lph-track::before{
+    content:'';position:absolute;inset:0;
+    background:repeating-linear-gradient(to right,rgba(22,22,22,.16) 0 1px,transparent 1px 10%);
+  }
+  .lph-bar{
+    position:absolute;top:4px;bottom:4px;
+    left:calc(var(--s) * 10%);width:calc((var(--e) - var(--s)) * 10%);
+    background:var(--accent);
+  }
+}
+
+/* ---------- zweispalter ---------- */
+.split{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(2.25rem,4.5vw,3.5rem)}
+.split-a{grid-column:1/-1}
+.split-b{grid-column:1/-1}
+@media(min-width:960px){
+  .split-a{grid-column:1/span 6}
+  .split-b{grid-column:8/span 5}
+}
+.plist{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.plist li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;padding-block:.85rem;border-bottom:1px solid var(--rule);align-items:baseline}
+.plist b{font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.plist span{min-width:0}
+
+/* ---------- kontakt ---------- */
+.contact .statement,.contact-txt{text-transform:lowercase}
+.contact{border:1px solid var(--ink);padding:clamp(1.5rem,3.2vw,2.75rem);display:grid;gap:clamp(1.4rem,2.8vw,2.2rem)}
+@media(min-width:680px){
+  .contact{grid-template-columns:clamp(5.5rem,9vw,7.5rem) minmax(0,1fr);align-items:start;gap:clamp(1.5rem,3vw,2.5rem)}
+}
+.avatar{
+  aspect-ratio:1/1;background:var(--shade);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;color:var(--ink-mute);
+}
+.avatar svg{width:clamp(26px,3vw,36px);height:auto;display:block}
+.avatar span{font-family:var(--font-ui);font-weight:600;font-size:.6rem;letter-spacing:.15em}
+.contact-foot{display:flex;flex-wrap:wrap;gap:1rem 2.25rem;align-items:center;margin-top:clamp(1.4rem,2.8vw,2rem)}
+
+/* ---------- quellen ---------- */
+.src{border-top:1px solid var(--rule);padding-block:clamp(1.6rem,3vw,2.4rem)}
+.src ul{list-style:none;display:grid;gap:.4rem;margin-top:.8rem;max-width:82ch}
+.src li{color:var(--ink-mute);font-size:.9rem;line-height:1.5}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem) 2.25rem}
+.ftr-top{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(2rem,4vw,3.5rem)}
+.ftr-left{grid-column:1/-1}
+.ftr-right{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-left{grid-column:1/span 6}
+  .ftr-right{grid-column:8/span 5}
+}
+.ftr .brand{font-size:clamp(1.6rem,3.2vw,2.35rem);letter-spacing:-.018em;display:block;margin-bottom:1.1rem}
+.ftr-addr{color:rgba(255,255,255,.62);max-width:32ch}
+.ftr-big{margin-top:1.4rem;font-size:clamp(1.15rem,2.1vw,1.55rem);letter-spacing:.02em;font-weight:600;line-height:1.35}
+.ftr-big+.ftr-big{margin-top:.35rem}
+.ftr-big a{border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:.1rem;transition:border-color .25s var(--ease)}
+.ftr-big a:hover{border-bottom-color:var(--paper)}
+.ftr-right{display:flex;flex-direction:column;gap:clamp(1.75rem,3vw,2.5rem)}
+@media(min-width:860px){.ftr-right{padding-top:.5rem}}
+.ftr-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 2rem;align-content:start}
+.ftr-links a{color:rgba(255,255,255,.78);transition:color .22s var(--ease)}
+.ftr-links a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-social{display:flex;gap:.7rem;justify-content:flex-end}
+.ftr-social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;flex:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.78);transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
+.ftr-social a:hover{border-color:var(--paper);color:var(--ink);background:var(--paper)}
+.ftr-social svg{width:19px;height:19px;display:block}
+.ftr .label{color:rgba(255,255,255,.5)}
+.ftr .label a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-base{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.6rem;margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.18)}
+.ftr-base>*{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-base>*:first-child{grid-column:1/span 6}
+  .ftr-base>*:last-child{grid-column:8/span 5;justify-self:end}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body data-accent="blau">
+<a class="skip" href="#inhalt">zum inhalt springen</a>
+
+<div class="proto">
+  <div class="wrap proto-in">
+    <span class="label">prototyp &middot; digitales bauen &middot; farbvariante</span>
+    <div class="proto-tools">
+      <div class="acc" role="group" aria-label="akzentfarbe wählen">
+        <button class="sw" data-a="blau" aria-pressed="true"><i style="background:#1e4b8f"></i>blau</button>
+        <button class="sw" data-a="petrol" aria-pressed="false"><i style="background:#12615f"></i>petrol</button>
+        <button class="sw" data-a="rost" aria-pressed="false"><i style="background:#8c3a1c"></i>rost</button>
+        <button class="sw" data-a="ohne" aria-pressed="false"><i style="background:#161616"></i>ohne</button>
+      </div>
+      <button id="tgl" aria-pressed="false">offene punkte einblenden</button>
+    </div>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#">hochstrasser.</a>
+    <nav class="nav" aria-label="hauptnavigation">
+      <a href="#">projekte</a>
+      <a href="#" aria-current="page">expertise</a>
+      <a href="#">auszeichnungen</a>
+      <a href="#">profil</a>
+      <a href="#">büro</a>
+    </nav>
+    <button class="dots" id="menuBtn" aria-label="menü öffnen" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <button class="sheet-close" id="menuClose">schließen</button>
+  <a href="#">projekte</a>
+  <a href="#">expertise</a>
+  <a href="#">auszeichnungen</a>
+  <a href="#">profil</a>
+  <a href="#">büro</a>
+</div>
+
+<main id="inhalt">
+
+  <!-- 01 claim -->
+  <section class="wrap hero g12">
+    <p class="eyebrow label">expertise — digitales bauen</p>
+    <div class="hero-text">
+      <h1 class="claim">jedes gebäude entsteht zweimal<em>.</em></h1>
+      <p class="hero-sub">einmal als modell, einmal auf der baustelle. ob das erste dem zweiten etwas nützt, entscheidet nicht die software — sondern die frage, welche information wann gebraucht wird und wer für sie einsteht. genau das koordinieren wir.</p>
+    </div>
+
+    <div class="hero-anim">
+      <iframe src="BIM_Animation.html" title="animation: aus einem raster entsteht ein geschossmodell, eine kollision zwischen träger und leitung wird erkannt und umgeplant, daraus werden aufgaben, kennzahlen und ein bauablauf" loading="lazy" scrolling="no"></iframe>
+    </div>
+    <p class="hero-cap label">vom raster zum modell, von der kollision zur aufgabe — die methode in zehn sekunden</p>
+
+    <div class="note">
+      <b>animation im hero — drei dinge zu klären</b>
+      <ul>
+        <li>die animation liegt als eigene datei daneben (BIM_Animation.html) und wird über einen iframe eingebunden. beide dateien müssen im selben verzeichnis liegen, sonst bleibt das feld leer. für die produktion würde ich sie als mp4 oder webm exportieren lassen: die gebündelte fassung wiegt rund 1,2 mb und lädt react mit, ein video wäre ein bruchteil davon.</li>
+        <li>die animation läuft in endlosschleife. wer die seite liest, hat dauerhaft bewegung im augenwinkel — auf einer textlastigen fachseite ist das ein echter nachteil. vorschlag: einmal abspielen und auf dem schlussbild stehen bleiben, oder erst starten, wenn das feld im sichtfeld ist.</li>
+        <li>„bewegung reduzieren“ in den systemeinstellungen kann die seite dem iframe nicht aufzwingen. beim video-export ließe sich das sauber lösen: standbild statt schleife für alle, die diese einstellung gesetzt haben.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <b>akzentfarbe der animation angleichen</b>
+      die animation bringt ihr eigenes blau mit (#2f5bff), die seite verwendet ein ruhigeres #1e4b8f. nebeneinander sieht man den unterschied. das quellartefakt hat die akzentfarbe als einstellbaren parameter — bitte einmal auf den seitenwert ziehen lassen, dann greifen animation und seite ineinander. auch der hintergrund der animation (#f3f4f6) sollte auf den grundton der bänder gesetzt werden.
+    </div>
+
+    <div class="note">
+      <b>zweiter entwurf: farbe</b>
+      diese fassung ist der farbvorschlag, die erste datei bleibt der schwarz-weiße stand. die farbe wird hier nicht dekorativ eingesetzt, sondern nur an vier stellen, an denen sie etwas bedeutet: das ausgewählte glied der lieferkette, der rücklauf im koordinationszyklus, die balken der leistungsachse und jede handlung (schaltflächen, externe verweise). dazu bekommen die getönten bänder statt neutralgrau einen minimal eingefärbten grundton. gedacht ist das als system, nicht als einzelfall — jede expertiseseite bekommt eine eigene farbe derselben helligkeit, der brandschutz zum beispiel rost. in der prototyp-leiste oben lassen sich drei varianten und der zustand ohne farbe direkt vergleichen.
+    </div>
+
+    <div class="note">
+      <b>tonalität abstimmen</b>
+      der einstieg ist bewusst als these formuliert, nicht als werkzeugliste. sachlichere alternative: „wir planen modellbasiert — und koordinieren die daten, die daraus entstehen.“ bitte entscheiden. wichtig ist mir: auf dieser seite steht bewusst kein einziger softwarename. das ist eine haltung, keine lücke — siehe den offenen punkt weiter unten.
+    </div>
+  </section>
+
+  <!-- 02 vier fragen, graues band -->
+  <section class="about rv">
+    <div class="wrap band g12">
+      <div class="about-txt">
+        <h2 class="sec-title">digitales bauen beginnt mit vier fragen</h2>
+        <div class="prose">
+          <p>Building Information Modeling ist eine Methode, kein Programm. Alle Beteiligten planen an einem gemeinsamen digitalen Abbild des Gebäudes — mit seiner Geometrie und mit den Eigenschaften, die an den Bauteilen hängen. Die Fachplanungen arbeiten dabei nicht nacheinander, sondern an einem Stand; und dieser Stand hört nicht mit der Abnahme auf, sondern begleitet das Gebäude von der ersten Massenstudie über Bau und Betrieb bis zum Rückbau.</p>
+          <p>So weit die Definition. Sie sagt nur nicht, woran Projekte scheitern. Die internationale Normenreihe <a class="ext" href="https://www.baunormenlexikon.de/norm/din-en-iso-19650-1/1c11c2ce-c22a-485d-b11b-c9456f27027b" target="_blank" rel="noopener">DIN EN ISO 19650</a> ist da ehrlicher: Sie beschreibt keine Modelle, sondern einen Managementprozess. Wer bestellt welche Information, wer liefert sie, und woran wird geprüft, ob sie geliefert wurde.</p>
+          <p>Das klingt trocken und ist der eigentliche Hebel. Ein Modell, das niemand bestellt hat, wird nach Gefühl detailliert — mal zu grob für die Ausschreibung, mal zu fein für die Vorplanung. Erst wenn die vier Fragen beantwortet sind, hat die Modellierung einen Maßstab. Die Norm nennt das Informationsbedarfstiefe, genormt in DIN EN 17412-1: Geometrie, Merkmale und Dokumente, jeweils nur so tief wie nötig.</p>
+        </div>
+      </div>
+      <div class="about-side">
+        <dl class="aims">
+          <div>
+            <dt>frage 01</dt>
+            <dd>wer braucht die information<i>bauherrschaft, planung, ausführung, betrieb — jede rolle fragt etwas anderes</i></dd>
+          </div>
+          <div>
+            <dt>frage 02</dt>
+            <dd>wann wird sie gebraucht<i>lieferzeitpunkte statt „am ende der leistungsphase irgendwann“</i></dd>
+          </div>
+          <div>
+            <dt>frage 03</dt>
+            <dd>in welcher tiefe<i>geometrie, merkmale, dokumente — nach din en 17412-1, nicht nach gewohnheit</i></dd>
+          </div>
+          <div>
+            <dt>frage 04</dt>
+            <dd>wozu<i>der anwendungsfall entscheidet: mengen, kollision, betrieb, ökobilanz</i></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 leistungen ueber die leistungsphasen -->
+  <section class="exp rv">
+    <div class="wrap band">
+      <div class="sec-head">
+        <h2 class="sec-title">was wir übernehmen</h2>
+      </div>
+
+      <div class="lph-scale" aria-hidden="true">
+        <span class="label">leistungsphase</span>
+        <span class="ticks">
+          <span class="label">0</span>
+          <span class="label">1</span>
+          <span class="label">2</span>
+          <span class="label">3</span>
+          <span class="label">4</span>
+          <span class="label">5</span>
+          <span class="label">6</span>
+          <span class="label">7</span>
+          <span class="label">8</span>
+          <span class="label">9</span>
+        </span>
+      </div>
+
+      <div class="lph-list">
+        <div class="lph-row">
+          <span class="lph-name">bim-ziele und anwendungsfälle</span>
+          <span class="lph-what">welche fragen soll das modell beantworten — und welche ausdrücklich nicht</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:0;--e:2"></span></span>
+          <span class="lph-span">lph 0–1</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">auftraggeber-informationsanforderungen</span>
+          <span class="lph-what">die aia als bestellung formulieren — auf bauherrenseite oder als deren beraterin</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:0;--e:3"></span></span>
+          <span class="lph-span">lph 0–2</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">bim-abwicklungsplan</span>
+          <span class="lph-what">modellstruktur, namenskonventionen, austauschzyklen, prüfregeln — mit allen fachplanungen abgestimmt</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:1;--e:4"></span></span>
+          <span class="lph-span">lph 1–3</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">fachmodell architektur</span>
+          <span class="lph-what">das modell, aus dem pläne, mengen und nachweise abgeleitet werden statt sie nachzuzeichnen</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:2;--e:6"></span></span>
+          <span class="lph-span">lph 2–5</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">bim-gesamtkoordination</span>
+          <span class="lph-what">zusammenführung der fachmodelle, kollisions- und regelprüfung, offene punkte bis zur klärung</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:2;--e:9"></span></span>
+          <span class="lph-span">lph 2–8</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">mengen und kosten aus dem modell</span>
+          <span class="lph-what">kostenschätzung bis ausschreibung modellbasiert — mit dokumentierter herkunft jeder menge</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:3;--e:8"></span></span>
+          <span class="lph-span">lph 3–7</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">modellbasierte bauüberwachung</span>
+          <span class="lph-what">soll-ist-abgleich, baufortschritt und mängel am modell statt in einer zweiten liste</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:7;--e:9"></span></span>
+          <span class="lph-span">lph 7–8</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">übergabe an den betrieb</span>
+          <span class="lph-what">as-built-modell, anlagenkennzeichnung und dokumente in der struktur, die das fm später lesen kann</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:8;--e:10"></span></span>
+          <span class="lph-span">lph 8–9</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">bestandserfassung und bestandsmodell</span>
+          <span class="lph-what">aufmaß, punktwolke und ein modell, das so genau ist wie die aufgabe es verlangt</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:0;--e:2"></span></span>
+          <span class="lph-span">lph 0–1</span>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>leistungstiefe entscheiden</b>
+        die zuordnung ist mein vorschlag. zwei zeilen sind echte versprechen und müssen stimmen: „bim-gesamtkoordination“ (macht ihr das für fremde fachplanungen oder nur im eigenen haus?) und „modellbasierte bauüberwachung“ (wird das im projekt tatsächlich gelebt oder ist es noch absicht?). alles, was ihr nur gelegentlich macht, streichen wir lieber — eine kurze, wahre liste verkauft besser als eine lange.
+      </div>
+      <div class="note">
+        <b>aia-beratung als eigenes angebot?</b>
+        die zweite zeile ist das stärkste argument der ganzen seite: die wenigsten bauherren können informationsanforderungen formulieren, und fast alle zahlen später dafür. wenn ihr das als eigene leistung anbieten wollt, sollte es nicht in der liste versinken, sondern einen eigenen abschnitt bekommen. bitte entscheiden.
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 der kritische moment -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <h2 class="sec-title">das modell ist fertig. und dann?</h2>
+    <div class="prose">
+      <p>Drei Enttäuschungen kommen in digitalen Projekten regelmäßig vor. Keine davon liegt an der Software, und alle drei entstehen zu Beginn — dort, wo über Anforderungen noch nicht gesprochen wurde.</p>
+    </div>
+
+    <ul class="risks">
+      <li>
+        <b>das modell ist schön, aber nicht prüfbar</b>
+        <span>geometrie ohne merkmale sieht auf dem bildschirm perfekt aus und beantwortet keine einzige frage. keine mengen, keine bauteilzuordnung, keine ökobilanz — weil niemand festgelegt hat, welche eigenschaften an welchem bauteil hängen müssen.</span>
+      </li>
+      <li>
+        <b>die daten brechen an der schnittstelle</b>
+        <span>jede planungsdisziplin arbeitet in ihrer software. ohne vereinbartes offenes format, ohne gemeinsames koordinatensystem und ohne festen austauschzyklus entsteht kein gemeinsames modell, sondern ein stapel unverbundener dateien mit unterschiedlichem stand.</span>
+      </li>
+      <li>
+        <b>der betrieb erbt nichts</b>
+        <span>das teuerste an einem gebäude ist sein betrieb. wenn das modell mit der abnahme endet, erfasst der betreiber zwei jahre später dieselben anlagen noch einmal — und bezahlt für daten, die es schon gab.</span>
+      </li>
+    </ul>
+
+    <p class="after">digital wird ein projekt nicht durch modelle. sondern durch entscheidungen über informationen.</p>
+
+    <div class="note">
+      <b>adressat der seite klären</b>
+      der abschnitt spricht planende und bauherren gleichzeitig an. das funktioniert, solange die seite beide gruppen als auftraggeber im blick hat. richtet sie sich vor allem an bauherrschaften, sollte der dritte punkt (betrieb) nach vorn — für einen bauherrn ist er das stärkste argument. für kolleginnen und kollegen ist es der zweite. bitte entscheiden, das zieht sich durch die ganze seite.
+    </div>
+    </div>
+  </section>
+
+  <!-- 05 informationslieferkette -->
+  <section class="wrap flow-sec">
+    <div class="flow-head sec-head rv">
+      <h2 class="sec-title">die informationslieferkette</h2>
+      <p class="hint label">glied wählen — die festlegungen erscheinen darunter</p>
+    </div>
+
+    <svg class="flow-draw" id="flowDraw" viewBox="0 0 1240 330" role="img" aria-label="zeichnung: fünf glieder der informationslieferkette als gestaffelte baukörper mit wachsender informationstiefe">
+      <!-- tiefenlinien, beschriftung jeweils oberhalb der linie -->
+      <line class="fl-ref" x1="0" y1="48" x2="1240" y2="48"/>
+      <text class="fl-ref-t" x="2" y="40">betriebsreif</text>
+      <line class="fl-ref" x1="0" y1="136" x2="1240" y2="136"/>
+      <text class="fl-ref-t" x="2" y="128">prüfbar</text>
+      <line class="fl-ref" x1="0" y1="200" x2="1240" y2="200"/>
+      <text class="fl-ref-t" x="2" y="192">bestellt</text>
+
+      <!-- aia -->
+      <g class="fln" id="f-aia" data-k="aia" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="0" y="200" width="232" height="40"/>
+        <text class="no" x="116" y="226" text-anchor="middle">aia</text>
+        <text class="cap" x="116" y="266" text-anchor="middle">auftraggeber</text>
+        <text class="cap" x="116" y="284" text-anchor="middle">vor der vergabe</text>
+      </g>
+
+      <!-- bap -->
+      <g class="fln" id="f-bap" data-k="bap" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="252" y="180" width="232" height="60"/>
+        <line class="floor" x1="252" y1="210" x2="484" y2="210"/>
+        <text class="no" x="368" y="205" text-anchor="middle">bap</text>
+        <text class="cap" x="368" y="266" text-anchor="middle">planungsteam</text>
+        <text class="cap" x="368" y="284" text-anchor="middle">lph 1–2</text>
+      </g>
+
+      <!-- fachmodelle -->
+      <g class="fln" id="f-fach" data-k="fach" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="504" y="136" width="232" height="104"/>
+        <line class="floor" x1="504" y1="171" x2="736" y2="171"/>
+        <line class="floor" x1="504" y1="206" x2="736" y2="206"/>
+        <text class="no" x="620" y="194" text-anchor="middle">fachmodelle</text>
+        <text class="cap" x="620" y="266" text-anchor="middle">alle disziplinen</text>
+        <text class="cap" x="620" y="284" text-anchor="middle">ab lph 2</text>
+      </g>
+
+      <!-- koordinationsmodell -->
+      <g class="fln" id="f-koord" data-k="koord" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="756" y="92" width="232" height="148"/>
+        <line class="floor" x1="756" y1="129" x2="988" y2="129"/>
+        <line class="floor" x1="756" y1="166" x2="988" y2="166"/>
+        <line class="floor" x1="756" y1="203" x2="988" y2="203"/>
+        <text class="no" x="872" y="172" text-anchor="middle">koordination</text>
+        <text class="cap" x="872" y="266" text-anchor="middle">gesamtkoordination</text>
+        <text class="cap" x="872" y="284" text-anchor="middle">im festen zyklus</text>
+      </g>
+
+      <!-- betriebsmodell -->
+      <g class="fln" id="f-aim" data-k="aim" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="1008" y="48" width="232" height="192"/>
+        <line class="floor" x1="1008" y1="86" x2="1240" y2="86"/>
+        <line class="floor" x1="1008" y1="124" x2="1240" y2="124"/>
+        <line class="floor" x1="1008" y1="162" x2="1240" y2="162"/>
+        <line class="floor" x1="1008" y1="200" x2="1240" y2="200"/>
+        <text class="no" x="1124" y="150" text-anchor="middle">betriebsmodell</text>
+        <text class="cap" x="1124" y="266" text-anchor="middle">betreiber</text>
+        <text class="cap" x="1124" y="284" text-anchor="middle">ab abnahme</text>
+      </g>
+
+      <!-- zeitachse -->
+      <line class="fl-ground" x1="0" y1="240" x2="1240" y2="240"/>
+      <text class="fl-ref-t" x="0" y="316">die informationstiefe wächst über das projekt — aber nur dort, wo jemand sie bestellt hat</text>
+    </svg>
+
+    <div class="chips" role="group" aria-label="glied der lieferkette wählen">
+      <button class="chip" data-k="aia" aria-pressed="false">aia — die bestellung</button>
+      <button class="chip" data-k="bap" aria-pressed="false">bap — die zusage</button>
+      <button class="chip" data-k="fach" aria-pressed="false">fachmodelle</button>
+      <button class="chip" data-k="koord" aria-pressed="false">koordinationsmodell</button>
+      <button class="chip" data-k="aim" aria-pressed="false">betriebsmodell</button>
+    </div>
+
+    <div class="flow-panel g12" id="flowPanel" aria-live="polite">
+      <div class="flow-head-txt">
+        <p class="flow-name label" id="flName">auftraggeber-informationsanforderungen</p>
+        <p class="flow-claim" id="flClaim">die bestellung, die kaum jemand schreibt.</p>
+      </div>
+      <div class="flow-facts">
+        <dl class="dl">
+          <div><dt>wer erstellt es</dt><dd id="flWho">die bauherrschaft — in der praxis fast immer mit fachlicher unterstützung, oft durch das architekturbüro</dd></div>
+          <div><dt>zeitpunkt</dt><dd id="flWhen">vor der vergabe der planungsleistungen, spätestens mit der aufgabenstellung</dd></div>
+          <div><dt>inhalt</dt><dd id="flWhat">projektziele, anwendungsfälle, rollen, datenformate, modellstruktur und die informationstiefe je übergabe</dd></div>
+          <div><dt>für die planung heißt das</dt><dd id="flPlan">ohne aia gibt es keinen maßstab für modellqualität — und damit keine abnahme, die diesen namen verdient. wer sie nicht hat, bekommt modelle, die gut aussehen und nichts beantworten.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>vereinfachte darstellung — fachlich prüfen</b>
+      die zeichnung zeigt die systematik, nicht den normtext. maßgeblich sind din en iso 19650 teil 1 und 2 sowie din en 17412-1 zur informationsbedarfstiefe. die begriffe aia und bap sind die deutsche praxis; international heißen sie exchange information requirements und bim execution plan. falls ihr international anbietet, sollten beide begriffspaare auftauchen.
+    </div>
+    <div class="note">
+      <b>verlinkung projekte</b>
+      denkbar: je glied ein realisiertes projekt als beleg verlinken — etwa ein projekt, bei dem ihr die aia mitgeschrieben habt, und eines mit externer gesamtkoordination. setzt voraus, dass „bim-rolle“ im backend als projektattribut gepflegt wird. passt zur bestehenden filterlogik der projektseite.
+    </div>
+  </section>
+
+  <!-- 06 offene formate -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <div class="split">
+      <div class="split-a">
+        <h2 class="sec-title">woran daten gemessen werden</h2>
+        <div class="prose">
+          <p>Jede Disziplin arbeitet in der Software, die sie beherrscht — das ist richtig so und wird sich nicht ändern. Damit trotzdem ein gemeinsames Modell entsteht, braucht es zwei Dinge: ein offenes Format, das alle lesen können, und eine Prüfregel, an der sich Vollständigkeit objektiv feststellen lässt. Erst beides zusammen macht aus einem Datenaustausch eine Lieferung.</p>
+        </div>
+        <ul class="plist">
+          <li><b>modell</b><span>ifc ist das herstellerneutrale austauschformat für bauwerksmodelle, veröffentlicht als <a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/" target="_blank" rel="noopener">iso 16739</a>; die aktuelle fassung 4.3 gilt seit 2024 als iso-norm und erweitert den standard vor allem in richtung infrastruktur</span></li>
+          <li><b>anforderung</b><span>die <a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/information-delivery-specification-ids/" target="_blank" rel="noopener">information delivery specification</a> beschreibt informationsanforderungen maschinenlesbar — seit version 1.0 aus dem jahr 2024 lässt sich damit automatisiert prüfen, ob ein modell enthält, was bestellt wurde</span></li>
+          <li><b>kommunikation</b><span>bcf transportiert offene punkte samt blickrichtung und bauteilbezug zwischen den programmen — ein konflikt wandert damit als vorgang durchs projekt, nicht als screenshot im anhang einer mail</span></li>
+          <li><b>ablage</b><span>die gemeinsame datenumgebung (cde) ist der einzige ort, an dem der gültige stand liegt; din spec 91391 beschreibt module und datenaustausch, din en iso 19650-2 den freigabeprozess mit seinen statusstufen</span></li>
+        </ul>
+        <div class="note">
+          <b>normnummern bleiben unverlinkt</b>
+          wie auf der brandschutzseite: verlinkt wird nur auf frei zugängliche primärquellen. din en iso 19650, din en 17412-1 und die din spec liegen hinter der bezahlschranke von beuth, die nummern stehen deshalb unverlinkt da. bei ifc und ids ist der standard offen — dort wird verlinkt.
+        </div>
+      </div>
+
+      <div class="split-b">
+        <p class="label">und wer den wortschatz vorgibt</p>
+        <ul class="plist">
+          <li><b>merkmale</b><span>das <a class="ext" href="https://www.bimdeutschland.de/bim-wissen/auftraggeber-informationsanforderungen" target="_blank" rel="noopener">bim-portal des bundes</a> stellt klassifikationen, merkmale, objektvorlagen und prüfwerkzeuge bereit — öffentliche auftraggeber formulieren ihre aia zunehmend daraus</span></li>
+          <li><b>anwendungsfälle</b><span>der bund benennt seine anwendungsfälle einheitlich; wer für öffentliche bauherren arbeitet, sollte die liste kennen, weil sie in der ausschreibung wörtlich auftaucht</span></li>
+          <li><b>rollen</b><span>vdi 2552 blatt 7 beschreibt die prozesse und nennt das bim-management informationsmanager, die bim-koordination informationskoordinator; blatt 8 regelt die qualifikationen</span></li>
+        </ul>
+        <div class="note">
+          <b>keine softwarenamen — absicht</b>
+          die seite nennt bewusst kein autorensystem und kein prüfprogramm. gründe: sie altert langsamer, sie schließt keine fachplanung aus, und sie verschiebt das gespräch von werkzeugen auf ergebnisse. wenn ihr das anders wollt (manche bauherren fragen danach), wäre der beste ort ein kurzer kasten „womit wir arbeiten“ ganz am ende, nicht im fließtext.
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:clamp(2.25rem,4.5vw,3.5rem)">
+      <p>Der praktische Nutzen offener Formate zeigt sich nicht beim Export, sondern bei der Rückkopplung. Eine Menge, die aus dem Modell kommt, lässt sich zu ihrem Bauteil zurückverfolgen; ändert sich das Bauteil, ändert sich die Menge. Eine Kollision, die als Vorgang dokumentiert ist, hat einen Verantwortlichen und ein Datum. Und eine Anforderung, die maschinenlesbar formuliert wurde, ist am Tag der Lieferung geprüft und nicht drei Wochen später im Gespräch.</p>
+      <p>Das ist der eigentliche Unterschied zur Planung mit Zeichnungen: Nicht die Darstellung wird geteilt, sondern der Sachverhalt. Wer das ernst nimmt, verliert die Freiheit, Unschärfe stehen zu lassen — und gewinnt die Möglichkeit, früh zu wissen, woran man ist.</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- 07 bim-koordination -->
+  <section class="ways rv">
+    <div class="wrap band g12">
+      <div class="ways-txt">
+        <h2 class="sec-title">bim-koordination ist ein takt, kein werkzeug</h2>
+        <div class="prose">
+          <p>Der häufigste Irrtum über BIM-Koordination ist, sie sei eine Kollisionsprüfung. Kollisionen zu finden ist der einfachste Teil und der, den die Software erledigt. Die Arbeit beginnt danach: entscheiden, welcher Konflikt eine Planungsentscheidung ist und welcher ein Modellierungsfehler, den richtigen Verfasser adressieren, eine Frist setzen und den Vorgang so lange offen halten, bis er im Modell wirklich verschwunden ist.</p>
+          <p>Damit das funktioniert, braucht die Koordination einen festen Takt. Fachmodelle werden zu einem vereinbarten Termin abgegeben, zusammengeführt, gegen die Regeln aus AIA und BAP geprüft und mit offenen Punkten zurückgespielt. Wöchentlich oder zweiwöchentlich — die Frequenz ist verhandelbar, die Verbindlichkeit nicht. Ein Zyklus, der ausfällt, kostet nicht eine Woche, sondern alle Entscheidungen, die in dieser Woche auf einem veralteten Stand getroffen wurden.</p>
+        </div>
+        <div class="note">
+          <b>rolle im projekt benennen</b>
+          hier entscheidet sich die glaubwürdigkeit des abschnitts: führt ihr die gesamtkoordination selbst (dann gehört ein satz dazu, wie ihr mit fachplanungen umgeht, die noch nicht modellbasiert arbeiten) oder koordiniert ihr nur das eigene fachmodell? beides ist eine gute antwort. offen lassen ist keine.
+        </div>
+      </div>
+
+      <div class="ways-fig">
+        <svg class="rw" viewBox="0 0 600 390" role="img" aria-label="schema: fachmodelle werden zum koordinationsmodell zusammengeführt, geprüft und als offene punkte an die verfasser zurückgegeben">
+          <!-- beschriftung der bereiche -->
+          <text class="t on" x="20" y="26">fachmodelle</text>
+          <text class="t" x="230" y="26">zusammenführung</text>
+          <text class="t" x="430" y="26">prüfung</text>
+
+          <!-- fachmodelle -->
+          <rect class="frame" x="20" y="40" width="130" height="48"/>
+          <text class="t on" x="34" y="69">architektur</text>
+          <rect class="frame" x="20" y="110" width="130" height="48"/>
+          <text class="t on" x="34" y="139">tragwerk</text>
+          <rect class="frame" x="20" y="180" width="130" height="48"/>
+          <text class="t on" x="34" y="209">technik</text>
+
+          <!-- sammelpunkt -->
+          <path class="path1" d="M150 64 H190 V135 H230"/>
+          <path class="path1" d="M150 134 H190"/>
+          <path class="path1" d="M150 204 H190 V135"/>
+          <circle class="dot" cx="190" cy="135" r="3"/>
+
+          <!-- koordinationsmodell -->
+          <rect class="frame" x="230" y="70" width="150" height="130"/>
+          <line class="thin" x1="230" y1="104" x2="380" y2="104"/>
+          <line class="thin" x1="230" y1="138" x2="380" y2="138"/>
+          <line class="thin" x1="230" y1="172" x2="380" y2="172"/>
+          <text class="t on" x="244" y="230">koordinationsmodell</text>
+
+          <!-- weiter zur pruefung -->
+          <path class="path1" d="M380 135 H430"/>
+
+          <!-- pruefung -->
+          <rect class="frame" x="430" y="70" width="150" height="130"/>
+          <text class="t" x="444" y="104">kollision</text>
+          <text class="t" x="444" y="128">regeln aus aia</text>
+          <text class="t" x="444" y="152">vollständigkeit</text>
+          <text class="t" x="444" y="176">termin und menge</text>
+
+          <!-- ruecklauf als offene punkte -->
+          <path class="path2" d="M505 200 V300 H85 V228"/>
+          <text class="t" x="230" y="292">offene punkte zurück an die verfasser</text>
+
+          <!-- takt -->
+          <line class="frame" x1="20" y1="340" x2="580" y2="340"/>
+          <text class="t on" x="20" y="366">ein zyklus: wöchentlich bis zweiwöchentlich</text>
+          <text class="t" x="430" y="366">über das ganze projekt</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 anwendungsfaelle -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <div class="split">
+      <div class="split-a">
+        <h2 class="sec-title">anwendungsfälle, die sich rechnen</h2>
+        <div class="prose">
+          <p>Nicht jeder Anwendungsfall lohnt sich in jedem Projekt. Ein Modell für den Betrieb aufzubauen ist bei einem Einfamilienhaus Unfug und bei einem Laborgebäude die halbe Miete. Deshalb steht am Anfang eines Projekts nicht die Frage, ob BIM, sondern welche Fragen das Modell beantworten soll — und was es kostet, sie beantworten zu können.</p>
+          <p>Die ehrliche Auskunft dazu gehört in die Grundlagenermittlung. Wer alle Anwendungsfälle verspricht, verspricht keinen. Wir empfehlen in der Regel drei bis fünf pro Projekt und begründen jede Auswahl damit, welche Entscheidung sie absichert.</p>
+        </div>
+        <ul class="plist">
+          <li><b>4d</b><span>bauablauf am modell: baustelleneinrichtung, abschnittsbildung und logistik werden sichtbar, bevor sie auf der baustelle kollidieren — besonders im bauen unter betrieb</span></li>
+          <li><b>5d</b><span>mengen mit herkunft: die kostenschätzung lässt sich auf das bauteil zurückführen, das sie erzeugt hat. das macht varianten vergleichbar statt verhandelbar</span></li>
+          <li><b>simulation</b><span>energie, tageslicht, verschattung und ökobilanz rechnen auf derselben geometrie — vorausgesetzt, die merkmale stimmen</span></li>
+          <li><b>abstimmung</b><span>modellbasierte besprechungen mit nutzern und gremien: menschen, die pläne nicht lesen, treffen bessere entscheidungen, wenn sie sehen, worüber sie entscheiden</span></li>
+        </ul>
+      </div>
+
+      <div class="split-b">
+        <p class="label">damit wird planbar</p>
+        <ul class="plist">
+          <li><b>konflikte</b><span>durchdringungen und trassen geklärt, bevor der rohbau steht</span></li>
+          <li><b>varianten</b><span>entwurfsalternativen mit mengen und kosten statt mit gefühl</span></li>
+          <li><b>termine</b><span>vorfertigung, die sich auf maße verlassen kann</span></li>
+          <li><b>nachweise</b><span>flächen, mengen und bauteilaufbauten aus einer quelle</span></li>
+          <li><b>betrieb</b><span>anlagen, die bei der übergabe schon benannt sind</span></li>
+        </ul>
+        <div class="note">
+          <b>zahlen ergänzen?</b>
+          der abschnitt wäre deutlich stärker mit einer belegten zahl aus einem eurer projekte — etwa „x kollisionen vor baubeginn geklärt“ oder „nachtragsquote y statt branchenüblich z“. branchenstudien würde ich nicht zitieren; die sind angreifbar und stammen meist von softwareherstellern. eine eigene projektzahl ist unangreifbar. bitte prüfen, ob sich eine finden lässt.
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 09 die vier rollen -->
+  <section class="wrap band g12 rv">
+    <h2 class="sec-title" style="grid-column:1/-1">vier rollen, ein modell</h2>
+    <div class="prose" style="grid-column:1/-1">
+      <p>In BIM-Projekten treten vier Rollen auf, die regelmäßig verwechselt werden — mit Folgen für Honorar und Haftung. Die Trennung von BIM-Management und BIM-Gesamtkoordination ist dabei eine deutsche Besonderheit: International fallen beide meist in einer Rolle zusammen. Für ein Architekturbüro mit Generalplanungsanspruch sind die vier Rollen unterschiedlich wichtig, und die Zuordnung sollte im Vertrag stehen, nicht im Protokoll der dritten Besprechung.</p>
+    </div>
+
+    <ol class="areas" style="grid-column:1/-1">
+      <li>
+        <p class="an">bim-management</p>
+        <p class="role">wir beraten dazu</p>
+        <p class="ad">Die Vertretung der Bauherrschaft in allen Informationsfragen: Ziele festlegen, Anwendungsfälle auswählen, die AIA formulieren, die Einhaltung über das Projekt überwachen. Die Rolle sitzt auf Auftraggeberseite und wird in der VDI 2552 als Informationsmanager bezeichnet. Wo sie fehlt, übernimmt sie faktisch die Objektplanung — ohne Auftrag und ohne Honorar. Genau das sollte man vermeiden.</p>
+        <ul class="parts">
+          <li>bim-ziele</li>
+          <li>anwendungsfälle</li>
+          <li>aia</li>
+          <li>vergabe und verträge</li>
+          <li>qualitätssicherung über das projekt</li>
+        </ul>
+      </li>
+      <li>
+        <p class="an">bim-gesamtkoordination</p>
+        <p class="role">wir übernehmen sie</p>
+        <p class="ad">Die Zusammenführung aller Fachmodelle zum Koordinationsmodell, die Prüfung gegen AIA und BAP, die Kollisionsprüfung über die Disziplingrenzen hinweg und die Führung der offenen Punkte. Die Rolle gehört inhaltlich dort hin, wo auch die planerische Koordination liegt — beim Objektplaner. Sonst entstehen zwei Koordinationen, die sich gegenseitig zuarbeiten müssen.</p>
+        <ul class="parts">
+          <li>koordinationsmodell</li>
+          <li>kollisions- und regelprüfung</li>
+          <li>bcf-vorgänge</li>
+          <li>austauschzyklus</li>
+          <li>fortschreibung des bap</li>
+        </ul>
+      </li>
+      <li>
+        <p class="an">bim-fachkoordination</p>
+        <p class="role">wir fordern sie ein</p>
+        <p class="ad">Jede Fachplanung verantwortet die Qualität des eigenen Modells: Struktur, Merkmale, Vollständigkeit, Einhaltung der Vorgaben. Diese Rolle lässt sich nicht zentralisieren — wer sie an die Gesamtkoordination abgibt, verschiebt Verantwortung an eine Stelle, die den fachlichen Inhalt gar nicht beurteilen kann. In der Praxis ist das der häufigste Konfliktpunkt in Projekten.</p>
+        <ul class="parts">
+          <li>modellqualität je disziplin</li>
+          <li>prüfung vor abgabe</li>
+          <li>merkmale und klassifikation</li>
+          <li>beantwortung offener punkte</li>
+        </ul>
+      </li>
+      <li>
+        <p class="an">bim-autorinnen und -autoren</p>
+        <p class="role">wir sind es</p>
+        <p class="ad">Die Menschen, die modellieren. Das ist keine Hilfsfunktion, sondern der Ort, an dem Entwurfsqualität und Datenqualität zusammenfallen: Wer ein Bauteil setzt, entscheidet zugleich über seine Klassifizierung, seine Merkmale und damit über jede spätere Auswertung. Deshalb modellieren bei uns Architektinnen und Architekten — und keine reine Modellierabteilung neben der Planung.</p>
+        <ul class="parts">
+          <li>fachmodell architektur</li>
+          <li>bauteilstruktur</li>
+          <li>merkmale und klassifikation</li>
+          <li>planableitung</li>
+          <li>mengenermittlung</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="note" style="grid-column:1/-1">
+      <b>rollenzuordnung ist eine positionierung</b>
+      „wir beraten / übernehmen / fordern ein / sind es“ ist mein vorschlag und beschreibt ein büro mit generalplanungsanspruch, das die gesamtkoordination selbst führt. falls ihr die gesamtkoordination regelmäßig an ein externes büro gebt, müssen die vier zeilen anders lauten — und der satz „wir übernehmen sie“ raus. das ist die stelle, an der die seite am konkretesten verspricht. bitte genau prüfen.
+    </div>
+    <div class="note" style="grid-column:1/-1">
+      <b>qualifikationen nennen</b>
+      wenn jemand im team eine bim-qualifikation nach vdi 2552 blatt 8 oder eine zertifizierung über buildingsmart hat, gehört das an diese stelle — mit namen. bei fachthemen ist die benannte person das stärkste vertrauenssignal, wie die fachliste brandschutz auf der schwesterseite. bitte namen und zertifikat nennen.
+    </div>
+  </section>
+
+  <!-- 10 bestand und lebenszyklus -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <div class="split">
+      <div class="split-a">
+        <h2 class="sec-title">im bestand</h2>
+        <div class="prose">
+          <p>Im Bestand beginnt das digitale Planen mit einer unangenehmen Frage: Wie genau muss das Modell sein? Ein Laserscan liefert Millionen Punkte in Millimetergenauigkeit — daraus ein vollständiges Bauwerksmodell zu bauen, kostet ein Vielfaches der Erfassung und ist in den meisten Projekten nicht nötig.</p>
+          <p>Sinnvoll ist der umgekehrte Weg: Erst festlegen, welche Entscheidungen anstehen, dann die Erfassungstiefe bestimmen. Für eine Aufstockung braucht es das Tragwerk und die Geometrie, nicht jede Steckdose. Für eine Sanierung im laufenden Betrieb zählen Leitungswege und lichte Höhen. Die Punktwolke bleibt als Referenz erhalten — modelliert wird, was gebraucht wird.</p>
+        </div>
+        <ul class="plist">
+          <li><b>erfassung</b><span>laserscan oder photogrammetrie, georeferenziert und mit dokumentierter genauigkeit</span></li>
+          <li><b>modell</b><span>bestandsmodell in der tiefe, die die aufgabe verlangt — mit kenntlich gemachten annahmen</span></li>
+          <li><b>abgleich</b><span>punktwolke und modell bleiben verknüpft, damit im zweifel die messung entscheidet und nicht die zeichnung</span></li>
+          <li><b>denkmal</b><span>verformungsgerechtes aufmaß und modell schließen sich nicht aus, verlangen aber eine bewusste entscheidung über die vereinfachung</span></li>
+        </ul>
+        <div class="note">
+          <b>leistungstiefe prüfen</b>
+          scannt ihr selbst oder beauftragt ihr vermessungsbüros? beides ist eine gute antwort, aber die seite sollte es nicht offenlassen. falls ihr zuarbeitet: „wir definieren die erfassungstiefe und übernehmen die modellierung“ ist ehrlicher und trägt genauso.
+        </div>
+      </div>
+
+      <div class="split-b">
+        <h2 class="sec-title">über den lebenszyklus</h2>
+        <div class="prose">
+          <p>Der Nutzen eines Modells wächst mit der Zeit, in der es gepflegt wird. Zwei Entwicklungen machen das gerade aus Kür zur Pflicht: die Ökobilanz und die Dokumentationspflichten.</p>
+          <p>Die europäische Gebäuderichtlinie verlangt die Berechnung des Lebenszyklus-Treibhauspotenzials ab 2028 für neue Gebäude über 1.000 m² und ab 2030 für alle Neubauten. Wer Massen und Materialien ohnehin im Modell führt, hat die Grundlage dafür bereits — wer es nicht tut, erfasst sie später ein zweites Mal von Hand.</p>
+        </div>
+        <ul class="plist">
+          <li><b>ökobilanz</b><span>massen aus dem modell, kennwerte aus der ökobaudat, bilanzierung nach din en 15978 — schon in der vorplanung als variantenvergleich</span></li>
+          <li><b>ressourcen</b><span>der <a class="ext" href="https://www.dgnb.de/de/nachhaltiges-bauen/zirkulaeres-bauen/gebaeuderessourcenpass" target="_blank" rel="noopener">gebäuderessourcenpass</a> dokumentiert materialien und ihre zirkularität — das gebäude als materiallager, nicht als endlager</span></li>
+          <li><b>betrieb</b><span>as-built-modell mit anlagenkennzeichnung als grundlage für cafm, wartung und instandhaltung</span></li>
+          <li><b>umbau</b><span>jeder spätere eingriff beginnt mit bestandsdaten, die entweder vorliegen oder teuer neu erhoben werden</span></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 11 verantwortung -->
+  <section class="creed rv">
+    <div class="wrap">
+      <h2 class="sec-title">verantwortung</h2>
+      <div class="creed-in">
+        <p class="creed-claim">ein modell ist kein vertrag. und ersetzt auch keinen.</p>
+        <div class="creed-txt">
+          <p>Die HOAI ist methodenneutral formuliert: Sie schreibt keine Planungsmethode vor. Leistungen, die auch ohne Modell erbracht werden müssten, lösen deshalb nicht automatisch ein höheres Honorar aus. Alles darüber hinaus — die Strukturierung des Planungsprozesses über alle Fachmodelle, die Prüfung fremder Modelle auf formale Anforderungen, das BIM-Management — kann eine Besondere Leistung sein und muss dann vereinbart werden. Das <a class="ext" href="https://www.aho.de/publication/heft-11/" target="_blank" rel="noopener">AHO-Heft 11</a> stellt diese Abgrenzung je Leistungsbild dar und gibt Honorierungsempfehlungen.</p>
+          <p>Praktisch heißt das: Wer BIM beauftragt, ohne die Anforderungen zu beschreiben, bekommt keine verlässliche Leistung, sondern eine Auslegungsfrage. Und wer BIM anbietet, ohne die Abgrenzung zu benennen, arbeitet an der Stelle umsonst, an der es am aufwendigsten wird.</p>
+        </div>
+
+        <ul class="steps">
+          <li><b>vertrag</b><span>aia und bap werden vertragsbestandteil — sonst sind es unverbindliche absichtserklärungen. die abgrenzung von grund- und besonderen leistungen gehört in denselben schritt, dazu hat sich auch die <a class="ext" href="https://www.bauministerkonferenz.de/Dokumente/42322316.pdf" target="_blank" rel="noopener">bauministerkonferenz</a> geäußert.</span></li>
+          <li><b>daten</b><span>urheberrecht am entwurf und nutzungsrechte an modelldaten sind zwei verschiedene fragen. wer welche daten wie lange nutzen und weitergeben darf, sollte geregelt sein, bevor das erste modell übergeben wird.</span></li>
+          <li><b>nachweis</b><span>die gemeinsame datenumgebung protokolliert, wer wann welchen stand freigegeben hat. das ist im streitfall der wichtigste vorteil digitaler zusammenarbeit — und der grund, warum sie nicht nebenbei auf einem freigabefreien laufwerk stattfinden darf.</span></li>
+          <li><b>genehmigung</b><span>in baden-württemberg ist die digitale einreichung von bauanträgen seit dem 1. januar 2025 verpflichtend; abgewickelt wird sie über das <a class="ext" href="https://mlw.baden-wuerttemberg.de/de/bauen-wohnen/baurecht/bauordnungsrecht/virtuelles-bauamt" target="_blank" rel="noopener">virtuelle bauamt</a>. digital eingereicht heißt aber noch nicht modellbasiert geprüft: eingereicht werden dokumente. die modellbasierte prüfung ist erprobungsstand, nicht regelfall.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 öffentliche auftraggeber -->
+  <section class="wrap band g12 rv">
+    <div class="about-txt">
+      <h2 class="sec-title">wer öffentlich baut, baut bald nur noch so</h2>
+      <div class="prose">
+        <p>Für Bauherren, die öffentlich vergeben, ist die Frage nach BIM keine Haltungsfrage mehr. Bei neuen Projekten des Bundesinfrastrukturbaus ist die Methode seit Anfang 2021 verbindlich. Für den Bundeshochbau beschreibt der <a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2021-11-01_BIM_Masterplan.pdf" target="_blank" rel="noopener">Masterplan BIM für Bundesbauten</a> eine stufenweise Einführung in drei Levels: Level I mit den Anwendungsfällen aus Projektvorbereitung, Planung und Übergabe wurde Ende 2022 verbindlich, die vollständige Umsetzung ist bis 2027 vorgesehen; die <a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2023-03_Umsetzungsstrategie_BIM_Bundesbauten.pdf" target="_blank" rel="noopener">Umsetzungsstrategie</a> schreibt Zeitrahmen und Zuständigkeiten fort.</p>
+        <p>Länder und Kommunen folgen in unterschiedlichem Tempo, ziehen aber überwiegend die Vorgaben des Bundes heran. Für ein Planungsbüro bedeutet das weniger eine technische als eine formale Anforderung: Wer sich bewerben will, muss Rollen, Referenzen und Qualifikationen benennen können — und zwar in den Begriffen, in denen die Vergabestelle fragt.</p>
+      </div>
+      <div class="note">
+        <b>stufen fachlich gegenlesen</b>
+        die level-stufen und jahreszahlen stammen aus dem masterplan von 2021 und der umsetzungsstrategie von 2023. es gibt anpassungen bei schwellenwerten und zeitpunkten, die ich nicht vollständig belegen konnte. auf einer expertiseseite wäre eine veraltete jahreszahl ein unnötiger angriffspunkt. vorschlag: entweder wir prüfen den aktuellen stand vor veröffentlichung, oder wir formulieren ohne jahreszahlen — „stufenweise verbindlich, vollständige umsetzung angekündigt“. bitte entscheiden.
+      </div>
+    </div>
+    <div class="about-side">
+      <dl class="aims">
+        <div>
+          <dt>bund infrastruktur</dt>
+          <dd>seit 2021 verbindlich<i>neue projekte des bundesinfrastrukturbaus, auf grundlage des stufenplans von 2015</i></dd>
+        </div>
+        <div>
+          <dt>bund hochbau</dt>
+          <dd>stufenweise seit ende 2022<i>level i für neu zu planende bundesbauvorhaben, weitere stufen bis 2027</i></dd>
+        </div>
+        <div>
+          <dt>länder und kommunen</dt>
+          <dd>uneinheitlich<i>zunehmend als anforderung in der vergabe, meist an den bundesvorgaben orientiert</i></dd>
+        </div>
+        <div>
+          <dt>private bauherren</dt>
+          <dd>freiwillig, aber üblich<i>vor allem dort, wo betrieb, termine oder vorfertigung den ausschlag geben</i></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 12b was das bringt -->
+  <section class="wrap band rv">
+    <h2 class="sec-title">was das bringt</h2>
+    <ul class="risks">
+      <li>
+        <b>komplexität wird beherrschbar</b>
+        <span>ein mittleres gebäude besteht aus tausenden entscheidungen und einem dutzend beteiligter. das modell macht sie nicht weniger — es macht sie sichtbar. konflikte tauchen im koordinationszyklus auf und nicht im rohbau.</span>
+      </li>
+      <li>
+        <b>baukosten werden früher belastbar</b>
+        <span>jede menge lässt sich auf das bauteil zurückführen, das sie erzeugt hat. varianten werden vergleichbar statt verhandelbar, und änderungen fallen dort an, wo sie noch eine planungsentscheidung sind und kein nachtrag.</span>
+      </li>
+      <li>
+        <b>bauzeit wird kürzer</b>
+        <span>bauabläufe lassen sich am modell durchspielen, vorfertigung kann sich auf maße verlassen, geklärte durchdringungen halten die baustelle nicht an. die zeit wird nicht auf der baustelle gewonnen, sondern vorher.</span>
+      </li>
+      <li>
+        <b>informationsverlust hört auf</b>
+        <span>jede übergabe ist eine mögliche lücke: entwurf an ausführungsplanung, planung an baustelle, bauen an betrieb. in einer gemeinsamen datenumgebung wandert der sachverhalt mit — nicht nur seine darstellung.</span>
+      </li>
+    </ul>
+
+    <p class="after">vier versprechen — und vier bedingungen, die auf dieser seite stehen.</p>
+
+    <div class="note">
+      <b>zugelieferter text — nicht übernommen, sondern neu geschrieben</b>
+      der zugelieferte entwurf arbeitet mit werbeformeln und einem zukunftsversprechen. kein satz daraus steht auf dieser seite, und das hat zwei gründe. erstens die herkunft: der text stammt offenbar von einer fremden website und wäre damit urheberrechtlich geschützt — übernehmen könnten wir ihn ohnehin nicht. zweitens der tonfall: auf der brandschutzseite behauptet keine zeile einen vorteil, ohne die bedingung mitzuliefern. hinzu kommt, dass ein zukunftsversprechen 2026 alt klingt — bei bundesbauten ist die methode gegenwart, nicht zukunft. deshalb hier: vier nutzen, jeder mit seiner voraussetzung.
+    </div>
+  </section>
+
+  <!-- 13 ansprechpartner -->
+  <section class="wrap band rv">
+    <div class="contact">
+      <div class="avatar">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="18" r="7.6"/>
+          <path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/>
+        </svg>
+        <span>foto folgt</span>
+      </div>
+      <div>
+        <p class="statement">Profitieren auch Sie von den Vorteilen des digitalen Bauens.</p>
+        <p class="contact-txt" style="color:var(--ink-mute);max-width:54ch;margin-top:1rem">Professionelle BIM-Koordination. Wir nutzen modernste Technologien für eine effiziente Projektabwicklung. Ob sich ein Anwendungsfall lohnt und welche Informationen Sie wirklich brauchen, lässt sich meist schon im ersten Gespräch einordnen. <i>ansprechperson und funktion ergänzen.</i></p>
+        <div class="contact-foot">
+          <a class="btn" href="tel:+49731935110">07 31 . 9 35 11-0</a>
+          <a class="arrow" href="mailto:info@hochstrasser.com">nachricht schreiben <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 rueckweg -->
+  <section class="wrap band-s rv">
+    <a class="btn btn-back" href="#"><span>&larr;</span> zurück zu unseren expertisen</a>
+  </section>
+
+  <!-- 15 quellen -->
+  <section class="wrap src rv">
+    <p class="label">grundlagen dieser seite</p>
+    <ul>
+      <li>din en iso 19650 organisation von informationen zu bauwerken — informationsmanagement mit bim, insbesondere teil 1 (konzepte und grundsätze), teil 2 (lieferphase), teil 3 (betriebsphase) und teil 5 (informationssicherheit), beuth, kostenpflichtig</li>
+      <li>din en 17412-1 informationsbedarfstiefe sowie din spec 91391 gemeinsame datenumgebungen und din en 15978 ökobilanzierung von gebäuden (beuth, kostenpflichtig)</li>
+      <li>vdi 2552 building information modeling, insbesondere blatt 7 (prozesse und rollen) und blatt 8 (qualifikationen)</li>
+      <li><a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2021-11-01_BIM_Masterplan.pdf" target="_blank" rel="noopener">masterplan bim für bundesbauten</a> sowie die <a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2023-03_Umsetzungsstrategie_BIM_Bundesbauten.pdf" target="_blank" rel="noopener">umsetzungsstrategie bim für bundesbauten</a></li>
+      <li><a class="ext" href="https://www.bimdeutschland.de/bim-wissen/auftraggeber-informationsanforderungen" target="_blank" rel="noopener">bim deutschland: auftraggeber-informationsanforderungen und bim-portal des bundes</a></li>
+      <li><a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/" target="_blank" rel="noopener">buildingsmart international: industry foundation classes (iso 16739)</a> und <a class="ext" href="https://www.buildingsmart.de/buildingsmart/aktuelles/ifc-43-ist-jetzt-iso-standard" target="_blank" rel="noopener">buildingsmart deutschland zur iso-veröffentlichung von ifc 4.3</a></li>
+      <li><a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/information-delivery-specification-ids/" target="_blank" rel="noopener">buildingsmart international: information delivery specification (ids)</a></li>
+      <li><a class="ext" href="https://www.aho.de/publication/heft-11/" target="_blank" rel="noopener">aho heft 11: leistungen building information modeling</a> sowie das papier der <a class="ext" href="https://www.bauministerkonferenz.de/Dokumente/42322316.pdf" target="_blank" rel="noopener">bauministerkonferenz zu bim und hoai</a></li>
+      <li><a class="ext" href="https://mlw.baden-wuerttemberg.de/de/bauen-wohnen/baurecht/bauordnungsrecht/virtuelles-bauamt" target="_blank" rel="noopener">ministerium für landesentwicklung und wohnen baden-württemberg: virtuelles bauamt</a></li>
+      <li><a class="ext" href="https://www.dgnb.de/de/nachhaltiges-bauen/zirkulaeres-bauen/gebaeuderessourcenpass" target="_blank" rel="noopener">dgnb: gebäuderessourcenpass</a>; eu-gebäuderichtlinie 2024/1275 zur lebenszyklus-treibhausgasbilanz</li>
+    </ul>
+    <div class="note">
+      <b>quellenblock: ja oder nein?</b>
+      gleiche frage wie beim brandschutz — und ich würde sie hier gleich beantworten. wenn der block auf der einen expertiseseite steht, sollte er auf allen stehen. das ist teil des look and feel, nicht eine einzelentscheidung pro seite.
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-left">
+        <span class="brand">hochstrasser.</span>
+        <p class="ftr-addr">gesellschaft für architektur mbh<br>karpfengasse 5 · 89073 ulm</p>
+        <p class="ftr-big"><a href="tel:+49731935110">07 31 . 9 35 11-0</a></p>
+        <p class="ftr-big"><a href="mailto:info@hochstrasser.com">info@hochstrasser.com</a></p>
+      </div>
+      <div class="ftr-right">
+        <nav class="ftr-links" aria-label="weitere seiten">
+          <a href="#">kontakt</a>
+          <a href="#">bauen im bestand</a>
+          <a href="#">jobs</a>
+          <a href="#">nachhaltigkeit</a>
+          <a href="#">bda-berufung</a>
+          <a href="#">brandschutz</a>
+          <a href="#">faqs</a>
+        </nav>
+        <div class="ftr-social">
+          <a href="https://www.instagram.com/hochstrasser.architekten" aria-label="hochstrasser. auf instagram" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4.15"/>
+              <circle cx="17.15" cy="6.85" r="1.05" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="hochstrasser. auf linkedin" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="3.4"/>
+              <circle cx="7.7" cy="7.7" r="1.05" fill="currentColor" stroke="none"/>
+              <path d="M7.7 10.9V17"/>
+              <path d="M11.7 17v-6.1"/>
+              <path d="M11.7 13.7a2.5 2.5 0 0 1 5 0V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-base">
+      <span class="label">© 2026 hochstrasser. gesellschaft für architektur mbh</span>
+      <span class="label"><a href="#">impressum</a> · <a href="#">datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* offene punkte */
+const tgl=document.getElementById('tgl');
+tgl.addEventListener('click',()=>{
+  const on=document.body.classList.toggle('show-notes');
+  tgl.setAttribute('aria-pressed',String(on));
+  tgl.textContent=on?'offene punkte ausblenden':'offene punkte einblenden';
+});
+
+/* akzentfarbe vergleichen (nur prototyp) */
+const swatches=[...document.querySelectorAll('.sw')];
+swatches.forEach(b=>b.addEventListener('click',()=>{
+  document.body.dataset.accent=b.dataset.a;
+  swatches.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+}));
+
+/* menue */
+const btn=document.getElementById('menuBtn'),sheet=document.getElementById('sheet'),closeBtn=document.getElementById('menuClose');
+function openSheet(){sheet.hidden=false;requestAnimationFrame(()=>sheet.setAttribute('data-open',''));btn.setAttribute('aria-expanded','true');closeBtn.focus()}
+function shutSheet(){sheet.removeAttribute('data-open');btn.setAttribute('aria-expanded','false');btn.focus();setTimeout(()=>sheet.hidden=true,480)}
+btn.addEventListener('click',openSheet);
+closeBtn.addEventListener('click',shutSheet);
+sheet.querySelectorAll('a').forEach(a=>a.addEventListener('click',shutSheet));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)shutSheet()});
+
+/* informationslieferkette */
+const FLOW={
+  aia:{
+    name:'auftraggeber-informationsanforderungen',
+    claim:'die bestellung, die kaum jemand schreibt.',
+    who:'die bauherrschaft — in der praxis fast immer mit fachlicher unterstützung, oft durch das architekturbüro',
+    when:'vor der vergabe der planungsleistungen, spätestens mit der aufgabenstellung',
+    what:'projektziele, anwendungsfälle, rollen, datenformate, modellstruktur und die informationstiefe je übergabe',
+    plan:'ohne aia gibt es keinen maßstab für modellqualität — und damit keine abnahme, die diesen namen verdient. wer sie nicht hat, bekommt modelle, die gut aussehen und nichts beantworten.'
+  },
+  bap:{
+    name:'bim-abwicklungsplan',
+    claim:'die antwort des planungsteams.',
+    who:'das planungsteam, federführend die bim-gesamtkoordination, abgestimmt mit allen fachplanungen',
+    when:'als vorläufige fassung mit dem angebot, verbindlich ab leistungsphase 1 bis 2, danach fortgeschrieben',
+    what:'modellstruktur, namenskonvention, koordinatensystem, austauschzyklen, prüfregeln, rollen und zuständigkeiten',
+    plan:'im bap wird aus einer methode ein terminplan. jede lieferung bekommt datum, format und empfänger — und jede vorgabe eine verantwortliche person.'
+  },
+  fach:{
+    name:'fachmodelle',
+    claim:'jede disziplin plant im eigenen modell.',
+    who:'architektur, tragwerk, technische ausrüstung, bauphysik, vermessung — jeweils in eigener verantwortung',
+    when:'ab leistungsphase 2, fortgeschrieben mit jeder phase und jedem austauschzyklus',
+    what:'geometrie und merkmale in der vereinbarten informationsbedarfstiefe nach din en 17412-1 — nicht mehr und nicht weniger',
+    plan:'fachmodelle bleiben getrennt und in der hand ihrer verfasser. das ist keine schwäche des verfahrens, sondern der grund, warum verantwortung zuordenbar bleibt.'
+  },
+  koord:{
+    name:'koordinationsmodell',
+    claim:'hier wird es unbequem — und billig.',
+    who:'die bim-gesamtkoordination, zusammengeführt aus den gelieferten fachmodellen',
+    when:'in festen zyklen, in der regel wöchentlich bis zweiwöchentlich über die gesamte planung',
+    what:'zusammengeführte fachmodelle, kollisionsprüfung, regelprüfung gegen aia und bap, offene punkte als bcf-vorgänge',
+    plan:'das koordinationsmodell ist kein liefergegenstand, sondern ein prüfwerkzeug. es ist die stelle, an der ein konflikt noch zeit kostet statt geld.'
+  },
+  aim:{
+    name:'betriebsmodell',
+    claim:'das einzige modell, das lange lebt.',
+    who:'übergabe durch das planungsteam, fortschreibung durch betreiber und facility management',
+    when:'mit abnahme und inbetriebnahme — und danach über jahrzehnte',
+    what:'as-built-geometrie, anlagenkennzeichnung, produkt- und wartungsdaten, dokumente in einer lesbaren struktur',
+    plan:'was hier fehlt, wird später neu erfasst — meist teurer, als es in der planung gekostet hätte. deshalb steht die frage nach dem betrieb am anfang, nicht am ende.'
+  }
+};
+
+const draw=document.getElementById('flowDraw');
+const nodes=[...document.querySelectorAll('.fln')];
+const chips=[...document.querySelectorAll('.chip')];
+const panel=document.getElementById('flowPanel');
+const fName=document.getElementById('flName'),fClaim=document.getElementById('flClaim');
+const fWho=document.getElementById('flWho'),fWhen=document.getElementById('flWhen');
+const fWhat=document.getElementById('flWhat'),fPlan=document.getElementById('flPlan');
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let current='aia';
+
+function paint(key){
+  const d=FLOW[key];
+  fName.textContent=d.name;
+  fClaim.textContent=d.claim;
+  fWho.textContent=d.who;
+  fWhen.textContent=d.when;
+  fWhat.textContent=d.what;
+  fPlan.textContent=d.plan;
+}
+function setFlow(key){
+  if(key===current)return;
+  current=key;
+  nodes.forEach(n=>{
+    const on=n.dataset.k===key;
+    n.classList.toggle('is-on',on);
+    n.setAttribute('aria-pressed',String(on));
+  });
+  chips.forEach(c=>{
+    const on=c.dataset.k===key;
+    c.setAttribute('aria-pressed',String(on));
+  });
+  if(reduce){paint(key);return}
+  panel.classList.add('is-fading');
+  setTimeout(()=>{paint(key);panel.classList.remove('is-fading')},220);
+}
+nodes.concat(chips).forEach(el=>{
+  el.addEventListener('click',()=>setFlow(el.dataset.k));
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();setFlow(el.dataset.k)}
+  });
+});
+
+/* startzustand */
+draw.classList.add('has-on');
+nodes.forEach(n=>{const on=n.dataset.k===current;n.classList.toggle('is-on',on);n.setAttribute('aria-pressed',String(on))});
+chips.forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.k===current)));
+paint(current);
+
+/* reveal */
+if(reduce){
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+}else{
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>

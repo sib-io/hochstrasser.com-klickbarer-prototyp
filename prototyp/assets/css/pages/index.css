@@ -1,0 +1,94 @@
+/* Startseite — nur, was site.css nicht kennt */
+
+/* Hero-Fuß: Aussage 6 Spalten, Link rechtsbündig in den Spalten 9–12 */
+.idx-hero-foot{align-items:end}
+.idx-kicker{color:var(--ink)}
+.idx-hero-link{justify-self:start}
+@media (min-width:900px){.idx-hero-link{justify-self:end}}
+
+/* Aktuelles: Bild + Pfeil */
+.idx-news-media{position:relative}
+.idx-news-media .media>img{transition:opacity .35s var(--ease)}
+.idx-news-media.is-swapping .media>img{opacity:0}
+.idx-news-next{position:absolute;right:0;bottom:0;display:inline-flex;align-items:center;justify-content:center;width:var(--sp-6);height:var(--sp-6);background:var(--paper);color:var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
+.idx-news-next:hover{background:var(--ink);color:var(--paper)}
+.idx-news-next svg{width:1.5rem;height:1.5rem}
+/* ab 1200: Bild 8 | 1 frei | Meldungen 3 (Seitenspalte 10–12); der Pfeil sitzt mittig
+   auf der Bildkante und ragt in die freie Spalte */
+@media (min-width:1200px){
+  .grid>.idx-news-side{grid-column:10/span 3}
+  .idx-news-next{top:50%;bottom:auto;transform:translate(50%,-50%);border:1px solid var(--ink)}
+}
+
+/* Meldungsliste: Kategorie | Jahr als Meta-Zeile über dem Titel, Titel über die volle Spaltenbreite;
+   die aktive Meldung wächst */
+.idx-feed{border-top:1px solid var(--ink)}
+.idx-feed>li{border-bottom:1px solid var(--rule)}
+.idx-feed a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--sp-2);row-gap:var(--sp-1);padding-block:var(--sp-2);transition:padding .45s var(--ease)}
+.idx-feed__kind,.idx-feed__year{grid-row:1;white-space:nowrap}
+.idx-feed__kind{grid-column:1}
+.idx-feed__year{grid-column:2}
+.idx-feed__title{grid-row:2;grid-column:1/-1;font-size:var(--fs-ui);line-height:1.35;text-wrap:balance;transition:font-size .45s var(--ease)}
+.idx-feed a:hover .idx-feed__title{text-decoration:underline;text-underline-offset:.2em}
+.idx-feed__desc{grid-row:2;grid-column:1/-1;display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s var(--ease),opacity .3s var(--ease)}
+.idx-feed__desc>p{overflow:hidden;color:var(--mute);font-size:var(--fs-small);line-height:1.55}
+.idx-feed .is-lead>a{padding-block:var(--sp-3)}
+.idx-feed .is-lead .idx-feed__title{margin-top:var(--sp-1);font-size:var(--fs-h4);font-weight:700;line-height:1.3}
+.idx-feed .is-lead .idx-feed__title::after{content:'.'}
+.idx-feed .is-lead .idx-feed__desc{grid-row:3;grid-template-rows:1fr;opacity:1}
+.idx-feed .is-lead .idx-feed__desc>p{padding-top:var(--sp-2)}
+@media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}}
+
+/* Leistungsband: 900–1199 Aussage + Liste links (6), Zeichnung rechts (5, Spalten 8–12);
+   ab 1200 nebeneinander: Aussage 6 | Zeichnung 2 | 1 frei | Liste 3 (Seitenspalte 10–12) */
+.idx-svc{row-gap:var(--sp-6)}
+.idx-svc__fig img{width:100%;height:auto} /* Bildgrund = --shade, kein Blend nötig */
+@media (min-width:900px){
+  .idx-svc__say{grid-row:1}
+  .idx-svc__list{grid-row:2}
+  .idx-svc__fig{grid-row:1/span 2;align-self:center}
+}
+@media (min-width:1200px){
+  .idx-svc{align-items:center}
+  .idx-svc>.idx-svc__say{grid-column:1/span 6;grid-row:1}
+  .idx-svc>.idx-svc__fig{grid-column:7/span 2;grid-row:1}
+  .idx-svc>.idx-svc__list{grid-column:10/span 3;grid-row:1}
+}
+.idx-terms a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--sp-3);align-items:center}
+.idx-terms>li{padding-block:0;border-bottom-color:var(--rule-tint)}
+.idx-terms>li>a{padding-block:var(--sp-3)}
+.idx-term{display:grid;row-gap:var(--sp-1)}
+.idx-term__sub{font-size:var(--fs-small);color:var(--mute);transition:color .3s var(--ease)}
+.idx-terms a:hover .idx-term__sub,.idx-terms a:focus-visible .idx-term__sub{color:var(--ink)}
+.idx-term__go{font-family:var(--font-ui);color:var(--mute);opacity:0;transform:translateX(calc(-1 * var(--sp-1)));transition:opacity .3s var(--ease),transform .3s var(--ease),color .3s var(--ease)}
+.idx-terms a:hover .idx-term__go,.idx-terms a:focus-visible .idx-term__go{opacity:1;transform:none;color:var(--ink)}
+@media (hover:none){.idx-term__go{opacity:.5;transform:none}}
+
+/* Projekte */
+.idx-more{margin-top:var(--sp-6)}
+
+/* Auszeichnungen */
+.idx-rubric-ico{display:inline-flex;align-items:center;gap:var(--sp-2)}
+.idx-rubric-ico svg{width:1.5rem;height:1.5rem;flex:none}
+.idx-awards a{padding-block:0}
+.idx-awards>li{padding-block:var(--sp-3)}
+.idx-awards a:hover .t-h4{text-decoration:underline;text-underline-offset:.22em}
+@media (min-width:900px){
+  .idx-awards .rows__row>:nth-child(1){grid-column:1/span 2}
+  .idx-awards .rows__row>:nth-child(2){grid-column:3/span 6}
+  .idx-awards .rows__row>:nth-child(3){grid-column:9/span 4}
+}
+
+/* Profil: Wortmarke, Motto, Team-Raster */
+.idx-profile{text-align:center}
+.idx-mark{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-display);line-height:1;letter-spacing:-.03em;color:var(--ink)}
+.idx-motto{margin-inline:auto;max-width:47ch;color:var(--mute)}
+/* Team-Raster: 12 Spalten mit feiner Fuge (--sp-1); Außenkanten = Inhaltsbreite,
+   wirkt als eine Fläche statt als zerfasertes Raster. Unter 900 px 6 Spalten */
+.idx-crew{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-3)}
+@media (min-width:900px){.idx-crew{grid-template-columns:repeat(12,minmax(0,1fr))}}
+.idx-face{aspect-ratio:1/1;background:var(--shade);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:background .25s var(--ease),box-shadow .25s var(--ease)}
+.idx-face:hover,.idx-face:focus-visible{background:var(--rule);box-shadow:inset 0 0 0 1px var(--ink)}
+.idx-face img{width:100%;height:100%;object-fit:cover}
+.idx-crew-name{margin-top:var(--sp-4);text-align:center;min-height:1.4em}
+.idx-crew-foot{display:flex;justify-content:center;margin-top:var(--sp-4)}

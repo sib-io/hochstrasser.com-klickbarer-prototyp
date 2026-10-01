@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil — hochstrasser. (Expertise: Gesichter)</title>
+<meta name="description" content="hochstrasser. Architekten und Generalplaner in Ulm. Leitbild, Kernthemen und Leistungsbild in einer Zeichnung — Architektur, die Gestaltung, Technik und Wirtschaftlichkeit von Anfang an zusammenbringt.">
+<link rel="canonical" href="https://hochstrasser.com/profil/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="hochstrasser.">
+<meta property="og:url" content="https://hochstrasser.com/profil/">
+<meta property="og:title" content="Profil — hochstrasser.">
+<meta property="og:description" content="Wir machen komplexe Bauprojekte einfacher — weil wir Gestaltung, Technik und Wirtschaftlichkeit von Anfang an zusammenbringen.">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ============================================================
+   PROFILSEITE — variante „schema als hero"
+   das diagramm aus dem leitbild-workshop wird zum hauptelement:
+   kernthemen (position) -> leistungsbild (beauftragbare rollen).
+   ein kernthema anwaehlen zeigt den weg und den zugehoerigen text.
+   das leitbild wird weiter unten im dunklen band wieder aufgegriffen.
+
+   schriften wie startseite und projektseite:
+   PX Grotesk -> logo, navigation, rubriken, knoten
+   Calibri / Calibri Light -> fliesstext und grosse aussagen
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --ink:#161616;
+  --ink-mute:#6e6e6e;
+  --rule:#e4e5e7;
+  --shade:#f2f2f2;
+  --pad: clamp(1.25rem, 5.2vw, 6.25rem);
+  --band: clamp(3.75rem, 8.5vw, 7.5rem);
+  --gut: clamp(.65rem, 1.35vw, 1.15rem);
+  --grid: repeat(12, minmax(0,1fr));
+  --row: clamp(1.4rem, 2.8vw, 2.4rem);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --font-body:'Calibri',sans-serif;
+  --font-light:'Calibri Light','Calibri',sans-serif;
+  --font-ui:'PX Grotesk',sans-serif;
+  --font-logo:var(--font-ui);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(.95rem,.92rem + .2vw,1.0625rem);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+.wrap{max-width:1620px;margin:0 auto;padding-inline:var(--pad)}
+.label{font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.band{padding-block:var(--band)}
+.band-s{padding-block:clamp(2.25rem,4.6vw,4rem)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:99}
+.skip:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.g12{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:var(--row);align-items:start}
+.sec-title{font-family:var(--font-ui);font-weight:600;font-size:clamp(1.05rem,1.45vw,1.3rem);letter-spacing:.055em;line-height:1.2}
+.sec-head{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:1rem;align-items:baseline}
+.sec-head .sec-title{grid-column:1/-1}
+.sec-head .arrow{grid-column:1/-1;justify-self:start}
+@media(min-width:900px){
+  .sec-head .sec-title{grid-column:1/span 5}
+  .sec-head .arrow{grid-column:7/span 6;justify-self:end}
+}
+.statement{
+  font-size:clamp(1rem,.95rem + .3vw,1.15rem);letter-spacing:0;line-height:1.5;
+  font-family:var(--font-body);font-weight:700;max-width:44ch;color:var(--ink);
+}
+.statement + .prose{margin-top:clamp(.7rem,1.3vw,1rem)}
+.arrow{font-weight:600;font-size:.9rem;letter-spacing:.02em;border-bottom:1px solid var(--ink);padding-bottom:.15rem;white-space:nowrap;display:inline-block}
+.arrow span{display:inline-block;transition:transform .3s var(--ease)}
+.arrow:hover span{transform:translateX(5px)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--ink);padding:.9rem 1.9rem;font-family:var(--font-ui);font-weight:600;font-size:.92rem;letter-spacing:.05em;transition:background .3s var(--ease),color .3s var(--ease)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn span{display:inline-block;transition:transform .3s var(--ease)}
+.btn:hover span{transform:translateX(4px)}
+
+/* offene punkte */
+.note{display:none}
+body.show-notes .note{
+  display:block;border:1px dashed var(--rule);padding:clamp(.9rem,1.8vw,1.35rem);
+  margin-top:clamp(1.1rem,2.2vw,1.6rem);color:var(--ink-mute);font-size:.95rem;max-width:62ch;
+}
+body.show-notes .note b{
+  display:block;font-family:var(--font-ui);font-weight:600;font-size:.7rem;
+  letter-spacing:.15em;color:var(--ink);margin-bottom:.5rem;
+}
+.note ul{list-style:none;margin-top:.5rem}
+.note li{padding-block:.15rem}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--rule)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:clamp(62px,7vw,88px)}
+.brand{font-family:var(--font-logo);font-weight:700;font-size:clamp(1.05rem,1.7vw,1.32rem);letter-spacing:-.012em}
+.nav{display:none;gap:clamp(1.1rem,2.2vw,2.1rem);align-items:baseline}
+.nav a{font-family:var(--font-ui);font-size:.92rem;letter-spacing:.05em;color:var(--ink);opacity:.72;transition:opacity .22s var(--ease)}
+.nav a:hover,.nav a[aria-current]{opacity:1}
+.dots{display:flex;flex-direction:column;gap:4px;padding:.6rem .35rem}
+.dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);display:block;transition:transform .3s var(--ease)}
+.dots:hover i:nth-child(1){transform:translateX(-3px)}
+.dots:hover i:nth-child(3){transform:translateX(3px)}
+@media(min-width:820px){.nav{display:flex}.dots{display:none}}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:var(--pad);transform:translateY(-100%);transition:transform .5s var(--ease)}
+.sheet[data-open]{transform:none}
+.sheet a{font-family:var(--font-ui);font-size:clamp(1.7rem,8vw,2.4rem);letter-spacing:.03em;font-weight:600}
+.sheet-close{position:absolute;top:1.1rem;right:var(--pad);color:var(--ink-mute);font-family:var(--font-ui)}
+
+/* ---------- hero: claim, klein gehalten ---------- */
+.hero{padding-block:clamp(2.25rem,5vw,4rem) clamp(3.75rem,7.5vw,6.5rem)}
+.hero .eyebrow{grid-column:1/-1;margin-bottom:clamp(1.1rem,2.4vw,1.9rem)}
+.claim{
+  grid-column:1/-1;
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(1.95rem,4.4vw,3.6rem);line-height:1.05;letter-spacing:-.015em;max-width:22ch;
+}
+.claim em{font-style:normal;color:var(--ink-mute)}
+.hero-sub{grid-column:1/-1;margin-top:clamp(.9rem,1.8vw,1.4rem);color:var(--ink-mute);max-width:56ch}
+.hero .note{grid-column:1/-1}
+@media(min-width:900px){
+  .claim{grid-column:1/span 8}
+  .hero-sub{grid-column:1/span 6}
+}
+
+/* ---------- das schema ---------- */
+.schema-sec{padding-block:clamp(2.5rem,5vw,4.5rem) var(--band)}
+.schema{width:100%;height:auto;display:block;overflow:visible}
+@media(max-width:759px){.schema{display:none}}
+
+.sv-rail{stroke:var(--ink);stroke-width:1}
+.sv-link{stroke:var(--ink-mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;opacity:.85;transition:stroke .25s var(--ease),stroke-dasharray .25s var(--ease),opacity .25s var(--ease)}
+.sv-svc rect{fill:none;stroke:var(--ink);stroke-width:1}
+.sv-svc text{font-family:var(--font-ui);font-weight:600;font-size:16px;letter-spacing:.03em;fill:var(--ink)}
+
+.node{cursor:pointer;transition:opacity .25s var(--ease)}
+.node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
+.node text{font-family:var(--font-ui);font-weight:600;font-size:14px;letter-spacing:.02em;fill:var(--ink);transition:fill .3s var(--ease)}
+.node:hover rect{fill:var(--shade)}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke-width:2}
+.schema.has-on .node:not(.is-on){opacity:.38}
+.node.is-on rect{fill:var(--ink)}
+.node.is-on:hover rect{fill:var(--ink)}
+.node.is-on text{fill:var(--paper)}
+.node.is-on .sv-link{stroke:var(--ink);stroke-dasharray:none;opacity:1}
+
+/* chips als ersatz auf kleinen schirmen */
+.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+@media(min-width:760px){.chips{display:none}}
+.chip{
+  font-family:var(--font-ui);font-weight:600;font-size:.85rem;letter-spacing:.03em;line-height:1.25;
+  border:1px solid var(--ink);padding:.75rem .8rem;text-align:left;
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* ---------- textfeld zum gewaehlten kernthema ---------- */
+.kt-panel{
+  margin-top:clamp(1.9rem,3.6vw,3rem);padding-top:clamp(1.4rem,2.6vw,2rem);
+  border-top:1px solid var(--ink);
+  transition:opacity .25s var(--ease);
+}
+.kt-panel.is-fading{opacity:0}
+.kt-head{grid-column:1/-1}
+.kt-body{grid-column:1/-1}
+.kt-media{grid-column:1/-1;margin:0;overflow:hidden}
+.kt-media img{width:100%;aspect-ratio:1/1;object-fit:cover}
+@media(min-width:900px){
+  .kt-media{grid-column:1/span 4;grid-row:1/span 2}
+  .kt-head{grid-column:6/span 7;grid-row:1}
+  .kt-body{grid-column:6/span 7;grid-row:2}
+}
+.kt-name{margin-bottom:.6rem}
+.kt-claim{font-family:var(--font-light);font-weight:300;font-size:clamp(1.45rem,3vw,2.35rem);line-height:1.18;letter-spacing:-.02em}
+.kt-text{color:var(--ink-mute);max-width:52ch}
+.kt-kicker{
+  margin-top:clamp(1.1rem,2.2vw,1.6rem);padding-top:clamp(.9rem,1.8vw,1.25rem);
+  border-top:1px solid var(--rule);max-width:44ch;
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(1.1rem,1.7vw,1.4rem);line-height:1.3;letter-spacing:-.012em;color:var(--ink);
+}
+.kt-body .arrow{margin-top:clamp(1.1rem,2.2vw,1.6rem)}
+
+/* ---------- haltung: graues band direkt unter dem claim ---------- */
+.about{background:var(--shade)}
+.about .facts{border-top-color:var(--ink)}
+.about .facts>div{border-bottom-color:rgba(22,22,22,.14)}
+.about-txt{grid-column:1/-1}
+.about-side{grid-column:1/-1}
+@media(min-width:900px){
+  .about-txt{grid-column:1/span 6}
+  .about-side{grid-column:8/span 5}
+}
+.prose{max-width:62ch;font-size:clamp(1rem,.95rem + .3vw,1.15rem);line-height:1.68;color:#2c2c2c;margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.facts{border-top:1px solid var(--ink)}
+.facts>div{display:flex;flex-wrap:wrap;gap:.15rem 1.5rem;align-items:baseline;justify-content:space-between;padding:.95rem 0;border-bottom:1px solid var(--rule)}
+.facts dt{font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.facts dd{font-family:var(--font-light);font-weight:300;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.1;letter-spacing:-.022em}
+
+/* ---------- expertise, variante a: leistungsphasen-achse ---------- */
+.exp{background:var(--shade)}
+.exp-body{margin-top:clamp(1.6rem,3vw,2.5rem)}
+[data-exp-panel]{display:none}
+[data-exp-panel].is-shown{display:block}
+
+.lph-scale{display:none}
+.lph-list{border-top:1px solid var(--ink)}
+.lph-row{
+  display:grid;grid-template-columns:1fr;gap:.3rem;
+  padding-block:.85rem;border-bottom:1px solid rgba(22,22,22,.14);
+}
+.lph-name{letter-spacing:.02em}
+.lph-span{color:var(--ink-mute);font-size:.9rem}
+.lph-track{display:none}
+@media(min-width:760px){
+  .lph-scale{
+    display:grid;grid-template-columns:var(--grid);
+    column-gap:var(--gut);align-items:end;margin-bottom:.6rem;
+  }
+  .lph-scale>.label{grid-column:1/span 3}
+  .lph-scale .ticks{grid-column:4/span 9;display:grid;grid-template-columns:repeat(10,minmax(0,1fr))}
+  .lph-scale .ticks span{padding-left:.3rem}
+  .lph-row{grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:0;align-items:center}
+  .lph-name{grid-column:1/span 3}
+  .lph-span{display:none}
+  .lph-track{
+    grid-column:4/span 9;display:block;position:relative;height:16px;
+    border-right:1px solid rgba(22,22,22,.16);
+  }
+  .lph-track::before{
+    content:'';position:absolute;inset:0;
+    background:repeating-linear-gradient(to right,rgba(22,22,22,.16) 0 1px,transparent 1px 10%);
+  }
+  .lph-bar{
+    position:absolute;top:4px;bottom:4px;
+    left:calc(var(--s) * 10%);width:calc((var(--e) - var(--s)) * 10%);
+    background:var(--ink);
+  }
+  .lph-row:hover .lph-bar{background:var(--ink)}
+}
+
+/* ---------- expertise, variante b: gesichter ---------- */
+.faces{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(1.6rem,3vw,2.4rem)}
+.face{grid-column:span 6}
+@media(min-width:760px){.face{grid-column:span 4}}
+@media(min-width:1100px){.face{grid-column:span 3}}
+.face figure{margin:0}
+.face .ph{
+  aspect-ratio:3/4;background:rgba(255,255,255,.7);
+  border:1px solid rgba(22,22,22,.14);
+  display:flex;align-items:flex-end;justify-content:flex-start;padding:.7rem;
+}
+.face b{
+  display:block;font-family:var(--font-ui);font-weight:600;
+  font-size:clamp(.95rem,1.3vw,1.1rem);letter-spacing:.03em;line-height:1.25;
+  margin-top:.85rem;
+}
+.face i{display:block;color:var(--ink-mute);font-size:.9rem;margin-top:.25rem}
+
+/* ---------- leitbild: vier felder, durch haarlinien getrennt ---------- */
+.creed{background:var(--ink);color:var(--paper);padding-block:clamp(3.25rem,7.5vw,6.5rem)}
+.creed .sec-title{color:var(--paper)}
+.creed-intro{
+  margin-top:clamp(1.5rem,3vw,2.4rem);max-width:62ch;
+  font-size:clamp(1rem,.95rem + .3vw,1.15rem);line-height:1.68;
+  color:rgba(255,255,255,.78);
+}
+.quad{
+  display:grid;grid-template-columns:1fr;gap:1px;
+  background:rgba(255,255,255,.28);
+  border-top:1px solid rgba(255,255,255,.28);
+  margin-top:clamp(2rem,4vw,3.25rem);
+}
+@media(min-width:820px){.quad{grid-template-columns:1fr 1fr}}
+.qcell{
+  background:var(--ink);
+  padding:clamp(1.5rem,3vw,2.6rem) 0 clamp(1.6rem,3.2vw,2.8rem);
+}
+@media(min-width:820px){
+  .qcell{padding-inline:clamp(1.5rem,3vw,3rem)}
+  .qcell:nth-child(odd){padding-left:0}
+  .qcell:nth-child(even){padding-right:0}
+}
+.qcell h3{
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(1.85rem,4vw,3.1rem);line-height:1.02;letter-spacing:-.03em;
+  margin-bottom:clamp(1.05rem,2.2vw,1.7rem);
+}
+.qcell ul{list-style:none;display:grid;gap:.34rem}
+.qcell li{
+  position:relative;padding-left:1.35rem;
+  color:rgba(255,255,255,.72);font-size:clamp(.95rem,1.3vw,1.12rem);line-height:1.5;
+}
+.qcell li::before{
+  content:'';position:absolute;left:0;top:.78em;
+  width:8px;height:1px;background:rgba(255,255,255,.5);
+}
+
+/* ---------- anschluss ---------- */
+.next{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media(min-width:820px){.next{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--paper);padding:clamp(1.5rem,3.2vw,2.6rem);display:block;transition:background .25s var(--ease)}
+.card:hover{background:var(--shade)}
+.card-media{margin:0 0 clamp(1.05rem,2.2vw,1.6rem);background:var(--shade);overflow:hidden}
+.card-media img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .8s var(--ease)}
+.card:hover .card-media img{transform:scale(1.04)}
+.card b{font-family:var(--font-ui);font-weight:600;font-size:clamp(1.15rem,1.9vw,1.45rem);letter-spacing:.045em;display:block;margin-bottom:.55rem}
+.card span{color:var(--ink-mute);display:block;max-width:34ch}
+.card .arrow{display:inline-block;color:var(--ink);margin-top:clamp(1.1rem,2.2vw,1.6rem)}
+.card .arrow span{display:inline-block;color:inherit;margin:0}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem) 2.25rem}
+.ftr-top{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(2rem,4vw,3.5rem)}
+.ftr-left{grid-column:1/-1}
+.ftr-right{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-left{grid-column:1/span 6}
+  .ftr-right{grid-column:8/span 5}
+}
+.ftr .brand{font-size:clamp(1.6rem,3.2vw,2.35rem);letter-spacing:-.018em;display:block;margin-bottom:1.1rem}
+.ftr-addr{color:rgba(255,255,255,.62);max-width:32ch}
+.ftr-big{margin-top:1.4rem;font-size:clamp(1.15rem,2.1vw,1.55rem);letter-spacing:.02em;font-weight:600;line-height:1.35}
+.ftr-big+.ftr-big{margin-top:.35rem}
+.ftr-big a{border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:.1rem;transition:border-color .25s var(--ease)}
+.ftr-big a:hover{border-bottom-color:var(--paper)}
+.ftr-right{display:flex;flex-direction:column;gap:clamp(1.75rem,3vw,2.5rem)}
+@media(min-width:860px){.ftr-right{padding-top:.5rem}}
+.ftr-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 2rem;align-content:start}
+.ftr-links a{color:rgba(255,255,255,.78);transition:color .22s var(--ease)}
+.ftr-links a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-social{display:flex;gap:.7rem;justify-content:flex-end}
+.ftr-social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;flex:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.78);transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
+.ftr-social a:hover{border-color:var(--paper);color:var(--ink);background:var(--paper)}
+.ftr-social svg{width:19px;height:19px;display:block}
+.ftr .label{color:rgba(255,255,255,.5)}
+.ftr .label a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-base{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.6rem;margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.18)}
+.ftr-base>*{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-base>*:first-child{grid-column:1/span 6}
+  .ftr-base>*:last-child{grid-column:8/span 5;justify-self:end}
+}
+
+/* ------------------------------------------------------------
+   schreibweise: im quelltext stehen alle texte in korrekter
+   gross-/kleinschreibung. die durchgaengige kleinschreibung ist
+   reine typografie und entsteht erst in der anzeige.
+   vorteil: suchmaschinen, screenreader und kopierter text
+   erhalten weiterhin die korrekte schreibweise.
+   ------------------------------------------------------------ */
+body{text-transform:lowercase}
+button,input,select,textarea,optgroup{text-transform:inherit}
+.schema text,.sv-svc text,.node text{text-transform:lowercase}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#">hochstrasser.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#">Projekte</a>
+      <a href="#">Expertise</a>
+      <a href="#">Auszeichnungen</a>
+      <a href="#" aria-current="page">Profil</a>
+      <a href="#">Büro</a>
+    </nav>
+    <button class="dots" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <button class="sheet-close" id="menuClose">Schließen</button>
+  <a href="#">Projekte</a>
+  <a href="#">Expertise</a>
+  <a href="#">Auszeichnungen</a>
+  <a href="#">Profil</a>
+  <a href="#">Büro</a>
+</div>
+
+<main id="inhalt">
+
+  <!-- 1 claim -->
+  <section class="wrap hero g12">
+    <p class="eyebrow label">Profil</p>
+    <h1 class="claim">Wir machen komplexe Bauprojekte einfacher<em>.</em></h1>
+    <p class="hero-sub">Weil wir Gestaltung, Technik und Wirtschaftlichkeit von Anfang an zusammenbringen. Architekten und Generalplaner in Ulm, seit 2002.</p>
+
+    <div class="note">
+      <b>Markenessenz — Variante festlegen</b>
+      Drei Kurzformen liegen zur Auswahl:
+      <ul>
+        <li>hochstrasser. Architektur. Interdisziplinär.</li>
+        <li>hochstrasser. Architektur weitergedacht.</li>
+        <li>hochstrasser. Architektur ganzheitlich gedacht.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 haltung, graues band -->
+  <section class="about rv">
+    <div class="wrap band g12">
+    <div class="about-txt">
+      <h2 class="statement">Architektur ist bei uns keine Einzeldisziplin</h2>
+      <div class="prose">
+        <p>Wir sind ein interdisziplinäres Team aus Architekt:innen und Ingenieur:innen mit Zusatzqualifikationen in Energieberatung, Bauphysik, Brandschutz, Nachhaltigkeit, DGNB &amp; Zertifizierungen, Barrierefreiheit und Digitales Bauen. Die Fragen, die ein Projekt teuer machen, stellen wir deshalb am ersten Tag — nicht in der Ausführung.</p>
+      </div>
+      <div class="note">
+        <b>Formulierung offen</b>
+        Im Entwurf steht „junges und interdisziplinäres Team“. „Jung“ kann bei öffentlichen Auftraggebern als fehlende Erfahrung gelesen werden — hier weggelassen. Bitte entscheiden.
+      </div>
+    </div>
+    <div class="about-side">
+      <dl class="facts">
+        <div><dt>Gründung</dt><dd>2002</dd></div>
+        <div><dt>Projekte</dt><dd>über 120</dd></div>
+        <div><dt>Auszeichnungen</dt><dd>27</dd></div>
+        <div><dt>Fachdisziplinen</dt><dd>8</dd></div>
+        <div><dt>BDA-Berufungen</dt><dd>4</dd></div>
+      </dl>
+    </div>
+    </div>
+  </section>
+
+  <!-- 3 schema -->
+  <section class="wrap schema-sec">
+    <svg class="schema" id="schema" viewBox="0 0 1240 240" role="img" aria-label="Zeichnung: fünf Kernthemen, aus denen sich das Leistungsbild ergibt">
+
+      <!-- kernthemen -->
+      <g class="node" id="n-integral" data-k="integral" role="button" tabindex="0" aria-pressed="false">
+        <rect x="0.0" y="14" width="235" height="76"/>
+        <text x="117.5" y="46" text-anchor="middle">Integrale</text>
+        <text x="117.5" y="65" text-anchor="middle">Planung</text>
+        <line class="sv-link" x1="117.5" y1="90" x2="117.5" y2="138"/>
+      </g>
+
+      <g class="node" id="n-wirtschaft" data-k="wirtschaft" role="button" tabindex="0" aria-pressed="false">
+        <rect x="251.25" y="14" width="235" height="76"/>
+        <text x="368.75" y="57" text-anchor="middle">Wirtschaftlichkeit</text>
+        <line class="sv-link" x1="368.75" y1="90" x2="368.75" y2="138"/>
+      </g>
+
+      <g class="node" id="n-nachhaltigkeit" data-k="nachhaltigkeit" role="button" tabindex="0" aria-pressed="false">
+        <rect x="502.5" y="14" width="235" height="76"/>
+        <text x="620.0" y="57" text-anchor="middle">Nachhaltigkeit</text>
+        <line class="sv-link" x1="620.0" y1="90" x2="620.0" y2="138"/>
+      </g>
+
+      <g class="node" id="n-bestand" data-k="bestand" role="button" tabindex="0" aria-pressed="false">
+        <rect x="753.75" y="14" width="235" height="76"/>
+        <text x="871.25" y="57" text-anchor="middle">Bestand</text>
+        <line class="sv-link" x1="871.25" y1="90" x2="871.25" y2="138"/>
+      </g>
+
+      <g class="node" id="n-verantwortung" data-k="verantwortung" role="button" tabindex="0" aria-pressed="false">
+        <rect x="1005.0" y="14" width="235" height="76"/>
+        <text x="1122.5" y="57" text-anchor="middle">Verantwortung</text>
+        <line class="sv-link" x1="1122.5" y1="90" x2="1122.5" y2="138"/>
+      </g>
+
+      <!-- buendelung -->
+      <line class="sv-rail" x1="0" y1="138" x2="1240" y2="138"/>
+      <line class="sv-link" x1="201" y1="138" x2="201" y2="168"/>
+      <line class="sv-link" x1="620" y1="138" x2="620" y2="168"/>
+      <line class="sv-link" x1="1039" y1="138" x2="1039" y2="168"/>
+
+      <!-- leistungsbild -->
+      <g class="sv-svc">
+        <rect x="0" y="168" width="402" height="56"/>
+        <text x="201" y="202" text-anchor="middle">Architektur</text>
+        <rect x="419" y="168" width="402" height="56"/>
+        <text x="620" y="202" text-anchor="middle">Interdisziplinarität</text>
+        <rect x="838" y="168" width="402" height="56"/>
+        <text x="1039" y="202" text-anchor="middle">Generalplanung</text>
+      </g>
+    </svg>
+
+    <!-- kleine schirme: knoten als schaltflaechen -->
+    <div class="chips" role="group" aria-label="Kernthema wählen">
+      <button class="chip" data-k="integral" aria-pressed="false">Integrale Planung</button>
+      <button class="chip" data-k="wirtschaft" aria-pressed="false">Wirtschaftlichkeit</button>
+      <button class="chip" data-k="nachhaltigkeit" aria-pressed="false">Nachhaltigkeit</button>
+      <button class="chip" data-k="bestand" aria-pressed="false">Bestand</button>
+      <button class="chip" data-k="verantwortung" aria-pressed="false">Verantwortung</button>
+    </div>
+
+    <div class="kt-panel g12" id="ktPanel" aria-live="polite">
+      <figure class="kt-media">
+        <img id="ktImg" src="https://hochstrasser.com/wp-content/uploads/2023/11/825_header-scaled.jpg" alt="Platzhalter: Rechenzentrum SWU, Ulm" loading="lazy">
+      </figure>
+      <div class="kt-head">
+        <p class="kt-name label" id="ktName">Integrale Planung</p>
+        <p class="kt-claim" id="ktClaim">Gemeinsam planen. Einfach bauen.</p>
+      </div>
+      <div class="kt-body">
+        <p class="kt-text" id="ktText">Komplexe Bauprojekte entstehen nicht mehr in einzelnen Fachbereichen, sondern im Zusammenspiel aller Beteiligten. Deshalb verbinden wir Architektur und technische Fachdisziplinen von Beginn an in einem integralen Planungsprozess. Klare Verantwortlichkeit, kurze Entscheidungswege und frühzeitige Abstimmungen schaffen Transparenz, vereinfachen Schnittstellen und erhöhen die Planungs-, Termin- und Kostensicherheit.</p>
+        <p class="kt-kicker" id="ktKicker">Komplexität braucht keine komplizierten Prozesse. Sie braucht klare Strukturen.</p>
+        <a class="arrow" href="#" id="ktLink">Projekte dazu ansehen <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Bildzuordnung ist ein Vorschlag</b>
+      Die fünf Bilder stammen aus dem Projektarchiv der bestehenden Website und sind je Kernthema frei gewählt. Welches Projekt welche Haltung am besten belegt, entscheidet ihr — dafür braucht es ein Bild in Querformat je Kernthema.
+    </div>
+    <div class="note">
+      <b>Verknüpfung Projekte</b>
+      Der Link unter jedem Kernthema setzt voraus, dass Projekte im Backend einem Kernthema zugeordnet werden können. Das lässt sich mit der bestehenden Filterlogik der Projektseite verbinden.
+    </div>
+  </section>
+
+  <!-- 4 expertise -->
+  <section class="exp rv">
+    <div class="wrap band">
+      <div class="sec-head">
+        <h2 class="sec-title">Expertise</h2>
+      </div>
+
+      <div class="exp-body">
+        <div data-exp-panel="faces" class="is-shown">
+          <div class="faces">
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>Architektur</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>Brandschutz</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>Nachhaltigkeit</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>Bauphysik</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>DGNB / Zertifizierung</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>Barrierefreiheit</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>Digitales Bauen</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          <div class="face">
+            <figure class="ph"><span class="label">Porträt folgt</span></figure>
+            <b>Generalplanung</b>
+            <i>Name und Qualifikation folgen</i>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Porträts und Zuordnung fehlen</b>
+        Die Kacheln sind Platzhalter. Gebraucht wird je Kompetenz ein Porträt im Hochformat sowie Name und Qualifikation der Person, die sie im Haus vertritt. Die Namen stehen bereits auf der Büroseite.
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 leitbild -->
+  <section class="creed rv">
+    <div class="wrap">
+      <h2 class="sec-title">Leitbild</h2>
+      <p class="creed-intro">Wir sind überzeugt, dass gutes Bauen mehr ist als gute Architektur. Erfolgreiche Projekte entstehen dort, wo Gestaltung, Wirtschaftlichkeit, Nachhaltigkeit und technische Kompetenz von Anfang an zusammengedacht werden. Deshalb setzen wir auf integrale Planung. Wir verbinden Architektur, Fachplanung und Projektsteuerung in einem gemeinsamen Prozess, schaffen klare Verantwortlichkeiten und treffen Entscheidungen auf einer fundierten, interdisziplinären Grundlage.</p>
+      <div class="quad">
+        <div class="qcell">
+          <h3>Individualität</h3>
+          <ul>
+            <li>Wir entwickeln die passgenaue Lösung.</li>
+            <li>Wir begleiten von der Idee zum Erfolg.</li>
+            <li>Wir sind authentisch.</li>
+          </ul>
+        </div>
+        <div class="qcell">
+          <h3>Partnerschaft</h3>
+          <ul>
+            <li>Wir pflegen offenen, ehrlichen Austausch.</li>
+            <li>Wir begegnen uns respektvoll und auf Augenhöhe.</li>
+            <li>Wir handeln im Sinne gemeinsam vereinbarter Ziele.</li>
+          </ul>
+        </div>
+        <div class="qcell">
+          <h3>Verantwortung</h3>
+          <ul>
+            <li>Wir schaffen angemessene und ganzheitliche Lösungen.</li>
+            <li>Wir handeln kompetent und konsequent.</li>
+            <li>Wir sind der Baukultur verpflichtet.</li>
+          </ul>
+        </div>
+        <div class="qcell">
+          <h3>Begeisterung</h3>
+          <ul>
+            <li>Wir haben Lust auf Herausforderung.</li>
+            <li>Wir gestalten aus Leidenschaft und Überzeugung.</li>
+            <li>Wir lösen unsere Aufgaben mit Freude und Kreativität.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 anschluss -->
+  <section class="wrap band rv">
+    <div class="next">
+      <a class="card" href="#">
+        <figure class="card-media"><img src="https://hochstrasser.com/wp-content/uploads/2018/09/14_landscape-1.jpg" alt="Blick in die Büroräume in der Karpfengasse" loading="lazy"></figure>
+        <b>Büro</b>
+        <span>Das sind wir. Das zeichnet uns aus. Lernen Sie uns kennen.</span>
+        <span class="arrow">Team ansehen <span>&rarr;</span></span>
+      </a>
+      <a class="card" href="#">
+        <figure class="card-media"><img src="https://hochstrasser.com/wp-content/uploads/2024/06/842_landscape-01-scaled.jpg" alt="Das sanierte ehemalige Kriegsspital in Neu-Ulm" loading="lazy"></figure>
+        <b>Projekte</b>
+        <span>Über 120 Projekte seit 2002 — vom Denkmal im laufenden Betrieb bis zum Strohballenatelier.</span>
+        <span class="arrow">Projekte ansehen <span>&rarr;</span></span>
+      </a>
+      <a class="card" href="mailto:info@hochstrasser.com">
+        <figure class="card-media"><img src="https://hochstrasser.com/wp-content/uploads/2017/12/02_header-23.jpg" alt="Der Renaissancepalast „Neuer Bau“ in Ulm" loading="lazy"></figure>
+        <b>Kontakt</b>
+        <span>Sie planen ein Objekt oder haben eine Idee für eine mögliche Umsetzung. Genau dann lohnt sich das erste Gespräch.</span>
+        <span class="arrow">Anfrage senden <span>&rarr;</span></span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-left">
+        <span class="brand">hochstrasser.</span>
+        <p class="ftr-addr">Gesellschaft für Architektur mbH<br>Karpfengasse 5 · 89073 Ulm</p>
+        <p class="ftr-big"><a href="tel:+49731935110">07 31 . 9 35 11-0</a></p>
+        <p class="ftr-big"><a href="mailto:info@hochstrasser.com">info@hochstrasser.com</a></p>
+      </div>
+      <div class="ftr-right">
+        <nav class="ftr-links" aria-label="Weitere Seiten">
+          <a href="#">Kontakt</a>
+          <a href="#">Bauen im Bestand</a>
+          <a href="#">Jobs</a>
+          <a href="#">Nachhaltigkeit</a>
+          <a href="#">BDA-Berufung</a>
+          <a href="#">Bauphysik</a>
+          <a href="#">FAQs</a>
+        </nav>
+        <div class="ftr-social">
+          <a href="https://www.instagram.com/hochstrasser.architekten" aria-label="hochstrasser. auf Instagram" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4.15"/>
+              <circle cx="17.15" cy="6.85" r="1.05" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="hochstrasser. auf LinkedIn" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="3.4"/>
+              <circle cx="7.7" cy="7.7" r="1.05" fill="currentColor" stroke="none"/>
+              <path d="M7.7 10.9V17"/>
+              <path d="M11.7 17v-6.1"/>
+              <path d="M11.7 13.7a2.5 2.5 0 0 1 5 0V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-base">
+      <span class="label">© 2026 hochstrasser. Gesellschaft für Architektur mbH</span>
+      <span class="label"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* menue */
+const btn=document.getElementById('menuBtn'),sheet=document.getElementById('sheet'),closeBtn=document.getElementById('menuClose');
+function openSheet(){sheet.hidden=false;requestAnimationFrame(()=>sheet.setAttribute('data-open',''));btn.setAttribute('aria-expanded','true');closeBtn.focus()}
+function shutSheet(){sheet.removeAttribute('data-open');btn.setAttribute('aria-expanded','false');btn.focus();setTimeout(()=>sheet.hidden=true,480)}
+btn.addEventListener('click',openSheet);
+closeBtn.addEventListener('click',shutSheet);
+sheet.querySelectorAll('a').forEach(a=>a.addEventListener('click',shutSheet));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)shutSheet()});
+
+/* kernthemen */
+const KT={
+  integral:{
+    img:'https://hochstrasser.com/wp-content/uploads/2023/11/825_header-scaled.jpg',
+    cap:'Platzhalter: Rechenzentrum SWU, Ulm',
+    name:'Integrale Planung',
+    claim:'Gemeinsam planen. Einfach bauen.',
+    text:'Komplexe Bauprojekte entstehen nicht mehr in einzelnen Fachbereichen, sondern im Zusammenspiel aller Beteiligten. Deshalb verbinden wir Architektur und technische Fachdisziplinen von Beginn an in einem integralen Planungsprozess. Klare Verantwortlichkeit, kurze Entscheidungswege und frühzeitige Abstimmungen schaffen Transparenz, vereinfachen Schnittstellen und erhöhen die Planungs-, Termin- und Kostensicherheit.',
+    kicker:'Komplexität braucht keine komplizierten Prozesse. Sie braucht klare Strukturen.'
+  },
+  wirtschaft:{
+    img:'https://hochstrasser.com/wp-content/uploads/2024/05/799_lanscape-02-scaled.jpg',
+    cap:'Platzhalter: BA3 Baubetriebshof der Stadt Ulm',
+    name:'Wirtschaftlichkeit',
+    claim:'Gute Architektur muss leistbar sein.',
+    text:'Wirtschaftlichkeit beginnt nicht auf der Baustelle, sondern bereits in der Planung. Durch intelligente Prozesse, frühzeitige Entscheidungen und integrale Zusammenarbeit schaffen wir kostensichere und langlebige Lösungen mit einem Mehrwert für unsere Auftraggeber.',
+    kicker:'Qualität entsteht nicht durch höhere Budgets, sondern durch bessere Entscheidungen.'
+  },
+  nachhaltigkeit:{
+    img:'https://hochstrasser.com/wp-content/uploads/2024/11/NU-Schwabenstr_0025-scaled.jpg',
+    cap:'Platzhalter: Wohnbebauung Neu-Ulm',
+    name:'Nachhaltigkeit',
+    claim:'Heute planen. Für morgen bauen.',
+    text:'Nachhaltigkeit ist für uns kein Zusatz, sondern Bestandteil jeder Entscheidung. Wir hinterfragen Standards, planen ressourcenschonend und mit Blick auf den gesamten Lebenszyklus eines Gebäudes. Durch das enge Zusammenspiel aller Fachdisziplinen entstehen angemessene Lösungen, die ökologisch sinnvoll, wirtschaftlich tragfähig und somit langfristig zukunftssicher sind.',
+    kicker:'Nachhaltigkeit entsteht im Zusammenspiel von Architektur und technischen Fachdisziplinen.'
+  },
+  bestand:{
+    img:'https://hochstrasser.com/wp-content/uploads/2017/02/02_header-1.jpg',
+    cap:'Platzhalter: Umbau Neue Straße, Ulm',
+    name:'Bestand',
+    claim:'Erhalten. Weiterentwickeln. Zukunft schaffen.',
+    text:'Der nachhaltigste Quadratmeter ist häufig der, der bereits existiert. Deshalb verstehen wir den Bestand nicht als Einschränkung, sondern als Chance. Mit intelligenten Konzepten für Umbau, Sanierung, Revitalisierung und Denkmalschutz entwickeln wir Gebäude weiter und verbinden Geschichte mit den Anforderungen für morgen.',
+    kicker:'Bestand bewahren heißt Zukunft gestalten.'
+  },
+  verantwortung:{
+    img:'https://hochstrasser.com/wp-content/uploads/2023/06/744_landscape_Treppenhaus-3-scaled.jpg',
+    cap:'Platzhalter: Haus MK, Ulm',
+    name:'Verantwortung',
+    claim:'Ein Ansprechpartner. Klare Verantwortung.',
+    text:'Wir übernehmen Verantwortung für das gesamte Projekt — von der ersten Idee bis zur Realisierung. Als integraler Planungspartner koordinieren wir alle Disziplinen, führen Interessen zusammen und behalten Qualität, Termine und Kosten jederzeit im Blick. Für unsere Auftraggeber bedeutet dies klare Zuständigkeiten, transparente Prozesse und einen zentralen Ansprechpartner über alle Projektphasen hinweg.',
+    kicker:'Verantwortung schafft Vertrauen. Vertrauen schafft erfolgreiche Projekte.'
+  }
+};
+
+const schema=document.getElementById('schema');
+const nodes=[...document.querySelectorAll('.node')];
+const chips=[...document.querySelectorAll('.chip')];
+const panel=document.getElementById('ktPanel');
+const ktName=document.getElementById('ktName'),ktClaim=document.getElementById('ktClaim'),ktText=document.getElementById('ktText'),ktKicker=document.getElementById('ktKicker');
+const ktImg=document.getElementById('ktImg');
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let current='integral';
+
+function paint(key){
+  const d=KT[key];
+  ktName.textContent=d.name;
+  ktClaim.textContent=d.claim;
+  ktText.textContent=d.text;
+  ktKicker.textContent=d.kicker;
+  ktImg.src=d.img;
+  ktImg.alt=d.cap;
+}
+function setKt(key){
+  if(key===current)return;
+  current=key;
+  nodes.forEach(n=>{
+    const on=n.dataset.k===key;
+    n.classList.toggle('is-on',on);
+    n.setAttribute('aria-pressed',String(on));
+  });
+  chips.forEach(c=>{
+    const on=c.dataset.k===key;
+    c.classList.toggle('is-on',on);
+    c.setAttribute('aria-pressed',String(on));
+  });
+  if(reduce){paint(key);return}
+  panel.classList.add('is-fading');
+  setTimeout(()=>{paint(key);panel.classList.remove('is-fading')},220);
+}
+nodes.concat(chips).forEach(el=>{
+  el.addEventListener('click',()=>setKt(el.dataset.k));
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();setKt(el.dataset.k)}
+  });
+});
+/* startzustand */
+schema.classList.add('has-on');
+nodes.forEach(n=>{const on=n.dataset.k===current;n.classList.toggle('is-on',on);n.setAttribute('aria-pressed',String(on))});
+chips.forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.k===current)));
+
+/* reveal */
+if(reduce){
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+}else{
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>

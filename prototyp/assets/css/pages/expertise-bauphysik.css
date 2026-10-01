@@ -1,0 +1,34 @@
+/* ============================================================
+   Bauphysik – nur Seitenspezifisches
+   Die Wandaufbauten-Zeichnung (viewBox 1280 × 324) nutzt die
+   gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css;
+   fünf Schnitte auf dem 12er-Raster (Spalten 1–2, 3–4, … 9–10),
+   alle im gleichen Maßstab. Das Sommer-Schema nutzt .x-way.
+   Hier: Schraffuren und Schichten der Schnitte, Speichermasse,
+   Feinheiten im getönten Band.
+   ============================================================ */
+
+/* Schnitt: Schichten, Schraffuren, Rahmen */
+.aw-hatch{stroke:var(--ink);stroke-width:.8;opacity:.55}
+.aw-dot{fill:var(--ink);opacity:.4}
+.aw-bg{fill:var(--paper)}
+.aw-lay{stroke:var(--ink);stroke-width:.9}
+.aw-frame{fill:none;stroke:var(--ink);stroke-width:1;transition:stroke-width .25s var(--ease)}
+.aw-mark{fill:none;stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
+.aw-no{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.02em;fill:var(--ink)}
+.x-node:hover .aw-frame,.x-node:focus-visible .aw-frame,.x-node.is-on .aw-frame{stroke-width:2}
+.x-node.is-on .aw-mark{fill:var(--ink)}
+
+/* Sommer-Schema: Speichermasse in Decke und Boden */
+.bp-mass{fill:var(--ink);opacity:.12}
+
+/* zweites Label in der schmalen Spalte (Energieplanung) */
+.stack>.bp-sub{margin-top:var(--sp-5)}
+
+/* Bereiche auf getöntem Band: feine Tönungslinie */
+
+/* Creed: zweites Aussage-Textpaar mit mehr Luft */
+@media (min-width:900px){.bp-creed__next{margin-top:var(--sp-5)}}
+
+/* Kennwert-Zeile im Bereichstext: keine doppelte Schlusslinie */
+.x-areas__body .facts>div:last-child{border-bottom:0}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil — hochstrasser.</title>
+<meta name="description" content="hochstrasser. Architekten und Generalplaner in Ulm. Leitbild, Kernthemen und Leistungsbild in einer Zeichnung — Architektur, die Gestaltung, Technik und Wirtschaftlichkeit von Anfang an zusammenbringt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/pages/profil.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<div class="proto">
+  <div class="wrap proto__in">
+    <span class="t-label">Prototyp Profilseite</span>
+    <button id="notesToggle" aria-pressed="false">Offene Punkte einblenden</button>
+  </div>
+</div>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="index.html">hochstrasser.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="projekte.html">Projekte</a>
+      <a href="auszeichnungen.html">Auszeichnungen</a>
+      <a href="expertise.html">Expertise</a>
+      <a href="profil.html" aria-current="page">Profil</a>
+      <a href="buero.html">Büro</a>
+    </nav>
+    <button class="dots" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="sheet"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <button class="sheet__close" id="menuClose">Schließen</button>
+  <a href="projekte.html">Projekte</a>
+  <a href="auszeichnungen.html">Auszeichnungen</a>
+  <a href="expertise.html">Expertise</a>
+  <a href="profil.html" aria-current="page">Profil</a>
+  <a href="buero.html">Büro</a>
+</div>
+
+<main id="inhalt">
+<!-- 1 Claim -->
+  <section class="wrap hero">
+    <p class="t-label hero__eyebrow">Profil</p>
+    <h1 class="t-h1 hero__title">Wir machen komplexe Bauprojekte einfacher<em>.</em></h1>
+    <p class="t-lead hero__sub">Weil wir Gestaltung, Technik und Wirtschaftlichkeit von Anfang an zusammenbringen. Architekten und Generalplaner in Ulm, seit 2002.</p>
+    <div class="note">
+      <b>Markenessenz — Variante festlegen</b>
+      Drei Kurzformen liegen zur Auswahl:
+      <ul>
+        <li>hochstrasser. Architektur. Interdisziplinär.</li>
+        <li>hochstrasser. Architektur weitergedacht.</li>
+        <li>hochstrasser. Architektur ganzheitlich gedacht.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 Haltung -->
+  <section class="band band--tint rv">
+    <div class="wrap grid">
+      <div class="s-6 stack">
+        <h2 class="t-h3">Architektur ist bei uns keine Einzeldisziplin</h2>
+        <div class="prose">
+          <p>Wir sind ein interdisziplinäres Team aus Architekt:innen und Ingenieur:innen mit Zusatzqualifikationen in Energieberatung, Bauphysik, Brandschutz, Nachhaltigkeit, DGNB &amp; Zertifizierungen, Barrierefreiheit und Digitales Bauen. Die Fragen, die ein Projekt teuer machen, stellen wir deshalb am ersten Tag — nicht in der Ausführung.</p>
+        </div>
+        <div class="note">
+          <b>Formulierung offen</b>
+          Im Entwurf steht „junges und interdisziplinäres Team“. „Jung“ kann bei öffentlichen Auftraggebern als fehlende Erfahrung gelesen werden — hier weggelassen. Bitte entscheiden.
+        </div>
+      </div>
+      <div class="s-5 o-8">
+        <dl class="facts">
+          <div><dt>Gründung</dt><dd>2002</dd></div>
+          <div><dt>Projekte</dt><dd>über 120</dd></div>
+          <div><dt>Auszeichnungen</dt><dd>27</dd></div>
+          <div><dt>Fachdisziplinen</dt><dd>8</dd></div>
+          <div><dt>BDA-Berufungen</dt><dd>4</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Schema -->
+  <section class="wrap band">
+    <!-- Raster: 1280 Einheiten = Inhaltsbreite am Desktop; Gutter 30, Spalte 79,17.
+         Kernthemen 5 × 232 mit 30er Fuge, Leistungen je 4 Spalten (406,67) -->
+    <svg class="profil-schema" id="schema" viewBox="0 0 1280 240" role="img" aria-label="Zeichnung: fünf Kernthemen, aus denen sich das Leistungsbild ergibt">
+      <g class="node" id="n-integral" data-k="integral" role="button" tabindex="0" aria-pressed="false">
+        <rect x="0" y="14" width="232" height="76"/>
+        <text x="116" y="46" text-anchor="middle">Integrale</text>
+        <text x="116" y="68" text-anchor="middle">Planung</text>
+        <line class="sv-link" x1="116" y1="90" x2="116" y2="138"/>
+      </g>
+      <g class="node" id="n-wirtschaft" data-k="wirtschaft" role="button" tabindex="0" aria-pressed="false">
+        <rect x="262" y="14" width="232" height="76"/>
+        <text x="378" y="57" text-anchor="middle">Wirtschaftlichkeit</text>
+        <line class="sv-link" x1="378" y1="90" x2="378" y2="138"/>
+      </g>
+      <g class="node" id="n-nachhaltigkeit" data-k="nachhaltigkeit" role="button" tabindex="0" aria-pressed="false">
+        <rect x="524" y="14" width="232" height="76"/>
+        <text x="640" y="57" text-anchor="middle">Nachhaltigkeit</text>
+        <line class="sv-link" x1="640" y1="90" x2="640" y2="138"/>
+      </g>
+      <g class="node" id="n-bestand" data-k="bestand" role="button" tabindex="0" aria-pressed="false">
+        <rect x="786" y="14" width="232" height="76"/>
+        <text x="902" y="57" text-anchor="middle">Bestand</text>
+        <line class="sv-link" x1="902" y1="90" x2="902" y2="138"/>
+      </g>
+      <g class="node" id="n-verantwortung" data-k="verantwortung" role="button" tabindex="0" aria-pressed="false">
+        <rect x="1048" y="14" width="232" height="76"/>
+        <text x="1164" y="57" text-anchor="middle">Verantwortung</text>
+        <line class="sv-link" x1="1164" y1="90" x2="1164" y2="138"/>
+      </g>
+
+      <line class="sv-rail" x1="0" y1="138" x2="1280" y2="138"/>
+      <line class="sv-link" x1="203.33" y1="138" x2="203.33" y2="168"/>
+      <line class="sv-link" x1="640" y1="138" x2="640" y2="168"/>
+      <line class="sv-link" x1="1076.67" y1="138" x2="1076.67" y2="168"/>
+
+      <g class="sv-svc">
+        <rect x="0" y="168" width="406.67" height="56"/>
+        <text x="203.33" y="202" text-anchor="middle">Architektur</text>
+        <rect x="436.67" y="168" width="406.67" height="56"/>
+        <text x="640" y="202" text-anchor="middle">Interdisziplinarität</text>
+        <rect x="873.33" y="168" width="406.67" height="56"/>
+        <text x="1076.67" y="202" text-anchor="middle">Generalplanung</text>
+      </g>
+    </svg>
+
+    <div class="profil-chips" role="group" aria-label="Kernthema wählen">
+      <button class="chip" data-k="integral" aria-pressed="false">Integrale Planung</button>
+      <button class="chip" data-k="wirtschaft" aria-pressed="false">Wirtschaftlichkeit</button>
+      <button class="chip" data-k="nachhaltigkeit" aria-pressed="false">Nachhaltigkeit</button>
+      <button class="chip" data-k="bestand" aria-pressed="false">Bestand</button>
+      <button class="chip" data-k="verantwortung" aria-pressed="false">Verantwortung</button>
+    </div>
+
+    <div class="profil-panel grid" id="ktPanel" aria-live="polite">
+      <figure class="s-4 media media--1x1">
+        <img id="ktImg" src="assets/img/wp/825_header-scaled.jpg" alt="Platzhalter: Rechenzentrum SWU, Ulm" loading="lazy">
+      </figure>
+      <div class="s-7 o-6 stack">
+        <p class="t-label" id="ktName">Integrale Planung</p>
+        <p class="t-h2" id="ktClaim">Gemeinsam planen. Einfach bauen.</p>
+        <p id="ktText">Komplexe Bauprojekte entstehen nicht mehr in einzelnen Fachbereichen, sondern im Zusammenspiel aller Beteiligten. Deshalb verbinden wir Architektur und technische Fachdisziplinen von Beginn an in einem integralen Planungsprozess. Klare Verantwortlichkeit, kurze Entscheidungswege und frühzeitige Abstimmungen schaffen Transparenz, vereinfachen Schnittstellen und erhöhen die Planungs-, Termin- und Kostensicherheit.</p>
+        <p class="t-h4 profil-kicker" id="ktKicker">Komplexität braucht keine komplizierten Prozesse. Sie braucht klare Strukturen.</p>
+        <a class="link-arrow" href="projekte.html" id="ktLink">Projekte dazu ansehen <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Bildzuordnung ist ein Vorschlag</b>
+      Die fünf Bilder stammen aus dem Projektarchiv der bestehenden Website und sind je Kernthema frei gewählt. Welches Projekt welche Haltung am besten belegt, entscheidet ihr — dafür braucht es ein Bild in Querformat je Kernthema.
+    </div>
+    <div class="note">
+      <b>Verknüpfung Projekte</b>
+      Der Link unter jedem Kernthema setzt voraus, dass Projekte im Backend einem Kernthema zugeordnet werden können. Das lässt sich mit der bestehenden Filterlogik der Projektseite verbinden.
+    </div>
+  </section>
+
+  <!-- 4 Expertise -->
+  <section class="band band--tint rv">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="t-rubric sec-head__title">Expertise</h2>
+      </div>
+      <div class="grid">
+        <a class="sm-s-6 s-3 profil-face" href="expertise-architektur.html">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">Architektur</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+        <a class="sm-s-6 s-3 profil-face" href="expertise-brandschutz.html">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">Brandschutz</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+        <a class="sm-s-6 s-3 profil-face" href="expertise-nachhaltigkeit.html">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">Nachhaltigkeit</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+        <a class="sm-s-6 s-3 profil-face" href="expertise-bauphysik.html">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">Bauphysik</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+        <a class="sm-s-6 s-3 profil-face" href="expertise-dgnb-zertifizierung.html">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">DGNB / Zertifizierung</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+        <a class="sm-s-6 s-3 profil-face" href="#">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">Barrierefreiheit</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+        <a class="sm-s-6 s-3 profil-face" href="expertise-digitales-bauen.html">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">Digitales Bauen</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+        <a class="sm-s-6 s-3 profil-face" href="expertise-generalplanung.html">
+          <div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Porträt folgt</span></div>
+          <p class="t-h4">Generalplanung</p>
+          <p class="t-small t-mute">Name und Qualifikation folgen</p>
+        </a>
+      </div>
+      <div class="note">
+        <b>Porträts und Zuordnung fehlen</b>
+        Die Kacheln sind Platzhalter. Gebraucht wird je Kompetenz ein Porträt im Hochformat sowie Name und Qualifikation der Person, die sie im Haus vertritt. Die Namen stehen bereits auf der Büroseite.
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Leitbild -->
+  <section class="band band--dark rv">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="t-rubric sec-head__title">Leitbild</h2>
+      </div>
+      <div class="grid">
+        <p class="s-7 profil-creed__intro">Wir sind überzeugt, dass gutes Bauen mehr ist als gute Architektur. Erfolgreiche Projekte entstehen dort, wo Gestaltung, Wirtschaftlichkeit, Nachhaltigkeit und technische Kompetenz von Anfang an zusammengedacht werden. Deshalb setzen wir auf integrale Planung. Wir verbinden Architektur, Fachplanung und Projektsteuerung in einem gemeinsamen Prozess, schaffen klare Verantwortlichkeiten und treffen Entscheidungen auf einer fundierten, interdisziplinären Grundlage.</p>
+      </div>
+      <div class="grid profil-values">
+        <div class="s-5 profil-value">
+          <h3 class="t-h2">Individualität</h3>
+          <ul>
+            <li>Wir entwickeln die passgenaue Lösung.</li>
+            <li>Wir begleiten von der Idee zum Erfolg.</li>
+            <li>Wir sind authentisch.</li>
+          </ul>
+        </div>
+        <div class="s-5 o-8 profil-value">
+          <h3 class="t-h2">Partnerschaft</h3>
+          <ul>
+            <li>Wir pflegen offenen, ehrlichen Austausch.</li>
+            <li>Wir begegnen uns respektvoll und auf Augenhöhe.</li>
+            <li>Wir handeln im Sinne gemeinsam vereinbarter Ziele.</li>
+          </ul>
+        </div>
+        <div class="s-5 profil-value">
+          <h3 class="t-h2">Verantwortung</h3>
+          <ul>
+            <li>Wir schaffen angemessene und ganzheitliche Lösungen.</li>
+            <li>Wir handeln kompetent und konsequent.</li>
+            <li>Wir sind der Baukultur verpflichtet.</li>
+          </ul>
+        </div>
+        <div class="s-5 o-8 profil-value">
+          <h3 class="t-h2">Begeisterung</h3>
+          <ul>
+            <li>Wir haben Lust auf Herausforderung.</li>
+            <li>Wir gestalten aus Leidenschaft und Überzeugung.</li>
+            <li>Wir lösen unsere Aufgaben mit Freude und Kreativität.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Anschluss -->
+  <section class="wrap band rv">
+    <div class="grid">
+      <a class="s-4 profil-card" href="buero.html">
+        <div class="media media--16x10"><img src="assets/img/wp/14_landscape-1.jpg" alt="Blick in die Büroräume in der Karpfengasse" loading="lazy"></div>
+        <p class="t-h3">Büro</p>
+        <p class="t-mute">Das sind wir. Das zeichnet uns aus. Lernen Sie uns kennen.</p>
+        <span class="link-arrow">Team ansehen <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="s-4 profil-card" href="projekte.html">
+        <div class="media media--16x10"><img src="assets/img/wp/842_landscape-01-scaled.jpg" alt="Das sanierte ehemalige Kriegsspital in Neu-Ulm" loading="lazy"></div>
+        <p class="t-h3">Projekte</p>
+        <p class="t-mute">Über 120 Projekte seit 2002 — vom Denkmal im laufenden Betrieb bis zum Strohballenatelier.</p>
+        <span class="link-arrow">Projekte ansehen <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="s-4 profil-card" href="mailto:info@hochstrasser.com">
+        <div class="media media--16x10"><img src="assets/img/flz/02_header-23.jpg" alt="Der Renaissancepalast „Neuer Bau“ in Ulm" loading="lazy"></div>
+        <p class="t-h3">Kontakt</p>
+        <p class="t-mute">Sie planen ein Objekt oder haben eine Idee für eine mögliche Umsetzung. Genau dann lohnt sich das erste Gespräch.</p>
+        <span class="link-arrow">Anfrage senden <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="grid">
+      <div class="s-6">
+        <span class="brand">hochstrasser.</span>
+        <p class="ftr__addr">Gesellschaft für Architektur mbH<br>Karpfengasse 5 · 89073 Ulm</p>
+        <p class="ftr__big"><a href="tel:+49731935110">07 31 . 9 35 11-0</a></p>
+        <p class="ftr__big"><a href="mailto:info@hochstrasser.com">info@hochstrasser.com</a></p>
+      </div>
+      <div class="s-5 o-8 ftr__right">
+        <nav class="ftr__links" aria-label="Weitere Seiten">
+          <a href="kontakt.html">Kontakt</a>
+          <a href="#">Bauen im Bestand</a>
+          <a href="jobs.html">Jobs</a>
+          <a href="expertise-nachhaltigkeit.html">Nachhaltigkeit</a>
+          <a href="#">BDA-Berufung</a>
+          <a href="expertise-bauphysik.html">Bauphysik</a>
+          <a href="#">FAQs</a>
+        </nav>
+        <div class="ftr__social">
+          <a href="https://www.instagram.com/hochstrasser.architekten" aria-label="hochstrasser. auf Instagram" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.15"/><circle cx="17.15" cy="6.85" r="1.05" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="hochstrasser. auf LinkedIn" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3.4"/><circle cx="7.7" cy="7.7" r="1.05" fill="currentColor" stroke="none"/><path d="M7.7 10.9V17"/><path d="M11.7 17v-6.1"/><path d="M11.7 13.7a2.5 2.5 0 0 1 5 0V17"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="grid ftr__base">
+      <span class="t-label s-6">© 2026 hochstrasser. Gesellschaft für Architektur mbH</span>
+      <span class="t-label s-6 o-7"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/pages/profil.js"></script>
+</body>
+</html>

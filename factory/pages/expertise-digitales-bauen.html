@@ -1,0 +1,692 @@
+<!--meta {"title": "Digitales Bauen", "description": "Digitales Bauen als Methode, nicht als Programm: Informationslieferkette, BIM-Koordination, Anwendungsfälle und Verantwortung. hochstrasser. Architekten und Generalplaner in Ulm.", "nav": "expertise",
+           "css": ["pages/expertise.css", "pages/expertise-digitales-bauen.css"], "js": ["pages/expertise.js", "pages/expertise-digitales-bauen.js"],
+           "body": "data-accent=\"blau\"",
+           "proto": "Prototyp Expertiseseite · Digitales Bauen · Farbvariante"} -->
+
+  <!-- 01 Claim -->
+  <section class="wrap hero">
+    <div class="grid grid--center">
+      <div class="s-6">
+        <p class="t-label hero__eyebrow">Expertise — Digitales Bauen</p>
+        <h1 class="t-h1 hero__title">Jedes Gebäude entsteht zweimal<em>.</em></h1>
+        <p class="t-lead t-mute hero__sub">Einmal als Modell, einmal auf der Baustelle. Ob das erste dem zweiten etwas nützt, entscheidet nicht die Software — sondern die Frage, welche Information wann gebraucht wird und wer für sie einsteht. Genau das koordinieren wir.</p>
+      </div>
+      <figure class="s-5 o-8 xdb-anim">
+        <div class="media media--1x1">
+          <video id="xdbVideo" src="assets/videos/projekt-detail-video.mp4" muted playsinline preload="auto" aria-label="Animation: aus einem Raster entsteht ein Geschossmodell, eine Kollision zwischen Träger und Leitung wird erkannt und umgeplant, daraus werden Aufgaben, Kennzahlen und ein Bauablauf"></video>
+        </div>
+        <figcaption class="t-label caption">Vom Raster zum Modell, von der Kollision zur Aufgabe — die Methode in zehn Sekunden</figcaption>
+      </figure>
+    </div>
+
+    <div class="note">
+      <b>Animation im Hero — drei Dinge zu klären</b>
+      <ul>
+        <li>Die Animation liegt als eigene Datei daneben (BIM_Animation.html) und wird über einen iframe eingebunden. Beide Dateien müssen im selben Verzeichnis liegen, sonst bleibt das Feld leer. Für die Produktion würde ich sie als MP4 oder WebM exportieren lassen: Die gebündelte Fassung wiegt rund 1,2 MB und lädt React mit, ein Video wäre ein Bruchteil davon.</li>
+        <li>Die Animation läuft in Endlosschleife. Wer die Seite liest, hat dauerhaft Bewegung im Augenwinkel — auf einer textlastigen Fachseite ist das ein echter Nachteil. Vorschlag: einmal abspielen und auf dem Schlussbild stehen bleiben, oder erst starten, wenn das Feld im Sichtfeld ist.</li>
+        <li>„Bewegung reduzieren“ in den Systemeinstellungen kann die Seite dem iframe nicht aufzwingen. Beim Video-Export ließe sich das sauber lösen: Standbild statt Schleife für alle, die diese Einstellung gesetzt haben.</li>
+      </ul>
+    </div>
+    <div class="note">
+      <b>Akzentfarbe der Animation angleichen</b>
+      Die Animation bringt ihr eigenes Blau mit (#2f5bff), die Seite verwendet ein ruhigeres #1e4b8f. Nebeneinander sieht man den Unterschied. Das Quellartefakt hat die Akzentfarbe als einstellbaren Parameter — bitte einmal auf den Seitenwert ziehen lassen, dann greifen Animation und Seite ineinander. Auch der Hintergrund der Animation (#f3f4f6) sollte auf den Grundton der Bänder gesetzt werden.
+    </div>
+    <div class="note">
+      <b>Zweiter Entwurf: Farbe</b>
+      Diese Fassung ist der Farbvorschlag, die erste Datei bleibt der schwarz-weiße Stand. Die Farbe wird hier nicht dekorativ eingesetzt, sondern nur an vier Stellen, an denen sie etwas bedeutet: das ausgewählte Glied der Lieferkette, der Rücklauf im Koordinationszyklus, die Balken der Leistungsachse und jede Handlung (Schaltflächen, externe Verweise). Dazu bekommen die getönten Bänder statt Neutralgrau einen minimal eingefärbten Grundton. Gedacht ist das als System, nicht als Einzelfall — jede Expertiseseite bekommt eine eigene Farbe derselben Helligkeit, der Brandschutz zum Beispiel Rost. In der Prototyp-Leiste oben lassen sich drei Varianten und der Zustand ohne Farbe direkt vergleichen.
+    </div>
+    <div class="note">
+      <b>Tonalität abstimmen</b>
+      Der Einstieg ist bewusst als These formuliert, nicht als Werkzeugliste. Sachlichere Alternative: „Wir planen modellbasiert — und koordinieren die Daten, die daraus entstehen.“ Bitte entscheiden. Wichtig ist mir: Auf dieser Seite steht bewusst kein einziger Softwarename. Das ist eine Haltung, keine Lücke — siehe den offenen Punkt weiter unten.
+    </div>
+  </section>
+
+  <!-- 02 Vier Fragen -->
+  <section class="band band--tint rv">
+    <div class="wrap grid">
+      <div class="s-6 stack">
+        <h2 class="t-h2">Digitales Bauen beginnt mit vier Fragen</h2>
+        <div class="prose">
+          <p>Building Information Modeling ist eine Methode, kein Programm. Alle Beteiligten planen an einem gemeinsamen digitalen Abbild des Gebäudes — mit seiner Geometrie und mit den Eigenschaften, die an den Bauteilen hängen. Die Fachplanungen arbeiten dabei nicht nacheinander, sondern an einem Stand; und dieser Stand hört nicht mit der Abnahme auf, sondern begleitet das Gebäude von der ersten Massenstudie über Bau und Betrieb bis zum Rückbau.</p>
+          <p>So weit die Definition. Sie sagt nur nicht, woran Projekte scheitern. Die internationale Normenreihe <a class="ext" href="https://www.baunormenlexikon.de/norm/din-en-iso-19650-1/1c11c2ce-c22a-485d-b11b-c9456f27027b" target="_blank" rel="noopener">DIN EN ISO 19650</a> ist da ehrlicher: Sie beschreibt keine Modelle, sondern einen Managementprozess. Wer bestellt welche Information, wer liefert sie, und woran wird geprüft, ob sie geliefert wurde.</p>
+          <p>Das klingt trocken und ist der eigentliche Hebel. Ein Modell, das niemand bestellt hat, wird nach Gefühl detailliert — mal zu grob für die Ausschreibung, mal zu fein für die Vorplanung. Erst wenn die vier Fragen beantwortet sind, hat die Modellierung einen Maßstab. Die Norm nennt das Informationsbedarfstiefe, genormt in DIN EN 17412-1: Geometrie, Merkmale und Dokumente, jeweils nur so tief wie nötig.</p>
+        </div>
+      </div>
+      <div class="s-5 o-8">
+        <dl class="x-aims">
+          <div>
+            <dt class="t-label">Frage 01</dt>
+            <dd><span class="t-h3 x-aims__t">Wer braucht die Information</span><span class="t-small t-mute x-aims__d">Bauherrschaft, Planung, Ausführung, Betrieb — jede Rolle fragt etwas anderes</span></dd>
+          </div>
+          <div>
+            <dt class="t-label">Frage 02</dt>
+            <dd><span class="t-h3 x-aims__t">Wann wird sie gebraucht</span><span class="t-small t-mute x-aims__d">Lieferzeitpunkte statt „am Ende der Leistungsphase irgendwann“</span></dd>
+          </div>
+          <div>
+            <dt class="t-label">Frage 03</dt>
+            <dd><span class="t-h3 x-aims__t">In welcher Tiefe</span><span class="t-small t-mute x-aims__d">Geometrie, Merkmale, Dokumente — nach DIN EN 17412-1, nicht nach Gewohnheit</span></dd>
+          </div>
+          <div>
+            <dt class="t-label">Frage 04</dt>
+            <dd><span class="t-h3 x-aims__t">Wozu</span><span class="t-small t-mute x-aims__d">Der Anwendungsfall entscheidet: Mengen, Kollision, Betrieb, Ökobilanz</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Leistungen über die Leistungsphasen -->
+  <section class="wrap band rv">
+    <div class="sec-head">
+      <h2 class="t-rubric sec-head__title">Was wir übernehmen</h2>
+    </div>
+
+    <div class="x-lph__scale" aria-hidden="true">
+      <span class="t-label">Leistungsphase</span>
+      <span class="x-lph__ticks">
+        <span class="t-label">0</span>
+        <span class="t-label">1</span>
+        <span class="t-label">2</span>
+        <span class="t-label">3</span>
+        <span class="t-label">4</span>
+        <span class="t-label">5</span>
+        <span class="t-label">6</span>
+        <span class="t-label">7</span>
+        <span class="t-label">8</span>
+        <span class="t-label">9</span>
+      </span>
+    </div>
+
+    <div class="x-lph">
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">BIM-Ziele und Anwendungsfälle</span>
+        <span class="x-lph__what t-mute">Welche Fragen soll das Modell beantworten — und welche ausdrücklich nicht</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s0 x-e2"></span></span>
+        <span class="t-label x-lph__span">LPH 0–1</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">Auftraggeber-Informationsanforderungen</span>
+        <span class="x-lph__what t-mute">Die AIA als Bestellung formulieren — auf Bauherrenseite oder als deren Beraterin</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s0 x-e3"></span></span>
+        <span class="t-label x-lph__span">LPH 0–2</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">BIM-Abwicklungsplan</span>
+        <span class="x-lph__what t-mute">Modellstruktur, Namenskonventionen, Austauschzyklen, Prüfregeln — mit allen Fachplanungen abgestimmt</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s1 x-e4"></span></span>
+        <span class="t-label x-lph__span">LPH 1–3</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">Fachmodell Architektur</span>
+        <span class="x-lph__what t-mute">Das Modell, aus dem Pläne, Mengen und Nachweise abgeleitet werden statt sie nachzuzeichnen</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s2 x-e6"></span></span>
+        <span class="t-label x-lph__span">LPH 2–5</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">BIM-Gesamtkoordination</span>
+        <span class="x-lph__what t-mute">Zusammenführung der Fachmodelle, Kollisions- und Regelprüfung, offene Punkte bis zur Klärung</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s2 x-e9"></span></span>
+        <span class="t-label x-lph__span">LPH 2–8</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">Mengen und Kosten aus dem Modell</span>
+        <span class="x-lph__what t-mute">Kostenschätzung bis Ausschreibung modellbasiert — mit dokumentierter Herkunft jeder Menge</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s3 x-e8"></span></span>
+        <span class="t-label x-lph__span">LPH 3–7</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">Modellbasierte Bauüberwachung</span>
+        <span class="x-lph__what t-mute">Soll-Ist-Abgleich, Baufortschritt und Mängel am Modell statt in einer zweiten Liste</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s7 x-e9"></span></span>
+        <span class="t-label x-lph__span">LPH 7–8</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">Übergabe an den Betrieb</span>
+        <span class="x-lph__what t-mute">As-built-Modell, Anlagenkennzeichnung und Dokumente in der Struktur, die das FM später lesen kann</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s8 x-e10"></span></span>
+        <span class="t-label x-lph__span">LPH 8–9</span>
+      </div>
+      <div class="x-lph__row">
+        <span class="t-h4 x-lph__name">Bestandserfassung und Bestandsmodell</span>
+        <span class="x-lph__what t-mute">Aufmaß, Punktwolke und ein Modell, das so genau ist, wie die Aufgabe es verlangt</span>
+        <span class="x-lph__track"><span class="x-lph__bar x-s0 x-e2"></span></span>
+        <span class="t-label x-lph__span">LPH 0–1</span>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Leistungstiefe entscheiden</b>
+      Die Zuordnung ist mein Vorschlag. Zwei Zeilen sind echte Versprechen und müssen stimmen: „BIM-Gesamtkoordination“ (macht ihr das für fremde Fachplanungen oder nur im eigenen Haus?) und „Modellbasierte Bauüberwachung“ (wird das im Projekt tatsächlich gelebt oder ist es noch Absicht?). Alles, was ihr nur gelegentlich macht, streichen wir lieber — eine kurze, wahre Liste verkauft besser als eine lange.
+    </div>
+    <div class="note">
+      <b>AIA-Beratung als eigenes Angebot?</b>
+      Die zweite Zeile ist das stärkste Argument der ganzen Seite: Die wenigsten Bauherren können Informationsanforderungen formulieren, und fast alle zahlen später dafür. Wenn ihr das als eigene Leistung anbieten wollt, sollte es nicht in der Liste versinken, sondern einen eigenen Abschnitt bekommen. Bitte entscheiden.
+    </div>
+  </section>
+
+  <!-- 04 Der kritische Moment -->
+  <section class="band band--tint rv">
+    <div class="wrap grid">
+      <div class="s-4">
+        <h2 class="t-h2">Das Modell ist fertig. Und dann?</h2>
+      </div>
+      <div class="s-7 o-6 prose">
+        <p>Drei Enttäuschungen kommen in digitalen Projekten regelmäßig vor. Keine davon liegt an der Software, und alle drei entstehen zu Beginn — dort, wo über Anforderungen noch nicht gesprochen wurde.</p>
+      </div>
+
+      <ul class="x-risks">
+        <li>
+          <b class="t-h4">Das Modell ist schön, aber nicht prüfbar</b>
+          <span>Geometrie ohne Merkmale sieht auf dem Bildschirm perfekt aus und beantwortet keine einzige Frage. Keine Mengen, keine Bauteilzuordnung, keine Ökobilanz — weil niemand festgelegt hat, welche Eigenschaften an welchem Bauteil hängen müssen.</span>
+        </li>
+        <li>
+          <b class="t-h4">Die Daten brechen an der Schnittstelle</b>
+          <span>Jede Planungsdisziplin arbeitet in ihrer Software. Ohne vereinbartes offenes Format, ohne gemeinsames Koordinatensystem und ohne festen Austauschzyklus entsteht kein gemeinsames Modell, sondern ein Stapel unverbundener Dateien mit unterschiedlichem Stand.</span>
+        </li>
+        <li>
+          <b class="t-h4">Der Betrieb erbt nichts</b>
+          <span>Das Teuerste an einem Gebäude ist sein Betrieb. Wenn das Modell mit der Abnahme endet, erfasst der Betreiber zwei Jahre später dieselben Anlagen noch einmal — und bezahlt für Daten, die es schon gab.</span>
+        </li>
+      </ul>
+
+      <p class="t-h3 s-7 o-6">Digital wird ein Projekt nicht durch Modelle. Sondern durch Entscheidungen über Informationen.</p>
+
+      <div class="note">
+        <b>Adressat der Seite klären</b>
+        Der Abschnitt spricht Planende und Bauherren gleichzeitig an. Das funktioniert, solange die Seite beide Gruppen als Auftraggeber im Blick hat. Richtet sie sich vor allem an Bauherrschaften, sollte der dritte Punkt (Betrieb) nach vorn — für einen Bauherrn ist er das stärkste Argument. Für Kolleginnen und Kollegen ist es der zweite. Bitte entscheiden, das zieht sich durch die ganze Seite.
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Informationslieferkette -->
+  <section class="wrap band rv" id="lieferkette">
+    <div class="sec-head">
+      <h2 class="t-rubric sec-head__title">Die Informationslieferkette</h2>
+      <p class="t-label sec-head__aside">Glied wählen — die Festlegungen erscheinen darunter</p>
+    </div>
+
+    <svg class="x-draw" id="flowDraw" viewBox="0 0 1280 300" role="img" aria-label="Zeichnung: fünf Glieder der Informationslieferkette als gestaffelte Baukörper mit wachsender Informationstiefe">
+      <!-- Tiefenlinien, Beschriftung jeweils oberhalb der Linie, rechts in den Spalten 11 und 12 -->
+      <line class="x-ref" x1="0" y1="48" x2="1280" y2="48"/>
+      <text class="x-ref__t" x="1280" y="40" text-anchor="end">Betriebsreif</text>
+      <line class="x-ref" x1="0" y1="136" x2="1280" y2="136"/>
+      <text class="x-ref__t" x="1280" y="128" text-anchor="end">Prüfbar</text>
+      <line class="x-ref" x1="0" y1="200" x2="1280" y2="200"/>
+      <text class="x-ref__t" x="1280" y="192" text-anchor="end">Bestellt</text>
+
+      <!-- AIA · Spalten 1–2 -->
+      <g class="x-node" data-k="aia" role="button" tabindex="0" aria-pressed="false">
+        <rect class="x-node__body" x="0" y="200" width="188.33" height="40"/>
+        <text class="x-node__no" x="94.17" y="226" text-anchor="middle">AIA</text>
+        <text class="x-node__cap" x="94.17" y="266" text-anchor="middle">Auftraggeber</text>
+        <text class="x-node__cap" x="94.17" y="284" text-anchor="middle">Vor der Vergabe</text>
+      </g>
+
+      <!-- BAP · Spalten 3–4 -->
+      <g class="x-node" data-k="bap" role="button" tabindex="0" aria-pressed="false">
+        <rect class="x-node__body" x="218.33" y="180" width="188.33" height="60"/>
+        <line class="x-node__floor" x1="218.33" y1="210" x2="406.67" y2="210"/>
+        <text class="x-node__no" x="312.5" y="205" text-anchor="middle">BAP</text>
+        <text class="x-node__cap" x="312.5" y="266" text-anchor="middle">Planungsteam</text>
+        <text class="x-node__cap" x="312.5" y="284" text-anchor="middle">LPH 1–2</text>
+      </g>
+
+      <!-- Fachmodelle · Spalten 5–6 -->
+      <g class="x-node" data-k="fach" role="button" tabindex="0" aria-pressed="false">
+        <rect class="x-node__body" x="436.67" y="136" width="188.33" height="104"/>
+        <line class="x-node__floor" x1="436.67" y1="171" x2="625" y2="171"/>
+        <line class="x-node__floor" x1="436.67" y1="206" x2="625" y2="206"/>
+        <text class="x-node__no" x="530.83" y="194" text-anchor="middle">Fachmodelle</text>
+        <text class="x-node__cap" x="530.83" y="266" text-anchor="middle">Alle Disziplinen</text>
+        <text class="x-node__cap" x="530.83" y="284" text-anchor="middle">Ab LPH 2</text>
+      </g>
+
+      <!-- Koordinationsmodell · Spalten 7–8 -->
+      <g class="x-node" data-k="koord" role="button" tabindex="0" aria-pressed="false">
+        <rect class="x-node__body" x="655" y="92" width="188.33" height="148"/>
+        <line class="x-node__floor" x1="655" y1="129" x2="843.33" y2="129"/>
+        <line class="x-node__floor" x1="655" y1="166" x2="843.33" y2="166"/>
+        <line class="x-node__floor" x1="655" y1="203" x2="843.33" y2="203"/>
+        <text class="x-node__no" x="749.17" y="172" text-anchor="middle">Koordination</text>
+        <text class="x-node__cap" x="749.17" y="266" text-anchor="middle">Gesamtkoordination</text>
+        <text class="x-node__cap" x="749.17" y="284" text-anchor="middle">Im festen Zyklus</text>
+      </g>
+
+      <!-- Betriebsmodell · Spalten 9–10 -->
+      <g class="x-node" data-k="aim" role="button" tabindex="0" aria-pressed="false">
+        <rect class="x-node__body" x="873.33" y="48" width="188.33" height="192"/>
+        <line class="x-node__floor" x1="873.33" y1="86" x2="1061.67" y2="86"/>
+        <line class="x-node__floor" x1="873.33" y1="124" x2="1061.67" y2="124"/>
+        <line class="x-node__floor" x1="873.33" y1="162" x2="1061.67" y2="162"/>
+        <line class="x-node__floor" x1="873.33" y1="200" x2="1061.67" y2="200"/>
+        <text class="x-node__no" x="967.5" y="150" text-anchor="middle">Betriebsmodell</text>
+        <text class="x-node__cap" x="967.5" y="266" text-anchor="middle">Betreiber</text>
+        <text class="x-node__cap" x="967.5" y="284" text-anchor="middle">Ab Abnahme</text>
+      </g>
+
+      <!-- Zeitachse -->
+      <line class="x-ground" x1="0" y1="240" x2="1280" y2="240"/>
+    </svg>
+    <p class="t-label x-draw__cap xdb-note">Die Informationstiefe wächst über das Projekt — aber nur dort, wo jemand sie bestellt hat</p>
+
+    <div class="x-chips" role="group" aria-label="Glied der Lieferkette wählen">
+      <button class="chip" data-k="aia" aria-pressed="false">AIA — die Bestellung</button>
+      <button class="chip" data-k="bap" aria-pressed="false">BAP — die Zusage</button>
+      <button class="chip" data-k="fach" aria-pressed="false">Fachmodelle</button>
+      <button class="chip" data-k="koord" aria-pressed="false">Koordinationsmodell</button>
+      <button class="chip" data-k="aim" aria-pressed="false">Betriebsmodell</button>
+    </div>
+
+    <div class="x-panel grid" aria-live="polite">
+      <div class="s-4">
+        <p class="t-label" data-f="name">Auftraggeber-Informationsanforderungen</p>
+        <p class="t-h2" data-f="claim">Die Bestellung, die kaum jemand schreibt.</p>
+      </div>
+      <div class="s-7 o-6">
+        <dl class="facts">
+          <div><dt>Wer erstellt es</dt><dd data-f="who">Die Bauherrschaft — in der Praxis fast immer mit fachlicher Unterstützung, oft durch das Architekturbüro</dd></div>
+          <div><dt>Zeitpunkt</dt><dd data-f="when">Vor der Vergabe der Planungsleistungen, spätestens mit der Aufgabenstellung</dd></div>
+          <div><dt>Inhalt</dt><dd data-f="what">Projektziele, Anwendungsfälle, Rollen, Datenformate, Modellstruktur und die Informationstiefe je Übergabe</dd></div>
+          <div><dt>Für die Planung heißt das</dt><dd data-f="plan">Ohne AIA gibt es keinen Maßstab für Modellqualität — und damit keine Abnahme, die diesen Namen verdient. Wer sie nicht hat, bekommt Modelle, die gut aussehen und nichts beantworten.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Vereinfachte Darstellung — fachlich prüfen</b>
+      Die Zeichnung zeigt die Systematik, nicht den Normtext. Maßgeblich sind DIN EN ISO 19650 Teil 1 und 2 sowie DIN EN 17412-1 zur Informationsbedarfstiefe. Die Begriffe AIA und BAP sind die deutsche Praxis; international heißen sie Exchange Information Requirements und BIM Execution Plan. Falls ihr international anbietet, sollten beide Begriffspaare auftauchen.
+    </div>
+    <div class="note">
+      <b>Verlinkung Projekte</b>
+      Denkbar: je Glied ein realisiertes Projekt als Beleg verlinken — etwa ein Projekt, bei dem ihr die AIA mitgeschrieben habt, und eines mit externer Gesamtkoordination. Setzt voraus, dass „BIM-Rolle“ im Backend als Projektattribut gepflegt wird. Passt zur bestehenden Filterlogik der Projektseite.
+    </div>
+  </section>
+
+  <!-- 06 Offene Formate -->
+  <section class="band band--tint rv">
+    <div class="wrap grid">
+      <div class="s-6 stack">
+        <h2 class="t-h2">Woran Daten gemessen werden</h2>
+        <div class="prose">
+          <p>Jede Disziplin arbeitet in der Software, die sie beherrscht — das ist richtig so und wird sich nicht ändern. Damit trotzdem ein gemeinsames Modell entsteht, braucht es zwei Dinge: ein offenes Format, das alle lesen können, und eine Prüfregel, an der sich Vollständigkeit objektiv feststellen lässt. Erst beides zusammen macht aus einem Datenaustausch eine Lieferung.</p>
+        </div>
+        <ul class="x-pairs">
+          <li><b>Modell</b><span>IFC ist das herstellerneutrale Austauschformat für Bauwerksmodelle, veröffentlicht als <a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/" target="_blank" rel="noopener">ISO 16739</a>; die aktuelle Fassung 4.3 gilt seit 2024 als ISO-Norm und erweitert den Standard vor allem in Richtung Infrastruktur</span></li>
+          <li><b>Anforderung</b><span>Die <a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/information-delivery-specification-ids/" target="_blank" rel="noopener">Information Delivery Specification</a> beschreibt Informationsanforderungen maschinenlesbar — seit Version 1.0 aus dem Jahr 2024 lässt sich damit automatisiert prüfen, ob ein Modell enthält, was bestellt wurde</span></li>
+          <li><b>Kommunikation</b><span>BCF transportiert offene Punkte samt Blickrichtung und Bauteilbezug zwischen den Programmen — ein Konflikt wandert damit als Vorgang durchs Projekt, nicht als Screenshot im Anhang einer Mail</span></li>
+          <li><b>Ablage</b><span>Die gemeinsame Datenumgebung (CDE) ist der einzige Ort, an dem der gültige Stand liegt; DIN SPEC 91391 beschreibt Module und Datenaustausch, DIN EN ISO 19650-2 den Freigabeprozess mit seinen Statusstufen</span></li>
+        </ul>
+        <div class="note">
+          <b>Normnummern bleiben unverlinkt</b>
+          Wie auf der Brandschutzseite: Verlinkt wird nur auf frei zugängliche Primärquellen. DIN EN ISO 19650, DIN EN 17412-1 und die DIN SPEC liegen hinter der Bezahlschranke von Beuth, die Nummern stehen deshalb unverlinkt da. Bei IFC und IDS ist der Standard offen — dort wird verlinkt.
+        </div>
+      </div>
+
+      <div class="s-5 o-8 stack">
+        <p class="t-label x-pairs-label">Und wer den Wortschatz vorgibt</p>
+        <ul class="x-pairs x-pairs--stack">
+          <li><b>Merkmale</b><span>Das <a class="ext" href="https://www.bimdeutschland.de/bim-wissen/auftraggeber-informationsanforderungen" target="_blank" rel="noopener">BIM-Portal des Bundes</a> stellt Klassifikationen, Merkmale, Objektvorlagen und Prüfwerkzeuge bereit — öffentliche Auftraggeber formulieren ihre AIA zunehmend daraus</span></li>
+          <li><b>Anwendungsfälle</b><span>Der Bund benennt seine Anwendungsfälle einheitlich; wer für öffentliche Bauherren arbeitet, sollte die Liste kennen, weil sie in der Ausschreibung wörtlich auftaucht</span></li>
+          <li><b>Rollen</b><span>VDI 2552 Blatt 7 beschreibt die Prozesse und nennt das BIM-Management Informationsmanager, die BIM-Koordination Informationskoordinator; Blatt 8 regelt die Qualifikationen</span></li>
+        </ul>
+        <div class="note">
+          <b>Keine Softwarenamen — Absicht</b>
+          Die Seite nennt bewusst kein Autorensystem und kein Prüfprogramm. Gründe: Sie altert langsamer, sie schließt keine Fachplanung aus, und sie verschiebt das Gespräch von Werkzeugen auf Ergebnisse. Wenn ihr das anders wollt (manche Bauherren fragen danach), wäre der beste Ort ein kurzer Kasten „Womit wir arbeiten“ ganz am Ende, nicht im Fließtext.
+        </div>
+      </div>
+
+      <div class="s-7 prose">
+        <p>Der praktische Nutzen offener Formate zeigt sich nicht beim Export, sondern bei der Rückkopplung. Eine Menge, die aus dem Modell kommt, lässt sich zu ihrem Bauteil zurückverfolgen; ändert sich das Bauteil, ändert sich die Menge. Eine Kollision, die als Vorgang dokumentiert ist, hat einen Verantwortlichen und ein Datum. Und eine Anforderung, die maschinenlesbar formuliert wurde, ist am Tag der Lieferung geprüft und nicht drei Wochen später im Gespräch.</p>
+        <p>Das ist der eigentliche Unterschied zur Planung mit Zeichnungen: Nicht die Darstellung wird geteilt, sondern der Sachverhalt. Wer das ernst nimmt, verliert die Freiheit, Unschärfe stehen zu lassen — und gewinnt die Möglichkeit, früh zu wissen, woran man ist.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 BIM-Koordination -->
+  <section class="wrap band rv">
+    <div class="grid">
+      <div class="s-6 stack">
+        <h2 class="t-h2">BIM-Koordination ist ein Takt, kein Werkzeug</h2>
+        <div class="prose">
+          <p>Der häufigste Irrtum über BIM-Koordination ist, sie sei eine Kollisionsprüfung. Kollisionen zu finden ist der einfachste Teil und der, den die Software erledigt. Die Arbeit beginnt danach: entscheiden, welcher Konflikt eine Planungsentscheidung ist und welcher ein Modellierungsfehler, den richtigen Verfasser adressieren, eine Frist setzen und den Vorgang so lange offen halten, bis er im Modell wirklich verschwunden ist.</p>
+          <p>Damit das funktioniert, braucht die Koordination einen festen Takt. Fachmodelle werden zu einem vereinbarten Termin abgegeben, zusammengeführt, gegen die Regeln aus AIA und BAP geprüft und mit offenen Punkten zurückgespielt. Wöchentlich oder zweiwöchentlich — die Frequenz ist verhandelbar, die Verbindlichkeit nicht. Ein Zyklus, der ausfällt, kostet nicht eine Woche, sondern alle Entscheidungen, die in dieser Woche auf einem veralteten Stand getroffen wurden.</p>
+        </div>
+        <div class="note">
+          <b>Rolle im Projekt benennen</b>
+          Hier entscheidet sich die Glaubwürdigkeit des Abschnitts: Führt ihr die Gesamtkoordination selbst (dann gehört ein Satz dazu, wie ihr mit Fachplanungen umgeht, die noch nicht modellbasiert arbeiten) oder koordiniert ihr nur das eigene Fachmodell? Beides ist eine gute Antwort. Offen lassen ist keine.
+        </div>
+      </div>
+      <div class="s-5 o-8">
+        <svg class="x-way xdb-way" viewBox="20 0 560 410" role="img" aria-label="Schema: Fachmodelle werden zum Koordinationsmodell zusammengeführt, geprüft und als offene Punkte an die Verfasser zurückgegeben">
+          <!-- Beschriftung der Bereiche -->
+          <text class="x-way__t is-on" x="20" y="26">Fachmodelle</text>
+          <text class="x-way__t" x="230" y="26">Zusammenführung</text>
+          <text class="x-way__t" x="430" y="26">Prüfung</text>
+
+          <!-- Fachmodelle -->
+          <rect class="x-way__frame" x="20" y="40" width="130" height="48"/>
+          <text class="x-way__t is-on" x="34" y="69">Architektur</text>
+          <rect class="x-way__frame" x="20" y="110" width="130" height="48"/>
+          <text class="x-way__t is-on" x="34" y="139">Tragwerk</text>
+          <rect class="x-way__frame" x="20" y="180" width="130" height="48"/>
+          <text class="x-way__t is-on" x="34" y="209">Technik</text>
+
+          <!-- Sammelpunkt -->
+          <path class="x-way__path1" d="M150 64 H190 V135 H230"/>
+          <path class="x-way__path1" d="M150 134 H190"/>
+          <path class="x-way__path1" d="M150 204 H190 V135"/>
+          <circle class="x-way__dot" cx="190" cy="135" r="3"/>
+
+          <!-- Koordinationsmodell -->
+          <rect class="x-way__frame" x="230" y="70" width="150" height="130"/>
+          <line class="x-way__thin" x1="230" y1="104" x2="380" y2="104"/>
+          <line class="x-way__thin" x1="230" y1="138" x2="380" y2="138"/>
+          <line class="x-way__thin" x1="230" y1="172" x2="380" y2="172"/>
+          <text class="x-way__t is-on" x="244" y="230">Koordinationsmodell</text>
+
+          <!-- Weiter zur Prüfung -->
+          <path class="x-way__path1" d="M380 135 H430"/>
+
+          <!-- Prüfung -->
+          <rect class="x-way__frame" x="430" y="70" width="150" height="130"/>
+          <text class="x-way__t" x="444" y="104">Kollision</text>
+          <text class="x-way__t" x="444" y="128">Regeln aus AIA</text>
+          <text class="x-way__t" x="444" y="152">Vollständigkeit</text>
+          <text class="x-way__t" x="444" y="176">Termin und Menge</text>
+
+          <!-- Rücklauf als offene Punkte -->
+          <path class="x-way__path2" d="M505 200 V300 H85 V228"/>
+          <text class="x-way__t" x="230" y="292">Offene Punkte zurück an die Verfasser</text>
+
+          <!-- Takt -->
+          <line class="x-way__frame" x1="20" y1="340" x2="580" y2="340"/>
+          <text class="x-way__t is-on" x="20" y="366">Ein Zyklus: wöchentlich bis zweiwöchentlich</text>
+          <text class="x-way__t" x="20" y="392">Über das ganze Projekt</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 Anwendungsfälle -->
+  <section class="band band--tint rv">
+    <div class="wrap grid">
+      <div class="s-6 stack">
+        <h2 class="t-h2">Anwendungsfälle, die sich rechnen</h2>
+        <div class="prose">
+          <p>Nicht jeder Anwendungsfall lohnt sich in jedem Projekt. Ein Modell für den Betrieb aufzubauen ist bei einem Einfamilienhaus Unfug und bei einem Laborgebäude die halbe Miete. Deshalb steht am Anfang eines Projekts nicht die Frage, ob BIM, sondern welche Fragen das Modell beantworten soll — und was es kostet, sie beantworten zu können.</p>
+          <p>Die ehrliche Auskunft dazu gehört in die Grundlagenermittlung. Wer alle Anwendungsfälle verspricht, verspricht keinen. Wir empfehlen in der Regel drei bis fünf pro Projekt und begründen jede Auswahl damit, welche Entscheidung sie absichert.</p>
+        </div>
+        <ul class="x-pairs">
+          <li><b>4D</b><span>Bauablauf am Modell: Baustelleneinrichtung, Abschnittsbildung und Logistik werden sichtbar, bevor sie auf der Baustelle kollidieren — besonders im Bauen unter Betrieb</span></li>
+          <li><b>5D</b><span>Mengen mit Herkunft: Die Kostenschätzung lässt sich auf das Bauteil zurückführen, das sie erzeugt hat. Das macht Varianten vergleichbar statt verhandelbar</span></li>
+          <li><b>Simulation</b><span>Energie, Tageslicht, Verschattung und Ökobilanz rechnen auf derselben Geometrie — vorausgesetzt, die Merkmale stimmen</span></li>
+          <li><b>Abstimmung</b><span>Modellbasierte Besprechungen mit Nutzern und Gremien: Menschen, die Pläne nicht lesen, treffen bessere Entscheidungen, wenn sie sehen, worüber sie entscheiden</span></li>
+        </ul>
+      </div>
+      <div class="s-5 o-8 stack">
+        <p class="t-label x-pairs-label">Damit wird planbar</p>
+        <ul class="x-pairs x-pairs--stack">
+          <li><b>Konflikte</b><span>Durchdringungen und Trassen geklärt, bevor der Rohbau steht</span></li>
+          <li><b>Varianten</b><span>Entwurfsalternativen mit Mengen und Kosten statt mit Gefühl</span></li>
+          <li><b>Termine</b><span>Vorfertigung, die sich auf Maße verlassen kann</span></li>
+          <li><b>Nachweise</b><span>Flächen, Mengen und Bauteilaufbauten aus einer Quelle</span></li>
+          <li><b>Betrieb</b><span>Anlagen, die bei der Übergabe schon benannt sind</span></li>
+        </ul>
+        <div class="note">
+          <b>Zahlen ergänzen?</b>
+          Der Abschnitt wäre deutlich stärker mit einer belegten Zahl aus einem eurer Projekte — etwa „X Kollisionen vor Baubeginn geklärt“ oder „Nachtragsquote Y statt branchenüblich Z“. Branchenstudien würde ich nicht zitieren; die sind angreifbar und stammen meist von Softwareherstellern. Eine eigene Projektzahl ist unangreifbar. Bitte prüfen, ob sich eine finden lässt.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 Die vier Rollen -->
+  <section class="wrap band rv">
+    <div class="grid">
+      <div class="s-4">
+        <h2 class="t-h2">Vier Rollen, ein Modell</h2>
+      </div>
+      <div class="s-7 o-6 prose">
+        <p>In BIM-Projekten treten vier Rollen auf, die regelmäßig verwechselt werden — mit Folgen für Honorar und Haftung. Die Trennung von BIM-Management und BIM-Gesamtkoordination ist dabei eine deutsche Besonderheit: International fallen beide meist in einer Rolle zusammen. Für ein Architekturbüro mit Generalplanungsanspruch sind die vier Rollen unterschiedlich wichtig, und die Zuordnung sollte im Vertrag stehen, nicht im Protokoll der dritten Besprechung.</p>
+      </div>
+
+      <ol class="x-areas">
+        <li>
+          <div class="x-areas__head"><p class="t-h4">BIM-Management</p><p class="t-label">Wir beraten dazu</p></div>
+          <div class="x-areas__body">
+            <p>Die Vertretung der Bauherrschaft in allen Informationsfragen: Ziele festlegen, Anwendungsfälle auswählen, die AIA formulieren, die Einhaltung über das Projekt überwachen. Die Rolle sitzt auf Auftraggeberseite und wird in der VDI 2552 als Informationsmanager bezeichnet. Wo sie fehlt, übernimmt sie faktisch die Objektplanung — ohne Auftrag und ohne Honorar. Genau das sollte man vermeiden.</p>
+            <ul class="tags">
+              <li class="tag">BIM-Ziele</li>
+              <li class="tag">Anwendungsfälle</li>
+              <li class="tag">AIA</li>
+              <li class="tag">Vergabe und Verträge</li>
+              <li class="tag">Qualitätssicherung über das Projekt</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="x-areas__head"><p class="t-h4">BIM-Gesamtkoordination</p><p class="t-label">Wir übernehmen sie</p></div>
+          <div class="x-areas__body">
+            <p>Die Zusammenführung aller Fachmodelle zum Koordinationsmodell, die Prüfung gegen AIA und BAP, die Kollisionsprüfung über die Disziplingrenzen hinweg und die Führung der offenen Punkte. Die Rolle gehört inhaltlich dort hin, wo auch die planerische Koordination liegt — beim Objektplaner. Sonst entstehen zwei Koordinationen, die sich gegenseitig zuarbeiten müssen.</p>
+            <ul class="tags">
+              <li class="tag">Koordinationsmodell</li>
+              <li class="tag">Kollisions- und Regelprüfung</li>
+              <li class="tag">BCF-Vorgänge</li>
+              <li class="tag">Austauschzyklus</li>
+              <li class="tag">Fortschreibung des BAP</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="x-areas__head"><p class="t-h4">BIM-Fachkoordination</p><p class="t-label">Wir fordern sie ein</p></div>
+          <div class="x-areas__body">
+            <p>Jede Fachplanung verantwortet die Qualität des eigenen Modells: Struktur, Merkmale, Vollständigkeit, Einhaltung der Vorgaben. Diese Rolle lässt sich nicht zentralisieren — wer sie an die Gesamtkoordination abgibt, verschiebt Verantwortung an eine Stelle, die den fachlichen Inhalt gar nicht beurteilen kann. In der Praxis ist das der häufigste Konfliktpunkt in Projekten.</p>
+            <ul class="tags">
+              <li class="tag">Modellqualität je Disziplin</li>
+              <li class="tag">Prüfung vor Abgabe</li>
+              <li class="tag">Merkmale und Klassifikation</li>
+              <li class="tag">Beantwortung offener Punkte</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="x-areas__head"><p class="t-h4">BIM-Autorinnen und -Autoren</p><p class="t-label">Wir sind es</p></div>
+          <div class="x-areas__body">
+            <p>Die Menschen, die modellieren. Das ist keine Hilfsfunktion, sondern der Ort, an dem Entwurfsqualität und Datenqualität zusammenfallen: Wer ein Bauteil setzt, entscheidet zugleich über seine Klassifizierung, seine Merkmale und damit über jede spätere Auswertung. Deshalb modellieren bei uns Architektinnen und Architekten — und keine reine Modellierabteilung neben der Planung.</p>
+            <ul class="tags">
+              <li class="tag">Fachmodell Architektur</li>
+              <li class="tag">Bauteilstruktur</li>
+              <li class="tag">Merkmale und Klassifikation</li>
+              <li class="tag">Planableitung</li>
+              <li class="tag">Mengenermittlung</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+
+      <div class="note">
+        <b>Rollenzuordnung ist eine Positionierung</b>
+        „Wir beraten / übernehmen / fordern ein / sind es“ ist mein Vorschlag und beschreibt ein Büro mit Generalplanungsanspruch, das die Gesamtkoordination selbst führt. Falls ihr die Gesamtkoordination regelmäßig an ein externes Büro gebt, müssen die vier Zeilen anders lauten — und der Satz „Wir übernehmen sie“ raus. Das ist die Stelle, an der die Seite am konkretesten verspricht. Bitte genau prüfen.
+      </div>
+      <div class="note">
+        <b>Qualifikationen nennen</b>
+        Wenn jemand im Team eine BIM-Qualifikation nach VDI 2552 Blatt 8 oder eine Zertifizierung über buildingSMART hat, gehört das an diese Stelle — mit Namen. Bei Fachthemen ist die benannte Person das stärkste Vertrauenssignal, wie die Fachliste Brandschutz auf der Schwesterseite. Bitte Namen und Zertifikat nennen.
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 Bestand und Lebenszyklus -->
+  <section class="band band--tint rv">
+    <div class="wrap grid">
+      <div class="s-6 stack">
+        <h2 class="t-h2">Im Bestand</h2>
+        <div class="prose">
+          <p>Im Bestand beginnt das digitale Planen mit einer unangenehmen Frage: Wie genau muss das Modell sein? Ein Laserscan liefert Millionen Punkte in Millimetergenauigkeit — daraus ein vollständiges Bauwerksmodell zu bauen, kostet ein Vielfaches der Erfassung und ist in den meisten Projekten nicht nötig.</p>
+          <p>Sinnvoll ist der umgekehrte Weg: Erst festlegen, welche Entscheidungen anstehen, dann die Erfassungstiefe bestimmen. Für eine Aufstockung braucht es das Tragwerk und die Geometrie, nicht jede Steckdose. Für eine Sanierung im laufenden Betrieb zählen Leitungswege und lichte Höhen. Die Punktwolke bleibt als Referenz erhalten — modelliert wird, was gebraucht wird.</p>
+        </div>
+        <ul class="x-pairs">
+          <li><b>Erfassung</b><span>Laserscan oder Photogrammetrie, georeferenziert und mit dokumentierter Genauigkeit</span></li>
+          <li><b>Modell</b><span>Bestandsmodell in der Tiefe, die die Aufgabe verlangt — mit kenntlich gemachten Annahmen</span></li>
+          <li><b>Abgleich</b><span>Punktwolke und Modell bleiben verknüpft, damit im Zweifel die Messung entscheidet und nicht die Zeichnung</span></li>
+          <li><b>Denkmal</b><span>Verformungsgerechtes Aufmaß und Modell schließen sich nicht aus, verlangen aber eine bewusste Entscheidung über die Vereinfachung</span></li>
+        </ul>
+        <div class="note">
+          <b>Leistungstiefe prüfen</b>
+          Scannt ihr selbst oder beauftragt ihr Vermessungsbüros? Beides ist eine gute Antwort, aber die Seite sollte es nicht offenlassen. Falls ihr zuarbeitet: „Wir definieren die Erfassungstiefe und übernehmen die Modellierung“ ist ehrlicher und trägt genauso.
+        </div>
+      </div>
+      <div class="s-5 o-8 stack">
+        <h2 class="t-h2">Über den Lebenszyklus</h2>
+        <div class="prose">
+          <p>Der Nutzen eines Modells wächst mit der Zeit, in der es gepflegt wird. Zwei Entwicklungen machen das gerade aus Kür zur Pflicht: die Ökobilanz und die Dokumentationspflichten.</p>
+          <p>Die europäische Gebäuderichtlinie verlangt die Berechnung des Lebenszyklus-Treibhauspotenzials ab 2028 für neue Gebäude über 1.000 m² und ab 2030 für alle Neubauten. Wer Massen und Materialien ohnehin im Modell führt, hat die Grundlage dafür bereits — wer es nicht tut, erfasst sie später ein zweites Mal von Hand.</p>
+        </div>
+        <ul class="x-pairs x-pairs--stack">
+          <li><b>Ökobilanz</b><span>Massen aus dem Modell, Kennwerte aus der ÖKOBAUDAT, Bilanzierung nach DIN EN 15978 — schon in der Vorplanung als Variantenvergleich</span></li>
+          <li><b>Ressourcen</b><span>Der <a class="ext" href="https://www.dgnb.de/de/nachhaltiges-bauen/zirkulaeres-bauen/gebaeuderessourcenpass" target="_blank" rel="noopener">Gebäuderessourcenpass</a> dokumentiert Materialien und ihre Zirkularität — das Gebäude als Materiallager, nicht als Endlager</span></li>
+          <li><b>Betrieb</b><span>As-built-Modell mit Anlagenkennzeichnung als Grundlage für CAFM, Wartung und Instandhaltung</span></li>
+          <li><b>Umbau</b><span>Jeder spätere Eingriff beginnt mit Bestandsdaten, die entweder vorliegen oder teuer neu erhoben werden</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 Verantwortung -->
+  <section class="band band--dark rv">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="t-rubric sec-head__title">Verantwortung</h2>
+      </div>
+      <div class="grid">
+        <p class="t-h2 s-6 x-creed__claim">Ein Modell ist kein Vertrag. Und ersetzt auch keinen.</p>
+        <div class="s-5 o-8 stack x-creed__txt">
+          <p>Die HOAI ist methodenneutral formuliert: Sie schreibt keine Planungsmethode vor. Leistungen, die auch ohne Modell erbracht werden müssten, lösen deshalb nicht automatisch ein höheres Honorar aus. Alles darüber hinaus — die Strukturierung des Planungsprozesses über alle Fachmodelle, die Prüfung fremder Modelle auf formale Anforderungen, das BIM-Management — kann eine Besondere Leistung sein und muss dann vereinbart werden. Das <a class="ext" href="https://www.aho.de/publication/heft-11/" target="_blank" rel="noopener">AHO-Heft 11</a> stellt diese Abgrenzung je Leistungsbild dar und gibt Honorierungsempfehlungen.</p>
+          <p>Praktisch heißt das: Wer BIM beauftragt, ohne die Anforderungen zu beschreiben, bekommt keine verlässliche Leistung, sondern eine Auslegungsfrage. Und wer BIM anbietet, ohne die Abgrenzung zu benennen, arbeitet an der Stelle umsonst, an der es am aufwendigsten wird.</p>
+        </div>
+        <ul class="x-steps">
+          <li><b class="t-label">Vertrag</b><span>AIA und BAP werden Vertragsbestandteil — sonst sind es unverbindliche Absichtserklärungen. Die Abgrenzung von Grund- und Besonderen Leistungen gehört in denselben Schritt, dazu hat sich auch die <a class="ext" href="https://www.bauministerkonferenz.de/Dokumente/42322316.pdf" target="_blank" rel="noopener">Bauministerkonferenz</a> geäußert.</span></li>
+          <li><b class="t-label">Daten</b><span>Urheberrecht am Entwurf und Nutzungsrechte an Modelldaten sind zwei verschiedene Fragen. Wer welche Daten wie lange nutzen und weitergeben darf, sollte geregelt sein, bevor das erste Modell übergeben wird.</span></li>
+          <li><b class="t-label">Nachweis</b><span>Die gemeinsame Datenumgebung protokolliert, wer wann welchen Stand freigegeben hat. Das ist im Streitfall der wichtigste Vorteil digitaler Zusammenarbeit — und der Grund, warum sie nicht nebenbei auf einem freigabefreien Laufwerk stattfinden darf.</span></li>
+          <li><b class="t-label">Genehmigung</b><span>In Baden-Württemberg ist die digitale Einreichung von Bauanträgen seit dem 1. Januar 2025 verpflichtend; abgewickelt wird sie über das <a class="ext" href="https://mlw.baden-wuerttemberg.de/de/bauen-wohnen/baurecht/bauordnungsrecht/virtuelles-bauamt" target="_blank" rel="noopener">Virtuelle Bauamt</a>. Digital eingereicht heißt aber noch nicht modellbasiert geprüft: Eingereicht werden Dokumente. Die modellbasierte Prüfung ist Erprobungsstand, nicht Regelfall.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 Öffentliche Auftraggeber -->
+  <section class="wrap band rv">
+    <div class="grid">
+      <div class="s-6 stack">
+        <h2 class="t-h2">Wer öffentlich baut, baut bald nur noch so</h2>
+        <div class="prose">
+          <p>Für Bauherren, die öffentlich vergeben, ist die Frage nach BIM keine Haltungsfrage mehr. Bei neuen Projekten des Bundesinfrastrukturbaus ist die Methode seit Anfang 2021 verbindlich. Für den Bundeshochbau beschreibt der <a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2021-11-01_BIM_Masterplan.pdf" target="_blank" rel="noopener">Masterplan BIM für Bundesbauten</a> eine stufenweise Einführung in drei Levels: Level I mit den Anwendungsfällen aus Projektvorbereitung, Planung und Übergabe wurde Ende 2022 verbindlich, die vollständige Umsetzung ist bis 2027 vorgesehen; die <a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2023-03_Umsetzungsstrategie_BIM_Bundesbauten.pdf" target="_blank" rel="noopener">Umsetzungsstrategie</a> schreibt Zeitrahmen und Zuständigkeiten fort.</p>
+          <p>Länder und Kommunen folgen in unterschiedlichem Tempo, ziehen aber überwiegend die Vorgaben des Bundes heran. Für ein Planungsbüro bedeutet das weniger eine technische als eine formale Anforderung: Wer sich bewerben will, muss Rollen, Referenzen und Qualifikationen benennen können — und zwar in den Begriffen, in denen die Vergabestelle fragt.</p>
+        </div>
+        <div class="note">
+          <b>Stufen fachlich gegenlesen</b>
+          Die Level-Stufen und Jahreszahlen stammen aus dem Masterplan von 2021 und der Umsetzungsstrategie von 2023. Es gibt Anpassungen bei Schwellenwerten und Zeitpunkten, die ich nicht vollständig belegen konnte. Auf einer Expertiseseite wäre eine veraltete Jahreszahl ein unnötiger Angriffspunkt. Vorschlag: Entweder wir prüfen den aktuellen Stand vor Veröffentlichung, oder wir formulieren ohne Jahreszahlen — „stufenweise verbindlich, vollständige Umsetzung angekündigt“. Bitte entscheiden.
+        </div>
+      </div>
+      <div class="s-5 o-8">
+        <dl class="x-aims">
+          <div>
+            <dt class="t-label">Bund Infrastruktur</dt>
+            <dd><span class="t-h3 x-aims__t">Seit 2021 verbindlich</span><span class="t-small t-mute x-aims__d">Neue Projekte des Bundesinfrastrukturbaus, auf Grundlage des Stufenplans von 2015</span></dd>
+          </div>
+          <div>
+            <dt class="t-label">Bund Hochbau</dt>
+            <dd><span class="t-h3 x-aims__t">Stufenweise seit Ende 2022</span><span class="t-small t-mute x-aims__d">Level I für neu zu planende Bundesbauvorhaben, weitere Stufen bis 2027</span></dd>
+          </div>
+          <div>
+            <dt class="t-label">Länder und Kommunen</dt>
+            <dd><span class="t-h3 x-aims__t">Uneinheitlich</span><span class="t-small t-mute x-aims__d">Zunehmend als Anforderung in der Vergabe, meist an den Bundesvorgaben orientiert</span></dd>
+          </div>
+          <div>
+            <dt class="t-label">Private Bauherren</dt>
+            <dd><span class="t-h3 x-aims__t">Freiwillig, aber üblich</span><span class="t-small t-mute x-aims__d">Vor allem dort, wo Betrieb, Termine oder Vorfertigung den Ausschlag geben</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12b Was das bringt -->
+  <section class="band band--tint rv">
+    <div class="wrap grid">
+      <div class="s-4">
+        <h2 class="t-h2">Was das bringt</h2>
+      </div>
+
+      <ul class="x-risks">
+        <li>
+          <b class="t-h4">Komplexität wird beherrschbar</b>
+          <span>Ein mittleres Gebäude besteht aus Tausenden Entscheidungen und einem Dutzend Beteiligter. Das Modell macht sie nicht weniger — es macht sie sichtbar. Konflikte tauchen im Koordinationszyklus auf und nicht im Rohbau.</span>
+        </li>
+        <li>
+          <b class="t-h4">Baukosten werden früher belastbar</b>
+          <span>Jede Menge lässt sich auf das Bauteil zurückführen, das sie erzeugt hat. Varianten werden vergleichbar statt verhandelbar, und Änderungen fallen dort an, wo sie noch eine Planungsentscheidung sind und kein Nachtrag.</span>
+        </li>
+        <li>
+          <b class="t-h4">Bauzeit wird kürzer</b>
+          <span>Bauabläufe lassen sich am Modell durchspielen, Vorfertigung kann sich auf Maße verlassen, geklärte Durchdringungen halten die Baustelle nicht an. Die Zeit wird nicht auf der Baustelle gewonnen, sondern vorher.</span>
+        </li>
+        <li>
+          <b class="t-h4">Informationsverlust hört auf</b>
+          <span>Jede Übergabe ist eine mögliche Lücke: Entwurf an Ausführungsplanung, Planung an Baustelle, Bauen an Betrieb. In einer gemeinsamen Datenumgebung wandert der Sachverhalt mit — nicht nur seine Darstellung.</span>
+        </li>
+      </ul>
+
+      <p class="t-h3 s-7 o-6">Vier Versprechen — und vier Bedingungen, die auf dieser Seite stehen.</p>
+
+      <div class="note">
+        <b>Zugelieferter Text — nicht übernommen, sondern neu geschrieben</b>
+        Der zugelieferte Entwurf arbeitet mit Werbeformeln und einem Zukunftsversprechen. Kein Satz daraus steht auf dieser Seite, und das hat zwei Gründe. Erstens die Herkunft: Der Text stammt offenbar von einer fremden Website und wäre damit urheberrechtlich geschützt — übernehmen könnten wir ihn ohnehin nicht. Zweitens der Tonfall: Auf der Brandschutzseite behauptet keine Zeile einen Vorteil, ohne die Bedingung mitzuliefern. Hinzu kommt, dass ein Zukunftsversprechen 2026 alt klingt — bei Bundesbauten ist die Methode Gegenwart, nicht Zukunft. Deshalb hier: vier Nutzen, jeder mit seiner Voraussetzung.
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 Ansprechpartner -->
+  <section class="wrap band band--flush-bottom rv">
+    <div class="contact-card">
+      <div class="ph">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg>
+        <span>Foto folgt</span>
+      </div>
+      <div class="contact-card__body">
+        <p class="t-h2">Profitieren auch Sie von den Vorteilen des digitalen Bauens.</p>
+        <p class="t-mute">Professionelle BIM-Koordination. Wir nutzen modernste Technologien für eine effiziente Projektabwicklung. Ob sich ein Anwendungsfall lohnt und welche Informationen Sie wirklich brauchen, lässt sich meist schon im ersten Gespräch einordnen. <em>Ansprechperson und Funktion ergänzen.</em></p>
+        <div class="btn-row">
+          <a class="btn" href="tel:+49731935110">07 31 . 9 35 11-0</a>
+          <a class="link-arrow" href="mailto:info@hochstrasser.com">Nachricht schreiben <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 Rückweg -->
+  <section class="wrap band--s rv">
+    <a class="btn btn--back" href="expertise.html"><span aria-hidden="true">←</span> Zurück zu unseren Expertisen</a>
+  </section>
+
+  <!-- 15 Quellen -->
+  <section class="wrap rv">
+    <div class="sources">
+      <p class="t-label">Grundlagen dieser Seite</p>
+      <ul>
+        <li>DIN EN ISO 19650 Organisation von Informationen zu Bauwerken — Informationsmanagement mit BIM, insbesondere Teil 1 (Konzepte und Grundsätze), Teil 2 (Lieferphase), Teil 3 (Betriebsphase) und Teil 5 (Informationssicherheit), Beuth, kostenpflichtig</li>
+        <li>DIN EN 17412-1 Informationsbedarfstiefe sowie DIN SPEC 91391 Gemeinsame Datenumgebungen und DIN EN 15978 Ökobilanzierung von Gebäuden (Beuth, kostenpflichtig)</li>
+        <li>VDI 2552 Building Information Modeling, insbesondere Blatt 7 (Prozesse und Rollen) und Blatt 8 (Qualifikationen)</li>
+        <li><a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2021-11-01_BIM_Masterplan.pdf" target="_blank" rel="noopener">Masterplan BIM für Bundesbauten</a> sowie die <a class="ext" href="https://fib-bund.de/Inhalt/Themen/BIM_fuer_Bundesbauten/2023-03_Umsetzungsstrategie_BIM_Bundesbauten.pdf" target="_blank" rel="noopener">Umsetzungsstrategie BIM für Bundesbauten</a></li>
+        <li><a class="ext" href="https://www.bimdeutschland.de/bim-wissen/auftraggeber-informationsanforderungen" target="_blank" rel="noopener">BIM Deutschland: Auftraggeber-Informationsanforderungen und BIM-Portal des Bundes</a></li>
+        <li><a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/" target="_blank" rel="noopener">buildingSMART International: Industry Foundation Classes (ISO 16739)</a> und <a class="ext" href="https://www.buildingsmart.de/buildingsmart/aktuelles/ifc-43-ist-jetzt-iso-standard" target="_blank" rel="noopener">buildingSMART Deutschland zur ISO-Veröffentlichung von IFC 4.3</a></li>
+        <li><a class="ext" href="https://www.buildingsmart.org/standards/bsi-standards/information-delivery-specification-ids/" target="_blank" rel="noopener">buildingSMART International: Information Delivery Specification (IDS)</a></li>
+        <li><a class="ext" href="https://www.aho.de/publication/heft-11/" target="_blank" rel="noopener">AHO Heft 11: Leistungen Building Information Modeling</a> sowie das Papier der <a class="ext" href="https://www.bauministerkonferenz.de/Dokumente/42322316.pdf" target="_blank" rel="noopener">Bauministerkonferenz zu BIM und HOAI</a></li>
+        <li><a class="ext" href="https://mlw.baden-wuerttemberg.de/de/bauen-wohnen/baurecht/bauordnungsrecht/virtuelles-bauamt" target="_blank" rel="noopener">Ministerium für Landesentwicklung und Wohnen Baden-Württemberg: Virtuelles Bauamt</a></li>
+        <li><a class="ext" href="https://www.dgnb.de/de/nachhaltiges-bauen/zirkulaeres-bauen/gebaeuderessourcenpass" target="_blank" rel="noopener">DGNB: Gebäuderessourcenpass</a>; EU-Gebäuderichtlinie 2024/1275 zur Lebenszyklus-Treibhausgasbilanz</li>
+      </ul>
+      <div class="note">
+        <b>Quellenblock: ja oder nein?</b>
+        Gleiche Frage wie beim Brandschutz — und ich würde sie hier gleich beantworten. Wenn der Block auf der einen Expertiseseite steht, sollte er auf allen stehen. Das ist Teil des Look and Feel, nicht eine Einzelentscheidung pro Seite.
+      </div>
+    </div>
+  </section>

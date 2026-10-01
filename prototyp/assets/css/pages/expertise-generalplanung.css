@@ -1,0 +1,31 @@
+/* ============================================================
+   Generalplanung – nur Seitenspezifisches
+   Organigramm (viewBox 1280 × 340, 1 Einheit = 1 px am Desktop):
+   sieben Disziplinen à 170 breit, 15 Abstand. Darunter 900 px
+   übernimmt die gestapelte Liste .gp-stack.
+   Alles andere kommt aus expertise.css / site.css.
+   ============================================================ */
+
+/* Organigramm ------------------------------------------------- */
+.gp-org{display:none;width:100%;height:auto;overflow:visible}
+.gp-org__l{stroke:var(--ink);stroke-width:1}
+.gp-org__box{fill:var(--paper);stroke:var(--ink);stroke-width:1}
+.gp-org__box--top{fill:var(--shade)}
+.gp-org__box--mid{fill:var(--ink)}
+.gp-org__t{font-family:var(--font-ui);font-weight:400;font-size:15px;letter-spacing:.03em;fill:var(--ink)}
+.gp-org__t.is-inv{fill:var(--paper)}
+.gp-org__name{margin-bottom:var(--sp-2)}
+
+/* Mobil: gestapelte Fassung ----------------------------------- */
+.gp-stack{display:grid;gap:var(--sp-1)}
+.gp-stack__top,.gp-stack__mid{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.03em;text-align:center;padding:var(--sp-2) var(--sp-3);border:1px solid var(--ink)}
+.gp-stack__top{background:var(--shade)}
+.gp-stack__mid{background:var(--ink);color:var(--paper)}
+.gp-stack ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-1);padding-top:var(--sp-2);border-top:1px solid var(--ink)}
+.gp-stack li{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.03em;padding:var(--sp-2);border:1px solid var(--ink)}
+.gp-stack .t-label{margin-top:var(--sp-1)}
+
+@media (min-width:900px){
+  .gp-org{display:block}
+  .gp-stack{display:none}
+}

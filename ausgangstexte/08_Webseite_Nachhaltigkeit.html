@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nachhaltigkeit — hochstrasser.</title>
+<meta name="description" content="nachhaltigkeit als teil des entwurfs: lebenszyklusbilanz, graue emissionen, bauen im bestand, kreislaufgerechtes konstruieren. hochstrasser. architekten und generalplaner in ulm.">
+<link rel="canonical" href="https://hochstrasser.com/expertise/nachhaltigkeit/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="hochstrasser.">
+<meta property="og:url" content="https://hochstrasser.com/expertise/nachhaltigkeit/">
+<meta property="og:title" content="nachhaltigkeit — hochstrasser.">
+<meta property="og:description" content="jedes gebäude hat zwei klimabilanzen — eine für den betrieb, eine für den bau. wir planen beide von anfang an.">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ============================================================
+   EXPERTISESEITE NACHHALTIGKEIT
+   roter faden: jedes gebaeude hat zwei klimabilanzen, eine
+   fuer den betrieb und eine fuer den bau. die zweite
+   entscheidet sich im entwurf. die seite fuehrt von den
+   drei kernbereichen ueber den lebenszyklus und das neue
+   gebaeuderecht zum bestand und zum kreislauf.
+
+   das hauptelement ist die lebenszyklus-achse: eine
+   linienzeichnung der module a bis d nach din en 15978,
+   in der die phase ausgewaehlt wird und die zugehoerigen
+   hebel erscheinen.
+
+   gestaltung, raster und schriften identisch mit der
+   expertiseseite brandschutz:
+   PX Grotesk           -> logo, navigation, rubriken, knoten
+   Calibri/Calibri Light -> fliesstext und grosse aussagen
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --ink:#161616;
+  --ink-mute:#6e6e6e;
+  --rule:#e4e5e7;
+  --shade:#f2f2f2;
+  --pad: clamp(1.25rem, 5.2vw, 6.25rem);
+  --band: clamp(3.75rem, 8.5vw, 7.5rem);
+  --gut: clamp(.65rem, 1.35vw, 1.15rem);
+  --grid: repeat(12, minmax(0,1fr));
+  --row: clamp(1.4rem, 2.8vw, 2.4rem);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --font-body:'Calibri',sans-serif;
+  --font-light:'Calibri Light','Calibri',sans-serif;
+  --font-ui:'PX Grotesk',sans-serif;
+  --font-logo:var(--font-ui);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(.95rem,.92rem + .2vw,1.0625rem);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+.wrap{max-width:1620px;margin:0 auto;padding-inline:var(--pad)}
+.label{font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.band{padding-block:var(--band)}
+.band-s{padding-block:clamp(2.25rem,4.6vw,4rem)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:99}
+.skip:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.g12{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:var(--row);align-items:start}
+.sec-title{font-family:var(--font-ui);font-weight:600;font-size:clamp(1.05rem,1.45vw,1.3rem);letter-spacing:.055em;line-height:1.2}
+.sec-head{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:1rem;align-items:baseline}
+.sec-head .sec-title{grid-column:1/-1}
+.sec-head .arrow,.sec-head .hint{grid-column:1/-1;justify-self:start}
+.sec-head .hint{align-self:end}
+@media(min-width:900px){
+  .sec-head .sec-title{grid-column:1/span 5}
+  .sec-head .arrow,.sec-head .hint{grid-column:7/span 6;justify-self:end}
+}
+.statement{font-size:clamp(1.35rem,2.7vw,2.1rem);letter-spacing:-.024em;line-height:1.22;font-weight:400;max-width:30ch}
+.arrow{font-weight:600;font-size:.9rem;letter-spacing:.02em;border-bottom:1px solid var(--ink);padding-bottom:.15rem;white-space:nowrap;display:inline-block}
+.arrow span{display:inline-block;transition:transform .3s var(--ease)}
+.arrow:hover span{transform:translateX(5px)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--ink);padding:.9rem 1.9rem;font-family:var(--font-ui);font-weight:600;font-size:.92rem;letter-spacing:.05em;transition:background .3s var(--ease),color .3s var(--ease)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn span{display:inline-block;transition:transform .3s var(--ease)}
+.btn:hover span{transform:translateX(4px)}
+.btn-back:hover span{transform:translateX(-4px)}
+.prose{max-width:62ch;font-size:clamp(1rem,.95rem + .3vw,1.15rem);line-height:1.68;color:#2c2c2c;margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.prose p + p{margin-top:1.05em}
+
+/* prototyp-leiste */
+.proto{position:relative;z-index:70;background:var(--ink);color:var(--paper)}
+.proto-in{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:center;justify-content:space-between;padding-block:.55rem}
+.proto .label{color:rgba(255,255,255,.62)}
+.proto button{
+  font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;
+  border:1px solid rgba(255,255,255,.3);padding:.35rem .8rem;
+  transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+}
+.proto button:hover{border-color:var(--paper)}
+.proto button[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* offene punkte */
+.note{display:none}
+body.show-notes .note{
+  display:block;border:1px dashed var(--rule);padding:clamp(.9rem,1.8vw,1.35rem);
+  margin-top:clamp(1.1rem,2.2vw,1.6rem);color:var(--ink-mute);font-size:.95rem;max-width:62ch;
+}
+body.show-notes .note b{
+  display:block;font-family:var(--font-ui);font-weight:600;font-size:.7rem;
+  letter-spacing:.15em;color:var(--ink);margin-bottom:.5rem;
+}
+.note ul{list-style:none;margin-top:.5rem}
+.note li{padding-block:.15rem}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--rule)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:clamp(62px,7vw,88px)}
+.brand{font-family:var(--font-logo);font-weight:700;font-size:clamp(1.05rem,1.7vw,1.32rem);letter-spacing:-.012em}
+.nav{display:none;gap:clamp(1.1rem,2.2vw,2.1rem);align-items:baseline}
+.nav a{font-family:var(--font-ui);font-size:.92rem;letter-spacing:.05em;color:var(--ink);opacity:.72;transition:opacity .22s var(--ease)}
+.nav a:hover,.nav a[aria-current]{opacity:1}
+.dots{display:flex;flex-direction:column;gap:4px;padding:.6rem .35rem}
+.dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);display:block;transition:transform .3s var(--ease)}
+.dots:hover i:nth-child(1){transform:translateX(-3px)}
+.dots:hover i:nth-child(3){transform:translateX(3px)}
+@media(min-width:820px){.nav{display:flex}.dots{display:none}}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:var(--pad);transform:translateY(-100%);transition:transform .5s var(--ease)}
+.sheet[data-open]{transform:none}
+.sheet a{font-family:var(--font-ui);font-size:clamp(1.7rem,8vw,2.4rem);letter-spacing:.03em;font-weight:600}
+.sheet-close{position:absolute;top:1.1rem;right:var(--pad);color:var(--ink-mute);font-family:var(--font-ui)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(2.25rem,5vw,4rem) clamp(3.5rem,7vw,6.5rem)}
+.hero .eyebrow{grid-column:1/-1;margin-bottom:clamp(1.1rem,2.4vw,1.9rem)}
+.claim{
+  grid-column:1/-1;
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(1.95rem,4.4vw,3.6rem);line-height:1.05;letter-spacing:-.015em;max-width:22ch;
+}
+.claim em{font-style:normal;color:var(--ink-mute)}
+.hero-sub{grid-column:1/-1;margin-top:clamp(.9rem,1.8vw,1.4rem);color:var(--ink-mute);max-width:56ch}
+.hero .note{grid-column:1/-1}
+@media(min-width:900px){
+  .claim{grid-column:1/span 8}
+  .hero-sub{grid-column:1/span 6}
+}
+
+/* ---------- der fruehe hebel: risikoliste am 12er-raster ---------- */
+.risks{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.6rem,3vw,2.5rem)}
+.risks li{
+  display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.35rem;
+  padding-block:1.05rem;border-bottom:1px solid var(--rule);
+}
+.risks b{grid-column:1/-1;font-weight:400;font-size:clamp(1.05rem,1.6vw,1.28rem);letter-spacing:-.014em;line-height:1.25}
+.risks span{grid-column:1/-1;color:var(--ink-mute);max-width:58ch}
+@media(min-width:900px){
+  .risks b{grid-column:1/span 4}
+  .risks span{grid-column:6/span 7}
+}
+.after{margin-top:clamp(1.9rem,3.6vw,2.75rem);font-size:clamp(1.15rem,2vw,1.5rem);letter-spacing:-.018em;line-height:1.3;max-width:34ch}
+
+/* ---------- drei kernbereiche: graues band ---------- */
+.about{background:var(--shade)}
+.about-txt{grid-column:1/-1}
+.about-side{grid-column:1/-1}
+@media(min-width:900px){
+  .about-txt{grid-column:1/span 6}
+  .about-side{grid-column:8/span 5}
+}
+.aims{border-top:1px solid var(--ink);counter-reset:aim}
+.aims>div{
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;
+  padding:.95rem 0;border-bottom:1px solid rgba(22,22,22,.14);align-items:baseline;
+}
+.aims dt{
+  font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;
+  color:var(--ink-mute);padding-top:.35em;
+}
+.aims dd{font-family:var(--font-light);font-weight:300;font-size:clamp(1.25rem,2.2vw,1.8rem);line-height:1.15;letter-spacing:-.02em}
+.aims dd i{display:block;font-style:normal;font-family:var(--font-body);font-size:.88rem;line-height:1.5;color:var(--ink-mute);letter-spacing:0;margin-top:.35rem}
+
+/* ---------- externe verweise ---------- */
+a.ext{border-bottom:1px solid var(--rule);transition:border-color .2s var(--ease)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--ink)}
+a.ext::after{content:'\2197';font-size:.72em;margin-left:.15em;color:var(--ink-mute);vertical-align:.18em}
+.creed a.ext{border-bottom-color:rgba(255,255,255,.35);color:var(--paper)}
+.creed a.ext:hover,.creed a.ext:focus-visible{border-bottom-color:var(--paper)}
+.creed a.ext::after{color:rgba(255,255,255,.55)}
+
+/* ---------- getoentes vollband ---------- */
+.tint{background:var(--shade)}
+.tint .plist{border-top-color:var(--ink)}
+.tint .plist li{border-bottom-color:rgba(22,22,22,.14)}
+.tint .note{border-color:rgba(22,22,22,.22)}
+.tint .risks{border-top-color:var(--ink)}
+.tint .risks li{border-bottom-color:rgba(22,22,22,.14)}
+
+/* ---------- lebenszyklus-achse ---------- */
+.lz-sec{padding-block:var(--band)}
+.lz-head{margin-bottom:clamp(1.9rem,3.6vw,3rem)}
+.lz-draw{width:100%;height:auto;display:block;overflow:visible}
+@media(max-width:759px){.lz-draw{display:none}}
+
+.lz-ground{stroke:var(--ink);stroke-width:1}
+.lz-ref{stroke:var(--ink-mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;opacity:.7}
+.lz-ref-t{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.12em;fill:var(--ink-mute)}
+
+.lzn{cursor:pointer;transition:opacity .25s var(--ease)}
+.lzn rect.body{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
+.lzn line.floor{stroke:var(--rule);stroke-width:1;transition:stroke .3s var(--ease)}
+.lzn text.no{font-family:var(--font-ui);font-weight:600;font-size:15px;letter-spacing:.03em;fill:var(--ink);transition:fill .3s var(--ease)}
+.lzn text.cap{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.12em;fill:var(--ink-mute);transition:fill .3s var(--ease)}
+.lzn:hover rect.body{fill:var(--shade)}
+.lzn:focus{outline:none}
+.lzn:focus-visible rect.body{stroke-width:2}
+.lz-draw.has-on .lzn:not(.is-on){opacity:.4}
+.lzn.is-on rect.body{fill:var(--ink)}
+.lzn.is-on:hover rect.body{fill:var(--ink)}
+.lzn.is-on text.no{fill:var(--paper)}
+.lzn.is-on line.floor{stroke:rgba(255,255,255,.28)}
+.lzn.is-on text.cap{fill:var(--ink)}
+
+/* kleine schirme: phasen als schaltflaechen */
+.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+@media(min-width:760px){.chips{display:none}}
+.chip{
+  font-family:var(--font-ui);font-weight:600;font-size:.85rem;letter-spacing:.03em;line-height:1.25;
+  border:1px solid var(--ink);padding:.75rem .8rem;text-align:left;
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+.lz-panel{
+  margin-top:clamp(1.9rem,3.6vw,3rem);padding-top:clamp(1.4rem,2.6vw,2rem);
+  border-top:1px solid var(--ink);transition:opacity .25s var(--ease);
+}
+.lz-panel.is-fading{opacity:0}
+.lz-head-txt{grid-column:1/-1}
+.lz-facts{grid-column:1/-1}
+@media(min-width:900px){
+  .lz-head-txt{grid-column:1/span 4}
+  .lz-facts{grid-column:6/span 7}
+}
+.lz-name{margin-bottom:.6rem}
+.lz-claim{font-family:var(--font-light);font-weight:300;font-size:clamp(1.45rem,3vw,2.35rem);line-height:1.18;letter-spacing:-.02em}
+.dl{border-top:1px solid var(--ink)}
+.dl>div{display:flex;flex-wrap:wrap;gap:.15rem 1.5rem;align-items:baseline;padding:.95rem 0;border-bottom:1px solid var(--rule)}
+.dl dt{flex:0 0 clamp(8.5rem,13vw,12.5rem);font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.dl dd{flex:1 1 22ch;min-width:0}
+
+/* ---------- bestand: text mit schema ---------- */
+/* der bestandsabschnitt steht auf weiss, damit das schema zwischen zwei toenen atmet */
+.ways-txt{grid-column:1/-1}
+.ways-fig{grid-column:1/-1}
+@media(min-width:900px){
+  .ways-txt{grid-column:1/span 5}
+  .ways-fig{grid-column:7/span 6}
+}
+.rw{width:100%;height:auto;display:block;overflow:visible}
+.rw .frame{fill:none;stroke:var(--ink);stroke-width:1}
+.rw .thin{fill:none;stroke:rgba(22,22,22,.28);stroke-width:1}
+.rw .path1{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rw .path2{fill:none;stroke:var(--ink);stroke-width:1;stroke-dasharray:4 4;stroke-linecap:round;stroke-linejoin:round}
+.rw .t{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.1em;fill:var(--ink-mute)}
+.rw .t.on{fill:var(--ink)}
+.rw .win{fill:var(--paper);stroke:none}
+.rw .dot{fill:var(--ink)}
+
+/* ---------- dunkles band: haltung ---------- */
+.creed{background:var(--ink);color:var(--paper);padding-block:clamp(3.25rem,7.5vw,6.5rem)}
+.creed .sec-title{color:var(--paper)}
+.creed-in{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(1.75rem,3.5vw,2.75rem);margin-top:clamp(2rem,4vw,3.25rem)}
+.creed-claim{grid-column:1/-1;font-family:var(--font-light);font-weight:300;font-size:clamp(1.7rem,4.2vw,3.1rem);line-height:1.08;letter-spacing:-.024em}
+.creed-txt{grid-column:1/-1;color:rgba(255,255,255,.72);max-width:56ch}
+.creed-txt p + p{margin-top:1em}
+@media(min-width:900px){
+  .creed-claim{grid-column:1/span 6}
+  .creed-txt{grid-column:8/span 5}
+}
+.creed .steps{list-style:none;margin-top:clamp(2rem,4vw,3rem);border-top:1px solid rgba(255,255,255,.28);grid-column:1/-1}
+.creed .steps li{
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;
+  padding-block:.9rem;border-bottom:1px solid rgba(255,255,255,.18);align-items:baseline;
+}
+.creed .steps b{font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:rgba(255,255,255,.5)}
+.creed .steps span{color:rgba(255,255,255,.85)}
+
+/* ---------- leistungen ueber die leistungsphasen ---------- */
+/* leistungsachse steht auf weiss, damit sie nicht neben dem zielband klebt */
+.lph-scale{display:none}
+.lph-list{border-top:1px solid var(--ink);margin-top:clamp(1.4rem,2.6vw,2rem)}
+.lph-row{
+  display:grid;grid-template-columns:1fr;gap:.3rem;
+  padding-block:.85rem;border-bottom:1px solid rgba(22,22,22,.14);
+}
+.lph-name{letter-spacing:.02em}
+.lph-what{color:var(--ink-mute);font-size:.9rem}
+.lph-span{color:var(--ink-mute);font-size:.9rem}
+.lph-track{display:none}
+@media(min-width:760px){
+  .lph-scale{
+    display:grid;grid-template-columns:var(--grid);
+    column-gap:var(--gut);align-items:end;margin-bottom:.6rem;
+  }
+  .lph-scale>.label{grid-column:1/span 4}
+  .lph-scale .ticks{grid-column:5/span 8;display:grid;grid-template-columns:repeat(10,minmax(0,1fr))}
+  .lph-scale .ticks span{padding-left:.3rem}
+  .lph-row{grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.25rem;align-items:center}
+  .lph-name{grid-column:1/span 4}
+  .lph-what{grid-column:1/span 4;grid-row:2}
+  .lph-span{display:none}
+  .lph-track{
+    grid-column:5/span 8;grid-row:1/span 2;display:block;position:relative;height:16px;
+    border-right:1px solid rgba(22,22,22,.16);
+  }
+  .lph-track::before{
+    content:'';position:absolute;inset:0;
+    background:repeating-linear-gradient(to right,rgba(22,22,22,.16) 0 1px,transparent 1px 10%);
+  }
+  .lph-bar{
+    position:absolute;top:4px;bottom:4px;
+    left:calc(var(--s) * 10%);width:calc((var(--e) - var(--s)) * 10%);
+    background:var(--ink);
+  }
+}
+
+/* ---------- zweispalter ---------- */
+.split{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(2.25rem,4.5vw,3.5rem)}
+.split-a{grid-column:1/-1}
+.split-b{grid-column:1/-1}
+@media(min-width:960px){
+  .split-a{grid-column:1/span 6}
+  .split-b{grid-column:8/span 5}
+}
+.plist{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.plist li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;padding-block:.85rem;border-bottom:1px solid var(--rule);align-items:baseline}
+.plist b{font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.plist span{min-width:0}
+
+/* ---------- kontakt ---------- */
+.contact{border:1px solid var(--ink);padding:clamp(1.5rem,3.2vw,2.75rem);display:grid;gap:clamp(1.4rem,2.8vw,2.2rem)}
+@media(min-width:680px){
+  .contact{grid-template-columns:clamp(5.5rem,9vw,7.5rem) minmax(0,1fr);align-items:start;gap:clamp(1.5rem,3vw,2.5rem)}
+}
+.avatar{
+  aspect-ratio:1/1;background:var(--shade);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;color:var(--ink-mute);
+}
+.avatar svg{width:clamp(26px,3vw,36px);height:auto;display:block}
+.avatar span{font-family:var(--font-ui);font-weight:600;font-size:.6rem;letter-spacing:.15em}
+.contact-foot{display:flex;flex-wrap:wrap;gap:1rem 2.25rem;align-items:center;margin-top:clamp(1.4rem,2.8vw,2rem)}
+
+/* ---------- quellen ---------- */
+.src{border-top:1px solid var(--rule);padding-block:clamp(1.6rem,3vw,2.4rem)}
+.src ul{list-style:none;display:grid;gap:.4rem;margin-top:.8rem;max-width:82ch}
+.src li{color:var(--ink-mute);font-size:.9rem;line-height:1.5}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem) 2.25rem}
+.ftr-top{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(2rem,4vw,3.5rem)}
+.ftr-left{grid-column:1/-1}
+.ftr-right{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-left{grid-column:1/span 6}
+  .ftr-right{grid-column:8/span 5}
+}
+.ftr .brand{font-size:clamp(1.6rem,3.2vw,2.35rem);letter-spacing:-.018em;display:block;margin-bottom:1.1rem}
+.ftr-addr{color:rgba(255,255,255,.62);max-width:32ch}
+.ftr-big{margin-top:1.4rem;font-size:clamp(1.15rem,2.1vw,1.55rem);letter-spacing:.02em;font-weight:600;line-height:1.35}
+.ftr-big+.ftr-big{margin-top:.35rem}
+.ftr-big a{border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:.1rem;transition:border-color .25s var(--ease)}
+.ftr-big a:hover{border-bottom-color:var(--paper)}
+.ftr-right{display:flex;flex-direction:column;gap:clamp(1.75rem,3vw,2.5rem)}
+@media(min-width:860px){.ftr-right{padding-top:.5rem}}
+.ftr-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 2rem;align-content:start}
+.ftr-links a{color:rgba(255,255,255,.78);transition:color .22s var(--ease)}
+.ftr-links a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-social{display:flex;gap:.7rem;justify-content:flex-end}
+.ftr-social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;flex:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.78);transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
+.ftr-social a:hover{border-color:var(--paper);color:var(--ink);background:var(--paper)}
+.ftr-social svg{width:19px;height:19px;display:block}
+.ftr .label{color:rgba(255,255,255,.5)}
+.ftr .label a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-base{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.6rem;margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.18)}
+.ftr-base>*{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-base>*:first-child{grid-column:1/span 6}
+  .ftr-base>*:last-child{grid-column:8/span 5;justify-self:end}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+/* ---------- ergaenzungen nachhaltigkeit ---------- */
+/* ---------- haeufige fragen ---------- */
+.faq-head{grid-column:1/-1}
+.faq-list{grid-column:1/-1;border-top:1px solid var(--ink);margin-top:clamp(1.4rem,2.6vw,2rem)}
+@media(min-width:900px){
+  .faq-head{grid-column:1/span 4}
+  .faq-list{grid-column:6/span 7;margin-top:0}
+}
+.faq-date{margin-top:1rem}
+.faq-i{border-bottom:1px solid var(--rule)}
+.faq-i summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:start;padding-block:clamp(1rem,1.9vw,1.3rem)}
+.faq-i summary::-webkit-details-marker{display:none}
+.faq-i summary h3{font-family:var(--font-light);font-weight:300;font-size:clamp(1.12rem,1.6vw,1.35rem);line-height:1.3;letter-spacing:-.01em;color:var(--ink);transition:color .2s var(--ease)}
+.faq-i summary::after{content:'';width:14px;height:14px;margin-top:.35em;background:linear-gradient(var(--ink),var(--ink)) center/100% 1px no-repeat,linear-gradient(var(--ink),var(--ink)) center/1px 100% no-repeat;transition:transform .3s var(--ease)}
+.faq-i[open] summary::after{transform:rotate(45deg)}
+.faq-i summary:hover h3{color:var(--ink-mute)}
+.faq-i summary:focus{outline:none}
+.faq-i summary:focus-visible h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}
+.faq-i p{max-width:62ch;color:#2c2c2c;padding-bottom:clamp(1.1rem,2vw,1.5rem);margin-top:-.2rem}
+
+/* ---------- drei kernbereiche: drei spalten ---------- */
+.kb{display:grid;grid-template-columns:1fr;gap:clamp(2.5rem,5vw,3.5rem) var(--gut);margin-top:clamp(1.6rem,3vw,2.5rem)}
+@media(min-width:900px){.kb{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(1.5rem,3vw,3rem)}}
+.kb-col{border-top:1px solid var(--ink);padding-top:clamp(1.2rem,2.2vw,1.6rem)}
+.kb-pic{display:block;width:100%;max-width:240px;height:auto;margin-top:clamp(1.2rem,2.4vw,1.8rem);overflow:visible}
+.kb-pic .l{fill:none;stroke:var(--ink);stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+.kb-pic .t{fill:none;stroke:rgba(22,22,22,.35);stroke-width:1;stroke-linecap:round}
+.kb-pic .d{stroke-dasharray:3 4}
+.kb-t{font-family:var(--font-light);font-weight:300;font-size:clamp(1.35rem,2.1vw,1.75rem);line-height:1.15;letter-spacing:-.02em}
+.kb-lead{color:var(--ink-mute);margin-top:.7rem;max-width:38ch}
+@media(min-width:900px){.kb-lead{min-height:3.2em}}
+.kb-list{list-style:none;margin-top:clamp(1.2rem,2.2vw,1.6rem);border-top:1px solid rgba(22,22,22,.14)}
+.kb-list li{padding-block:.85rem;border-bottom:1px solid rgba(22,22,22,.14)}
+.kb-list b{display:block;font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink);margin-bottom:.3rem}
+.kb-list span{display:block;font-size:.95rem;line-height:1.55;color:#2c2c2c}
+#bereich-1,#bereich-2,#bereich-3{scroll-margin-top:clamp(72px,8vw,100px)}
+
+.lz-sys{fill:none;stroke:var(--ink-mute);stroke-width:1;stroke-dasharray:4 5;opacity:.75}
+.rw .bar{fill:var(--ink)}
+.rw .bar-l{fill:var(--shade);stroke:var(--ink);stroke-width:1}
+.rw .ghost{fill:none;stroke:var(--ink);stroke-width:1;stroke-dasharray:4 4}
+.chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+.split-b .sec-title + .prose{margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.contact .note{margin-top:clamp(1.2rem,2.4vw,1.8rem)}
+.aims dt{min-width:6.4rem}
+.aims dd a{transition:color .2s var(--ease)}
+.aims dd a:hover,.aims dd a:focus-visible{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}
+a.arrow-in{border-bottom:1px solid var(--ink);transition:border-color .2s var(--ease)}
+a.arrow-in:hover{border-bottom-color:transparent}
+#lebenszyklus,#regelwerk,#bestand,#kernbereiche{scroll-margin-top:clamp(72px,8vw,100px)}
+@media(min-width:900px){.plist b{min-width:8.4rem}}
+.creed .steps b{min-width:6.6rem}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "de-DE",
+  "url": "https://hochstrasser.com/expertise/nachhaltigkeit/",
+  "name": "Häufige Fragen zur Nachhaltigkeit in der Architektur — hochstrasser.",
+  "dateModified": "2026-09-23",
+  "publisher": {
+    "@type": "Organization",
+    "name": "hochstrasser.",
+    "url": "https://hochstrasser.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ulm",
+      "addressRegion": "Baden-Württemberg",
+      "addressCountry": "DE"
+    }
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was bedeutet nachhaltiges Bauen in der Architektur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nachhaltiges Bauen bedeutet, ein Gebäude über seinen gesamten Lebenszyklus zu planen — von der Herstellung der Baustoffe über den Betrieb bis zum Rückbau. Es verbindet ökologische, ökonomische und soziokulturelle Qualität: wenig Material und Energie, bezahlbar über Jahrzehnte, gesund und gern genutzt. Beim Architekturbüro hochstrasser. in Ulm ist Nachhaltigkeit deshalb kein Zusatzmodul, sondern Teil jedes Entwurfs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist graue Energie und warum ist sie so wichtig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Graue Energie ist die Energie, die für Herstellung, Transport, Einbau und Entsorgung von Baustoffen anfällt. Weil Neubauten im Betrieb immer effizienter werden, wächst ihr Anteil: Bei neueren, effizienten Gebäuden entfällt nach Auswertungen der DGNB rund die Hälfte der Emissionen über 50 Jahre auf die Konstruktion. Graue Energie lässt sich fast nur im Entwurf beeinflussen — über Bauweise, Tragwerk und Material."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist eine Sanierung nachhaltiger als Abriss und Neubau?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In den meisten Fällen ist die Sanierung die klimafreundlichere Lösung. Eine Kurzstudie der DGNB mit 19 zertifizierten Sanierungsprojekten ergab, dass vergleichbare Neubauten im Mittel 2,4-mal so viel graue Emissionen verursachen. Diesen Vorsprung holt ein effizienterer Betrieb in der Regel nicht vollständig auf. hochstrasser. vergleicht deshalb zu Projektbeginn Erhalt, Umbau und Neubau mit Ökobilanz — bevor ein Raumprogramm feststeht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ändert das Gebäudemodernisierungsgesetz (GModG) für Neubauten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das Gebäudemodernisierungsgesetz ersetzt seit dem 29. Juli 2026 das Gebäudeenergiegesetz und führt eine Lebenszyklus-Treibhausgasbilanz ein: ab 2028 für Neubauten mit mehr als 1.000 m² Nutzfläche, ab 2030 für alle Neubauten, jeweils mit Angabe im Energieausweis. Außerdem müssen Neubauten ab 2030 als Nullemissionsgebäude errichtet werden, neue öffentliche Nichtwohngebäude bereits ab 2028."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist ein Nullemissionsgebäude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Nullemissionsgebäude nach der EU-Gebäuderichtlinie 2024/1275 hat einen sehr geringen Energiebedarf und verursacht am Standort keine CO₂-Emissionen aus fossilen Brennstoffen. Den verbleibenden Bedarf decken erneuerbare Energien, etwa aus Photovoltaik, Wärmepumpe oder Wärmenetz. In Deutschland wird der Standard über das GModG eingeführt: ab 2028 für neue öffentliche Nichtwohngebäude, ab 2030 für alle Neubauten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist eine Ökobilanz für Gebäude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine Gebäudeökobilanz berechnet die Umweltwirkungen eines Gebäudes über seinen Lebenszyklus, vor allem das Treibhauspotenzial in Kilogramm CO₂-Äquivalent. Grundlage sind die Lebenszyklusmodule der DIN EN 15978, für die gesetzliche Bilanz nach GModG gilt die DIN SPEC 91606. hochstrasser. erstellt Ökobilanzen mit eigenen Fachexperten — als Entscheidungsgrundlage schon im Entwurf, nicht erst als Nachweis am Ende."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann sollte Nachhaltigkeit in der Planung berücksichtigt werden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nachhaltigkeit sollte so früh wie möglich in die Planung einfließen, idealerweise in den Leistungsphasen 0 und 1. Die größten Hebel — Erhalt statt Neubau, kompakte Baukörper, Tragwerk und Bauweise — werden in den ersten Skizzen festgelegt. Später lässt sich meist nur noch an Oberflächen optimieren. Bei hochstrasser. arbeiten Architektur und Nachhaltigkeitsplanung deshalb von Anfang an zusammen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist nachhaltiges Bauen teurer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nachhaltiges Bauen ist nicht zwingend teurer. Viele wirksame Maßnahmen senken sogar die Baukosten: weniger Fläche, kompakte Baukörper, weniger Technik, Erhalt vorhandener Substanz. Mehrkosten entstehen vor allem bei höheren Standards und Zertifizierung. Ihnen stehen geringere Betriebs- und Instandhaltungskosten, Fördermittel und eine höhere Wertstabilität gegenüber. Aussagekräftig ist deshalb der Vergleich der Lebenszykluskosten, nicht nur der Baukosten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Förderung gibt es für nachhaltige Neubauten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das zentrale Bundesprogramm für nachhaltige Neubauten ist „Klimafreundlicher Neubau“ der KfW. Mit dem Qualitätssiegel Nachhaltiges Gebäude (QNG) steigt der förderfähige Kreditbetrag; Voraussetzung sind ein hoher Effizienzstandard und eine Ökobilanz. Die Förderbedingungen ändern sich häufig, zuletzt im Juli 2026. hochstrasser. prüft den passenden Förderweg deshalb zu Beginn jedes Projekts auf aktuellem Stand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der Unterschied zwischen DGNB-Zertifikat und QNG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die DGNB-Zertifizierung bewertet die Nachhaltigkeit eines Gebäudes ganzheitlich und vergibt die Stufen Platin, Gold und Silber, im Bestand auch Bronze. Das QNG ist ein staatliches Siegel des Bundes, das auf akkreditierten Bewertungssystemen wie der DGNB aufbaut und zusätzliche Anforderungen stellt — vor allem als Voraussetzung für die höhere KfW-Förderung. hochstrasser. begleitet beide Wege mit eigenen DGNB-Experten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist Holzbau klimafreundlicher als Beton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Holzbau ist häufig klimafreundlicher als Beton, aber nicht automatisch. Holz speichert den Kohlenstoff, den der Baum gebunden hat, solange es verbaut ist, und hat meist eine deutlich geringere Herstellungsbilanz als Beton oder Stahl. Entscheidend sind Herkunft, Konstruktion, Brandschutz und Rückbaubarkeit — oft ist ein Hybridbau aus Holz und Beton die beste Lösung. Welche Variante gewinnt, zeigt die Ökobilanz im Einzelfall."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was bedeutet kreislaufgerechtes Bauen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kreislaufgerechtes Bauen plant ein Gebäude als Materiallager: Bauteile werden verschraubt, gesteckt oder geklemmt statt verklebt und lassen sich am Ende sortenrein trennen und wiederverwenden. Der Hebel ist groß — Bau- und Abbruchabfälle machen laut Umweltbundesamt mehr als die Hälfte des Abfallaufkommens in Deutschland aus, 2023 waren es rund 199 Millionen Tonnen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gilt in Baden-Württemberg eine Photovoltaikpflicht?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Baden-Württemberg gilt nach § 23 des Klimaschutz- und Klimawandelanpassungsgesetzes eine Photovoltaikpflicht: seit 2022 für Neubauten aller Art und seit 2023 bei grundlegenden Dachsanierungen. In der Regel sind 60 Prozent der geeigneten Dachfläche mit Photovoltaik zu belegen. hochstrasser. plant die Anlage als Teil der Architektur mit, statt sie nachträglich auf das Dach zu setzen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie plant man Gebäude, die Hitze und Starkregen standhalten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Klimaangepasste Gebäude entstehen vor allem durch Architektur, nicht durch Technik. Außenliegender Sonnenschutz, Speichermasse und Nachtlüftung halten Räume im Sommer kühl. Gründächer, Zisternen und Versickerungsflächen halten Regenwasser zurück — nach dem Prinzip der Schwammstadt. Begrünte Fassaden kühlen durch Verdunstung, und wenig versiegelte Flächen mit erhaltenen Bäumen schützen das Umfeld zusätzlich."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der Gebäudetyp E?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Gebäudetyp E steht für einfacheres Bauen. Ein Bundesgesetz soll es erleichtern, vertraglich von Normen und Komfortstandards abzuweichen, die nicht sicherheitsrelevant sind — damit günstiger und ressourcenschonender gebaut werden kann. Im September 2026 befindet sich der Gesetzentwurf im parlamentarischen Verfahren. Für nachhaltige Planung ist er relevant, weil weniger Technik und Aufwand oft auch weniger graue Emissionen bedeuten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Erfahrung hat hochstrasser. mit nachhaltigen Bauprojekten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "hochstrasser. ist ein Architekturbüro und Generalplaner aus Ulm mit eigenen Fachexperten für Nachhaltigkeit und DGNB-Zertifizierung. Das Büro hat bereits zahlreiche Projekte mit Fokus auf Nachhaltigkeit umgesetzt — im Neubau wie im Bestand, für Kommunen, Unternehmen, Projektentwickler und private Bauherren. Die Grundsätze gelten in jedem Projekt, unabhängig davon, ob ein Siegel angestrebt wird."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum ein Architekturbüro mit eigenen Nachhaltigkeitsexperten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Architekturbüro mit eigenen Nachhaltigkeitsexperten kann die wirksamsten Entscheidungen dort treffen, wo sie fallen: im Entwurf. Wenn Architektur, Ökobilanz, Energiekonzept und Zertifizierung in einem Team arbeiten, werden Varianten früh bewertet statt spät nachgewiesen, ohne Reibungsverluste zwischen externen Beratern. Bei hochstrasser. heißt das integrale Planung aus einer Hand — ein Ansprechpartner von der Idee bis zur Übergabe."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#inhalt">zum inhalt springen</a>
+
+<div class="proto">
+  <div class="wrap proto-in">
+    <span class="label">prototyp expertiseseite &middot; nachhaltigkeit</span>
+    <button id="tgl" aria-pressed="false">offene punkte einblenden</button>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#">hochstrasser.</a>
+    <nav class="nav" aria-label="hauptnavigation">
+      <a href="#">projekte</a>
+      <a href="#" aria-current="page">expertise</a>
+      <a href="#">auszeichnungen</a>
+      <a href="#">profil</a>
+      <a href="#">büro</a>
+    </nav>
+    <button class="dots" id="menuBtn" aria-label="menü öffnen" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <button class="sheet-close" id="menuClose">schließen</button>
+  <a href="#">projekte</a>
+  <a href="#">expertise</a>
+  <a href="#">auszeichnungen</a>
+  <a href="#">profil</a>
+  <a href="#">büro</a>
+</div>
+
+
+<main id="inhalt">
+
+  <!-- 01 claim -->
+  <section class="wrap hero g12">
+    <p class="eyebrow label">expertise — nachhaltigkeit</p>
+    <h1 class="claim">jedes gebäude hat zwei klimabilanzen<em>.</em></h1>
+    <p class="hero-sub">eine für den betrieb und eine für den bau. lange hat nur die erste gezählt. dabei steckt in einem effizienten neubau rund die hälfte seiner emissionen, bevor jemand eingezogen ist. wir planen beide bilanzen — vom ersten variantenvergleich an.</p>
+
+    <div class="note">
+      <b>tonalität abstimmen</b>
+      der einstieg ist wie auf der brandschutzseite als these formuliert. er führt direkt zum roten faden der seite: nachhaltigkeit entscheidet sich in der herstellung und damit im entwurf. alternative, knappere fassung: „nachhaltigkeit wird entworfen, nicht zertifiziert.“ bitte entscheiden.
+    </div>
+  </section>
+
+  <!-- 02 drei kernbereiche, graues band -->
+  <section class="about rv">
+    <div class="wrap band g12">
+      <div class="about-txt">
+        <h2 class="sec-title">drei kernbereiche, ein gebäude</h2>
+        <div class="prose">
+          <p>Nachhaltige Architektur betrachtet ein Gebäude über seinen gesamten Lebenszyklus — von der Rohstoffgewinnung über Jahrzehnte der Nutzung bis zum späteren Rückbau. Ziel ist, den ökologischen Fußabdruck zu minimieren, Ressourcen zu schonen und zugleich ein gesundes Umfeld für die Menschen zu schaffen, die das Gebäude nutzen.</p>
+          <p>Lange wurde sie am Energieverbrauch im Betrieb gemessen. Das reicht nicht mehr: Bei einem effizienten Neubau steckt oft rund die Hälfte der Emissionen im Material, und jedes Gebäude verändert den Boden, auf dem es steht.</p>
+          <p>Wir denken Nachhaltigkeit deshalb in drei Bereichen, die sich im Entwurf gegenseitig beeinflussen — und die wir gemeinsam planen, statt sie nacheinander abzuarbeiten. Wie wir sie messbar machen und zertifizieren, beschreiben wir auf unserer Seite zur <a href="#" class="arrow-in">DGNB-Zertifizierung</a>.</p>
+        </div>
+        <div class="note">
+          <b>abgrenzung zur dgnb-seite</b>
+          die drei dimensionen der bewertungssysteme stehen bereits auf der dgnb-seite und sind hier bewusst durch die drei kernbereiche ersetzt. die stichworte führen per sprunglink zur passenden spalte im element „die drei kernbereiche“ weiter unten. der link auf die dgnb-seite braucht noch die richtige url.
+        </div>
+      </div>
+      <div class="about-side">
+        <dl class="aims">
+          <div>
+            <dt>bereich 01</dt>
+            <dd><a href="#bereich-1">graue energie und kreislauf</a><i>bauen im bestand, holz und naturbaustoffe, rückbaubar fügen statt verkleben</i></dd>
+          </div>
+          <div>
+            <dt>bereich 02</dt>
+            <dd><a href="#bereich-2">energie und klimaneutralität</a><i>kompakte hülle, solare ausrichtung, low-tech vor haustechnik, erneuerbare energie vor ort</i></dd>
+          </div>
+          <div>
+            <dt>bereich 03</dt>
+            <dd><a href="#bereich-3">biodiversität und fläche</a><i>nachverdichtung statt neuer flächen, gründach und fassadengrün, regenwasser halten und nutzen</i></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 leistungen ueber die leistungsphasen -->
+  <section class="exp rv">
+    <div class="wrap band">
+      <div class="sec-head">
+        <h2 class="sec-title">was wir übernehmen</h2>
+      </div>
+
+      <div class="lph-scale" aria-hidden="true">
+        <span class="label">leistungsphase</span>
+        <span class="ticks">
+          <span class="label">0</span>
+          <span class="label">1</span>
+          <span class="label">2</span>
+          <span class="label">3</span>
+          <span class="label">4</span>
+          <span class="label">5</span>
+          <span class="label">6</span>
+          <span class="label">7</span>
+          <span class="label">8</span>
+          <span class="label">9</span>
+        </span>
+      </div>
+
+      <div class="lph-list">
+        <div class="lph-row">
+          <span class="lph-name">erhalt, umbau oder neubau</span>
+          <span class="lph-what">die frage, ob gebaut werden muss — im variantenvergleich mit ökobilanz, bevor ein raumprogramm feststeht</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:0;--e:3"></span></span>
+          <span class="lph-span">lph 0–2</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">nachhaltigkeitsstrategie</span>
+          <span class="lph-what">ziele, bewertungssystem, förderweg und nachweisführung festlegen — damit punkte geplant und nicht gesammelt werden</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:0;--e:3"></span></span>
+          <span class="lph-span">lph 0–2</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">ökobilanz der entwurfsvarianten</span>
+          <span class="lph-what">tragwerk, bauweise, hülle: treibhauspotenzial je variante — als entscheidungsgrundlage, nicht als nachweis</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:2;--e:4"></span></span>
+          <span class="lph-span">lph 2–3</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">energiekonzept</span>
+          <span class="lph-what">kompaktheit, hülle, passive maßnahmen, versorgung und erneuerbare energie vor ort — ausgerichtet auf den nullemissionsstandard</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:2;--e:5"></span></span>
+          <span class="lph-span">lph 2–4</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">lebenszyklusbilanz und lebenszykluskosten</span>
+          <span class="lph-what">treibhausgasbilanz für energieausweis, förderung und zertifizierung, fortgeschrieben bis zum gebauten stand — dazu die kosten über den betrachtungszeitraum</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:3;--e:9"></span></span>
+          <span class="lph-span">lph 3–8</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">materialwahl und ausschreibung</span>
+          <span class="lph-what">bauprodukte nach emissionen, schadstoffen und trennbarkeit auswählen und in den leistungsverzeichnissen verbindlich machen</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:5;--e:8"></span></span>
+          <span class="lph-span">lph 5–7</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">qualitätssicherung auf der baustelle</span>
+          <span class="lph-what">produktnachweise, luftdichtheit, schadstoffmessung, dokumentation für zertifizierung und förderung</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:8;--e:9"></span></span>
+          <span class="lph-span">lph 8</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">übergabe und betrieb</span>
+          <span class="lph-what">materialdokumentation für den späteren rückbau, nutzerhandbuch, betriebsoptimierung im ersten jahr</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:8;--e:10"></span></span>
+          <span class="lph-span">lph 8–9</span>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>zuordnung der leistungsphasen</b>
+        die balken sind mein vorschlag. bitte fachlich prüfen — insbesondere, ob ihr lebenszykluskosten, schadstoffmessungen und die betriebsoptimierung selbst anbietet oder über partner abdeckt.
+      </div>
+      <div class="note">
+        <b>qualifikation im team</b>
+        das stärkste einzelne argument auf dieser seite wären namen: dgnb-auditorinnen und -auditoren, eine eingetragene nachhaltigkeitsberatung für das qng oder die fortbildung zur gebäudeökobilanz, die das gmodg künftig für die ausstellung der lebenszyklusbilanz verlangt. bitte nennen, wer was hat.
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 der hebel liegt am anfang -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <h2 class="sec-title">der größte hebel liegt vor dem ersten strich</h2>
+    <div class="prose">
+      <p>Gebäude und Bauwirtschaft verursachen weltweit rund 37 Prozent der CO₂-Emissionen und fast die Hälfte der Rohstoffentnahme — so der <a class="ext" href="https://globalabc.org/sites/default/files/resources/2026-05/key-messages-global-status-report-building-construction.pdf" target="_blank" rel="noopener">Global Status Report</a> des UN-Umweltprogramms. Ein großer Teil davon entsteht nicht im Betrieb, sondern in der Herstellung der Baustoffe. Über sie entscheidet kaum etwas so sehr wie die ersten Skizzen: Den größten Hebel sieht die DGNB in der Wahl der Bauweise und der Materialität des Tragwerks.</p>
+      <p>Wer die Ökobilanz erst rechnet, wenn der Entwurf steht, misst nur noch, was sich nicht mehr ändern lässt.</p>
+    </div>
+
+    <ul class="risks">
+      <li>
+        <b>die frage nach dem bestand wurde nie gestellt</b>
+        <span>abriss und ersatzneubau erscheinen als naheliegender weg, weil niemand gerechnet hat. dabei bleibt in einem erhaltenen tragwerk der größte teil der grauen emissionen einfach stehen.</span>
+      </li>
+      <li>
+        <b>das tragwerk ist gesetzt</b>
+        <span>spannweiten, deckensystem und untergeschosse werden früh festgelegt — und bestimmen die herstellungsbilanz stärker als jede spätere materialentscheidung. danach lässt sich nur noch an der oberfläche optimieren.</span>
+      </li>
+      <li>
+        <b>die zertifizierung wird zum punktesammeln</b>
+        <span>wer das bewertungssystem erst in der ausführungsplanung aufruft, sucht punkte, die mit wenig aufwand noch zu holen sind. das ergebnis ist ein siegel — aber kein besseres gebäude.</span>
+      </li>
+    </ul>
+
+    <p class="after">das ist kein argument gegen zertifikate. es ist eines dafür, die fragen zu stellen, bevor die antworten gezeichnet sind.</p>
+
+    <div class="note">
+      <b>adressat der seite</b>
+      die seite spricht planende und bauherrschaften zugleich an: fachlich in der sache, aber ohne die perspektive „der entwurf steht“ vorauszusetzen. wenn die expertiseseiten sich einheitlich an eine der beiden gruppen richten sollen, gleichen wir die tonalität mit der brandschutzseite ab.
+    </div>
+    </div>
+  </section>
+
+  <!-- 05 lebenszyklus-achse -->
+  <section class="wrap lz-sec" id="lebenszyklus">
+    <div class="lz-head sec-head rv">
+      <h2 class="sec-title">der lebenszyklus</h2>
+      <p class="hint label">phase wählen — was dort entsteht, erscheint darunter</p>
+    </div>
+
+    <svg class="lz-draw" id="lzDraw" viewBox="0 0 1240 330" role="img" aria-label="zeichnung: lebenszyklus eines gebäudes in sechs abschnitten, von der herstellung der baustoffe bis zur wiederverwendung">
+      <!-- zeitabschnitte, beschriftung jeweils oberhalb der linie -->
+      <line class="lz-ref" x1="20" y1="60" x2="280" y2="60"/>
+      <text class="lz-ref-t" x="20" y="50">vor der nutzung</text>
+      <line class="lz-ref" x1="300" y1="60" x2="960" y2="60"/>
+      <text class="lz-ref-t" x="300" y="50">nutzung über den betrachtungszeitraum, meist 50 jahre</text>
+      <line class="lz-ref" x1="980" y1="60" x2="1100" y2="60"/>
+      <text class="lz-ref-t" x="980" y="50">danach</text>
+      <text class="lz-ref-t" x="1120" y="50">außerhalb</text>
+
+      <!-- systemgrenze a bis c -->
+      <rect class="lz-sys" x="8" y="96" width="1104" height="140"/>
+      <text class="lz-ref-t" x="16" y="88">systemgrenze der bilanz</text>
+
+      <!-- a1 bis a3 -->
+      <g class="lzn" data-k="a1" role="button" tabindex="0" aria-pressed="false" aria-label="herstellung, module a1 bis a3">
+        <rect class="body" x="20" y="128" width="140" height="76"/>
+        <line class="floor" x1="67" y1="188" x2="67" y2="204"/>
+        <line class="floor" x1="113" y1="188" x2="113" y2="204"/>
+        <text class="no" x="90" y="171" text-anchor="middle">a1–a3</text>
+        <text class="cap" x="90" y="266" text-anchor="middle">herstellung</text>
+        <text class="cap" x="90" y="284" text-anchor="middle">baustoffe</text>
+      </g>
+
+      <!-- a4 bis a5 -->
+      <g class="lzn" data-k="a4" role="button" tabindex="0" aria-pressed="false" aria-label="errichtung, module a4 und a5">
+        <rect class="body" x="180" y="128" width="100" height="76"/>
+        <line class="floor" x1="230" y1="188" x2="230" y2="204"/>
+        <text class="no" x="230" y="171" text-anchor="middle">a4–a5</text>
+        <text class="cap" x="230" y="266" text-anchor="middle">errichtung</text>
+        <text class="cap" x="230" y="284" text-anchor="middle">baustelle</text>
+      </g>
+
+      <!-- b1 bis b5 -->
+      <g class="lzn" data-k="b1" role="button" tabindex="0" aria-pressed="false" aria-label="instandhaltung und ersatz, module b1 bis b5">
+        <rect class="body" x="300" y="128" width="320" height="76"/>
+        <line class="floor" x1="364" y1="188" x2="364" y2="204"/>
+        <line class="floor" x1="428" y1="188" x2="428" y2="204"/>
+        <line class="floor" x1="492" y1="188" x2="492" y2="204"/>
+        <line class="floor" x1="556" y1="188" x2="556" y2="204"/>
+        <text class="no" x="460" y="171" text-anchor="middle">b1–b5</text>
+        <text class="cap" x="460" y="266" text-anchor="middle">instandhaltung</text>
+        <text class="cap" x="460" y="284" text-anchor="middle">austausch</text>
+      </g>
+
+      <!-- b6 bis b7 -->
+      <g class="lzn" data-k="b6" role="button" tabindex="0" aria-pressed="false" aria-label="betrieb, module b6 und b7">
+        <rect class="body" x="640" y="128" width="320" height="76"/>
+        <line class="floor" x1="800" y1="188" x2="800" y2="204"/>
+        <text class="no" x="800" y="171" text-anchor="middle">b6–b7</text>
+        <text class="cap" x="800" y="266" text-anchor="middle">betrieb</text>
+        <text class="cap" x="800" y="284" text-anchor="middle">energie, wasser</text>
+      </g>
+
+      <!-- c1 bis c4 -->
+      <g class="lzn" data-k="c1" role="button" tabindex="0" aria-pressed="false" aria-label="rückbau, module c1 bis c4">
+        <rect class="body" x="980" y="128" width="120" height="76"/>
+        <line class="floor" x1="1010" y1="188" x2="1010" y2="204"/>
+        <line class="floor" x1="1040" y1="188" x2="1040" y2="204"/>
+        <line class="floor" x1="1070" y1="188" x2="1070" y2="204"/>
+        <text class="no" x="1040" y="171" text-anchor="middle">c1–c4</text>
+        <text class="cap" x="1040" y="266" text-anchor="middle">rückbau</text>
+        <text class="cap" x="1040" y="284" text-anchor="middle">entsorgung</text>
+      </g>
+
+      <!-- d -->
+      <g class="lzn" data-k="d" role="button" tabindex="0" aria-pressed="false" aria-label="wiederverwendung und recycling, modul d">
+        <rect class="body" x="1120" y="128" width="100" height="76"/>
+        <text class="no" x="1170" y="171" text-anchor="middle">d</text>
+        <text class="cap" x="1170" y="266" text-anchor="middle">gutschrift</text>
+        <text class="cap" x="1170" y="284" text-anchor="middle">separat</text>
+      </g>
+
+      <text class="lz-ref-t" x="0" y="318">modul d wird getrennt ausgewiesen — es wird nicht mit der bilanz der abschnitte a bis c verrechnet</text>
+    </svg>
+
+    <div class="chips" role="group" aria-label="lebenszyklusphase wählen">
+      <button class="chip" data-k="a1" aria-pressed="false">a1–a3 — herstellung</button>
+      <button class="chip" data-k="a4" aria-pressed="false">a4–a5 — errichtung</button>
+      <button class="chip" data-k="b1" aria-pressed="false">b1–b5 — instandhaltung</button>
+      <button class="chip" data-k="b6" aria-pressed="false">b6–b7 — betrieb</button>
+      <button class="chip" data-k="c1" aria-pressed="false">c1–c4 — rückbau</button>
+      <button class="chip" data-k="d" aria-pressed="false">d — wiederverwendung</button>
+    </div>
+
+    <div class="lz-panel g12" id="lzPanel" aria-live="polite">
+      <div class="lz-head-txt">
+        <p class="lz-name label" id="lzName">herstellung, module a1 bis a3</p>
+        <p class="lz-claim" id="lzClaim">bevor der erste stein gesetzt ist.</p>
+      </div>
+      <div class="lz-facts">
+        <dl class="dl">
+          <div><dt>was dazugehört</dt><dd id="lzMods"></dd></div>
+          <div><dt>wo es entsteht</dt><dd id="lzWhat"></dd></div>
+          <div><dt>unsere hebel</dt><dd id="lzLever"></dd></div>
+          <div><dt>für die planung heißt das</dt><dd id="lzPlan"></dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>vereinfachte darstellung — fachlich prüfen</b>
+      die gliederung folgt den modulen der din en 15978. welche module in die gesetzliche lebenszyklusbilanz nach § 88b gmodg einfließen, regelt die din spec 91606 auf grundlage von anhang iii der eu-gebäuderichtlinie. die breiten der abschnitte zeigen die zeitliche abfolge, keine emissionsanteile. bitte vor veröffentlichung durch die fachplanung gegenlesen lassen.
+    </div>
+    <div class="note">
+      <b>verlinkung projekte</b>
+      denkbar: zu einzelnen phasen ein realisiertes projekt als beleg — etwa ein holz- oder hybridbau bei der herstellung, ein umbau beim erhalt. setzt voraus, dass die entsprechenden kennwerte im projektarchiv vorliegen.
+    </div>
+  </section>
+
+  <!-- 06 regelwerk -->
+  <section class="tint rv" id="regelwerk">
+    <div class="wrap band">
+    <div class="split">
+      <div class="split-a">
+        <h2 class="sec-title">woran gemessen wird</h2>
+        <div class="prose">
+          <p>Seit dem 29. Juli 2026 heißt das Gebäudeenergiegesetz <a class="ext" href="https://www.gmodg.bund.de/GEGPortal/DE/Home/startseite/GModG_News/GModG_News-node.html" target="_blank" rel="noopener">Gebäudemodernisierungsgesetz</a>. Öffentlich diskutiert wurde vor allem das neue Heizungsrecht. Für die Planung wichtiger ist, was das Gesetz aus der <a class="ext" href="https://eur-lex.europa.eu/eli/dir/2024/1275/oj" target="_blank" rel="noopener">EU-Gebäuderichtlinie</a> übernimmt: Zum ersten Mal verlangt das deutsche Gebäuderecht nicht nur einen Energiebedarf, sondern eine Treibhausgasbilanz über den gesamten Lebenszyklus. Die Ökobilanz wird damit vom Baustein der Zertifizierung zur gesetzlichen Pflicht.</p>
+        </div>
+        <ul class="plist">
+          <li><b>lebenszyklus</b><span>ab 2028 für neubauten mit mehr als 1.000&nbsp;m² nutzfläche, ab 2030 für alle neubauten: ermittlung der lebenszyklus-treibhausgasemissionen und angabe im energieausweis, §§ 88a ff. gmodg</span></li>
+          <li><b>rechenregel</b><span>bilanz nach din spec 91606 auf grundlage von anhang iii der eu-richtlinie 2024/1275. ausstellen darf sie nur, wer eine fortbildung zur ökobilanzierung von gebäuden nachweist</span></li>
+          <li><b>neubaustandard</b><span>nullemissionsgebäude — ab 2028 für neue nichtwohngebäude der öffentlichen hand, ab 2030 für alle neubauten: sehr hohe effizienz, keine fossilen emissionen am standort</span></li>
+          <li><b>land</b><span>photovoltaikpflicht nach § 23 klimag bw: bei neubauten aller art seit 2022, bei grundlegender dachsanierung seit 2023, in der regel auf 60&nbsp;% der geeigneten dachfläche</span></li>
+        </ul>
+        <div class="note">
+          <b>stand september 2026</b>
+          das gmodg ist seit dem 29. juli 2026 in kraft, eine zweite stufe mit neuen rechenverfahren und energieausweisen folgt am 1. januar 2027. die angaben sind aktuell, werden aber schnell altern — die seite braucht eine zuständigkeit für die pflege. die normnummern bleiben wie auf der brandschutzseite unverlinkt, weil es keine frei zugängliche primärquelle gibt.
+        </div>
+      </div>
+
+      <div class="split-b">
+        <p class="label">und wie es bewertet wird</p>
+        <div class="prose" style="margin-top:clamp(1rem,2vw,1.4rem)">
+          <p>Die gesetzliche Lebenszyklusbilanz folgt derselben Logik wie die Ökobilanz, die DGNB, das Bewertungssystem Nachhaltiges Bauen des Bundes und das Qualitätssiegel Nachhaltiges Gebäude seit Jahren verlangen. Wer zertifiziert, hat die Daten also ohnehin — und wer es nicht tut, braucht sie künftig trotzdem.</p>
+          <p>Wie wir zertifizieren und welche Rolle das Siegel für die Förderung spielt, beschreiben wir auf unserer Seite zur <a href="#" class="arrow-in">DGNB-Zertifizierung</a>.</p>
+        </div>
+        <div class="note">
+          <b>rechenregeln im detail prüfen</b>
+          „dieselbe logik“ ist bewusst so formuliert: die gesetzliche bilanz nach din spec 91606 und die ökobilanzen der bewertungssysteme sind verwandt, aber nicht in jedem detail deckungsgleich. url zur dgnb-seite ergänzen.
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 07 bestand -->
+  <section class="ways rv" id="bestand">
+    <div class="wrap band g12">
+      <div class="ways-txt">
+        <h2 class="sec-title">der bestand ist das klügste material</h2>
+        <div class="prose">
+          <p>Ein erhaltenes Tragwerk hat seine Emissionen bereits hinter sich. Die DGNB hat dafür die Ökobilanzen von 19 zertifizierten Sanierungsprojekten ausgewertet: Die grauen Emissionen vergleichbarer Neubauten lagen im Mittel um den <a class="ext" href="https://my.dgnb.de/en/node/1131" target="_blank" rel="noopener">Faktor 2,4</a> höher — ein Vorsprung, den ein effizienterer Betrieb in der Regel nicht vollständig aufholt.</p>
+          <p>Deshalb beginnt jedes unserer Projekte mit der Frage, ob gebaut werden muss — und wenn ja, wie viel. Umbauen ist dabei kein Kompromiss. Es verlangt eine genaue Bestandsaufnahme, begründete Abweichungen vom Regelweg und eine Planung, die mit dem arbeitet, was da ist. Das ist die Arbeit, die wir seit Jahren im Denkmal und im laufenden Betrieb machen.</p>
+        </div>
+        <div class="note">
+          <b>querverweis bauen im bestand</b>
+          hier bietet sich ein link auf die expertiseseite „bauen im bestand“ an, sobald sie steht. noch stärker wäre ein eigener fall: welches projekt aus dem archiv wurde erhalten statt ersetzt, und gibt es dazu eine überschlägige bilanz?
+        </div>
+      </div>
+
+      <div class="ways-fig">
+        <svg class="rw" viewBox="0 0 600 390" role="img" aria-label="schema: graue emissionen im mittel — neubau 2,4-mal so hoch wie eine sanierung">
+          <text class="t" x="40" y="26">graue emissionen im mittel</text>
+
+          <!-- neubau -->
+          <text class="t on" x="175" y="68" text-anchor="middle">2,4</text>
+          <rect class="bar" x="100" y="80" width="150" height="240"/>
+
+          <!-- sanierung mit differenz -->
+          <rect class="ghost" x="350" y="80" width="150" height="140"/>
+          <text class="t" x="425" y="156" text-anchor="middle">differenz</text>
+          <text class="t on" x="425" y="208" text-anchor="middle">1</text>
+          <rect class="bar-l" x="350" y="220" width="150" height="100"/>
+
+          <!-- grundlinie -->
+          <line class="frame" x1="40" y1="320" x2="560" y2="320"/>
+          <text class="t on" x="175" y="346" text-anchor="middle">neubau</text>
+          <text class="t on" x="425" y="346" text-anchor="middle">sanierung</text>
+          <text class="t" x="40" y="380">dgnb-kurzstudie, 19 sanierungsprojekte, sanierung = 1</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 drei kernbereiche -->
+  <section class="tint rv" id="kernbereiche">
+    <div class="wrap band">
+      <div class="sec-head">
+        <h2 class="sec-title">die drei kernbereiche</h2>
+      </div>
+
+      <div class="kb">
+        <!-- bereich 01 -->
+        <article class="kb-col" id="bereich-1">
+          <h3 class="kb-t">graue energie und kreislauf</h3>
+          <p class="kb-lead">Rund die Hälfte der Emissionen eines effizienten Neubaus steckt im Material.</p>
+          <svg class="kb-pic" viewBox="0 0 240 130" aria-hidden="true" focusable="false">
+            <line class="t" x1="10" y1="112" x2="230" y2="112"/>
+            <polygon class="l" points="50,112 50,60 95,28 140,60 140,112"/>
+            <line class="t" x1="50" y1="78" x2="140" y2="78"/>
+            <line class="t" x1="50" y1="95" x2="140" y2="95"/>
+            <line class="t" x1="80" y1="78" x2="80" y2="95"/>
+            <line class="t" x1="110" y1="95" x2="110" y2="112"/>
+            <rect class="l" x="176" y="90" width="30" height="22"/>
+            <path class="l d" d="M191 84 C191 54 172 44 150 52"/>
+            <polyline class="l" points="156,45 149,52 157,57"/>
+          </svg>
+          <ul class="kb-list">
+            <li><b>bestand erhalten</b><span>Sanierung und Umnutzung verursachen im Mittel einen Bruchteil der grauen Emissionen eines Neubaus.</span></li>
+            <li><b>holz und naturbaustoffe</b><span>Holz ersetzt Beton und Stahl im Tragwerk und speichert Kohlenstoff, solange es verbaut ist. Dazu Lehm, Hanf, wiederverwendeter Ziegel.</span></li>
+            <li><b>rückbaubar fügen</b><span>Schrauben, stecken, klemmen statt kleben — damit Materialien sortenrein trennbar und wiederverwendbar bleiben.</span></li>
+          </ul>
+        </article>
+
+        <!-- bereich 02 -->
+        <article class="kb-col" id="bereich-2">
+          <h3 class="kb-t">energie und klimaneutralität</h3>
+          <p class="kb-lead">Zuerst die Architektur, dann die Technik: Was die Hülle leistet, muss keine Anlage erzeugen.</p>
+          <svg class="kb-pic" viewBox="0 0 240 130" aria-hidden="true" focusable="false">
+            <line class="t" x1="10" y1="112" x2="230" y2="112"/>
+            <circle class="l" cx="40" cy="34" r="11"/>
+            <line class="t" x1="40" y1="14" x2="40" y2="18"/>
+            <line class="t" x1="20" y1="34" x2="24" y2="34"/>
+            <line class="t" x1="26" y1="20" x2="29" y2="23"/>
+            <line class="t" x1="54" y1="20" x2="51" y2="23"/>
+            <line class="t" x1="26" y1="48" x2="29" y2="45"/>
+            <polyline class="l" points="100,112 100,64 200,64 200,112"/>
+            <line class="l" x1="88" y1="64" x2="212" y2="64"/>
+            <polygon class="l" points="116,64 124,50 178,50 170,64"/>
+            <line class="t" x1="134" y1="64" x2="142" y2="50"/>
+            <line class="t" x1="152" y1="64" x2="160" y2="50"/>
+            <rect class="l" x="122" y="82" width="26" height="30"/>
+            <line class="l d" x1="51" y1="42" x2="135" y2="100"/>
+          </svg>
+          <ul class="kb-list">
+            <li><b>passivhaus und plusenergie</b><span>Dämmung, Luftdichtheit und Wärmerückgewinnung machen die klassische Heizung fast überflüssig. Plusenergiegebäude erzeugen übers Jahr mehr, als sie verbrauchen.</span></li>
+            <li><b>low-tech und solare architektur</b><span>Die tiefe Wintersonne wärmt, Überstände und außenliegender Sonnenschutz halten die Sommersonne ab — ohne Anlage, die gewartet werden muss.</span></li>
+            <li><b>erneuerbare vor ort</b><span>Photovoltaik, Wärmepumpe, Wärmenetz. In Baden-Württemberg ist PV bei Neubau und Dachsanierung ohnehin Pflicht.</span></li>
+          </ul>
+        </article>
+
+        <!-- bereich 03 -->
+        <article class="kb-col" id="bereich-3">
+          <h3 class="kb-t">biodiversität und fläche</h3>
+          <p class="kb-lead">So wenig Fläche wie möglich nehmen, so viel Natur wie möglich zurückgeben.</p>
+          <svg class="kb-pic" viewBox="0 0 240 130" aria-hidden="true" focusable="false">
+            <line class="t" x1="10" y1="112" x2="230" y2="112"/>
+            <line class="l" x1="40" y1="112" x2="40" y2="84"/>
+            <circle class="l" cx="40" cy="68" r="17"/>
+            <rect class="l" x="84" y="64" width="100" height="48"/>
+            <path class="l" d="M84 64 q5 -8 10 0 t10 0 t10 0 t10 0 t10 0 t10 0 t10 0 t10 0 t10 0 t10 0"/>
+            <line class="t" x1="112" y1="24" x2="108" y2="36"/>
+            <line class="t" x1="136" y1="20" x2="132" y2="32"/>
+            <line class="t" x1="160" y1="24" x2="156" y2="36"/>
+            <path class="l d" d="M184 70 H204 V114"/>
+            <rect class="l" x="194" y="114" width="28" height="12"/>
+          </svg>
+          <ul class="kb-list">
+            <li><b>fläche sparen</b><span>Erschlossene Flächen nachverdichten statt neue zu versiegeln, entsiegeln, wo es geht, Bäume erhalten.</span></li>
+            <li><b>gründach und fassadengrün</b><span>Kühlen durch Verdunstung, binden Feinstaub, dämpfen die städtische Hitzeinsel und schaffen Lebensraum.</span></li>
+            <li><b>regenwasser halten</b><span>Auf Gründächern und in Zisternen speichern, zum Bewässern und Kühlen nutzen, vor Ort versickern — das Prinzip der Schwammstadt.</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="note">
+        <b>inhalte fachlich geschärft</b>
+        die texte folgen eurer vorlage, bewusst auf je einen satz pro maßnahme gekürzt. präzisiert: die co2-bindung durch begrünung ist gestrichen, weil sie mengenmäßig kaum ins gewicht fällt; holz speichert kohlenstoff, solange es verbaut ist; plusenergie gilt in der jahresbilanz.
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 haltung -->
+  <section class="creed rv">
+    <div class="wrap">
+      <h2 class="sec-title">haltung</h2>
+      <div class="creed-in">
+        <p class="creed-claim">das gebäude mit der besten bilanz ist das, das nicht gebaut werden muss.</p>
+        <div class="creed-txt">
+          <p>Wir sind Architekten, unsere Arbeit ist das Bauen. Und trotzdem ist die wirksamste nachhaltige Entscheidung oft die, weniger zu bauen: weniger Fläche, weniger Material, weniger Technik. Nachhaltigkeit ist für uns deshalb kein Fachgebiet neben der Architektur, sondern eine Eigenschaft guter Architektur.</p>
+          <p>Die folgenden Grundsätze wenden wir in jedem Projekt an — unabhängig davon, ob ein Siegel angestrebt wird oder nicht.</p>
+        </div>
+
+        <ul class="steps">
+          <li><b>erhalten</b><span>was steht, wird geprüft, bevor es fällt. umbau und weiterbau gehen dem ersatzneubau vor.</span></li>
+          <li><b>vermeiden</b><span>fläche, die niemand braucht, muss nicht gebaut, beheizt und gereinigt werden. kompakte volumen, grundrisse, die andere nutzungen zulassen.</span></li>
+          <li><b>vereinfachen</b><span>robuste konstruktionen und weniger technik, wo die architektur die aufgabe übernehmen kann. der <a class="ext" href="https://www.bundestag.de/presse/hib/kurzmeldungen-1128946" target="_blank" rel="noopener">gebäudetyp e</a>, derzeit im gesetzgebungsverfahren, soll dafür mehr vertraglichen spielraum schaffen.</span></li>
+          <li><b>wählen</b><span>material nach seiner bilanz, nicht nach gewohnheit — nachwachsend, wiederverwendet, recycelt, regional, wo es passt.</span></li>
+          <li><b>belegen</b><span>jede entscheidung mit zahlen: ökobilanz, lebenszykluskosten, energiebedarf. nachhaltigkeit, die sich nicht rechnen lässt, bleibt eine behauptung.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 haeufige fragen -->
+  <section class="faq rv" id="faq">
+    <div class="wrap band g12">
+      <div class="faq-head">
+        <h2 class="sec-title">häufige fragen zur nachhaltigkeit</h2>
+        <p class="label faq-date">stand: <time datetime="2026-09">september 2026</time></p>
+        <div class="note">
+          <b>geo: wie die fragen gebaut sind</b>
+          jede frage ist so formuliert, wie sie in chatgpt, perplexity oder googles ki-übersicht gestellt wird. der erste satz jeder antwort beantwortet sie vollständig und für sich allein, danach folgen belege mit zahl, datum und quelle. der büroname steht in vollständigen sätzen, damit ki-systeme ihn als absender zitieren können. alle fragen sind zusätzlich als strukturierte daten (faqpage) im seitenkopf hinterlegt — bei jeder textänderung dort mitpflegen und das datum „stand“ aktualisieren.
+        </div>
+        <div class="note">
+          <b>belege stärken die zitierbarkeit</b>
+          ki-systeme verlassen sich stark auf fremde quellen. einträge in der dgnb-projektdatenbank, veröffentlichungen der architektenkammer oder presseberichte über eure projekte stützen die aussage „zahlreiche projekte“ von außen. wenn es eine konkrete zahl gibt (zertifizierte projekte, seit wann), würde ich sie in die vorletzte antwort schreiben.
+        </div>
+      </div>
+      <div class="faq-list">
+          <details class="faq-i">
+            <summary><h3>Was bedeutet nachhaltiges Bauen in der Architektur?</h3></summary>
+            <p>Nachhaltiges Bauen bedeutet, ein Gebäude über seinen gesamten Lebenszyklus zu planen — von der Herstellung der Baustoffe über den Betrieb bis zum Rückbau. Es verbindet ökologische, ökonomische und soziokulturelle Qualität: wenig Material und Energie, bezahlbar über Jahrzehnte, gesund und gern genutzt. Beim Architekturbüro hochstrasser. in Ulm ist Nachhaltigkeit deshalb kein Zusatzmodul, sondern Teil jedes Entwurfs.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Was ist graue Energie und warum ist sie so wichtig?</h3></summary>
+            <p>Graue Energie ist die Energie, die für Herstellung, Transport, Einbau und Entsorgung von Baustoffen anfällt. Weil Neubauten im Betrieb immer effizienter werden, wächst ihr Anteil: Bei neueren, effizienten Gebäuden entfällt nach Auswertungen der DGNB rund die Hälfte der Emissionen über 50 Jahre auf die Konstruktion. Graue Energie lässt sich fast nur im Entwurf beeinflussen — über Bauweise, Tragwerk und Material.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Ist eine Sanierung nachhaltiger als Abriss und Neubau?</h3></summary>
+            <p>In den meisten Fällen ist die Sanierung die klimafreundlichere Lösung. Eine Kurzstudie der DGNB mit 19 zertifizierten Sanierungsprojekten ergab, dass vergleichbare Neubauten im Mittel 2,4-mal so viel graue Emissionen verursachen. Diesen Vorsprung holt ein effizienterer Betrieb in der Regel nicht vollständig auf. hochstrasser. vergleicht deshalb zu Projektbeginn Erhalt, Umbau und Neubau mit Ökobilanz — bevor ein Raumprogramm feststeht.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Was ändert das Gebäudemodernisierungsgesetz (GModG) für Neubauten?</h3></summary>
+            <p>Das Gebäudemodernisierungsgesetz ersetzt seit dem 29. Juli 2026 das Gebäudeenergiegesetz und führt eine Lebenszyklus-Treibhausgasbilanz ein: ab 2028 für Neubauten mit mehr als 1.000 m² Nutzfläche, ab 2030 für alle Neubauten, jeweils mit Angabe im Energieausweis. Außerdem müssen Neubauten ab 2030 als Nullemissionsgebäude errichtet werden, neue öffentliche Nichtwohngebäude bereits ab 2028.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Was ist ein Nullemissionsgebäude?</h3></summary>
+            <p>Ein Nullemissionsgebäude nach der EU-Gebäuderichtlinie 2024/1275 hat einen sehr geringen Energiebedarf und verursacht am Standort keine CO₂-Emissionen aus fossilen Brennstoffen. Den verbleibenden Bedarf decken erneuerbare Energien, etwa aus Photovoltaik, Wärmepumpe oder Wärmenetz. In Deutschland wird der Standard über das GModG eingeführt: ab 2028 für neue öffentliche Nichtwohngebäude, ab 2030 für alle Neubauten.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Was ist eine Ökobilanz für Gebäude?</h3></summary>
+            <p>Eine Gebäudeökobilanz berechnet die Umweltwirkungen eines Gebäudes über seinen Lebenszyklus, vor allem das Treibhauspotenzial in Kilogramm CO₂-Äquivalent. Grundlage sind die Lebenszyklusmodule der DIN EN 15978, für die gesetzliche Bilanz nach GModG gilt die DIN SPEC 91606. hochstrasser. erstellt Ökobilanzen mit eigenen Fachexperten — als Entscheidungsgrundlage schon im Entwurf, nicht erst als Nachweis am Ende.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Wann sollte Nachhaltigkeit in der Planung berücksichtigt werden?</h3></summary>
+            <p>Nachhaltigkeit sollte so früh wie möglich in die Planung einfließen, idealerweise in den Leistungsphasen 0 und 1. Die größten Hebel — Erhalt statt Neubau, kompakte Baukörper, Tragwerk und Bauweise — werden in den ersten Skizzen festgelegt. Später lässt sich meist nur noch an Oberflächen optimieren. Bei hochstrasser. arbeiten Architektur und Nachhaltigkeitsplanung deshalb von Anfang an zusammen.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Ist nachhaltiges Bauen teurer?</h3></summary>
+            <p>Nachhaltiges Bauen ist nicht zwingend teurer. Viele wirksame Maßnahmen senken sogar die Baukosten: weniger Fläche, kompakte Baukörper, weniger Technik, Erhalt vorhandener Substanz. Mehrkosten entstehen vor allem bei höheren Standards und Zertifizierung. Ihnen stehen geringere Betriebs- und Instandhaltungskosten, Fördermittel und eine höhere Wertstabilität gegenüber. Aussagekräftig ist deshalb der Vergleich der Lebenszykluskosten, nicht nur der Baukosten.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Welche Förderung gibt es für nachhaltige Neubauten?</h3></summary>
+            <p>Das zentrale Bundesprogramm für nachhaltige Neubauten ist „Klimafreundlicher Neubau“ der KfW. Mit dem Qualitätssiegel Nachhaltiges Gebäude (QNG) steigt der förderfähige Kreditbetrag; Voraussetzung sind ein hoher Effizienzstandard und eine Ökobilanz. Die Förderbedingungen ändern sich häufig, zuletzt im Juli 2026. hochstrasser. prüft den passenden Förderweg deshalb zu Beginn jedes Projekts auf aktuellem Stand.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Was ist der Unterschied zwischen DGNB-Zertifikat und QNG?</h3></summary>
+            <p>Die DGNB-Zertifizierung bewertet die Nachhaltigkeit eines Gebäudes ganzheitlich und vergibt die Stufen Platin, Gold und Silber, im Bestand auch Bronze. Das QNG ist ein staatliches Siegel des Bundes, das auf akkreditierten Bewertungssystemen wie der DGNB aufbaut und zusätzliche Anforderungen stellt — vor allem als Voraussetzung für die höhere KfW-Förderung. hochstrasser. begleitet beide Wege mit eigenen DGNB-Experten.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Ist Holzbau klimafreundlicher als Beton?</h3></summary>
+            <p>Holzbau ist häufig klimafreundlicher als Beton, aber nicht automatisch. Holz speichert den Kohlenstoff, den der Baum gebunden hat, solange es verbaut ist, und hat meist eine deutlich geringere Herstellungsbilanz als Beton oder Stahl. Entscheidend sind Herkunft, Konstruktion, Brandschutz und Rückbaubarkeit — oft ist ein Hybridbau aus Holz und Beton die beste Lösung. Welche Variante gewinnt, zeigt die Ökobilanz im Einzelfall.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Was bedeutet kreislaufgerechtes Bauen?</h3></summary>
+            <p>Kreislaufgerechtes Bauen plant ein Gebäude als Materiallager: Bauteile werden verschraubt, gesteckt oder geklemmt statt verklebt und lassen sich am Ende sortenrein trennen und wiederverwenden. Der Hebel ist groß — Bau- und Abbruchabfälle machen laut Umweltbundesamt mehr als die Hälfte des Abfallaufkommens in Deutschland aus, 2023 waren es rund 199 Millionen Tonnen.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Gilt in Baden-Württemberg eine Photovoltaikpflicht?</h3></summary>
+            <p>In Baden-Württemberg gilt nach § 23 des Klimaschutz- und Klimawandelanpassungsgesetzes eine Photovoltaikpflicht: seit 2022 für Neubauten aller Art und seit 2023 bei grundlegenden Dachsanierungen. In der Regel sind 60 Prozent der geeigneten Dachfläche mit Photovoltaik zu belegen. hochstrasser. plant die Anlage als Teil der Architektur mit, statt sie nachträglich auf das Dach zu setzen.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Wie plant man Gebäude, die Hitze und Starkregen standhalten?</h3></summary>
+            <p>Klimaangepasste Gebäude entstehen vor allem durch Architektur, nicht durch Technik. Außenliegender Sonnenschutz, Speichermasse und Nachtlüftung halten Räume im Sommer kühl. Gründächer, Zisternen und Versickerungsflächen halten Regenwasser zurück — nach dem Prinzip der Schwammstadt. Begrünte Fassaden kühlen durch Verdunstung, und wenig versiegelte Flächen mit erhaltenen Bäumen schützen das Umfeld zusätzlich.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Was ist der Gebäudetyp E?</h3></summary>
+            <p>Der Gebäudetyp E steht für einfacheres Bauen. Ein Bundesgesetz soll es erleichtern, vertraglich von Normen und Komfortstandards abzuweichen, die nicht sicherheitsrelevant sind — damit günstiger und ressourcenschonender gebaut werden kann. Im September 2026 befindet sich der Gesetzentwurf im parlamentarischen Verfahren. Für nachhaltige Planung ist er relevant, weil weniger Technik und Aufwand oft auch weniger graue Emissionen bedeuten.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Welche Erfahrung hat hochstrasser. mit nachhaltigen Bauprojekten?</h3></summary>
+            <p>hochstrasser. ist ein Architekturbüro und Generalplaner aus Ulm mit eigenen Fachexperten für Nachhaltigkeit und DGNB-Zertifizierung. Das Büro hat bereits zahlreiche Projekte mit Fokus auf Nachhaltigkeit umgesetzt — im Neubau wie im Bestand, für Kommunen, Unternehmen, Projektentwickler und private Bauherren. Die Grundsätze gelten in jedem Projekt, unabhängig davon, ob ein Siegel angestrebt wird.</p>
+          </details>
+          <details class="faq-i">
+            <summary><h3>Warum ein Architekturbüro mit eigenen Nachhaltigkeitsexperten?</h3></summary>
+            <p>Ein Architekturbüro mit eigenen Nachhaltigkeitsexperten kann die wirksamsten Entscheidungen dort treffen, wo sie fallen: im Entwurf. Wenn Architektur, Ökobilanz, Energiekonzept und Zertifizierung in einem Team arbeiten, werden Varianten früh bewertet statt spät nachgewiesen, ohne Reibungsverluste zwischen externen Beratern. Bei hochstrasser. heißt das integrale Planung aus einer Hand — ein Ansprechpartner von der Idee bis zur Übergabe.</p>
+          </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 ansprechpartner -->
+  <section class="wrap band rv">
+    <div class="contact">
+      <div class="avatar">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="18" r="7.6"/>
+          <path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/>
+        </svg>
+        <span>foto folgt</span>
+      </div>
+      <div>
+        <p class="statement">sprechen wir über ihr gebäude, nicht über kennwerte</p>
+        <p style="color:var(--ink-mute);max-width:54ch;margin-top:1rem">erhalt oder neubau, welcher standard, welcher förderweg — das lässt sich meist schon im ersten gespräch einordnen. was danach folgt, ist planung, die emissionen und kosten über den ganzen lebenszyklus senkt, ohne die qualität des entwurfs aus den augen zu verlieren. <i>ansprechperson und funktion ergänzen.</i></p>
+        <div class="contact-foot">
+          <a class="btn" href="tel:+49731935110">07 31 . 9 35 11-0</a>
+          <a class="arrow" href="mailto:info@hochstrasser.com">nachricht schreiben <span>&rarr;</span></a>
+        </div>
+        <div class="note">
+          <b>haltung belegen</b>
+          der satz „in jedem projekt“ im schwarzen band ist ein versprechen. er trägt, wenn ihn zahlen stützen: zertifizierte projekte, ein realisierter holz- oder hybridbau, ein erhalt statt abriss. zwei oder drei solcher belege würde ich im kontaktkasten oder direkt unter dem schwarzen band nennen.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 rueckweg -->
+  <section class="wrap band-s rv">
+    <a class="btn btn-back" href="#"><span>&larr;</span> zurück zu unseren expertisen</a>
+  </section>
+
+  <!-- 13 quellen -->
+  <section class="wrap src rv">
+    <p class="label">grundlagen dieser seite</p>
+    <ul>
+      <li><a class="ext" href="https://www.gmodg.bund.de/GEGPortal/DE/Home/startseite/GModG_News/GModG_News-node.html" target="_blank" rel="noopener">gebäudemodernisierungsgesetz, infoportal des bundes</a>, insbesondere § 10a und §§ 88a bis 88c</li>
+      <li><a class="ext" href="https://eur-lex.europa.eu/eli/dir/2024/1275/oj" target="_blank" rel="noopener">richtlinie (eu) 2024/1275 über die gesamtenergieeffizienz von gebäuden</a>, insbesondere anhang iii</li>
+      <li>klimaschutz- und klimawandelanpassungsgesetz baden-württemberg, § 23, mit photovoltaik-pflicht-verordnung; dazu <a class="ext" href="https://www.akbw.de/fileadmin/download/Freie_Dokumente/Service/Photovoltaik/239120_PV-Pflicht_BW_kompakt_TEIL_1.pdf" target="_blank" rel="noopener">architektenkammer baden-württemberg: solarpflicht bw kompakt</a></li>
+      <li><a class="ext" href="https://my.dgnb.de/en/node/1131" target="_blank" rel="noopener">dgnb-kurzstudie: klimawirkungen von sanierungen — eine lebenszyklusbasierte analyse</a></li>
+      <li><a class="ext" href="https://www.umweltbundesamt.de/daten/umweltzustand-trends/ressourcen-abfall/abfallaufkommen" target="_blank" rel="noopener">umweltbundesamt: abfallaufkommen in deutschland</a></li>
+      <li><a class="ext" href="https://globalabc.org/sites/default/files/resources/2026-05/key-messages-global-status-report-building-construction.pdf" target="_blank" rel="noopener">unep und globalabc: global status report for buildings and construction 2025–2026, key messages</a></li>
+      <li>din en 15978 nachhaltigkeit von bauwerken, bewertung der umweltbezogenen qualität; din spec 91606 (din media, kostenpflichtig)</li>
+      <li><a class="ext" href="https://www.bundestag.de/presse/hib/kurzmeldungen-1128946" target="_blank" rel="noopener">deutscher bundestag: gebäudetyp e</a></li>
+    </ul>
+  </section>
+
+</main>
+
+
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-left">
+        <span class="brand">hochstrasser.</span>
+        <p class="ftr-addr">gesellschaft für architektur mbh<br>karpfengasse 5 · 89073 ulm</p>
+        <p class="ftr-big"><a href="tel:+49731935110">07 31 . 9 35 11-0</a></p>
+        <p class="ftr-big"><a href="mailto:info@hochstrasser.com">info@hochstrasser.com</a></p>
+      </div>
+      <div class="ftr-right">
+        <nav class="ftr-links" aria-label="weitere seiten">
+          <a href="#">kontakt</a>
+          <a href="#">bauen im bestand</a>
+          <a href="#">jobs</a>
+          <a href="#">nachhaltigkeit</a>
+          <a href="#">bda-berufung</a>
+          <a href="#">bauphysik</a>
+          <a href="#">faqs</a>
+        </nav>
+        <div class="ftr-social">
+          <a href="https://www.instagram.com/hochstrasser.architekten" aria-label="hochstrasser. auf instagram" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4.15"/>
+              <circle cx="17.15" cy="6.85" r="1.05" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="hochstrasser. auf linkedin" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="3.4"/>
+              <circle cx="7.7" cy="7.7" r="1.05" fill="currentColor" stroke="none"/>
+              <path d="M7.7 10.9V17"/>
+              <path d="M11.7 17v-6.1"/>
+              <path d="M11.7 13.7a2.5 2.5 0 0 1 5 0V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-base">
+      <span class="label">© 2026 hochstrasser. gesellschaft für architektur mbh</span>
+      <span class="label"><a href="#">impressum</a> · <a href="#">datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* offene punkte */
+const tgl=document.getElementById('tgl');
+tgl.addEventListener('click',()=>{
+  const on=document.body.classList.toggle('show-notes');
+  tgl.setAttribute('aria-pressed',String(on));
+  tgl.textContent=on?'offene punkte ausblenden':'offene punkte einblenden';
+});
+
+/* menue */
+const btn=document.getElementById('menuBtn'),sheet=document.getElementById('sheet'),closeBtn=document.getElementById('menuClose');
+function openSheet(){sheet.hidden=false;requestAnimationFrame(()=>sheet.setAttribute('data-open',''));btn.setAttribute('aria-expanded','true');closeBtn.focus()}
+function shutSheet(){sheet.removeAttribute('data-open');btn.setAttribute('aria-expanded','false');btn.focus();setTimeout(()=>sheet.hidden=true,480)}
+btn.addEventListener('click',openSheet);
+closeBtn.addEventListener('click',shutSheet);
+sheet.querySelectorAll('a').forEach(a=>a.addEventListener('click',shutSheet));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)shutSheet()});
+
+/* lebenszyklus */
+const LZ={
+  a1:{
+    name:'herstellung, module a1 bis a3',
+    claim:'bevor der erste stein gesetzt ist.',
+    mods:'rohstoffgewinnung, transport zum werk, herstellung der bauprodukte',
+    what:'zement, stahl, glas, aluminium und dämmstoffe — mengenmäßig vor allem im tragwerk, in den decken und in den untergeschossen',
+    lever:'erhalt statt neubau, wirtschaftliche spannweiten, schlanke decken, holz- und hybridbau, zementreduzierte betone, recycelte baustoffe',
+    plan:'diese emissionen sind mit der fertigstellung vollständig angefallen. was hier im entwurf nicht gespart wird, lässt sich im betrieb nicht mehr zurückholen.'
+  },
+  a4:{
+    name:'errichtung, module a4 und a5',
+    claim:'der weg auf die baustelle.',
+    mods:'transport zur baustelle, bau- und montageprozess, baustellenabfälle',
+    what:'lkw-transporte, energie auf der baustelle, verschnitt und verpackung',
+    lever:'regionale bezugsquellen, vorfertigung im werk, durchdachte baustellenlogistik, abfalltrennung vor ort',
+    plan:'der anteil an der bilanz ist vergleichsweise klein. vorfertigung verkürzt aber zugleich bauzeit und störungen im umfeld — hier trifft nachhaltigkeit direkt auf den terminplan.'
+  },
+  b1:{
+    name:'instandhaltung und ersatz, module b1 bis b5',
+    claim:'ein gebäude wird mehrmals gebaut.',
+    mods:'nutzung, instandhaltung, reparatur, ersatz, umbau',
+    what:'jeder austausch von fassade, dach, fenstern und gebäudetechnik innerhalb des betrachtungszeitraums — jedes mal mit neuer herstellung',
+    lever:'langlebige bauteile, zugängliche und trennbare schichten, technik ohne einbetonierte leitungen, grundrisse, die andere nutzungen zulassen',
+    plan:'die gebäudetechnik wird in fünfzig jahren oft mehrfach erneuert, das tragwerk nie. wer beides voneinander löst, spart bei jedem austausch — und macht aus dem nächsten umbau keinen abriss.'
+  },
+  b6:{
+    name:'betrieb, module b6 und b7',
+    claim:'der teil, den alle kennen.',
+    mods:'energiebedarf im betrieb, wasserverbrauch',
+    what:'heizung, kühlung, lüftung, warmwasser, beleuchtung — und die frage, woher die energie kommt',
+    lever:'kompaktheit, gute hülle, sommerlicher wärmeschutz ohne technik, tageslicht, erneuerbare energie vor ort — in baden-württemberg ohnehin mit photovoltaikpflicht',
+    plan:'ab 2030 wird jeder neubau als nullemissionsgebäude errichtet, neue öffentliche nichtwohngebäude schon ab 2028. je besser der betrieb wird, desto größer wird der anteil der herstellung an der bilanz.'
+  },
+  c1:{
+    name:'rückbau, module c1 bis c4',
+    claim:'das ende ist teil des entwurfs.',
+    mods:'rückbau, transport, abfallbehandlung, beseitigung',
+    what:'abbruch, sortierung, deponie und verbrennung — besonders dort, wo baustoffe verklebt oder verschäumt sind',
+    lever:'lösbare verbindungen, sortenreine schichten, dokumentierte materialien, schadstofffreie bauprodukte',
+    plan:'bau- und abbruchabfälle machen mehr als die hälfte des abfallaufkommens in deutschland aus. ob ein gebäude dazu beiträgt, entscheidet sich im detail — geschraubt oder geklebt.'
+  },
+  d:{
+    name:'wiederverwendung und recycling, modul d',
+    claim:'was nach dem gebäude bleibt.',
+    mods:'wiederverwendung, recycling und energierückgewinnung jenseits der systemgrenze',
+    what:'keine emissionen, sondern potenziale: bauteile und materialien, die im nächsten gebäude primärrohstoffe ersetzen',
+    lever:'rückbaugerechtes konstruieren, materialpass, bauteile aus dem rückbau, planung in modulen und rastern',
+    plan:'modul d wird getrennt ausgewiesen und nicht verrechnet. eine gute wiederverwendbarkeit entschuldigt also keine schlechte herstellung — sie ist ein zusätzlicher wert.'
+  }
+};
+
+const draw=document.getElementById('lzDraw');
+const nodes=[...document.querySelectorAll('.lzn')];
+const chips=[...document.querySelectorAll('.chip')];
+const panel=document.getElementById('lzPanel');
+const fName=document.getElementById('lzName'),fClaim=document.getElementById('lzClaim');
+const fMods=document.getElementById('lzMods'),fWhat=document.getElementById('lzWhat');
+const fLever=document.getElementById('lzLever'),fPlan=document.getElementById('lzPlan');
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let current='a1';
+
+function paint(key){
+  const d=LZ[key];
+  fName.textContent=d.name;
+  fClaim.textContent=d.claim;
+  fMods.textContent=d.mods;
+  fWhat.textContent=d.what;
+  fLever.textContent=d.lever;
+  fPlan.textContent=d.plan;
+}
+function mark(key){
+  nodes.forEach(n=>{
+    const on=n.dataset.k===key;
+    n.classList.toggle('is-on',on);
+    n.setAttribute('aria-pressed',String(on));
+  });
+  chips.forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.k===key)));
+}
+function setLz(key){
+  if(key===current)return;
+  current=key;
+  mark(key);
+  if(reduce){paint(key);return}
+  panel.classList.add('is-fading');
+  setTimeout(()=>{paint(key);panel.classList.remove('is-fading')},220);
+}
+nodes.concat(chips).forEach(el=>{
+  el.addEventListener('click',()=>setLz(el.dataset.k));
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();setLz(el.dataset.k)}
+  });
+});
+
+/* startzustand */
+draw.classList.add('has-on');
+mark(current);
+paint(current);
+
+/* reveal */
+if(reduce){
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+}else{
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>

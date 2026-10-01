@@ -1,0 +1,37 @@
+/* Projekt FLZ: Titelbild, Galerie, Teilen, Vor/Zurück. */
+.flz-cover{padding-top:var(--sp-5)}
+.flz-cover__img{aspect-ratio:16/9}
+@media (min-width:900px){.flz-cover__img{aspect-ratio:21/9}}
+.flz-cover+.hero{padding-top:var(--band-s)}
+
+/* Galerie im 12er-Raster: vollbreit und Paare im Wechsel */
+.flz-gal{row-gap:var(--gutter);align-items:stretch}
+.flz-gal .media--2x3{aspect-ratio:2/3}
+.flz-gal .flz-fill{aspect-ratio:16/9}
+@media (min-width:900px){
+  .flz-gal .flz-fill{aspect-ratio:auto;height:100%}
+}
+.flz-gal figure{display:flex;flex-direction:column}
+.flz-gal figure>.media{flex:1}
+.flz-gal .media--16x9,.flz-gal .media--2x3{flex:none}
+
+.hero .facts .tags{margin:0}
+.hero .facts .tag{color:var(--ink)}
+
+/* Teilen: Auswahlknöpfe mit Symbol */
+.flz-share{display:flex;flex-wrap:wrap;gap:var(--sp-1)}
+.flz-share .chip{display:inline-flex;align-items:center;gap:var(--sp-1);background:none}
+.flz-share .chip:hover{background:var(--ink);color:var(--paper)}
+.flz-share svg{width:18px;height:18px;flex:none}
+.flz-share__note{margin-top:var(--sp-2);min-height:1.4em}
+
+/* Vor/Zurück zu den Nachbarprojekten */
+.flz-pager{padding-bottom:var(--band)}
+.flz-pager .grid{border-top:1px solid var(--ink)}
+.flz-pager__link{display:grid;gap:var(--sp-1);padding-block:var(--sp-5)}
+.flz-pager__link .t-h3{transition:opacity .25s var(--ease)}
+.flz-pager__link:hover .t-h3{opacity:.6}
+@media (min-width:900px){.flz-pager__link--next{text-align:right}}
+
+.flz-rubric{padding-top:var(--sp-2)}
+.flz-nowrap{white-space:nowrap}

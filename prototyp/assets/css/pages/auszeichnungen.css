@@ -1,0 +1,35 @@
+/* Auszeichnungen: Opener-Marke, Auszeichnungsliste, Wettbewerbsliste */
+
+.az-mark{width:100%;max-width:100%;height:auto;color:var(--on-dark);justify-self:end}
+/* mobil: Marke als kleines Zeichen unter dem Titel statt bildschirmbreit */
+@media (max-width:899px){.az-mark{width:var(--sp-7);justify-self:start}}
+
+/* Auszeichnungen: Jahr | Titel | Projekt im 12er-Raster, Zeile kippt beim Überfahren ins Schwarz */
+.az-awards>li{padding-block:0}
+.az-award{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:baseline;padding-block:var(--sp-4);transition:background .28s var(--ease),color .28s var(--ease),box-shadow .28s var(--ease)}
+.az-award>*{grid-column:1/-1;min-width:0}
+.az-award:hover,.az-award:focus-visible{background:var(--ink);color:var(--paper);box-shadow:var(--sp-2) 0 0 var(--ink),calc(-1 * var(--sp-2)) 0 0 var(--ink)}
+.az-award__year{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1;letter-spacing:-.022em;color:inherit}
+.az-award__name{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-h3);line-height:1.28;letter-spacing:-.012em;color:inherit}
+.az-award__proj{color:var(--mute);transition:color .28s var(--ease)}
+.az-award:hover .az-award__proj,.az-award:focus-visible .az-award__proj{color:var(--on-dark-2)}
+@media (min-width:900px){
+  .az-award__year{grid-column:1/span 2}
+  .az-award__name{grid-column:3/span 6}
+  .az-award__proj{grid-column:9/span 4}
+}
+
+/* Wettbewerbe: leiser, als Gegengewicht */
+.az-comp{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:baseline}
+.az-comp>*{grid-column:1/-1;min-width:0}
+.az-comp__year,.az-comp__rank{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;color:var(--mute)}
+.az-comp__with{color:var(--mute)}
+.az-comps .win .az-comp__year,.az-comps .win .az-comp__rank{color:var(--ink)}
+.az-comps .win .az-comp__title{font-weight:700;color:var(--ink)}
+.az-comps a.az-comp__title:hover{text-decoration:underline;text-underline-offset:.22em}
+@media (min-width:900px){
+  .az-comp__year{grid-column:1/span 1}
+  .az-comp__title{grid-column:2/span 8}
+  .az-comp__rank{grid-column:11/span 2;text-align:right;justify-self:end}
+}
+.az-note{margin-top:var(--sp-3);min-height:1.4em}

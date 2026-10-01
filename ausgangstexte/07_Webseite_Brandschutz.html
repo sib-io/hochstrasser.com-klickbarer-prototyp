@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>brandschutz — hochstrasser.</title>
+<meta name="description" content="brandschutz als teil des entwurfs: gebäudeklassen, rettungswege, bauen im bestand und holzbau. hochstrasser. architekten und generalplaner in ulm.">
+<link rel="canonical" href="https://hochstrasser.com/expertise/brandschutz/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="hochstrasser.">
+<meta property="og:url" content="https://hochstrasser.com/expertise/brandschutz/">
+<meta property="og:title" content="brandschutz — hochstrasser.">
+<meta property="og:description" content="brandschutz entscheidet über grundriss, tragwerk und kosten. deshalb planen wir ihn von anfang an mit.">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ============================================================
+   EXPERTISESEITE BRANDSCHUTZ
+   roter faden: brandschutz ist keine anlage, die spaeter
+   dazukommt, sondern eine entwurfsentscheidung. die seite
+   fuehrt vom schutzziel ueber die gebaeudeklasse und den
+   rettungsweg zum bestand und zum holzbau.
+
+   das hauptelement ist die gebaeudeklassen-achse: eine
+   linienzeichnung, in der die klasse ausgewaehlt wird und
+   die zugehoerigen anforderungen erscheinen.
+
+   schriften wie startseite, projektseite und profilseite:
+   PX Grotesk           -> logo, navigation, rubriken, knoten
+   Calibri/Calibri Light -> fliesstext und grosse aussagen
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --ink:#161616;
+  --ink-mute:#6e6e6e;
+  --rule:#e4e5e7;
+  --shade:#f2f2f2;
+  --pad: clamp(1.25rem, 5.2vw, 6.25rem);
+  --band: clamp(3.75rem, 8.5vw, 7.5rem);
+  --gut: clamp(.65rem, 1.35vw, 1.15rem);
+  --grid: repeat(12, minmax(0,1fr));
+  --row: clamp(1.4rem, 2.8vw, 2.4rem);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --font-body:'Calibri',sans-serif;
+  --font-light:'Calibri Light','Calibri',sans-serif;
+  --font-ui:'PX Grotesk',sans-serif;
+  --font-logo:var(--font-ui);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(.95rem,.92rem + .2vw,1.0625rem);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+.wrap{max-width:1620px;margin:0 auto;padding-inline:var(--pad)}
+.label{font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.band{padding-block:var(--band)}
+.band-s{padding-block:clamp(2.25rem,4.6vw,4rem)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:99}
+.skip:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.g12{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:var(--row);align-items:start}
+.sec-title{font-family:var(--font-ui);font-weight:600;font-size:clamp(1.05rem,1.45vw,1.3rem);letter-spacing:.055em;line-height:1.2}
+.sec-head{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:1rem;align-items:baseline}
+.sec-head .sec-title{grid-column:1/-1}
+.sec-head .arrow,.sec-head .hint{grid-column:1/-1;justify-self:start}
+.sec-head .hint{align-self:end}
+@media(min-width:900px){
+  .sec-head .sec-title{grid-column:1/span 5}
+  .sec-head .arrow,.sec-head .hint{grid-column:7/span 6;justify-self:end}
+}
+.statement{font-size:clamp(1.35rem,2.7vw,2.1rem);letter-spacing:-.024em;line-height:1.22;font-weight:400;max-width:30ch}
+.arrow{font-weight:600;font-size:.9rem;letter-spacing:.02em;border-bottom:1px solid var(--ink);padding-bottom:.15rem;white-space:nowrap;display:inline-block}
+.arrow span{display:inline-block;transition:transform .3s var(--ease)}
+.arrow:hover span{transform:translateX(5px)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--ink);padding:.9rem 1.9rem;font-family:var(--font-ui);font-weight:600;font-size:.92rem;letter-spacing:.05em;transition:background .3s var(--ease),color .3s var(--ease)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn span{display:inline-block;transition:transform .3s var(--ease)}
+.btn:hover span{transform:translateX(4px)}
+.btn-back:hover span{transform:translateX(-4px)}
+.prose{max-width:62ch;font-size:clamp(1rem,.95rem + .3vw,1.15rem);line-height:1.68;color:#2c2c2c;margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.prose p + p{margin-top:1.05em}
+
+/* prototyp-leiste */
+.proto{position:relative;z-index:70;background:var(--ink);color:var(--paper)}
+.proto-in{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:center;justify-content:space-between;padding-block:.55rem}
+.proto .label{color:rgba(255,255,255,.62)}
+.proto button{
+  font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;
+  border:1px solid rgba(255,255,255,.3);padding:.35rem .8rem;
+  transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+}
+.proto button:hover{border-color:var(--paper)}
+.proto button[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* offene punkte */
+.note{display:none}
+body.show-notes .note{
+  display:block;border:1px dashed var(--rule);padding:clamp(.9rem,1.8vw,1.35rem);
+  margin-top:clamp(1.1rem,2.2vw,1.6rem);color:var(--ink-mute);font-size:.95rem;max-width:62ch;
+}
+body.show-notes .note b{
+  display:block;font-family:var(--font-ui);font-weight:600;font-size:.7rem;
+  letter-spacing:.15em;color:var(--ink);margin-bottom:.5rem;
+}
+.note ul{list-style:none;margin-top:.5rem}
+.note li{padding-block:.15rem}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--rule)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:clamp(62px,7vw,88px)}
+.brand{font-family:var(--font-logo);font-weight:700;font-size:clamp(1.05rem,1.7vw,1.32rem);letter-spacing:-.012em}
+.nav{display:none;gap:clamp(1.1rem,2.2vw,2.1rem);align-items:baseline}
+.nav a{font-family:var(--font-ui);font-size:.92rem;letter-spacing:.05em;color:var(--ink);opacity:.72;transition:opacity .22s var(--ease)}
+.nav a:hover,.nav a[aria-current]{opacity:1}
+.dots{display:flex;flex-direction:column;gap:4px;padding:.6rem .35rem}
+.dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);display:block;transition:transform .3s var(--ease)}
+.dots:hover i:nth-child(1){transform:translateX(-3px)}
+.dots:hover i:nth-child(3){transform:translateX(3px)}
+@media(min-width:820px){.nav{display:flex}.dots{display:none}}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:var(--pad);transform:translateY(-100%);transition:transform .5s var(--ease)}
+.sheet[data-open]{transform:none}
+.sheet a{font-family:var(--font-ui);font-size:clamp(1.7rem,8vw,2.4rem);letter-spacing:.03em;font-weight:600}
+.sheet-close{position:absolute;top:1.1rem;right:var(--pad);color:var(--ink-mute);font-family:var(--font-ui)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(2.25rem,5vw,4rem) clamp(3.5rem,7vw,6.5rem)}
+.hero .eyebrow{grid-column:1/-1;margin-bottom:clamp(1.1rem,2.4vw,1.9rem)}
+.claim{
+  grid-column:1/-1;
+  font-family:var(--font-light);font-weight:300;
+  font-size:clamp(1.95rem,4.4vw,3.6rem);line-height:1.05;letter-spacing:-.015em;max-width:22ch;
+}
+.claim em{font-style:normal;color:var(--ink-mute)}
+.hero-sub{grid-column:1/-1;margin-top:clamp(.9rem,1.8vw,1.4rem);color:var(--ink-mute);max-width:56ch}
+.hero .note{grid-column:1/-1}
+@media(min-width:900px){
+  .claim{grid-column:1/span 8}
+  .hero-sub{grid-column:1/span 6}
+}
+
+/* ---------- der kritische moment: risikoliste am 12er-raster ---------- */
+.risks{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.6rem,3vw,2.5rem)}
+.risks li{
+  display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.35rem;
+  padding-block:1.05rem;border-bottom:1px solid var(--rule);
+}
+.risks b{grid-column:1/-1;font-weight:400;font-size:clamp(1.05rem,1.6vw,1.28rem);letter-spacing:-.014em;line-height:1.25}
+.risks span{grid-column:1/-1;color:var(--ink-mute);max-width:58ch}
+@media(min-width:900px){
+  .risks b{grid-column:1/span 4}
+  .risks span{grid-column:6/span 7}
+}
+.after{margin-top:clamp(1.9rem,3.6vw,2.75rem);font-size:clamp(1.15rem,2vw,1.5rem);letter-spacing:-.018em;line-height:1.3;max-width:34ch}
+
+/* ---------- schutzziele: graues band ---------- */
+.about{background:var(--shade)}
+.about-txt{grid-column:1/-1}
+.about-side{grid-column:1/-1}
+@media(min-width:900px){
+  .about-txt{grid-column:1/span 6}
+  .about-side{grid-column:8/span 5}
+}
+.aims{border-top:1px solid var(--ink);counter-reset:aim}
+.aims>div{
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;
+  padding:.95rem 0;border-bottom:1px solid rgba(22,22,22,.14);align-items:baseline;
+}
+.aims dt{
+  font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;
+  color:var(--ink-mute);padding-top:.35em;
+}
+.aims dd{font-family:var(--font-light);font-weight:300;font-size:clamp(1.25rem,2.2vw,1.8rem);line-height:1.15;letter-spacing:-.02em}
+.aims dd i{display:block;font-style:normal;font-family:var(--font-body);font-size:.88rem;line-height:1.5;color:var(--ink-mute);letter-spacing:0;margin-top:.35rem}
+
+/* ---------- externe verweise ---------- */
+a.ext{border-bottom:1px solid var(--rule);transition:border-color .2s var(--ease)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--ink)}
+a.ext::after{content:'\2197';font-size:.72em;margin-left:.15em;color:var(--ink-mute);vertical-align:.18em}
+.creed a.ext{border-bottom-color:rgba(255,255,255,.35);color:var(--paper)}
+.creed a.ext:hover,.creed a.ext:focus-visible{border-bottom-color:var(--paper)}
+.creed a.ext::after{color:rgba(255,255,255,.55)}
+
+/* ---------- getoentes vollband ---------- */
+.tint{background:var(--shade)}
+.tint .plist{border-top-color:var(--ink)}
+.tint .plist li{border-bottom-color:rgba(22,22,22,.14)}
+.tint .note{border-color:rgba(22,22,22,.22)}
+.tint .risks{border-top-color:var(--ink)}
+.tint .risks li{border-bottom-color:rgba(22,22,22,.14)}
+
+/* ---------- vier bereiche des brandschutzes ---------- */
+.areas{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.6rem,3vw,2.5rem)}
+.areas>li{
+  display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.45rem;
+  padding-block:clamp(1.2rem,2.4vw,1.85rem);border-bottom:1px solid var(--rule);
+}
+.areas .an{
+  grid-column:1/-1;font-family:var(--font-ui);font-weight:600;
+  font-size:clamp(1rem,1.5vw,1.18rem);letter-spacing:.035em;line-height:1.3;
+}
+.areas .role{grid-column:1/-1;font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.areas .ad{grid-column:1/-1;color:#2c2c2c;max-width:60ch}
+.areas .parts{grid-column:1/-1;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.85rem}
+.areas .parts>li{
+  border:1px solid var(--rule);padding:.35rem .75rem;
+  font-size:.85rem;letter-spacing:.02em;color:var(--ink-mute);
+}
+@media(min-width:900px){
+  .areas .an{grid-column:1/span 3}
+  .areas .role{grid-column:1/span 3;align-self:start}
+  .areas .ad{grid-column:5/span 8;grid-row:1}
+  .areas .parts{grid-column:5/span 8;grid-row:2}
+}
+
+/* ---------- gebaeudeklassen-achse ---------- */
+.gk-sec{padding-block:var(--band)}
+.gk-head{margin-bottom:clamp(1.9rem,3.6vw,3rem)}
+.gk-draw{width:100%;height:auto;display:block;overflow:visible}
+@media(max-width:759px){.gk-draw{display:none}}
+
+.gk-ground{stroke:var(--ink);stroke-width:1}
+.gk-ref{stroke:var(--ink-mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;opacity:.7}
+.gk-ref-t{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.12em;fill:var(--ink-mute)}
+
+.gkn{cursor:pointer;transition:opacity .25s var(--ease)}
+.gkn rect.body{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
+.gkn line.floor{stroke:var(--rule);stroke-width:1;transition:stroke .3s var(--ease)}
+.gkn text.no{font-family:var(--font-ui);font-weight:600;font-size:15px;letter-spacing:.03em;fill:var(--ink);transition:fill .3s var(--ease)}
+.gkn text.cap{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.12em;fill:var(--ink-mute);transition:fill .3s var(--ease)}
+.gkn:hover rect.body{fill:var(--shade)}
+.gkn:focus{outline:none}
+.gkn:focus-visible rect.body{stroke-width:2}
+.gk-draw.has-on .gkn:not(.is-on){opacity:.4}
+.gkn.is-on rect.body{fill:var(--ink)}
+.gkn.is-on:hover rect.body{fill:var(--ink)}
+.gkn.is-on text.no{fill:var(--paper)}
+.gkn.is-on line.floor{stroke:rgba(255,255,255,.28)}
+.gkn.is-on text.cap{fill:var(--ink)}
+
+/* kleine schirme: klassen als schaltflaechen */
+.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+@media(min-width:760px){.chips{display:none}}
+.chip{
+  font-family:var(--font-ui);font-weight:600;font-size:.85rem;letter-spacing:.03em;line-height:1.25;
+  border:1px solid var(--ink);padding:.75rem .8rem;text-align:left;
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+.gk-panel{
+  margin-top:clamp(1.9rem,3.6vw,3rem);padding-top:clamp(1.4rem,2.6vw,2rem);
+  border-top:1px solid var(--ink);transition:opacity .25s var(--ease);
+}
+.gk-panel.is-fading{opacity:0}
+.gk-head-txt{grid-column:1/-1}
+.gk-facts{grid-column:1/-1}
+@media(min-width:900px){
+  .gk-head-txt{grid-column:1/span 4}
+  .gk-facts{grid-column:6/span 7}
+}
+.gk-name{margin-bottom:.6rem}
+.gk-claim{font-family:var(--font-light);font-weight:300;font-size:clamp(1.45rem,3vw,2.35rem);line-height:1.18;letter-spacing:-.02em}
+.dl{border-top:1px solid var(--ink)}
+.dl>div{display:flex;flex-wrap:wrap;gap:.15rem 1.5rem;align-items:baseline;padding:.95rem 0;border-bottom:1px solid var(--rule)}
+.dl dt{flex:0 0 clamp(8.5rem,13vw,12.5rem);font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.dl dd{flex:1 1 22ch;min-width:0}
+
+/* ---------- rettungswege ---------- */
+/* rettungswege stehen auf weiss, damit das schema zwischen zwei toenen atmet */
+.ways-txt{grid-column:1/-1}
+.ways-fig{grid-column:1/-1}
+@media(min-width:900px){
+  .ways-txt{grid-column:1/span 5}
+  .ways-fig{grid-column:7/span 6}
+}
+.rw{width:100%;height:auto;display:block;overflow:visible}
+.rw .frame{fill:none;stroke:var(--ink);stroke-width:1}
+.rw .thin{fill:none;stroke:rgba(22,22,22,.28);stroke-width:1}
+.rw .path1{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rw .path2{fill:none;stroke:var(--ink);stroke-width:1;stroke-dasharray:4 4;stroke-linecap:round;stroke-linejoin:round}
+.rw .t{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.1em;fill:var(--ink-mute)}
+.rw .t.on{fill:var(--ink)}
+.rw .win{fill:var(--paper);stroke:none}
+.rw .dot{fill:var(--ink)}
+
+/* ---------- dunkles band: verantwortung in bw ---------- */
+.creed{background:var(--ink);color:var(--paper);padding-block:clamp(3.25rem,7.5vw,6.5rem)}
+.creed .sec-title{color:var(--paper)}
+.creed-in{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(1.75rem,3.5vw,2.75rem);margin-top:clamp(2rem,4vw,3.25rem)}
+.creed-claim{grid-column:1/-1;font-family:var(--font-light);font-weight:300;font-size:clamp(1.7rem,4.2vw,3.1rem);line-height:1.08;letter-spacing:-.024em}
+.creed-txt{grid-column:1/-1;color:rgba(255,255,255,.72);max-width:56ch}
+.creed-txt p + p{margin-top:1em}
+@media(min-width:900px){
+  .creed-claim{grid-column:1/span 6}
+  .creed-txt{grid-column:8/span 5}
+}
+.creed .steps{list-style:none;margin-top:clamp(2rem,4vw,3rem);border-top:1px solid rgba(255,255,255,.28);grid-column:1/-1}
+.creed .steps li{
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;
+  padding-block:.9rem;border-bottom:1px solid rgba(255,255,255,.18);align-items:baseline;
+}
+.creed .steps b{font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:rgba(255,255,255,.5)}
+.creed .steps span{color:rgba(255,255,255,.85)}
+
+/* ---------- leistungen ueber die leistungsphasen ---------- */
+/* leistungsachse steht auf weiss, damit sie nicht neben dem zielband klebt */
+.lph-scale{display:none}
+.lph-list{border-top:1px solid var(--ink);margin-top:clamp(1.4rem,2.6vw,2rem)}
+.lph-row{
+  display:grid;grid-template-columns:1fr;gap:.3rem;
+  padding-block:.85rem;border-bottom:1px solid rgba(22,22,22,.14);
+}
+.lph-name{letter-spacing:.02em}
+.lph-what{color:var(--ink-mute);font-size:.9rem}
+.lph-span{color:var(--ink-mute);font-size:.9rem}
+.lph-track{display:none}
+@media(min-width:760px){
+  .lph-scale{
+    display:grid;grid-template-columns:var(--grid);
+    column-gap:var(--gut);align-items:end;margin-bottom:.6rem;
+  }
+  .lph-scale>.label{grid-column:1/span 4}
+  .lph-scale .ticks{grid-column:5/span 8;display:grid;grid-template-columns:repeat(10,minmax(0,1fr))}
+  .lph-scale .ticks span{padding-left:.3rem}
+  .lph-row{grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.25rem;align-items:center}
+  .lph-name{grid-column:1/span 4}
+  .lph-what{grid-column:1/span 4;grid-row:2}
+  .lph-span{display:none}
+  .lph-track{
+    grid-column:5/span 8;grid-row:1/span 2;display:block;position:relative;height:16px;
+    border-right:1px solid rgba(22,22,22,.16);
+  }
+  .lph-track::before{
+    content:'';position:absolute;inset:0;
+    background:repeating-linear-gradient(to right,rgba(22,22,22,.16) 0 1px,transparent 1px 10%);
+  }
+  .lph-bar{
+    position:absolute;top:4px;bottom:4px;
+    left:calc(var(--s) * 10%);width:calc((var(--e) - var(--s)) * 10%);
+    background:var(--ink);
+  }
+}
+
+/* ---------- zweispalter bestand / holzbau ---------- */
+.split{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(2.25rem,4.5vw,3.5rem)}
+.split-a{grid-column:1/-1}
+.split-b{grid-column:1/-1}
+@media(min-width:960px){
+  .split-a{grid-column:1/span 6}
+  .split-b{grid-column:8/span 5}
+}
+.plist{list-style:none;border-top:1px solid var(--ink);margin-top:clamp(1.25rem,2.4vw,1.9rem)}
+.plist li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;padding-block:.85rem;border-bottom:1px solid var(--rule);align-items:baseline}
+.plist b{font-family:var(--font-ui);font-weight:600;font-size:.7rem;letter-spacing:.15em;color:var(--ink-mute)}
+.plist span{min-width:0}
+
+/* ---------- kontakt ---------- */
+.contact{border:1px solid var(--ink);padding:clamp(1.5rem,3.2vw,2.75rem);display:grid;gap:clamp(1.4rem,2.8vw,2.2rem)}
+@media(min-width:680px){
+  .contact{grid-template-columns:clamp(5.5rem,9vw,7.5rem) minmax(0,1fr);align-items:start;gap:clamp(1.5rem,3vw,2.5rem)}
+}
+.avatar{
+  aspect-ratio:1/1;background:var(--shade);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;color:var(--ink-mute);
+}
+.avatar svg{width:clamp(26px,3vw,36px);height:auto;display:block}
+.avatar span{font-family:var(--font-ui);font-weight:600;font-size:.6rem;letter-spacing:.15em}
+.contact-foot{display:flex;flex-wrap:wrap;gap:1rem 2.25rem;align-items:center;margin-top:clamp(1.4rem,2.8vw,2rem)}
+
+/* ---------- quellen ---------- */
+.src{border-top:1px solid var(--rule);padding-block:clamp(1.6rem,3vw,2.4rem)}
+.src ul{list-style:none;display:grid;gap:.4rem;margin-top:.8rem;max-width:82ch}
+.src li{color:var(--ink-mute);font-size:.9rem;line-height:1.5}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,6vw,5rem) 2.25rem}
+.ftr-top{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:clamp(2rem,4vw,3.5rem)}
+.ftr-left{grid-column:1/-1}
+.ftr-right{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-left{grid-column:1/span 6}
+  .ftr-right{grid-column:8/span 5}
+}
+.ftr .brand{font-size:clamp(1.6rem,3.2vw,2.35rem);letter-spacing:-.018em;display:block;margin-bottom:1.1rem}
+.ftr-addr{color:rgba(255,255,255,.62);max-width:32ch}
+.ftr-big{margin-top:1.4rem;font-size:clamp(1.15rem,2.1vw,1.55rem);letter-spacing:.02em;font-weight:600;line-height:1.35}
+.ftr-big+.ftr-big{margin-top:.35rem}
+.ftr-big a{border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:.1rem;transition:border-color .25s var(--ease)}
+.ftr-big a:hover{border-bottom-color:var(--paper)}
+.ftr-right{display:flex;flex-direction:column;gap:clamp(1.75rem,3vw,2.5rem)}
+@media(min-width:860px){.ftr-right{padding-top:.5rem}}
+.ftr-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 2rem;align-content:start}
+.ftr-links a{color:rgba(255,255,255,.78);transition:color .22s var(--ease)}
+.ftr-links a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-social{display:flex;gap:.7rem;justify-content:flex-end}
+.ftr-social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;flex:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.78);transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
+.ftr-social a:hover{border-color:var(--paper);color:var(--ink);background:var(--paper)}
+.ftr-social svg{width:19px;height:19px;display:block}
+.ftr .label{color:rgba(255,255,255,.5)}
+.ftr .label a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.ftr-base{display:grid;grid-template-columns:var(--grid);column-gap:var(--gut);row-gap:.6rem;margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.18)}
+.ftr-base>*{grid-column:1/-1}
+@media(min-width:860px){
+  .ftr-base>*:first-child{grid-column:1/span 6}
+  .ftr-base>*:last-child{grid-column:8/span 5;justify-self:end}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#inhalt">zum inhalt springen</a>
+
+<div class="proto">
+  <div class="wrap proto-in">
+    <span class="label">prototyp expertiseseite &middot; brandschutz</span>
+    <button id="tgl" aria-pressed="false">offene punkte einblenden</button>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#">hochstrasser.</a>
+    <nav class="nav" aria-label="hauptnavigation">
+      <a href="#">projekte</a>
+      <a href="#" aria-current="page">expertise</a>
+      <a href="#">auszeichnungen</a>
+      <a href="#">profil</a>
+      <a href="#">büro</a>
+    </nav>
+    <button class="dots" id="menuBtn" aria-label="menü öffnen" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <button class="sheet-close" id="menuClose">schließen</button>
+  <a href="#">projekte</a>
+  <a href="#">expertise</a>
+  <a href="#">auszeichnungen</a>
+  <a href="#">profil</a>
+  <a href="#">büro</a>
+</div>
+
+<main id="inhalt">
+
+  <!-- 01 claim -->
+  <section class="wrap hero g12">
+    <p class="eyebrow label">expertise — brandschutz</p>
+    <h1 class="claim">brandschutz ist eine entwurfsentscheidung<em>.</em></h1>
+    <p class="hero-sub">er legt fest, wo die treppe steht, wie weit die spannweite geht und was das gebäude am ende kostet. wer ihn erst im nachweis klärt, plant zweimal. wir haben ihn im haus.</p>
+
+    <div class="note">
+      <b>tonalität abstimmen</b>
+      der einstieg ist bewusst als these formuliert, nicht als leistungsaufzählung. alternative, sachlichere fassung: „brandschutz planen wir mit — nicht nach.“ bitte entscheiden.
+    </div>
+  </section>
+
+  <!-- 02 schutzziele, graues band -->
+  <section class="about rv">
+    <div class="wrap band g12">
+      <div class="about-txt">
+        <h2 class="sec-title">vier ziele, aus denen alles andere folgt</h2>
+        <div class="prose">
+          <p>Das Bauordnungsrecht schreibt keine Bauteile vor, sondern Ziele. <a class="ext" href="https://www.landesrecht-bw.de/jportal/?quelle=jlink&amp;query=BauO+BW+%C2%A7+15&amp;psml=bsbawueprod.psml&amp;max=true" target="_blank" rel="noopener">§ 15 der Landesbauordnung Baden-Württemberg</a> verlangt, dass bauliche Anlagen so angeordnet und errichtet werden, dass der Entstehung eines Brandes und der Ausbreitung von Feuer und Rauch vorgebeugt wird und im Brandfall die Rettung von Menschen und Tieren sowie wirksame Löscharbeiten möglich sind.</p>
+          <p>Alle konkreten Anforderungen — Feuerwiderstandsklassen, Brandabschnitte, Rettungswege, Aufstellflächen für die Feuerwehr — sind nur Wege zu diesen vier Zielen. Das ist der Grund, warum Abweichungen überhaupt möglich sind: Wer das Ziel auf anderem Weg erreicht, hat den Nachweis geführt.</p>
+        </div>
+      </div>
+      <div class="about-side">
+        <dl class="aims">
+          <div>
+            <dt>ziel 01</dt>
+            <dd>brandentstehung vorbeugen<i>baustoffe, elektroinstallation, feuerstätten, lagerung</i></dd>
+          </div>
+          <div>
+            <dt>ziel 02</dt>
+            <dd>ausbreitung begrenzen<i>brandabschnitte, brandwände, abschottungen, fassade</i></dd>
+          </div>
+          <div>
+            <dt>ziel 03</dt>
+            <dd>menschen retten<i>zwei rettungswege, treppenräume, rauchfreihaltung</i></dd>
+          </div>
+          <div>
+            <dt>ziel 04</dt>
+            <dd>löscharbeiten ermöglichen<i>zufahrten, aufstellflächen, löschwasser, steigleitungen</i></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 leistungen ueber die leistungsphasen -->
+  <section class="exp rv">
+    <div class="wrap band">
+      <div class="sec-head">
+        <h2 class="sec-title">was wir übernehmen</h2>
+      </div>
+
+      <div class="lph-scale" aria-hidden="true">
+        <span class="label">leistungsphase</span>
+        <span class="ticks">
+          <span class="label">0</span>
+          <span class="label">1</span>
+          <span class="label">2</span>
+          <span class="label">3</span>
+          <span class="label">4</span>
+          <span class="label">5</span>
+          <span class="label">6</span>
+          <span class="label">7</span>
+          <span class="label">8</span>
+          <span class="label">9</span>
+        </span>
+      </div>
+
+      <div class="lph-list">
+        <div class="lph-row">
+          <span class="lph-name">machbarkeit und risikoeinschätzung</span>
+          <span class="lph-what">gebäudeklasse, sonderbautatbestand, feuerwehrzugang — vor dem ersten strich</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:0;--e:3"></span></span>
+          <span class="lph-span">lph 0–2</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">brandschutzkonzept</span>
+          <span class="lph-what">schutzzielorientiert entwickelt statt aus dem katalog übernommen: rettungswegführung, abschnitte, kompensationen</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:1;--e:5"></span></span>
+          <span class="lph-span">lph 1–4</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">abweichungskonzept und ingenieurnachweis</span>
+          <span class="lph-what">begründung, kompensation, simulation — dort, wo der regelweg den entwurf beschädigen würde</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:2;--e:5"></span></span>
+          <span class="lph-span">lph 2–4</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">nachweis im bauantrag</span>
+          <span class="lph-what">darstellung in den bauvorlagen, abstimmung mit behörde und feuerwehr</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:3;--e:5"></span></span>
+          <span class="lph-span">lph 3–4</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">brandschutz in der ausführungsplanung</span>
+          <span class="lph-what">anschlüsse, abschottungen, bekleidungen, aufzüge, haustechnische durchdringungen</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:5;--e:7"></span></span>
+          <span class="lph-span">lph 5–6</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">fachbauleitung brandschutz</span>
+          <span class="lph-what">stichproben, dokumentation, nachweise der ausführenden firmen — damit die abnahme keine überraschung wird</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:7;--e:9"></span></span>
+          <span class="lph-span">lph 7–8</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">übergabe an den betrieb</span>
+          <span class="lph-what">flucht- und rettungswegpläne, brandschutzordnung, wartungs- und prüfpflichten</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:8;--e:10"></span></span>
+          <span class="lph-span">lph 8–9</span>
+        </div>
+        <div class="lph-row">
+          <span class="lph-name">bestandsaufnahme im bestand</span>
+          <span class="lph-what">abgleich von genehmigungsstand und realität, mängel bewerten, maßnahmen priorisieren</span>
+          <span class="lph-track"><span class="lph-bar" style="--s:0;--e:2"></span></span>
+          <span class="lph-span">lph 0–1</span>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>zuordnung der leistungsphasen</b>
+        die balken sind mein vorschlag, abgeleitet aus dem leistungsbild. bitte fachlich prüfen — insbesondere, wie weit ihr die kontrolle auf der baustelle als eigene brandschutzleistung ausweisen wollt und ob die übergabe an den betrieb tatsächlich angeboten wird.
+      </div>
+      <div class="note">
+        <b>fachliste brandschutz</b>
+        wenn jemand aus dem team in der fachliste brandschutz der architektenkammer geführt ist, gehört das an diese stelle. es ist das stärkste einzelne argument auf der seite. bitte namen und eintragung nennen.
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 der kritische moment -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <h2 class="sec-title">der teure moment kommt immer zu spät</h2>
+    <div class="prose">
+      <p>Der Entwurf steht, die Proportionen stimmen, das Raumgefüge trägt. Dann kommt die brandschutztechnische Prüfung — und mit ihr Entscheidungen, die niemand gezeichnet hat. Diesen Moment kennt jeder, der lange genug plant.</p>
+    </div>
+
+    <ul class="risks">
+      <li>
+        <b>die entwurfsidee verliert</b>
+        <span>eine tür, die nachträglich zur brandschutztür wird, eine wand, die eine raumfolge zerschneidet, ein treppenraum, der sich schließt: was spät eingefügt wird, bleibt an jedem tag danach sichtbar.</span>
+      </li>
+      <li>
+        <b>die kosten laufen</b>
+        <span>was in der vorplanung eine grundrissentscheidung ist, wird in der entwurfs- und genehmigungsplanung eine umplanung — und in der ausführung ein nachtrag mit terminfolgen.</span>
+      </li>
+      <li>
+        <b>die genehmigung zieht sich</b>
+        <span>abstimmungsschleifen mit baurechtsbehörde, sachverständigen und feuerwehr brauchen zeit, die im terminplan nicht steht. wer erst im verfahren anfängt zu begründen, verhandelt aus der schwächeren position.</span>
+      </li>
+    </ul>
+
+    <p class="after">das ist kein argument gegen den brandschutz. es ist eines dafür, ihn früher zu stellen.</p>
+
+    <div class="note">
+      <b>adressat der seite klären</b>
+      der abschnitt ist aus der perspektive von planenden geschrieben („jeder, der lange genug plant“). das funktioniert, wenn die seite auch kolleginnen und kollegen ansprechen soll, die euch für brandschutzplanung beauftragen. richtet sie sich ausschließlich an bauherrschaften, sollten wir auf deren perspektive umstellen — dann heißt es nicht „der entwurf steht“, sondern „ihr projekt hängt“. bitte entscheiden, das zieht sich durch die ganze seite.
+    </div>
+    </div>
+  </section>
+
+  <!-- 05 gebaeudeklassen-achse -->
+  <section class="wrap gk-sec">
+    <div class="gk-head sec-head rv">
+      <h2 class="sec-title">gebäudeklassen</h2>
+      <p class="hint label">klasse wählen — die anforderungen erscheinen darunter</p>
+    </div>
+
+    <svg class="gk-draw" id="gkDraw" viewBox="0 0 1240 330" role="img" aria-label="zeichnung: fünf gebäudeklassen als gestaffelte baukörper mit den maßgeblichen höhen">
+      <!-- hoehenlinien, beschriftung jeweils oberhalb der linie -->
+      <line class="gk-ref" x1="0" y1="40" x2="1240" y2="40"/>
+      <text class="gk-ref-t" x="2" y="32">22 m</text>
+      <line class="gk-ref" x1="0" y1="122" x2="1240" y2="122"/>
+      <text class="gk-ref-t" x="2" y="114">13 m</text>
+      <line class="gk-ref" x1="0" y1="176" x2="1240" y2="176"/>
+      <text class="gk-ref-t" x="2" y="168">7 m</text>
+
+      <!-- gk 1 -->
+      <g class="gkn" id="g-gk1" data-k="gk1" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="0" y="176" width="232" height="64"/>
+        <line class="floor" x1="0" y1="208" x2="232" y2="208"/>
+        <text class="no" x="116" y="215" text-anchor="middle">gk 1</text>
+        <text class="cap" x="116" y="266" text-anchor="middle">freistehend</text>
+        <text class="cap" x="116" y="284" text-anchor="middle">bis 2 einheiten</text>
+      </g>
+
+      <!-- gk 2 -->
+      <g class="gkn" id="g-gk2" data-k="gk2" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="252" y="176" width="232" height="64"/>
+        <line class="floor" x1="252" y1="208" x2="484" y2="208"/>
+        <text class="no" x="368" y="215" text-anchor="middle">gk 2</text>
+        <text class="cap" x="368" y="266" text-anchor="middle">angebaut</text>
+        <text class="cap" x="368" y="284" text-anchor="middle">bis 2 einheiten</text>
+      </g>
+
+      <!-- gk 3 -->
+      <g class="gkn" id="g-gk3" data-k="gk3" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="504" y="176" width="232" height="64"/>
+        <line class="floor" x1="504" y1="208" x2="736" y2="208"/>
+        <text class="no" x="620" y="215" text-anchor="middle">gk 3</text>
+        <text class="cap" x="620" y="266" text-anchor="middle">alle übrigen</text>
+        <text class="cap" x="620" y="284" text-anchor="middle">bis 7 m</text>
+      </g>
+
+      <!-- gk 4 -->
+      <g class="gkn" id="g-gk4" data-k="gk4" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="756" y="122" width="232" height="118"/>
+        <line class="floor" x1="756" y1="162" x2="988" y2="162"/>
+        <line class="floor" x1="756" y1="201" x2="988" y2="201"/>
+        <text class="no" x="872" y="188" text-anchor="middle">gk 4</text>
+        <text class="cap" x="872" y="266" text-anchor="middle">bis 13 m</text>
+        <text class="cap" x="872" y="284" text-anchor="middle">einheiten bis 400 m²</text>
+      </g>
+
+      <!-- gk 5 -->
+      <g class="gkn" id="g-gk5" data-k="gk5" role="button" tabindex="0" aria-pressed="false">
+        <rect class="body" x="1008" y="40" width="232" height="200"/>
+        <line class="floor" x1="1008" y1="80" x2="1240" y2="80"/>
+        <line class="floor" x1="1008" y1="120" x2="1240" y2="120"/>
+        <line class="floor" x1="1008" y1="160" x2="1240" y2="160"/>
+        <line class="floor" x1="1008" y1="200" x2="1240" y2="200"/>
+        <text class="no" x="1124" y="146" text-anchor="middle">gk 5</text>
+        <text class="cap" x="1124" y="266" text-anchor="middle">alle übrigen</text>
+        <text class="cap" x="1124" y="284" text-anchor="middle">ab 22 m hochhaus</text>
+      </g>
+
+      <!-- gelaende -->
+      <line class="gk-ground" x1="0" y1="240" x2="1240" y2="240"/>
+      <text class="gk-ref-t" x="0" y="316">gemessen wird bis zum fußboden des höchsten geschosses mit aufenthaltsräumen — nicht bis zum first</text>
+    </svg>
+
+    <div class="chips" role="group" aria-label="gebäudeklasse wählen">
+      <button class="chip" data-k="gk1" aria-pressed="false">gk 1 — freistehend, bis 7 m</button>
+      <button class="chip" data-k="gk2" aria-pressed="false">gk 2 — angebaut, bis 7 m</button>
+      <button class="chip" data-k="gk3" aria-pressed="false">gk 3 — bis 7 m</button>
+      <button class="chip" data-k="gk4" aria-pressed="false">gk 4 — bis 13 m</button>
+      <button class="chip" data-k="gk5" aria-pressed="false">gk 5 — darüber</button>
+    </div>
+
+    <div class="gk-panel g12" id="gkPanel" aria-live="polite">
+      <div class="gk-head-txt">
+        <p class="gk-name label" id="gkName">gebäudeklasse 1</p>
+        <p class="gk-claim" id="gkClaim">das freistehende haus.</p>
+      </div>
+      <div class="gk-facts">
+        <dl class="dl">
+          <div><dt>höhe und einheiten</dt><dd id="gkSize">bis 7 m, höchstens zwei nutzungseinheiten mit zusammen bis zu 400 m², freistehend</dd></div>
+          <div><dt>tragende bauteile</dt><dd id="gkParts">über der geländeoberfläche keine anforderung an den feuerwiderstand, im kellergeschoss feuerhemmend</dd></div>
+          <div><dt>zweiter rettungsweg</dt><dd id="gkWay">in der regel über rettungsgeräte der feuerwehr oder ebenerdig ins freie</dd></div>
+          <div><dt>für die planung heißt das</dt><dd id="gkPlan">gestalterisch der größte spielraum. entscheidend sind abstand zur grenze, feuerwehrzugang und die trennung zum anbau, sobald angebaut wird.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>vereinfachte darstellung — fachlich prüfen</b>
+      die zeichnung zeigt die systematik, nicht den vollständigen normtext. maßgeblich sind § 2 absatz 4 sowie §§ 26 ff. lbo baden-württemberg in der geltenden fassung. für kellergeschosse, wände anstelle von brandwänden und sonderbauten gelten abweichende anforderungen. bitte vor veröffentlichung durch die fachplanung gegenlesen lassen.
+    </div>
+    <div class="note">
+      <b>verlinkung projekte</b>
+      denkbar: je gebäudeklasse ein realisiertes projekt als beleg verlinken. setzt voraus, dass die gebäudeklasse im backend als projektattribut gepflegt wird — passt zur bestehenden filterlogik der projektseite.
+    </div>
+  </section>
+
+  <!-- 06 regelwerk -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <div class="split">
+      <div class="split-a">
+        <h2 class="sec-title">woran gemessen wird</h2>
+        <div class="prose">
+          <p>Die Gebäudeklasse sagt, wie lange ein Bauteil standhalten muss. Woran das gemessen wird und wer bestätigt, dass ein Produkt es kann, steht eine Ebene darunter. Hinter fast jedem Bauteil stehen zwei Fragen: Wie verhält sich der Baustoff, wenn es brennt — und wie lange trägt oder trennt das Bauteil, während es brennt. Die erste beantwortet die europäische Klassifizierung, die zweite die Bemessung.</p>
+        </div>
+        <ul class="plist">
+          <li><b>brandverhalten</b><span>din en 13501 klassifiziert baustoffe und bauteile europäisch einheitlich — ergänzt um rauchentwicklung und brennendes abtropfen, die im ernstfall oft entscheidender sind als die brennbarkeit selbst</span></li>
+          <li><b>feuerwiderstand</b><span>die teile 1-2 der eurocodes bemessen das tragwerk für den brandfall: din en 1992-1-2 für stahlbeton, din en 1993-1-2 für stahlbau, din en 1995-1-2 für holzbau</span></li>
+          <li><b>industriebau</b><span>din 18230 rechnet die zulässige größe eines brandabschnitts aus brandlast, wärmeabzug und löschmaßnahmen — statt sie zu pauschalieren. das ist der älteste ingenieurweg im deutschen brandschutz</span></li>
+        </ul>
+        <div class="note">
+          <b>normnummern bleiben unverlinkt</b>
+          verlinkt wird auf dieser seite nur auf primärquellen: landesrecht, verwaltungsvorschriften, architektenkammer, dibt und die statistikherausgeber. für din en 13501, die eurocode-teile und din 18230 gibt es keine frei zugängliche primärquelle — der normtext liegt hinter der bezahlschranke von beuth. die nummern stehen deshalb unverlinkt da; unter fachleuten sind sie ohnehin die referenz.
+        </div>
+      </div>
+
+      <div class="split-b">
+        <p class="label">und ob das produkt das darf</p>
+        <ul class="plist">
+          <li><b>bauprodukte</b><span>wo es weder eine technische baubestimmung noch eine anerkannte regel der technik gibt, braucht es einen verwendbarkeitsnachweis: allgemeine bauaufsichtliche zulassung, allgemeines bauaufsichtliches prüfzeugnis oder zustimmung im einzelfall. erteilt werden sie vom <a class="ext" href="https://www.dibt.de/de/wir-bieten/zulassungen-etas-und-mehr" target="_blank" rel="noopener">deutschen institut für bautechnik</a></span></li>
+          <li><b>bauarten</b><span>für die bauart — also das zusammenfügen mehrerer produkte, etwa eine abschottung — gelten seit 2017 eigene begriffe: allgemeine bauartgenehmigung, prüfzeugnis für bauarten oder vorhabenbezogene bauartgenehmigung</span></li>
+          <li><b>grundlage</b><span>die bauregellisten sind aufgehoben. maßgeblich ist die verwaltungsvorschrift technische baubestimmungen des landes — in baden-württemberg die <a class="ext" href="https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt611_VwV-TB-2026.pdf" target="_blank" rel="noopener">vwv tb</a></span></li>
+        </ul>
+        <div class="note">
+          <b>begriffe aktualisiert</b>
+          der zugelieferte text nennt die bauregelliste a und die zustimmung im einzelfall für bauarten. beides ist seit der novelle 2016/2017 überholt: die bauregellisten wurden aufgehoben, für bauarten heißt es heute bauartgenehmigung. auf einer expertiseseite wäre der alte stand ein unnötiger angriffspunkt — deshalb hier korrigiert.
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:clamp(2.25rem,4.5vw,3.5rem)">
+      <p>Zusammen laufen beide Fragen an einer Stelle: bei den Durchdringungen. Moderne Gebäude sind von Leitungen für Energie, Daten, Wasser und Heizung durchzogen, häufig mit brennbaren Werkstoffen — und sie queren genau die Bauteile, die trennen sollen. Jede Durchdringung braucht eine Abschottung mit eigenem Nachweis, und jede nicht fachgerecht verschlossene macht die Brandwand daneben wirkungslos. In Gebäuden mit großen Menschenansammlungen summiert sich das zu einer Brandlast, die den Abschnitt praktisch aushebeln kann.</p>
+      <p>Wo sich die Brandlast nicht senken lässt, arbeitet man an der anderen Seite: Sprinkleranlagen und Gaslöschanlagen greifen ein, wenn es brennt. Die aktive Brandvermeidung durch Sauerstoffreduktion setzt noch davor an und lässt ein Feuer gar nicht erst entstehen — in Archiven, Rechenzentren und Hochregallagern inzwischen ein etablierter Weg.</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- 07 rettungswege -->
+  <section class="ways rv">
+    <div class="wrap band g12">
+      <div class="ways-txt">
+        <h2 class="sec-title">der zweite rettungsweg entscheidet den grundriss</h2>
+        <div class="prose">
+          <p>Jede Nutzungseinheit braucht in jedem Geschoss mit Aufenthaltsräumen zwei voneinander unabhängige Rettungswege. Der erste führt über eine notwendige Treppe. Der zweite ist entweder eine weitere Treppe — oder eine Stelle, die die Feuerwehr mit ihren Rettungsgeräten erreicht.</p>
+          <p>Diese Entscheidung fällt früh und sie ist teuer, wenn sie spät fällt. Der Leiterweg verlangt <a class="ext" href="https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt620_LBOAVO.pdf" target="_blank" rel="noopener">Zufahrt, Zugang und tragfähige Aufstellflächen</a> genau dort, wo sonst gern die Terrasse, der Baumbestand oder die Tiefgaragenrampe liegt. In Baden-Württemberg beurteilen die Kreise zusätzlich, wie viele Personen je Nutzungseinheit über Leitern gerettet werden können — abhängig von der Ausstattung der örtlichen Feuerwehr. Dieselbe Planung kann in der einen Gemeinde genehmigungsfähig sein und in der nächsten nicht.</p>
+        </div>
+        <div class="note">
+          <b>lokalen bezug prüfen</b>
+          die aussage zur unterschiedlichen beurteilung stützt sich auf beurteilungsrichtlinien einzelner landkreise. wenn ihr das so stehen lassen wollt, sollten wir die für ulm und den alb-donau-kreis geltende praxis kurz mit der feuerwehr abgleichen — das wäre zugleich ein guter aufhänger für ein interview.
+        </div>
+      </div>
+
+      <div class="ways-fig">
+        <svg class="rw" viewBox="0 0 600 390" role="img" aria-label="schema: der erste rettungsweg führt über die notwendige treppe ins freie, der zweite über eine öffnung zu den rettungsgeräten der feuerwehr">
+          <!-- beschriftung der bereiche -->
+          <text class="t on" x="60" y="26">treppe</text>
+          <text class="t" x="152" y="26">nutzungseinheit</text>
+
+          <!-- gebaeude mit geschossen -->
+          <rect class="frame" x="60" y="40" width="380" height="270"/>
+          <line class="thin" x1="60" y1="108" x2="440" y2="108"/>
+          <line class="thin" x1="60" y1="175" x2="440" y2="175"/>
+          <line class="thin" x1="60" y1="242" x2="440" y2="242"/>
+
+          <!-- treppenkern -->
+          <line class="frame" x1="128" y1="40" x2="128" y2="310"/>
+          <line class="thin" x1="60" y1="62" x2="128" y2="62"/>
+          <line class="thin" x1="60" y1="85" x2="128" y2="85"/>
+          <line class="thin" x1="60" y1="130" x2="128" y2="130"/>
+          <line class="thin" x1="60" y1="152" x2="128" y2="152"/>
+          <line class="thin" x1="60" y1="197" x2="128" y2="197"/>
+          <line class="thin" x1="60" y1="219" x2="128" y2="219"/>
+          <line class="thin" x1="60" y1="264" x2="128" y2="264"/>
+          <line class="thin" x1="60" y1="287" x2="128" y2="287"/>
+
+          <!-- oeffnung in der aussenwand -->
+          <rect class="win" x="437" y="145" width="7" height="20"/>
+
+          <!-- ausgangspunkt im geschoss -->
+          <circle class="dot" cx="300" cy="155" r="3"/>
+
+          <!-- erster rettungsweg: ueber die treppe ins freie -->
+          <path class="path1" d="M300 155 H94 V326 H16"/>
+          <text class="t on" x="152" y="146">1. rettungsweg</text>
+          <text class="t on" x="16" y="376">ins freie</text>
+
+          <!-- zweiter rettungsweg: ueber die oeffnung zur leiter -->
+          <path class="path2" d="M300 155 H520"/>
+          <text class="t" x="452" y="132">2. rettungsweg</text>
+
+          <!-- rettungsgeraet -->
+          <line class="frame" x1="520" y1="152" x2="556" y2="330"/>
+          <line class="frame" x1="538" y1="148" x2="574" y2="326"/>
+          <line class="thin" x1="524" y1="172" x2="542" y2="168"/>
+          <line class="thin" x1="531" y1="207" x2="549" y2="203"/>
+          <line class="thin" x1="538" y1="242" x2="556" y2="238"/>
+          <line class="thin" x1="545" y1="277" x2="563" y2="273"/>
+          <line class="thin" x1="552" y1="312" x2="570" y2="308"/>
+
+          <!-- gelaende und aufstellflaeche -->
+          <line class="frame" x1="14" y1="340" x2="592" y2="340"/>
+          <line class="path2" x1="470" y1="356" x2="592" y2="356"/>
+          <text class="t" x="470" y="376">aufstellfläche</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 ingenieurmethoden -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <div class="split">
+      <div class="split-a">
+        <h2 class="sec-title">ingenieurmethoden</h2>
+        <div class="prose">
+          <p>Die Landesbauordnung beschreibt einen Regelweg. Sie verlangt aber nicht, ihn zu gehen — sie verlangt, das Schutzziel zu erreichen. Genau hier setzt das Brandschutzingenieurwesen an: Statt eine pauschale Anforderung zu erfüllen, wird für das konkrete Gebäude nachgewiesen, dass es sicher ist.</p>
+          <p>Das ist der Unterschied zwischen einer Abweichung, die man beantragt und hofft, und einer Abweichung, die man belegt. Die Grundlagen dafür sind normiert, die Verfahren anerkannt. Was fehlt, ist meist nur der Zeitpunkt: Ein Ingenieurnachweis, der erst im Genehmigungsverfahren auftaucht, kommt so spät wie jede andere Nachbesserung.</p>
+        </div>
+        <ul class="plist">
+          <li><b>brandsimulation</b><span>rauchausbreitung, temperaturen und sichtweiten im bemessungsbrand — grundsätze und nachweisführung nach din 18009-1</span></li>
+          <li><b>räumungssimulation</b><span>erforderliche räumungszeit gegen die zeit, die bis zur gefährdung tatsächlich zur verfügung steht — verfahren nach din 18009-2</span></li>
+          <li><b>rechtsgrundlage</b><span>abweichung nach § 56 lbo baden-württemberg, mit begründung und kompensation im konzept</span></li>
+        </ul>
+        <div class="note">
+          <b>paragraf angepasst</b>
+          im one-pager steht § 67 mbo. das ist die musterbauordnung; in baden-württemberg ist die abweichung in § 56 lbo geregelt. für eine seite mit ulmer adresse gehört das landesrecht nach vorn — die mbo können wir ergänzend nennen, wenn ihr auch außerhalb des landes anbietet.
+        </div>
+        <div class="note">
+          <b>leistungstiefe prüfen</b>
+          simulationen setzen software und routine voraus. macht ihr das im haus oder über ein ingenieurbüro? beides ist eine gute antwort, aber die seite sollte es nicht offenlassen. falls ihr zuarbeitet: „wir führen den nachweis mit unseren fachplanern“ ist ehrlicher und trägt trotzdem.
+        </div>
+      </div>
+
+      <div class="split-b">
+        <p class="label">damit wird planbar</p>
+        <ul class="plist">
+          <li><b>treppenraum</b><span>offene geschossverbindungen statt geschlossenem kern</span></li>
+          <li><b>atrium</b><span>hallen und lufträume über mehrere geschosse, mit nachgewiesener entrauchung</span></li>
+          <li><b>brandabschnitt</b><span>flächen jenseits des regelmaßes, ohne die trennwand mitten im raum</span></li>
+          <li><b>konstruktion</b><span>sichtbares holz oder stahl über das geregelte maß hinaus</span></li>
+          <li><b>bestand</b><span>vorhandene treppenbreiten und ausgänge, deren leistungsfähigkeit gerechnet statt geschätzt wird</span></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 09 die vier bereiche -->
+  <section class="wrap band g12 rv">
+    <h2 class="sec-title" style="grid-column:1/-1">vier bereiche, ein ziel</h2>
+    <div class="prose" style="grid-column:1/-1">
+      <p>Alles bis hierher war baulicher Brandschutz: Gebäudeklasse, Feuerwiderstand, Rettungsweg, Abweichung. Er ist der größte der vier Bereiche, in die die Praxis das Feld ordnet — aber nicht der einzige. Und für ein Architekturbüro sind sie unterschiedlich wichtig: Einen verantworten wir vollständig, einen koordinieren wir, einen übergeben wir, und einen ermöglichen wir nur. Diese Unterscheidung sauber zu treffen, erspart im Projekt eine Menge Missverständnisse darüber, wer eigentlich woran arbeitet.</p>
+    </div>
+
+    <ol class="areas" style="grid-column:1/-1">
+      <li>
+        <p class="an">baulicher brandschutz</p>
+        <p class="role">wir verantworten ihn</p>
+        <p class="ad">Alles, was mit der Errichtung oder Änderung einer baulichen Anlage zusammenhängt: die Erschließung des Grundstücks mit Löschwasser, die Aufstell- und Bewegungsflächen für die Feuerwehr, die Unterteilung des Gebäudes in Brandabschnitte durch Brandwände und die Bemessung tragender und raumabschließender Bauteile. Er entscheidet über Grundriss, Tragwerk und Fassade — und er ist der Bereich, der sich im Nachhinein am schlechtesten reparieren lässt.</p>
+        <ul class="parts">
+          <li>löschwasser</li>
+          <li>aufstell- und bewegungsflächen</li>
+          <li>brandabschnitte</li>
+          <li>feuerwiderstand der bauteile</li>
+          <li>brandverhalten der baustoffe</li>
+          <li>rettungswege</li>
+          <li>abschottungen</li>
+        </ul>
+      </li>
+      <li>
+        <p class="an">anlagentechnischer brandschutz</p>
+        <p class="role">wir koordinieren ihn</p>
+        <p class="ad">Die Technik, die im Brandfall meldet, warnt, entraucht oder löscht. Geplant wird sie von den Fachplanungen, aber sie beansprucht Schächte, Decken und Steigezonen — und ihre Anforderungen entstehen aus dem Brandschutzkonzept. Wer sie erst in der Ausführungsplanung einsammelt, verlegt Leitungen durch Bauteile, die gerade eben noch feuerbeständig waren.</p>
+        <ul class="parts">
+          <li>brandmelde- und alarmierungsanlagen</li>
+          <li>rauchableitung</li>
+          <li>löschanlagen</li>
+          <li>sicherheits- und notbeleuchtung</li>
+          <li>steigleitungen</li>
+          <li>brandfallsteuerung der aufzüge</li>
+          <li>blitzschutz</li>
+        </ul>
+      </li>
+      <li>
+        <p class="an">organisatorischer brandschutz</p>
+        <p class="role">wir übergeben ihn</p>
+        <p class="ad">Alles, was nach der Fertigstellung im Betrieb passiert: Regeln, Pläne, Unterweisungen, Wartung. Das ist Sache der Betreiberin oder des Betreibers — aber die Grundlagen dafür entstehen in der Planung. Wer Flucht- und Rettungspläne erst nach der Abnahme zeichnen lässt, merkt oft erst dann, dass ein Weg im Betrieb anders genutzt wird als geplant.</p>
+        <ul class="parts">
+          <li>brandschutzordnung nach din 14096, teile a bis c</li>
+          <li>flucht- und rettungspläne nach din iso 23601</li>
+          <li>kennzeichnung der rettungswege</li>
+          <li>feuerlöscher und kleinlöschgeräte</li>
+          <li>unterweisung und räumungsübungen</li>
+          <li>wartungs- und prüfpflichten</li>
+        </ul>
+      </li>
+      <li>
+        <p class="an">abwehrender brandschutz</p>
+        <p class="role">wir ermöglichen ihn</p>
+        <p class="ad">Der Einsatz selbst — Menschenrettung und Löscharbeiten — ist Aufgabe der Feuerwehr. Planbar ist daran trotzdem einiges, und zwar von uns: Zufahrten, Zugänge, tragfähige Flächen, Löschwassermenge, Steigleitungen, Feuerwehrpläne nach DIN 14095, Schlüsseldepot. Und die Ausrüstung der örtlichen Wehr ist keine Randnotiz, sondern Planungsgrundlage — sie entscheidet mit, ob der zweite Rettungsweg über eine Leiter führen darf.</p>
+        <ul class="parts">
+          <li>zufahrten und zugänge</li>
+          <li>löschwasserversorgung</li>
+          <li>feuerwehrpläne nach din 14095</li>
+          <li>angriffswege und schlüsseldepot</li>
+          <li>leistungsfähigkeit der örtlichen wehr</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="note" style="grid-column:1/-1">
+      <b>rollenzuordnung ist eine positionierung</b>
+      „wir verantworten / koordinieren / übergeben / ermöglichen“ ist mein vorschlag und beschreibt ein architekturbüro mit generalplanungsanspruch. wenn ihr den anlagentechnischen brandschutz auch fachlich plant oder den organisatorischen als eigene leistung anbietet, müssen die vier zeilen anders lauten. das ist die stelle, an der die seite am konkretesten verspricht — bitte genau prüfen.
+    </div>
+  </section>
+
+  <!-- 10 bestand und holzbau -->
+  <section class="tint rv">
+    <div class="wrap band">
+    <div class="split">
+      <div class="split-a">
+        <h2 class="sec-title">im bestand</h2>
+        <div class="prose">
+          <p>Bestandsschutz ist kein Dauerzustand. Er schützt, was rechtmäßig errichtet und unverändert genutzt wird. Er endet bei einer Nutzungsänderung, bei wesentlichen baulichen Änderungen — und dort, wo eine konkrete Gefahr für Leben und Gesundheit besteht. Dann kann die Behörde auch an ein altes Gebäude nachträgliche Anforderungen stellen.</p>
+          <p>Der Weg dorthin führt selten über die Erfüllung aller heutigen Anforderungen. Er führt über die Frage, mit welcher Maßnahme das Schutzziel erreicht wird, ohne die Substanz zu opfern. Genau das ist die Arbeit, die wir seit Jahren im Denkmal und im laufenden Betrieb machen.</p>
+        </div>
+        <ul class="plist">
+          <li><b>abweichung</b><span>historische treppe ohne heutigen feuerwiderstand</span></li>
+          <li><b>kompensation</b><span>brandmeldeanlage, rauchableitung im treppenraum, abschottung der nutzungseinheiten</span></li>
+          <li><b>abweichung</b><span>fehlender zweiter rettungsweg im obergeschoss</span></li>
+          <li><b>kompensation</b><span>zusätzliche außentreppe, sicherer bereich, begrenzung der personenzahl je einheit</span></li>
+          <li><b>abweichung</b><span>brennbare bekleidung oder dämmung im bestand</span></li>
+          <li><b>kompensation</b><span>brandsperren, streifenweiser austausch, unterseitige bekleidung im anschlussbereich</span></li>
+        </ul>
+        <div class="note">
+          <b>beispiele belegen</b>
+          die drei paare sind typische fälle aus der fachliteratur, keine projektbeispiele von euch. besser wäre je ein echter fall aus dem archiv — etwa aus dem umbau im „neuen bau“ oder dem kriegsspital. dafür bräuchte ich pro fall zwei sätze von der projektleitung.
+        </div>
+      </div>
+
+      <div class="split-b">
+        <h2 class="sec-title">im holzbau</h2>
+        <div class="prose">
+          <p>Holz ist brennbar und trotzdem planbar. Die <a class="ext" href="https://mkbwk.rlp.de/fileadmin/07/Bilder/Themen/Baurecht_und_Bautechnik/Technische_Baubestimmungen/Erlaeuterung_zur_Muster-Holzbau-Richtlinie_September_2024.pdf" target="_blank" rel="noopener">Muster-Holzbaurichtlinie</a> ist als technische Baubestimmung eingeführt und regelt, wie tragende und raumabschließende Bauteile aus Holz in den Gebäudeklassen 4 und 5 ausgeführt werden — ohne dass es für jeden Anschluss einen Einzelnachweis braucht.</p>
+          <p>Der Punkt, der die Architektur betrifft: Sichtbares Holz ist zulässig, aber begrenzt. In brandschutztechnisch abgetrennten Einheiten bis 200 m² darf entweder die Deckenuntersicht sichtbar bleiben oder ein Anteil der Wandflächen. Wer das früh weiß, entwirft danach. Wer es spät erfährt, beplankt eine Idee zu.</p>
+        </div>
+        <ul class="plist">
+          <li><b>geltung</b><span>gebäudeklassen 4 und 5, standardgebäude ohne sonderbautatbestand</span></li>
+          <li><b>sichtbares holz</b><span>einheiten bis 200 m²: decke oder ein begrenzter anteil der wandflächen</span></li>
+          <li><b>massivholz</b><span>reduzierte brandschutzbekleidung gegenüber der holzrahmenbauweise möglich</span></li>
+          <li><b>fassade</b><span>holzbekleidung zulässig mit brandsperren in höhe der geschossdecken</span></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 11 verantwortung in baden-wuerttemberg -->
+  <section class="creed rv">
+    <div class="wrap">
+      <h2 class="sec-title">verantwortung</h2>
+      <div class="creed-in">
+        <p class="creed-claim">in baden-württemberg gibt es kein formular, das die verantwortung abnimmt.</p>
+        <div class="creed-txt">
+          <p>Anders als in der Musterbauordnung kennt das Landesrecht hier keinen förmlichen Brandschutznachweis und keine Pflicht, ein Brandschutzkonzept vorzulegen. Verantwortlich dafür, dass ein Entwurf allen öffentlich-rechtlichen Vorschriften entspricht, ist nach <a class="ext" href="https://www.landesrecht-bw.de/jportal/?quelle=jlink&amp;query=BauO+BW+%C2%A7+43&amp;psml=bsbawueprod.psml&amp;max=true" target="_blank" rel="noopener">§ 43 LBO</a> der Entwurfsverfasser — also in der Regel das Architekturbüro.</p>
+          <p>Das klingt nach weniger Bürokratie und ist in Wahrheit die höhere Anforderung: Es gibt keine vorgegebene Form, hinter der man sich sortieren kann. Es gibt nur das Ergebnis, das die Baurechtsbehörde beurteilen können muss.</p>
+        </div>
+
+        <ul class="steps">
+          <li><b>bauvorlagen</b><span>die maßnahmen des vorbeugenden brandschutzes stellen wir in den bauvorlagen dar — in den grundrissen, mit brandschutzplänen, wo es die klarheit verlangt. was dazugehört, regelt <a class="ext" href="https://www.landesrecht-bw.de/perma?j=BauRVfV_BW_!_6" target="_blank" rel="noopener">§ 6 lbovvo</a>.</span></li>
+          <li><b>konzept</b><span>sobald abweichungen, ausnahmen oder befreiungen beantragt werden, braucht es ein konzept, das schutzziel, abweichung und kompensation begründet zusammenführt. das ist der regelfall beim bauen im bestand.</span></li>
+          <li><b>prüfung</b><span>die brandschutztechnische beurteilung ist aufgabe der baurechtsbehörde, in der regel über ihre bauverständigen. sachverständige werden ergänzend eingeschaltet, etwa bei <a class="ext" href="https://www.landesrecht-bw.de/perma?j=BauO_BW_!_38" target="_blank" rel="noopener">sonderbauten</a>, bei brandschutzrelevanten abweichungen oder wenn viele menschen gefährdet sein können — geregelt in der <a class="ext" href="https://www.landesrecht-bw.de/perma?j=VVBW-MVI-20120917-03-SF" target="_blank" rel="noopener">vwv brandschutzprüfung</a>.</span></li>
+          <li><b>ausführung</b><span>der beste nachweis nützt nichts, wenn die abschottung im schacht falsch verschlossen wird. wir kontrollieren die brandschutzrelevanten details auf der baustelle und dokumentieren sie.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 ansprechpartner -->
+  <section class="wrap band rv">
+    <div class="contact">
+      <div class="avatar">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="18" r="7.6"/>
+          <path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/>
+        </svg>
+        <span>foto folgt</span>
+      </div>
+      <div>
+        <p class="statement">sprechen wir über den entwurf, nicht über brandabschnitte</p>
+        <p style="color:var(--ink-mute);max-width:54ch;margin-top:1rem">gebäudeklasse, sonderbautatbestand und zugang lassen sich meist schon im telefonat einordnen. was danach folgt, ist planung, die haftungsrisiken abräumt, das genehmigungsverfahren verkürzt — und die handschrift des entwurfs stehen lässt. <i>ansprechperson und funktion ergänzen.</i></p>
+        <div class="contact-foot">
+          <a class="btn" href="tel:+49731935110">07 31 . 9 35 11-0</a>
+          <a class="arrow" href="mailto:info@hochstrasser.com">nachricht schreiben <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 rueckweg -->
+  <section class="wrap band-s rv">
+    <a class="btn btn-back" href="#"><span>&larr;</span> zurück zu unseren expertisen</a>
+  </section>
+
+  <!-- 14 quellen -->
+  <section class="wrap src rv">
+    <p class="label">grundlagen dieser seite</p>
+    <ul>
+      <li><a class="ext" href="https://www.landesrecht-bw.de/jportal/?quelle=jlink&amp;query=BauO+BW+%C2%A7+15&amp;psml=bsbawueprod.psml&amp;max=true" target="_blank" rel="noopener">landesbauordnung für baden-württemberg</a>, insbesondere § 2 absatz 4, § 15, § 38 und §§ 26 ff.</li>
+      <li><a class="ext" href="https://www.landesrecht-bw.de/perma?j=BauRVfV_BW_!_6" target="_blank" rel="noopener">verfahrensverordnung zur landesbauordnung</a> sowie <a class="ext" href="https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt611_VwV-TB-2026.pdf" target="_blank" rel="noopener">verwaltungsvorschrift technische baubestimmungen baden-württemberg</a></li>
+      <li><a class="ext" href="https://www.landesrecht-bw.de/perma?j=VVBW-MVI-20120917-03-SF" target="_blank" rel="noopener">verwaltungsvorschrift des innenministeriums über die brandschutztechnische prüfung im baurechtlichen verfahren</a></li>
+      <li><a class="ext" href="https://www.akbw.de/berufspraxis/bauantragsverfahren-bw/brandschutznachweis-und-pruefung-des-brandschutzes-im-baurechtlichen-verfahren" target="_blank" rel="noopener">architektenkammer baden-württemberg: brandschutznachweis und prüfung des brandschutzes im baurechtlichen verfahren</a></li>
+      <li>din en 13501 klassifizierung des brandverhaltens sowie die teile 1-2 der eurocodes din en 1992, 1993 und 1995 (beuth, kostenpflichtig)</li>
+      <li><a class="ext" href="https://www.dibt.de/de/wir-bieten/zulassungen-etas-und-mehr" target="_blank" rel="noopener">deutsches institut für bautechnik: zulassungen und bauartgenehmigungen</a></li>
+      <li>din 18230 baulicher brandschutz im industriebau; din 14095 feuerwehrpläne; din 14096 brandschutzordnung; din iso 23601 flucht- und rettungspläne</li>
+      <li>din 18009-1 grundsätze und regeln für die anwendung sowie din 18009-2 räumungssimulation und personensicherheit (beuth, kostenpflichtig)</li>
+      <li><a class="ext" href="https://mkbwk.rlp.de/fileadmin/07/Bilder/Themen/Baurecht_und_Bautechnik/Technische_Baubestimmungen/Erlaeuterung_zur_Muster-Holzbau-Richtlinie_September_2024.pdf" target="_blank" rel="noopener">muster-holzbaurichtlinie der fachkommission bauaufsicht, fassung 2024</a></li>
+    </ul>
+    <div class="note">
+      <b>quellenblock: ja oder nein?</b>
+      der block macht die seite überprüfbar und ist bei einem fachthema ein vertrauenssignal. er macht sie aber auch länger und etwas behördlich. alternative: die quellen in ein aufklappbares element legen oder ganz streichen und stattdessen im impressum sammeln.
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-left">
+        <span class="brand">hochstrasser.</span>
+        <p class="ftr-addr">gesellschaft für architektur mbh<br>karpfengasse 5 · 89073 ulm</p>
+        <p class="ftr-big"><a href="tel:+49731935110">07 31 . 9 35 11-0</a></p>
+        <p class="ftr-big"><a href="mailto:info@hochstrasser.com">info@hochstrasser.com</a></p>
+      </div>
+      <div class="ftr-right">
+        <nav class="ftr-links" aria-label="weitere seiten">
+          <a href="#">kontakt</a>
+          <a href="#">bauen im bestand</a>
+          <a href="#">jobs</a>
+          <a href="#">nachhaltigkeit</a>
+          <a href="#">bda-berufung</a>
+          <a href="#">bauphysik</a>
+          <a href="#">faqs</a>
+        </nav>
+        <div class="ftr-social">
+          <a href="https://www.instagram.com/hochstrasser.architekten" aria-label="hochstrasser. auf instagram" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4.15"/>
+              <circle cx="17.15" cy="6.85" r="1.05" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="hochstrasser. auf linkedin" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="18" height="18" rx="3.4"/>
+              <circle cx="7.7" cy="7.7" r="1.05" fill="currentColor" stroke="none"/>
+              <path d="M7.7 10.9V17"/>
+              <path d="M11.7 17v-6.1"/>
+              <path d="M11.7 13.7a2.5 2.5 0 0 1 5 0V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-base">
+      <span class="label">© 2026 hochstrasser. gesellschaft für architektur mbh</span>
+      <span class="label"><a href="#">impressum</a> · <a href="#">datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* offene punkte */
+const tgl=document.getElementById('tgl');
+tgl.addEventListener('click',()=>{
+  const on=document.body.classList.toggle('show-notes');
+  tgl.setAttribute('aria-pressed',String(on));
+  tgl.textContent=on?'offene punkte ausblenden':'offene punkte einblenden';
+});
+
+/* menue */
+const btn=document.getElementById('menuBtn'),sheet=document.getElementById('sheet'),closeBtn=document.getElementById('menuClose');
+function openSheet(){sheet.hidden=false;requestAnimationFrame(()=>sheet.setAttribute('data-open',''));btn.setAttribute('aria-expanded','true');closeBtn.focus()}
+function shutSheet(){sheet.removeAttribute('data-open');btn.setAttribute('aria-expanded','false');btn.focus();setTimeout(()=>sheet.hidden=true,480)}
+btn.addEventListener('click',openSheet);
+closeBtn.addEventListener('click',shutSheet);
+sheet.querySelectorAll('a').forEach(a=>a.addEventListener('click',shutSheet));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)shutSheet()});
+
+/* gebaeudeklassen */
+const GK={
+  gk1:{
+    name:'gebäudeklasse 1',
+    claim:'das freistehende haus.',
+    size:'bis 7 m, höchstens zwei nutzungseinheiten mit zusammen bis zu 400 m², freistehend',
+    parts:'über der geländeoberfläche keine anforderung an den feuerwiderstand tragender bauteile, im kellergeschoss feuerhemmend',
+    way:'zweiter rettungsweg in der regel über rettungsgeräte der feuerwehr oder ebenerdig ins freie',
+    plan:'der größte gestalterische spielraum. entscheidend sind abstand zur grenze, feuerwehrzugang — und die frage, was passiert, sobald angebaut wird.'
+  },
+  gk2:{
+    name:'gebäudeklasse 2',
+    claim:'dasselbe haus, aber angebaut.',
+    size:'bis 7 m, höchstens zwei nutzungseinheiten mit zusammen bis zu 400 m², nicht freistehend',
+    parts:'tragende und aussteifende bauteile feuerhemmend, im kellergeschoss feuerhemmend',
+    way:'zweiter rettungsweg über eine weitere treppe oder über rettungsgeräte der feuerwehr',
+    plan:'die grenzbebauung bringt die gebäudeabschlusswand ins spiel. hier entscheidet sich früh, ob es eine brandwand braucht.'
+  },
+  gk3:{
+    name:'gebäudeklasse 3',
+    claim:'das mehrfamilienhaus bis sieben metern.',
+    size:'alle übrigen gebäude bis 7 m, also mehr als zwei einheiten oder mehr als 400 m²',
+    parts:'tragende und aussteifende bauteile feuerhemmend, im kellergeschoss feuerbeständig',
+    way:'zweiter rettungsweg über eine weitere treppe oder über rettungsgeräte der feuerwehr',
+    plan:'der notwendige treppenraum wird zum thema. rettungswegführung und flurlängen bestimmen den grundriss mit.'
+  },
+  gk4:{
+    name:'gebäudeklasse 4',
+    claim:'die schwelle, an der es teurer wird.',
+    size:'bis 13 m, nutzungseinheiten von jeweils bis zu 400 m²',
+    parts:'tragende und aussteifende bauteile hochfeuerhemmend, im kellergeschoss feuerbeständig',
+    way:'zweiter rettungsweg über eine weitere treppe oder über hubrettungsfahrzeuge — mit den zugehörigen aufstellflächen',
+    plan:'hochfeuerhemmend heißt im holzbau: muster-holzbaurichtlinie. wer sichtbares holz will, klärt das hier — nicht in der ausführungsplanung.'
+  },
+  gk5:{
+    name:'gebäudeklasse 5',
+    claim:'ab hier zählt jede durchdringung.',
+    size:'alle übrigen gebäude, auch unterirdische; ab 22 m gilt das gebäude als hochhaus und damit als sonderbau',
+    parts:'tragende und aussteifende bauteile feuerbeständig, im kellergeschoss feuerbeständig',
+    way:'zweiter rettungsweg in der regel baulich; leiterrettung nur unter engen voraussetzungen',
+    plan:'brandabschnitte, schächte, aufzüge und die haustechnik bestimmen die konstruktion mit. hier lohnt sich die integrale planung am deutlichsten.'
+  }
+};
+
+const draw=document.getElementById('gkDraw');
+const nodes=[...document.querySelectorAll('.gkn')];
+const chips=[...document.querySelectorAll('.chip')];
+const panel=document.getElementById('gkPanel');
+const fName=document.getElementById('gkName'),fClaim=document.getElementById('gkClaim');
+const fSize=document.getElementById('gkSize'),fParts=document.getElementById('gkParts');
+const fWay=document.getElementById('gkWay'),fPlan=document.getElementById('gkPlan');
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let current='gk1';
+
+function paint(key){
+  const d=GK[key];
+  fName.textContent=d.name;
+  fClaim.textContent=d.claim;
+  fSize.textContent=d.size;
+  fParts.textContent=d.parts;
+  fWay.textContent=d.way;
+  fPlan.textContent=d.plan;
+}
+function setGk(key){
+  if(key===current)return;
+  current=key;
+  nodes.forEach(n=>{
+    const on=n.dataset.k===key;
+    n.classList.toggle('is-on',on);
+    n.setAttribute('aria-pressed',String(on));
+  });
+  chips.forEach(c=>{
+    const on=c.dataset.k===key;
+    c.setAttribute('aria-pressed',String(on));
+  });
+  if(reduce){paint(key);return}
+  panel.classList.add('is-fading');
+  setTimeout(()=>{paint(key);panel.classList.remove('is-fading')},220);
+}
+nodes.concat(chips).forEach(el=>{
+  el.addEventListener('click',()=>setGk(el.dataset.k));
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();setGk(el.dataset.k)}
+  });
+});
+
+/* startzustand */
+draw.classList.add('has-on');
+nodes.forEach(n=>{const on=n.dataset.k===current;n.classList.toggle('is-on',on);n.setAttribute('aria-pressed',String(on))});
+chips.forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.k===current)));
+paint(current);
+
+/* reveal */
+if(reduce){
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+}else{
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>

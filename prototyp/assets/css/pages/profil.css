@@ -1,0 +1,54 @@
+/* Profil — Schema, Kernthemen-Panel, Gesichter, Leitbild, Anschlusskarten */
+
+/* Schema (SVG) */
+.profil-schema{width:100%;height:auto;display:none;overflow:visible}
+@media (min-width:900px){.profil-schema{display:block}}
+.profil-schema .sv-rail{stroke:var(--ink);stroke-width:1}
+.profil-schema .sv-link{stroke:var(--mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;transition:stroke .25s var(--ease),stroke-dasharray .25s var(--ease)}
+.profil-schema .sv-svc rect{fill:none;stroke:var(--ink);stroke-width:1}
+.profil-schema .sv-svc text{font-family:var(--font-ui);font-weight:400;font-size:20px;letter-spacing:.01em;fill:var(--ink)}
+.profil-schema .node{cursor:pointer;transition:opacity .25s var(--ease)}
+.profil-schema .node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
+.profil-schema .node text{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.01em;fill:var(--ink);transition:fill .3s var(--ease)}
+.profil-schema .node:hover rect{fill:var(--shade)}
+.profil-schema .node:focus{outline:none}
+.profil-schema .node:focus-visible rect{stroke-width:2}
+.profil-schema.has-on .node:not(.is-on){opacity:.4}
+.profil-schema .node.is-on rect,.profil-schema .node.is-on:hover rect{fill:var(--ink)}
+.profil-schema .node.is-on text{fill:var(--paper)}
+.profil-schema .node.is-on .sv-link{stroke:var(--ink);stroke-dasharray:none}
+
+/* Auswahlknöpfe als Ersatz auf kleinen Schirmen */
+.profil-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-1)}
+@media (min-width:900px){.profil-chips{display:none}}
+
+/* Textfeld zum gewählten Kernthema */
+.profil-panel{margin-top:var(--sp-6);padding-top:var(--sp-5);border-top:1px solid var(--ink);transition:opacity .25s var(--ease)}
+.profil-panel.is-fading{opacity:0}
+.profil-kicker{padding-top:var(--sp-3);border-top:1px solid var(--rule);text-wrap:balance}
+.profil-panel .link-arrow{margin-top:var(--sp-4)}
+#schema ~ .note,.profil-panel ~ .note{margin-top:var(--sp-4)}
+
+/* Gesichter */
+.profil-face{display:block}
+.profil-face .ph{margin-bottom:var(--sp-2);transition:background .3s var(--ease)}
+.profil-face:hover .t-h4{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+.profil-face p+p{margin-top:var(--sp-1)}
+
+/* Leitbild */
+.profil-creed__intro{color:var(--on-dark-2)}
+.profil-values{margin-top:var(--sp-7);row-gap:var(--sp-7)}
+.profil-value{padding-top:var(--sp-4);border-top:1px solid var(--on-dark-rule)}
+.profil-value ul{margin-top:var(--sp-4);display:grid;gap:var(--sp-1)}
+.profil-value li{position:relative;padding-left:var(--sp-3);color:var(--on-dark-2)}
+.profil-value li::before{content:'';position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--on-dark-mute)}
+
+/* Anschlusskarten: Pfeil-Links stehen auf einer Linie, egal wie lang der Text ist */
+.profil-card{display:flex;flex-direction:column;align-self:stretch}
+.profil-card .t-mute{margin-bottom:var(--sp-3)}
+.profil-card .media{margin-bottom:var(--sp-3)}
+.profil-card .media img{transition:transform .8s var(--ease)}
+.profil-card:hover .media img{transform:scale(1.04)}
+.profil-card p+p{margin-top:var(--sp-1)}
+.profil-card .link-arrow{margin-top:auto;align-self:flex-start}
+.profil-card:hover .link-arrow>span[aria-hidden]{transform:translateX(5px)}
