@@ -1,5 +1,5 @@
 /* hochstrasser. — gemeinsames Verhalten aller Seiten:
-   Menü-Overlay, Einblenden beim Scrollen, Prototyp-Hinweise. */
+   Menü-Overlay, Header-Ton, Einblenden beim Scrollen, Prototyp-Hinweise. */
 (function () {
   'use strict';
 
@@ -24,6 +24,26 @@
     closeBtn.addEventListener('click', shut);
     sheet.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) shut(); });
+  }
+
+  /* Header: dunkles Glas, solange eine dunkle Fläche unter seiner Mitte liegt */
+  var hdr = document.querySelector('.hdr');
+  var darks = document.querySelectorAll('.band--dark, .ftr');
+  if (hdr && darks.length) {
+    var queued = false;
+    var tone = function () {
+      queued = false;
+      var y = hdr.offsetHeight / 2, on = false;
+      darks.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top <= y && r.bottom > y) on = true;
+      });
+      hdr.classList.toggle('hdr--dark', on);
+    };
+    var queue = function () { if (!queued) { queued = true; requestAnimationFrame(tone); } };
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    tone();
   }
 
   /* Prototyp-Leiste: verborgen, Alt+Shift+P blendet sie ein (gilt für die
