@@ -64,6 +64,17 @@
 .pj-opt:has(input:checked){border-color:var(--ink)}
 .pj-opt input{appearance:none;width:8px;height:8px;border-radius:50%;border:1px solid var(--mute);flex:none}
 .pj-opt input:checked{background:var(--ink);border-color:var(--ink)}
+/* Mobil: Nutzung wandert aus der Leiste in die erweiterten Filter */
+.pj-adv__use{display:none}
+.pj-adv .pj-fchip{opacity:1}
+.pj-adv .pj-fchip::before{content:"";width:8px;height:8px;border-radius:50%;border:1px solid var(--mute);flex:none}
+.pj-adv .pj-fchip[aria-pressed="true"]{border-color:var(--ink)}
+.pj-adv .pj-fchip[aria-pressed="true"]::before{background:var(--ink);border-color:var(--ink)}
+@media (max-width:599px){
+  .pj-bar .pj-fchip{display:none}
+  .pj-more{margin-inline-start:0}
+  .pj-adv__use{display:block}
+}
 .pj-adv__foot{
   display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-4);align-items:baseline;justify-content:space-between;
   margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid var(--rule-tint);
