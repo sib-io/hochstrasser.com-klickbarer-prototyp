@@ -79,7 +79,7 @@ Bevorzugte Aufteilungen: **6 | 1 frei | 5** (`s-6` + `s-5 o-8`), **4 | 1 frei | 
 
 **Weißraum.** Sektionen `.band` (80→144 px) bzw. `.band--s`; Sektionskopf → Inhalt `.sec-head` (40→64 px). Abstände nur über Tokens `--sp-1…--sp-8` (8/16/24/32/48/64/96/128), `--band`, `--band-s`, `--head-gap`, `--stack`, `--gutter`. Lieber mehr Luft als weniger; nie enger als im Ausgangstext.
 
-**Schrift.** Alles, was Überschrift, Menüpunkt, Button, Rubrik, Label, Kennwert-Bezeichnung, Zahl/Ziffer-Marke, Diagrammbeschriftung ist → PX Grotesk über die Rollen. Fließtext → Carlito (Body-Default). Nie `font-family` direkt außer `var(--font-ui)`/`var(--font-text)`. PX Grotesk hat nur 300/400/700.
+**Schrift.** Alles, was Überschrift, Menüpunkt, Button, Rubrik, Label, Kennwert-Bezeichnung, Zahl/Ziffer-Marke, Diagrammbeschriftung ist → PX Grotesk über die Rollen. **Ausnahme Hero:** die Überschrift im Hero (`.hero .t-display`/`.hero .t-h1`) steht in Calibri Light (`--font-hero`, lokal installiert, Fallback Calibri → Carlito) – wie die Startseite der Ausgangsdateien; das setzt `site.css` automatisch. Fließtext → Carlito (Body-Default). Nie `font-family` direkt außer `var(--font-ui)`/`var(--font-text)`/`var(--font-hero)`. PX Grotesk hat nur 300/400/700.
 
 | Rolle | Klasse | Einsatz |
 |---|---|---|
@@ -90,7 +90,7 @@ Bevorzugte Aufteilungen: **6 | 1 frei | 5** (`s-6` + `s-5 o-8`), **4 | 1 frei | 
 | H4 | `.t-h4` | kleine Köpfe, Listentitel |
 | Rubrik | `.t-rubric` | kurzer Sektionstitel („Projekte“, „Was wir übernehmen“) |
 | Label | `.t-label` | Kategorie, Jahr, dt, Eyebrow, Nummern |
-| Lead | `.t-lead` | Einleitungsabsatz |
+| Lead | `.t-lead` | Einleitungsabsatz (im Hero automatisch Fließtextgröße und `--mute`) |
 | Prose | `.prose` | Fließtextblock |
 
 Semantik (h1/h2/h3) und Optik (Klasse) sind getrennt: genau ein `<h1>` pro Seite.

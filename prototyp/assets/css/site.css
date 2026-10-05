@@ -17,6 +17,9 @@
 /* 1 Schriften ------------------------------------------------
    PX Grotesk  -> alles, was Überschrift, Menü, Button, Rubrik
                   oder Label ist
+   Calibri Light -> Überschriften im Hero (wie die Startseite der
+                  Ausgangsdateien; lokal installiert, kein Webfont –
+                  fehlt sie, greift Calibri, dann Carlito)
    Carlito     -> Fließtext (metrisch identischer Calibri-Ersatz,
                   per Google Fonts im Kopf geladen) */
 @font-face{font-family:'PX Grotesk';font-style:normal;font-weight:300;font-display:swap;
@@ -47,6 +50,7 @@
   /* Schriften */
   --font-ui:'PX Grotesk','Helvetica Neue',Arial,sans-serif;
   --font-text:'Carlito','Calibri','Segoe UI',sans-serif;
+  --font-hero:'Calibri Light','Calibri','Carlito',sans-serif;
 
   /* Raster: 12 Spalten, 1280 px Inhaltsbreite am Desktop */
   --container:1280px;
@@ -74,7 +78,7 @@
   /* Schriftgrade */
   --fs-display:clamp(2.5rem, 1.35rem + 4.6vw, 4.75rem);  /* 40 → 76 */
   --fs-h1:clamp(2.125rem, 1.35rem + 3.2vw, 3.625rem);    /* 34 → 58 */
-  --fs-h2:clamp(1.625rem, 1.15rem + 1.9vw, 2.5rem);      /* 26 → 40 */
+  --fs-h2:clamp(1.5rem, 1.2rem + 1.1vw, 2rem);           /* 24 → 32 */
   --fs-h3:clamp(1.25rem, 1.05rem + .75vw, 1.625rem);     /* 20 → 26 */
   --fs-h4:clamp(1.0625rem, 1rem + .3vw, 1.25rem);        /* 17 → 20 */
   --fs-lead:clamp(1.1875rem, 1.05rem + .55vw, 1.4375rem);/* 19 → 23 */
@@ -212,9 +216,11 @@ em{font-style:italic}
 .hero+.band:not(.band--tint):not(.band--dark){padding-top:var(--hero-gap)}
 .hero__eyebrow{margin-bottom:var(--sp-4)}
 .hero__title{max-width:20ch}
-/* Hero-Überschriften eine Stufe kräftiger als die übrigen Light-Rollen */
-.hero :is(.t-display,.t-h1,.t-h2){font-weight:400}
+/* Hero-Überschriften in Calibri Light – wie die Startseite der Ausgangsdateien */
+.hero :is(.t-display,.t-h1){font-family:var(--font-hero);font-weight:300;letter-spacing:-.012em}
 .hero__sub{margin-top:var(--sp-4);max-width:56ch}
+/* Text unter der Hero-Überschrift: Fließtextgröße, gedämpft */
+.hero .t-lead{font-size:var(--fs-body);color:var(--mute)}
 .hero__foot{margin-top:var(--sp-5)}
 
 /* 7 Header --------------------------------------------------- */
