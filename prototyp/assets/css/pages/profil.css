@@ -1,5 +1,8 @@
 /* Profil — Schema, Kernthemen-Panel, Gesichter, Leitbild, Anschlusskarten */
 
+/* Kennzahlen unter dem Hero: Werte rechtsbündig (ab 600 px, darunter gestapelt) */
+@media (min-width:600px){.profil-facts dd{text-align:right}}
+
 /* Schema (SVG) */
 .profil-schema{width:100%;height:auto;display:none;overflow:visible}
 @media (min-width:900px){.profil-schema{display:block}}

@@ -24,7 +24,7 @@
 .riss-plate .sil{fill:none;stroke-width:1;stroke-linejoin:round}
 .riss-plate .void{fill:var(--ink)}
 .riss-plate .tex line{stroke:var(--ink);stroke-width:.5;vector-effect:non-scaling-stroke;opacity:.4}
-@media (min-width:900px){.pj-close__btn{justify-self:end}}
+@media (min-width:900px){.pj-close__btn{justify-self:end;align-self:end}} /* unten bündig mit der letzten Zeile */
 
 /* Archiv */
 .pj-anchor{position:relative;top:calc(-1 * (var(--hdr-h) + var(--sp-3)))}

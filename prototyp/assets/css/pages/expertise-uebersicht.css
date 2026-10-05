@@ -48,7 +48,8 @@
 .xp-sets{margin-top:var(--sp-8)}
 .xp-set h3{padding-bottom:var(--sp-2);border-bottom:1px solid var(--ink)}
 .xp-set dl{margin-top:var(--sp-3)}
-.xp-set dd{color:var(--mute);margin-bottom:var(--sp-6);max-width:34ch}
+.xp-set dt{font-weight:700}
+.xp-set dd{color:var(--mute);margin-bottom:var(--sp-7);max-width:34ch}
 .xp-set dd:last-child{margin-bottom:0}
 .xp-more{margin-top:var(--sp-2)}
 .xp-more .link-arrow{color:var(--ink)}

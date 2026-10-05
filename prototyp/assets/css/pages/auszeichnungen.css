@@ -1,8 +1,11 @@
 /* Auszeichnungen: Opener-Marke, Auszeichnungsliste, Wettbewerbsliste */
 
-.az-mark{width:100%;max-width:100%;height:auto;color:var(--on-dark);justify-self:end}
-/* mobil: Marke als kleines Zeichen unter dem Titel statt bildschirmbreit */
-@media (max-width:899px){.az-mark{width:var(--sp-7);justify-self:start}}
+/* Opener: Band ~75 % der Fensterhöhe, Inhalt mittig; Titel doppelte Hero-Größe
+   (mobil auf die Breite begrenzt), Marke darunter, bündig mit dem Titel
+   (viewBox auf die Kontur beschnitten) */
+.az-hero{--az-fs:min(2 * var(--fs-h1), 11.5vw);min-height:75vh;display:flex;flex-direction:column;justify-content:center}
+.az-hero .hero__title{font-size:var(--az-fs);line-height:1;max-width:none}
+.az-mark{display:block;width:calc(.9 * var(--az-fs));height:auto;margin-top:var(--sp-6);color:var(--on-dark)}
 
 /* Auszeichnungen: Jahr | Titel | Projekt im 12er-Raster, Zeile kippt beim Überfahren ins Schwarz */
 .az-awards>li{padding-block:0}
