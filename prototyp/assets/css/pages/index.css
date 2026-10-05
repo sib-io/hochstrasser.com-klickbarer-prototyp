@@ -42,7 +42,8 @@
 @media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}}
 
 /* Leistungsband: 900–1199 Aussage + Liste links (6), Zeichnung rechts (5, Spalten 8–12);
-   ab 1200 nebeneinander: Aussage 6 | Zeichnung 2 | 1 frei | Liste 3 (Seitenspalte 10–12) */
+   ab 1200 nebeneinander: Aussage 6 | Zeichnung 2 | 1 frei | Liste 3 (Seitenspalte 10–12);
+   der Fließtext darunter nur 5 Spalten breit, damit die Zeichnung links eine Spalte Luft hat */
 .idx-svc{row-gap:var(--sp-6)}
 .idx-svc__fig img{width:100%;height:auto} /* Bildgrund = --shade, kein Blend nötig */
 @media (min-width:900px){
@@ -53,6 +54,7 @@
 @media (min-width:1200px){
   .idx-svc{align-items:center}
   .idx-svc>.idx-svc__say{grid-column:1/span 6;grid-row:1}
+  .idx-svc__say .prose{max-width:calc(5 * var(--col) + 4 * var(--gutter))}
   .idx-svc>.idx-svc__fig{grid-column:7/span 2;grid-row:1}
   .idx-svc>.idx-svc__list{grid-column:10/span 3;grid-row:1}
 }
