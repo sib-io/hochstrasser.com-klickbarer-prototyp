@@ -1,0 +1,221 @@
+{
+  "_info": "Projekt-Detailseiten. Quelle: hochstrasser.com (Stand 5.10.2026), Wortlaut 1:1, nur Schreibweise korrigiert. Erzeugen: python3 factory/projekte.py",
+  "projekte": [
+    {
+      "slug": "projekt-flz-neuer-bau-ulm", "dir": "flz", "generate": false,
+      "title": "FLZ im „Neuen Bau“ Ulm", "year": 2017,
+      "square": "01_3_square_500x500_acf_cropped.jpg"
+    },
+    {
+      "slug": "projekt-wohnbebauung-neu-ulm", "dir": "wohnbebauung-neu-ulm",
+      "title": "Wohnbebauung Neu-Ulm", "year": 2024, "group": "bestand",
+      "sub": "Sanierung und Modernisierung eines Wohnquartiers",
+      "facts": [["Kategorie", "Wohnen"], ["Standort", "Neu-Ulm"], ["Bauherr", "NUWOG Unternehmensgruppe"], ["Fertigstellung", "2024"]],
+      "cover": "NU-Schwabenstr_0025-scaled.jpg",
+      "square": "865_square-03_500x500_acf_cropped.jpg",
+      "images": ["NU-Schwabenstr_0040-scaled.jpg", "NU-Schwabenstr_0028-scaled.jpg", "NU-Schwabenstr_0097-scaled.jpg", "NU-Schwabenstr_0037-scaled.jpg",
+                 {"f": "955_Lageplan-scaled.jpg", "plan": true, "alt": "Lageplan"}],
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"p": "Das Quartier besteht insgesamt aus drei Gebäuden. Ein viergeschossiges freistehendes Wohnhaus und zwei viergeschossige Doppelhaushälften mit je 12 Mieteinheiten. Diese beiden Gebäudehälften wurden nacheinander energetisch saniert und modernisiert. Die Maßnahme wurde im Rahmen einer Generalplanung umgesetzt und umfasste eine energetische Sanierung, die Ertüchtigung der Fassade, den Bau neuer Balkonanlagen, die Erneuerung der Fenster und Außentüren sowie diverse Brandschutzmaßnahmen. Zusätzlich wurde eine PV-Anlage installiert und die Bäder modernisiert, einschließlich der Erneuerung des gesamten Trinkwassernetzes. In diesem Zuge wurden die Sanitäreinheiten barrierefrei gestaltet und aufgewertet. Die Arbeiten erfolgten im bewohnten Zustand und wurden daher abschnittsweise ausgeführt. Vier Wohneinheiten waren unbewohnt und wurden von Grund auf modernisiert. Zusammen bilden die drei Gebäude ein einheitliches Wohnviertel mit insgesamt 33 Mieteinheiten."}
+        ]}
+      ],
+      "related": ["projekt-kriegsspital-neu-ulm", "projekt-haus-mk", "projekt-flz-neuer-bau-ulm"]
+    },
+    {
+      "slug": "projekt-kriegsspital-neu-ulm", "dir": "kriegsspital-neu-ulm",
+      "title": "Kriegsspital Neu-Ulm", "year": 2024, "group": "bestand",
+      "sub": "Umbau und Sanierung der ehmaligen Kriegsspital, Neu-Ulm",
+      "facts": [["Kategorie", "Erhalten"], ["Standort", "Neu-Ulm"], ["Bauherr", "Privat"], ["Fertigstellung", "2024"]],
+      "cover": "842_landscape-01-scaled.jpg",
+      "square": "842_Square-04_500x500_acf_cropped.jpg",
+      "images": [{"f": "Kriegsspital-Neu-Ulm-Fussartilleriekaserne-1914.jpg", "cap": "Fußartilleriekaserne 1914", "alt": "Fußartilleriekaserne 1914"},
+                 "NU-Kriegsspital_0142-scaled.jpg", "NU-Kriegsspital_0209-scaled.jpg", "842_landscape-Tiefhof-01-scaled.jpg", "842_potrait-fassade-scaled.jpg",
+                 "842_landscape-Ostfluegel-scaled.jpg", "842_potrait-detail-Schiessscharte-scaled.jpg", "842_landscape-Steg-Eingang-scaled.jpg", "842_landscape-TRH-West-scaled.jpg",
+                 "842_portrait-1-scaled.jpg", "842_landscape-11-scaled.jpg", "842_landscape-Flur-OG-West-scaled.jpg", "842_potrait-Flur-OG-Ost-scaled.jpg",
+                 "842_landscape-Flur-OG-Ost-01-scaled.jpg", "842_landscape-3-scaled.jpg", "842_landscape-9-scaled.jpg", "842_landscape-4-scaled.jpg",
+                 "842_landscape-10-scaled.jpg", "842_portrait-4-scaled.jpg", "842_portrait-2-scaled.jpg", "842_landscape-hejrockit-03-scaled.jpg",
+                 "842_landscape-hejrockit-02-scaled.jpg", "842_landscape-hejrockit-01-scaled.jpg", "842_potrait-MItte-EG-scaled.jpg", "842_potrait-MItte-EG-02-scaled.jpg",
+                 "842_potrait-MItte-EG-01-scaled.jpg", "842_landscape-5-scaled.jpg", "842_landscape-7-scaled.jpg", "842_landscape-6-scaled.jpg"],
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"p": "Das als „ehemaliges Kriegsspital“ bekannte Gebäude wurde von 1850 bis 1854 erbaut. Der ursprünglich als zweigeschossige Defensivkaserne im Zuge der Stadtumwallung der Bundesfestung Ulm konzipierte Festungsbau wurde bereits ab dem Jahr 1873 zum Spital umgenutzt. 1894 wurde die charakteristische Festungsarchitektur auch baulich aufgegeben, und das Kriegsspital weiter ausgebaut. Der Gebäudekomplex wurde um zwei weitere Geschosse erhöht, und die Scharten der ehemaligen Defensivkaserne wurden durch Fenster ersetzt. Bei einem Luftangriff 1945 brannten die beiden oberen Geschosse vollständig aus und mussten in der Folge komplett abgetragen und durch ein Notdach ersetzt werden."},
+          {"p": "Der Massivbau aus zwei stumpfwinklig zusammenstoßenden Flügeln und nochmals abgewinkelten Kopfbauten mit Backsteinfassade ist seit Jahrzehnten einer anhaltend starken Durchfeuchtung ausgesetzt, die eine zunehmende Schädigung des Bestandsmauerwerks durch Salzbildung und Frostabplatzungen verursacht. Vermutlich wurden im Zuge der Umnutzung zum Kriegsspital ehemalige Verteidigungsgräben südlich des Gebäudes verfüllt. Dabei wurde über die als horizontale Feuchtesperre fungierende Sockelzone aus Naturstein hinaus angeschüttet. Unsachgemäße Ausbesserungsversuche, das Hochwasser von 1998, aber auch noch vorhandene Kriegsschäden haben der Bausubstanz stark zugesetzt. Um das Baudenkmal dauerhaft zu erhalten, sind dringend Sanierungsmaßnahmen anzuraten, die den Ursachen der Schädigung entgegenwirken."},
+          {"p": "Die Planung von f64 aus Kempten sieht eine Umbau- und Sanierungsmaßnahme in zwei Bauabschnitten vor. Bauabschnitt 1 konzentriert sich auf die Wiederherstellung des historischen Raumgefüges sowie die Vorbereitung und Ertüchtigung insbesondere der Treppenhäuser für den zweiten Bauabschnitt. Dabei spielt ein sensibler, nachhaltiger Umgang mit den vorhandenen Materialien und der historischen Substanz eine zentrale Rolle. Insbesondere die notwendigen Brandschutz- und Technikinstallationen wurden möglichst unauffällig in das Gebäude integriert."},
+          {"p": "Der Bauabschnitt 2 sieht vor, das noch immer existierende Notdach, welches die Architektur des Denkmals in nicht unerheblichem Maße beeinträchtigt, durch eine Aufstockung um zwei flachgedeckte Vollgeschosse zu ersetzen. Damit wird das ursprüngliche Erscheinungsbild vor der Zerstörung im 2. Weltkrieg wiederhergestellt."}
+        ]}
+      ],
+      "related": ["projekt-haus-mk", "projekt-wohnbebauung-neu-ulm", "projekt-flz-neuer-bau-ulm"]
+    },
+    {
+      "slug": "projekt-ba3-baubetriebshof-ulm", "dir": "ba3-baubetriebshof-ulm",
+      "title": "BA3 Baubetriebshof der Stadt Ulm", "year": 2024,
+      "sub": "Erweiterung Baubetriebshof – Neubau Fahrzeughalle, Stadt Ulm",
+      "facts": [["Kategorie", "Arbeiten"], ["Standort", "Neu-Ulm"], ["Bauherr", "Stadt Ulm"], ["Fertigstellung", "2024"]],
+      "cover": "799_lanscape-02-scaled.jpg",
+      "square": "799_square-05_500x500_acf_cropped-1.jpg",
+      "images": ["799_lanscape-04-scaled.jpg", "799_lanscape-03-scaled.jpg", "799_lanscape-06-scaled.jpg", "799_portrait-scaled.jpg",
+                 "799_portrait-fassade-scaled.jpg", "799_lanscape-05-scaled.jpg"],
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"p": "Neubau einer Fahrzeughalle als einfache, leicht gedämmte – frostfreie – Industriehalle mit angrenzender überdachter Wasch- und Tankstraße als Stahl-/Holzkonstruktion"},
+          {"p": "Die Fahrzeughalle ist der dritte und letzte Bauabschnitt des Baubetriebshof Ulm"},
+          {"links": [["Hier gehts zum Beitrag Bauabschnitt 1 …", "projekt-flz-neuer-bau-ulm.html"], ["Hier gehts zum Beitrag Baubaschnitt 2 …", "projekt-flz-neuer-bau-ulm.html"]]}
+        ]}
+      ],
+      "fotografie": "Conné van d’Grachten",
+      "related": ["projekt-rechenzentrum-swu", "projekt-erweiterung-witec", "projekt-waermespeicher-hkw-ulm"]
+    },
+    {
+      "slug": "projekt-wohnbebauung-laichingen", "dir": "wohnbebauung-laichingen",
+      "title": "Wohnbebauung Laichingen", "year": 2024,
+      "sub": "Neubau Mehrfamilenhäuser mit Tiefgarage – „Unser Karl“",
+      "facts": [["Kategorie", "Wohnen"], ["Standort", "Laichingen"], ["Bauherr", "Munk Immobilien"], ["Fertigstellung", "2024"]],
+      "cover": "773_Haus-C_Suedwestansicht.jpg",
+      "square": "773_square_500x500_acf_cropped.jpg",
+      "images": ["773_Haus-A-C_TG-Abfahrt.jpg", "773_Haus-A_Suedwestansicht.jpg", "773_Haus-A_Nordansicht.jpg", "773_Haus-A_Eingang.jpg",
+                 "773_Haus-A-und-B_Nordansicht.jpg", {"f": "773_Lageplan-bereinigt-scaled.jpg", "plan": true, "alt": "Lageplan"}],
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"p": "Das Wohnbauprojekt in Laichingen umfasst drei Mehrfamilienhäuser mit jeweils drei Vollgeschossen und einem Staffelgeschoss, die um einen großzügig begrünten Innenhof gruppiert sind. In Massivbauweise errichtet, erreichen die Gebäude den KfW-55-Standard und setzen auf kerngedämmtes Thermoplan-Ziegelmauerwerk sowie extensiv begrünte Flachdächer, die das Mikroklima fördern und die Regenwasserrückhaltung begünstigen."},
+          {"p": "Die Architektur orientiert sich am natürlichen Geländegefälle und integriert die Wohnhäuser barrierefrei über einen durchgängigen Tiefgaragensockel. Im Innenhofbereich sorgen Gehwege, Blühsträucher, ein Gemeinschaftsgarten und Sitzgelegenheiten für eine Biodiversität und ein angenehmes Umfeld. Großzügige Stellplätze in der Tiefgarage und Fahrradabstellplätze ergänzen das nachhaltige Mobilitätskonzept."},
+          {"p": "Damit vereint das Projekt Wohnkomfort und harmonische Quartiersgestaltung."}
+        ]}
+      ],
+      "related": ["projekt-friesenhofen-saegemuehle", "projekt-wohnbebauung-neu-ulm", "projekt-wbw-ehemaliges-kriegsspital"]
+    },
+    {
+      "slug": "projekt-waermespeicher-hkw-ulm", "dir": "waermespeicher-hkw-ulm",
+      "title": "Fassadenvarianten Wärmespeicher HKW der Fernwärme Ulm", "titles": ["Fassadenvarianten Wärmespeicher HKW"], "year": 2023,
+      "facts": [["Kategorie", "Arbeiten"], ["Standort", "Ulm"], ["Bauherr", "Fernwärme Ulm GmbH"]],
+      "cover": "01-scaled.jpg",
+      "square": "914_square-03_500x500_acf_cropped_500x500_acf_cropped.jpg",
+      "images": ["02-scaled.jpg", "03-scaled.jpg", "04-scaled.jpg", "05-scaled.jpg", "06-scaled.jpg", "07-scaled.jpg",
+                 "08-scaled.jpg", "09-scaled.jpg", "10-scaled.jpg", "11-scaled.jpg", "12-scaled.jpg"],
+      "credit": "Umgebungsmodell © Google Maps",
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"p": "Der neue Wärmespeicher der FUG in der Ulmer Weststadt ist ein markantes und ca. 84m hohes Bauwerk. Der Bau des Speichers ist essenzieller Bestandteil der kommunalen Wärmewende. Der Wärmespeicher kann erhebliche Wärmemengen puffern und damit den Betrieb der benachbarten Biomasse – Heizkraftwerke effizienter gestalten und ist Voraussetzung für die Integration weiterer erneuerbarer Wärmeerzeugungstechnologien (wie bspw. Wärmepumpen). Durch die Höhe des Speichers kann das unter Druck stehende Fernwärmesystem effizienter betrieben werden."},
+          {"p": "Um dieses weithin sichtbare und markante Bauwerk städtebaulich verträglich in das Stadtbild integrieren zu können wurde in langen Abwägungs- und Abstimmungsprozessen eine Fassadengestaltung entschieden und baurechtlich gesichert."},
+          {"p": "Die entschiedene Fassade umhüllt das Bauwerk mit einer selbsttragenden und freistehenden Struktur aus Stahlprofilen, geistiger Pate sind die Gasometer der Jahrhundertwende. Im Zwischenraum Speicher / Fassade sind Wartungsarbeiten möglich, am oberen Abschluss des Bauwerks sorgt eine Akzentbeleuchtung für dezente Wahrnehmbarkeit. Es entsteht ein angemessen und im industriellen Geist gestalteter Baukörper, der die Silhouette der Stadt unaufgeregt um einen Orientierungspunkt ergänzt."}
+        ]},
+        {"label": "Varianten", "blocks": [
+          {"p": "Vor dieser Entscheidung standen in etwa 40 unterschiedliche Varianten, die nach intensiven Diskussionen abgewägt oder sogar ausgeschlossen werden mussten:"},
+          {"points": [
+            ["Fassadengrün", "Eine Fassadenbegrünung ist einzig über bewässerte Pflanztröge herstellbar, ab Höhe ca. 20m ist das Wachstum wegen Umwelteinflüssen stark eingeschränkt. Wartung und Unterhalt stehen in keinem Verhältnis zur Gesamtinvestition. Die Langlebigkeit des Grüns ist nicht gegeben."],
+            ["Photovoltaik", "Großflächige Fotovoltaik kann nur an Teilen der Fassade sinnvoll Energie liefern, eine inhomogene Erscheinung wäre die Folge. Zu keinem der marktgängigen Systeme gibt es eine bauaufsichtliche Zulassung. Teure PV – Folien- oder Sondersysteme bedingen gewichtsbedingt eine Subkonstruktion und haben keine bauaufsichtliche Zulassung. Keine der untersuchten Varianten ist auch in Bezug zum Stromertrag wirtschaftlich darstellbar."],
+            ["Holzkonstruktionen", "Eine offene Raumstruktur in Holzbauweise bedingt erheblichen Wartungsaufwand, die Konstruktionen ergeben aus den notwendigen Dimensionen heraus ein eher grobes Bild."],
+            ["Gefaltete Fassaden", "Konventionelle Fassaden in z. B. Glas oder Metall sind sehr schwer und lösen bedingt durch Windlasten eine Subtragkonstruktion aus. Die Wirtschaftlichkeit ist nicht gegeben."]
+          ]}
+        ]}
+      ],
+      "related": ["projekt-rechenzentrum-swu", "projekt-ba3-baubetriebshof-ulm", "projekt-erweiterung-witec"]
+    },
+    {
+      "slug": "projekt-rechenzentrum-swu", "dir": "rechenzentrum-swu",
+      "title": "Rechenzentrum SWU", "year": 2023,
+      "sub": "Neubau eines Rechenzentrums der Stadtwerke Ulm/Neu-Ulm",
+      "facts": [["Kategorie", "Arbeiten"], ["Standort", "Ulm"], ["Bauherr", "SWU TeleNet GmbH"]],
+      "cover": "825_header-scaled.jpg",
+      "square": "825_square-01_500x500_acf_cropped.jpg",
+      "images": [{"f": "825_landscape-Ansicht-Sued-scaled.jpg", "plan": true, "alt": "Ansicht Süd"},
+                 {"f": "825_landscape-Ansicht-Ost-scaled.jpg", "plan": true, "alt": "Ansicht Ost"},
+                 {"f": "825_landscape-Ansicht-Nord-scaled.jpg", "plan": true, "alt": "Ansicht Nord"}],
+      "chapters": [],
+      "related": ["projekt-ba3-baubetriebshof-ulm", "projekt-erweiterung-witec", "projekt-waermespeicher-hkw-ulm"]
+    },
+    {
+      "slug": "projekt-erweiterung-witec", "dir": "erweiterung-witec",
+      "title": "Erweiterung WITec", "year": 2023,
+      "sub": "Erweiterung eines Büro- und Produktionsgebäudes",
+      "facts": [["Kategorie", "Arbeiten"], ["Standort", "Science Park II, Ulm"], ["Bauherr", "LM06 GmbH & Co. KG"], ["Fertigstellung", "2022"]],
+      "cover": "757_header-02-scaled.jpg",
+      "square": "757_Square-03_500x500_acf_cropped.jpg",
+      "images": ["757_landscape_Ansicht-Ost-02.jpg", "757_portrait_Auskragung-Ecke-scaled.jpg", "757_portrait_Ansicht-West.jpg",
+                 "757_landscape_SuedWest-Ecke.jpg", "757_landscape_Ansicht-Ost-01-scaled.jpg", "757_portrait_anlieferung.jpg"],
+      "layout": ["F", "PP", "F", "LP"],
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"ul": ["Nutzung vorhandener Ressourcen", "Bauliche Verbesserung der Anlieferungssituation", "Optimieren und Vereinfachen der inneren Wegeführung und logistischen Abläufe", "Dezentes Weiterbauen des Bestandes von BW Architekten, Ulm"]}
+        ]}
+      ],
+      "related": ["projekt-ba3-baubetriebshof-ulm", "projekt-rechenzentrum-swu", "projekt-waermespeicher-hkw-ulm"]
+    },
+    {
+      "slug": "projekt-friesenhofen-saegemuehle", "dir": "friesenhofen-saegemuehle",
+      "title": "Friesenhofen – An der Sägemühle", "year": 2023,
+      "sub": "Machbarkeitsstudie Wohnareal Sägemühle",
+      "facts": [["Kategorie", "Umnutzen · Wettbewerbe · Wohnen"], ["Standort", "An der Sägemühle, 88299 Leutkirch im Allgäu"], ["Bauherr", "Privat"]],
+      "cover": "784_header.jpg",
+      "square": "784_square_500x500_acf_cropped.jpg",
+      "images": ["784_landscape-Bestand-Vogelperspektive.jpg", "784_landscape-Bestandsgebaeude1.jpg", "784_landscape-Bestandsgebaeude2.jpg", "784_landscape-Rendering-1.jpg",
+                 {"f": "784_landscape-Lageplan.jpg", "plan": true, "alt": "Lageplan"},
+                 "784_landscape-Rendering-3-2.jpg", "784_landscape-Rendering-4.jpg", "784_landscape-Rendering-2.jpg"],
+      "layout": ["LL", "LL", "F", "LL"],
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"p": "Die ehemalige Sägmühle ist ein einzigartiges Areal auf einer Fläche von insgesamt ca. 1,8 Hektar am Ortsrand von Friesenhofen. Idyllisch gelegen entlang der Eschach befindet es sich direkt im Anschluss an ein Neubaugebiet und ist mit 2 großen Hauptgebäuden bebaut. Ca. 40% der Flächen der Sägmühle dienen als kartierte Biotope dem Schutz der Natur."},
+          {"p": "Die historische Nutzung bestand aus einem Sägewerk, einem Kies- und Schotterwerk sowie aus einem Elektrizitätswerk. Mit landesweiten Stromnetzen und großen, überregional agierenden Betrieben wurden Holzbearbeitung und Kiesgewinnung unrentabel und es entstand eine unansehnliche Gewerbebrache. Ein Brand- und Wasserschaden hat auch das große Wohnhaus unbewohnbar gemacht."},
+          {"p": "In Zusammenarbeiten mit den Eigentürmern und einem Immobilienbüro wurde eine innovative Lösung im Interesse des Ortes entwickelt, die der außergewöhnlichen Lage gerecht wird."}
+        ]},
+        {"label": "Architektur und Gestaltung", "blocks": [
+          {"p": "Vorgesehen sind Gebäudetypen in variierenden Anordnungen. Diese sollen harmonisch und mit Ortsbezug in die vorhandene Topographie eingebunden werden. Ziel ist eine einheitliche, homogen gestaltete und identitätsstiftende Bebauung in klarer Formensprache bei variabler in Gestaltung. Die Eigentumsbildung soll auch für junge Familien möglich sein."},
+          {"p": "Den Belangen des Klimaschutzes und der Nachhaltigkeit soll unbedingt Rechnung getragen werden. Dies kann über die Ausführung der Gebäude in z. B. Holzbauweise und über Solarthermie Nutzung oder Photovoltaik erfolgen. Ein Nahwärmenetz über ein biomassebetriebenes Blockheizkraftwerk mit Nutzung der Wärme und des selbst erzeugten Stroms wird dabei ebenso wie die Nutzung von Luftwärmepumpen auf ihre Machbarkeit hin überprüft werden."},
+          {"p": "Der architektonischen Gestaltung liegen folgende Kernsätze zu Grunde:"},
+          {"ul": ["Die Wohnstrukturen sind flexibel und können sich ändernden Anforderungen entsprechen", "Alt und Jung leben gemeinsam in einer Siedlung, es entsteht ein lebenswerter Ort", "Es gibt bezahlbaren Raum für junge Familien und altersgerechte Wohnformen", "Die Siedlung kann in Abstimmung mit der Gemeinde weitere notwendige Nutzungen wie z. B. einen Naturkindergarten beinhalten"]},
+          {"p": "Geplant sind 10 kleine Einfamilienhäuser, die sich parallel der Eschach in zwei Reihen gliedern und dabei sparsam mit den Ressourcen Grund und Boden umgehen. Gleichzeitig ist es ein innovatives Mehrgenerationen-Konzept vorgesehen. Die Häuser sind aufgrund verhältnismäßig geringer Wohnfläche für Familien erschwinglich und gleichzeitig für ältere Menschen gut geeignet. So können Jung und Alt zusammenwohnen und zusammenleben."}
+        ]}
+      ],
+      "related": ["projekt-wohnbebauung-laichingen", "projekt-wbw-ehemaliges-kriegsspital", "projekt-wohnbebauung-neu-ulm"]
+    },
+    {
+      "slug": "projekt-wbw-ehemaliges-kriegsspital", "dir": "wbw-ehemaliges-kriegsspital",
+      "title": "WBW ehemaliges Kriegsspital", "year": 2023,
+      "sub": "Entwicklung Areal ehemaliges Kriegsspital, Neu-Ulm",
+      "facts": [["Kategorie", "Arbeiten · Beleben · Essen · Wettbewerbe · Wohnen"], ["Standort", "Neu-Ulm"], ["Auslober", "Panescu Immobilien GmbH & Co. KG"], ["Wettbewerb", "2023"]],
+      "cover": "Entwicklung-Areal-ehemaliges-Kriegsspital_02_neu.jpg",
+      "square": "Entwicklung-Areal-ehemaliges-Kriegsspital_02_neu2_500x500_acf_cropped.jpg",
+      "images": [{"f": "143_landscape-_LA-1-scaled.jpg", "plan": true, "alt": "Lageplan"},
+                 {"f": "143_landscape_Picto-scaled.jpg", "plan": true, "alt": "Piktogramm"},
+                 "143_landscape_Perspektive-2.jpg",
+                 {"f": "143_portrait_Gewerbe.jpg", "plan": true, "alt": "Gewerbe"},
+                 {"f": "143_landscape_GR-EG-1-scaled.jpg", "plan": true, "alt": "Grundriss Erdgeschoss"},
+                 {"f": "143_landscape_Schnitt-1.jpg", "plan": true, "alt": "Schnitt"},
+                 {"f": "143_portrait_-Nutzungsverteilung-scaled.jpg", "plan": true, "alt": "Nutzungsverteilung"},
+                 {"f": "143_landscape-_GR-OG1-scaled.jpg", "plan": true, "alt": "Grundriss 1. Obergeschoss"},
+                 {"f": "143_landscape_Ansicht-Sued-1.jpg", "plan": true, "alt": "Ansicht Süd"},
+                 {"f": "143_landscape_GR-UG-scaled.jpg", "plan": true, "alt": "Grundriss Untergeschoss"},
+                 {"f": "143_landscape_Ansicht-nord-1.jpg", "plan": true, "alt": "Ansicht Nord"},
+                 {"f": "143_landscape_-Modulbau-1-scaled.jpg", "plan": true, "alt": "Modulbau"},
+                 "143_landscape_Perspektive.jpg"],
+      "chapters": [
+        {"label": "Städtebau & Konzept", "blocks": [
+          {"p": "Die neue Erweiterung bildet ein Ensemble mit dem Kriegsspital und kommuniziert durch eine angemessene Körnung, Höhenentwicklung und Maßstäblichkeit mit dem umliegenden Stadtraum, welcher mit zusätzlichen Wohn- und Geschäftsräumen aufgewertet wird. Die neue aufgespannte Freifläche zwischen Kriegsspital und der Erweiterung nimmt Bezug auf das historische Vorbild und gibt der Örtlichkeit dadurch die historische Aufenthaltsqualität zurück. Die Planung sieht neben einem nachhaltigen Energiekonzept, sorgfältig ausgewählten Ressourcen bzw. Materialien auch eine damit Hand in Hand gehende wirtschaftliche Bauweise vor."}
+        ]},
+        {"label": "Sockelgeschoss", "blocks": [
+          {"p": "Das Sockelgeschoss erfüllt den Anspruch an eine flexible und damit nachhaltig bzw. langlebige Gewerbefläche. Gleichzeitig bildet das Geschoss eine strukturelle Plattform für die oberen Geschosse. In Anlehnung an die Massivität des Kriegsspitals wird im Sockelbereich Gisoton als zertifizierter und energieschonender Baustoff eingesetzt. Eine Zwischenebene in der aktuellen Gewerbeeinheit 6 ermöglicht die Nutzung und Erschließung einer weiteren Ebene. Dadurch wird auf unterschiedlichen Ebenen der Zugang und Austausch zwischen dem Areal des Kriegsspitals und dem bestehenden Stadtraum ermöglicht."}
+        ]},
+        {"label": "Obergeschoss", "blocks": [
+          {"p": "Die Obergeschosse werden auf dem Sockel mit einer wirtschaftlichen Holzbauweise realisiert. Der Anspruch an eine materialgerechte Architektur wird mit einer Holzfassade komplimentiert. Aufgrund eines effizienten Rasters können verschiedene Wohnungsgrößen flexibel zu einem zeitgemäßen Wohnen zusammengeschlossen werden. Durch das Raster sind die Voraussetzungen für eine zukunftsweisende serielle Bauweise gegeben. Da insbesondere die Nordseite des Gebäudes durch den Schalleintrag der Bahnlinie beeinträchtigt wird, sind hier die Fenster mit einer erhöhten Schallschutzanforderung vorgesehen. Loggien erhalten teilweise eine starre, teils verschiebbare Verglasung. Dadurch wirken die Loggien als Emissionsfilter, über welche auch die manuelle Lüftung der angrenzenden Räume möglich ist."}
+        ]},
+        {"label": "Energieversorgung", "blocks": [
+          {"p": "Da das Areal bereits an das Fernwärmenetz der Stadtwerke angeschlossen ist, ist damit eine umweltschonende Energieversorgung garantiert. Die Dachflächen dienen als Rückgewinnung von Grünflächen der damit verbundenen Speicherung von Wasser sowie für die Gewinnung von Solarflächen. Eine Aktivierung der Dachfläche als Nutzgarten für die Bewohner ist durch die flexible Rasterung der Wohneinheiten ebenfalls möglich."}
+        ]}
+      ],
+      "related": ["projekt-kriegsspital-neu-ulm", "projekt-friesenhofen-saegemuehle", "projekt-wohnbebauung-laichingen"]
+    },
+    {
+      "slug": "projekt-haus-mk", "dir": "haus-mk",
+      "title": "Haus MK", "year": 2023, "group": "bestand",
+      "sub": "Sanierung und Umbau eines Einfamilienhauses mit Einliegerwohnung",
+      "facts": [["Kategorie", "Erhalten · Wohnen"], ["Standort", "Ulm"], ["Bauherr", "Privat"], ["Fertigstellung", "2023"]],
+      "cover": "744_landscape_Treppenhaus-3-scaled.jpg",
+      "square": "744_square_500x500_acf_cropped.jpg",
+      "images": ["744_landscape_Wohnraum-1-scaled.jpg", "744_portrait_Treppenhaus-1-scaled.jpg", "744_landscape_wohnraum-2-scaled.jpg", "744_landscape_Treppenhaus-2-scaled.jpg",
+                 "744_landscape_Gewoelbe-scaled.jpg", "744_landscape_Innenraum-scaled.jpg", "744_landscape_Innenraum-2-scaled.jpg", "744_landscape_Bad1-scaled.jpg",
+                 "744_landscape_Aussenraum-2-scaled.jpg", "744_landscape-Wohnraum-3-scaled.jpg", "744_landscape_Bad-2-scaled.jpg", "744_landscape_Aussenraum-1-scaled.jpg"],
+      "chapters": [],
+      "related": ["projekt-kriegsspital-neu-ulm", "projekt-wohnbebauung-neu-ulm", "projekt-flz-neuer-bau-ulm"]
+    }
+  ]
+}

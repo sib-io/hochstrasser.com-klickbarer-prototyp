@@ -26,11 +26,15 @@
     { t: 'Haus S4', y: 2022, aw: 0, i: 'd' },
     { t: 'Parkhaus am Bahnhof und Fußgängerpassage', y: 2022, aw: 0, i: 'f' }
   ];
+  /* Projekte mit eigener Detailseite (projektseiten.js) bekommen Link und Kachelbild,
+     alle übrigen führen auf die Beispielseite FLZ */
+  var PS = window.PROJEKTSEITEN || {};
   var tiles = document.getElementById('tiles');
   if (tiles) {
     tiles.innerHTML = P.map(function (p) {
-      return '<a class="tile" href="projekt-flz-neuer-bau-ulm.html">' +
-        '<img src="' + IMG[p.i] + '" alt="' + p.t + '" loading="lazy">' +
+      var s = PS[p.t];
+      return '<a class="tile" href="' + (s ? s.href : 'projekt-flz-neuer-bau-ulm.html') + '">' +
+        '<img src="' + (s ? s.img : IMG[p.i]) + '" alt="' + p.t + '" loading="lazy">' +
         ' <div class="tile__cap"><span class="tile__title">' + p.t +
         (p.aw ? '<span class="tile__star" title="Ausgezeichnet"></span>' : '') +
         '</span> <span class="tile__year">' + p.y + '</span></div></a>';
@@ -40,7 +44,7 @@
   /* Aktuelles: feste Reihenfolge; Klick auf den Pfeil schaltet Bild und Meldung weiter */
   var PH = 'Platzhalter – Bild zur Meldung folgt';
   var NEWS = [
-    { img: IMG.a, alt: 'Das sanierte ehemalige Kriegsspital in Neu-Ulm mit Backsteinfassade',
+    { img: IMG.a, alt: 'Das sanierte ehemalige Kriegsspital in Neu-Ulm mit Backsteinfassade', href: 'projekt-kriegsspital-neu-ulm.html',
       kind: 'Fertigstellung', year: '2024', title: 'Ehemaliges Kriegsspital Neu-Ulm',
       desc: 'Umbau und Sanierung eines Baudenkmals. Zwei Bauabschnitte, fertiggestellt im laufenden Betrieb.' },
     { img: IMG.d, alt: PH, kind: 'Fertigstellung', year: '2025',
@@ -64,7 +68,7 @@
     var idx = 0;
     var still = window.matchMedia('(prefers-reduced-motion: reduce)');
     feed.innerHTML = NEWS.map(function (n, i) {
-      return '<li' + (i === 0 ? ' class="is-lead" aria-current="true"' : '') + '><a href="#">' +
+      return '<li' + (i === 0 ? ' class="is-lead" aria-current="true"' : '') + '><a href="' + (n.href || '#') + '">' +
         '<span class="idx-feed__title t-h4">' + n.title + '</span> ' +
         '<span class="idx-feed__kind t-label">' + n.kind + '</span> ' +
         '<span class="idx-feed__year t-label">' + n.year + '</span> ' +

@@ -153,11 +153,15 @@ Musikpavillon|2002|beleben|realisiert|oeffentlich|0
     return { t: f.join('|').trim(), y: y, c: c, s: s, k: k, aw: aw, img: pic(i) };
   });
 
+  /* Projekte mit eigener Detailseite (projektseiten.js) bekommen Link und Kachelbild,
+     alle übrigen führen auf die Beispielseite FLZ */
+  var PS = window.PROJEKTSEITEN || {};
   var tiles = document.getElementById('tiles');
   tiles.innerHTML = P.map(function (p) {
-    return '<a class="tile" href="projekt-flz-neuer-bau-ulm.html" data-cat="' + p.c + '" data-year="' + p.y +
+    var s = PS[p.t];
+    return '<a class="tile" href="' + (s ? s.href : 'projekt-flz-neuer-bau-ulm.html') + '" data-cat="' + p.c + '" data-year="' + p.y +
       '" data-status="' + p.s + '" data-client="' + p.k + '" data-award="' + p.aw + '">' +
-      '<img src="' + p.img + '" alt="' + p.t + '" loading="lazy">' +
+      '<img src="' + (s ? s.img : p.img) + '" alt="' + p.t + '" loading="lazy">' +
       '<div class="tile__cap"><span class="tile__title">' + p.t +
       (p.aw ? '<span class="tile__star" title="Ausgezeichnet"></span>' : '') + '</span> ' +
       '<span class="tile__year">' + p.y + '</span></div></a>';

@@ -1,0 +1,54 @@
+/* Projektseiten (FLZ von Hand, alle übrigen aus factory/projekte.py):
+   Titelbild, Seitenspalte, Galerie, Pläne, Projektdaten, Kontakt, verwandte Projekte. */
+.prj-cover{padding-top:var(--sp-5)}
+.prj-cover__img{aspect-ratio:16/9}
+@media (min-width:900px){.prj-cover__img{aspect-ratio:21/9}}
+.prj-cover+.hero{padding-top:var(--band-s)}
+
+/* Galerie im 12er-Raster: vollbreit, Paare, Quer- neben Hochformat */
+.prj-gal{row-gap:var(--gutter);align-items:stretch}
+.prj-gal figure{display:flex;flex-direction:column}
+.prj-gal .prj-fill{aspect-ratio:16/9}
+@media (min-width:900px){
+  /* Querformat füllt die Höhe des Hochformats daneben; das Bild selbst bestimmt die Zeilenhöhe nicht */
+  .prj-gal .prj-fill{aspect-ratio:auto;flex:1}
+  .prj-gal .prj-fill>img{position:absolute;inset:0}
+}
+/* Pläne: nie beschneiden, natürliches Seitenverhältnis, oben bündig */
+.prj-gal--plans{align-items:start}
+
+/* Seitenspalte links (Galerie, Kapitel, Projektdaten, Kontakt), mitlaufend ab 900 px */
+@media (min-width:900px){
+  .prj-rail{position:sticky;top:calc(var(--hdr-h) + var(--sp-3));align-self:start}
+  .prj-gal>.prj-rail{grid-row:span var(--rows)} /* über alle Bildzeilen */
+}
+/* gestapelt: Seitenspalte steht als Kopf direkt über dem Inhalt */
+@media (max-width:899px){.grid:not(.prj-gal):has(>.prj-rail){row-gap:var(--sp-3)}}
+
+/* Kapitel: Aufzählung mit Kopf je Punkt */
+.prj-points>li{display:grid;row-gap:var(--sp-1)}
+.prj-points p{max-width:66ch;color:var(--ink-2)}
+
+/* Kennwert Auszeichnung mit Symbol */
+.prj-award{display:flex;gap:var(--sp-1);align-items:flex-start}
+.prj-award svg{width:22px;height:22px;flex:none}
+
+/* Projektdaten: Unterköpfe „Projekt“, „Team“; mehrere Einträge je Kennwert */
+.prj-sub-h{margin-bottom:var(--sp-1)}
+.prj-line{display:block}
+.prj-line+.prj-line{margin-top:var(--sp-1)}
+@media (max-width:899px){.prj-team{margin-top:var(--sp-4)}}
+
+/* Kontaktkarte und Kacheln in Spalte 3–12: Innenraster = Seitenraster (subgrid) */
+@media (min-width:900px){
+  .prj-contact{grid-template-columns:subgrid}
+  .prj-contact>.ph{grid-column:2/span 2}
+  .prj-contact .contact-card__body{grid-column:5/span 5}
+  .prj-rel{display:grid;grid-template-columns:subgrid}
+  .prj-rel>*{grid-column:1/-1}
+  .prj-rel .tiles{grid-template-columns:subgrid}
+}
+.prj-rel__title{margin-bottom:var(--head-gap)}
+.prj-rel__more{margin-top:var(--sp-5)}
+
+.prj-nowrap{white-space:nowrap}

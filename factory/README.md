@@ -9,6 +9,8 @@ factory/
   partials/              ← Header, Menü, Footer (nur Orchestrator)
   build.py               ← python3 factory/build.py <slug>
   check.py               ← text | lint | links
+  projekte.json          ← Daten der Projekt-Detailseiten (Live-Texte 1:1, Kennwerte, Bilder)
+  projekte.py            ← python3 factory/projekte.py → pages/projekt-*.html + assets/js/projektseiten.js
   shot.js                ← node factory/shot.js <slug> [--grid] [--w=1440,390]
 prototyp/
   assets/css/site.css    ← Design-System (nur Orchestrator ändert es)
@@ -45,6 +47,7 @@ prototyp/
 | Profil | 04 | `profil` |
 | Büro | 05a | `buero` |
 | Projekt FLZ | 06 + Live-Seite | `projekt-flz-neuer-bau-ulm` |
+| Zehn neueste Projekte | Live-Seiten hochstrasser.com | `projekt-<name>` (erzeugt, siehe unten) |
 | Brandschutz | 07 | `expertise-brandschutz` |
 | Nachhaltigkeit | 08 | `expertise-nachhaltigkeit` |
 | Bauphysik | 09 | `expertise-bauphysik` |
@@ -56,14 +59,16 @@ prototyp/
 | Jobs | 25 | `jobs` |
 
 - Links auf diese Seiten immer als `slug.html` (ggf. mit Anker). Profil-Anker: `profil.html#n-integral`, `#n-wirtschaft`, `#n-nachhaltigkeit`, `#n-bestand`, `#n-verantwortung`.
-- „Zurück zu unseren Expertisen“ → `expertise.html`. Alle Projektkacheln/-links → `projekt-flz-neuer-bau-ulm.html` (es gibt nur diese eine Detailseite). „Alle Projekte“ → `projekte.html`. Kontakt/„Nachricht schreiben“ intern → `kontakt.html` (bzw. `mailto:` wo im Ausgangstext).
+- „Zurück zu unseren Expertisen“ → `expertise.html`. Projektkacheln/-links → eigene Detailseite, falls vorhanden (Zuordnung Titel → Seite/Kachelbild in `assets/js/projektseiten.js`, erzeugt aus `projekte.json`), sonst → `projekt-flz-neuer-bau-ulm.html` (Beispielseite). „Alle Projekte“ → `projekte.html`. Kontakt/„Nachricht schreiben“ intern → `kontakt.html` (bzw. `mailto:` wo im Ausgangstext).
 - Ziele ohne Seite (Barrierefreiheit, FAQs, Impressum, Datenschutz, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
 - Externe Links bleiben, wie sie sind (`target="_blank" rel="noopener"`).
 
 ## Bilder
 - Alle Bilder lokal unter `assets/img/`. Mapping für Hotlinks `https://hochstrasser.com/wp-content/uploads/JJJJ/MM/<datei>` → `assets/img/wp/<datei>`; Ausnahme `02_header-23.jpg` → `assets/img/flz/02_header-23.jpg`.
-- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5.jpg`, `portrait-adrian-hochstrasser.png`, `portrait-michael-geitner.png`, `portrait-stefanie-geywitz.png`, `portrait-frank-scheer.png` (Büro).
-- FLZ-Projektbilder: `assets/img/flz/02_header-23.jpg … 14_landscape-1.jpg` (05 ist Hochformat).
+- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5.jpg`.
+- Team-Porträts (Büro): `assets/img/team/<vorname-nachname>.jpg`, 600 × 600, von der Live-Büroseite (dort nach Namen zugeordnet). Ohne Porträt: Dagmar Schmidt, Michael Doll, Leyla Ali, Volker Knopp (live nur Platzhalter), Johanna Pittermann (live nicht vorhanden).
+- FLZ-Projektbilder: `assets/img/flz/02_header-23.jpg … 14_landscape-1.jpg` (05 ist Hochformat), Kachelbild `01_3_square_500x500_acf_cropped.jpg`.
+- Weitere Projektbilder: `assets/img/<name>/` (Original-Dateinamen der Live-Seite, längste Kante ≤ 2000 px, Kachelbild `*_500x500_acf_cropped.jpg`).
 - Immer `alt` (aus dem Ausgangstext, korrekt geschrieben), `loading="lazy"` außer beim ersten Bild.
 
 ## Text: 1:1, aber korrektes Deutsch
@@ -102,7 +107,7 @@ Semantik (h1/h2/h3) und Optik (Klasse) sind getrennt: genau ein `<h1>` pro Seite
 Pfeile in Buttons/Links: `<span aria-hidden="true">→</span>`.
 Referenzbeispiele: `factory/pages/_system.html` (gebaut: `prototyp/_system.html`).
 
-**Seiten-CSS** (`assets/css/pages/<slug>.css`, Expertise-Unterseiten teilen `pages/expertise.css`): nur Dinge, die es in `site.css` nicht gibt (interaktive Zeichnungen, besondere Module). Klassen mit Seitenpräfix oder Modulnamen. `python3 factory/check.py lint` muss sauber sein.
+**Seiten-CSS** (`assets/css/pages/<slug>.css`, Expertise-Unterseiten teilen `pages/expertise.css`, alle Projektseiten `pages/projekt.css`): nur Dinge, die es in `site.css` nicht gibt (interaktive Zeichnungen, besondere Module). Klassen mit Seitenpräfix oder Modulnamen. `python3 factory/check.py lint` muss sauber sein.
 
 **Interaktionen** des Ausgangstexts (Filter, Zeichnungen mit Auswahl, Slider, Akkordeons, Hover-Namen …) bleiben funktional erhalten.
 
@@ -114,3 +119,10 @@ Referenzbeispiele: `factory/pages/_system.html` (gebaut: `prototyp/_system.html`
 5. `python3 factory/check.py lint <css-name>` und `python3 factory/check.py links`.
 6. `node factory/shot.js <slug> --grid --w=1440` und `node factory/shot.js <slug> --w=390`, Screenshots ansehen, Raster/Abstände/Umbrüche korrigieren.
 Keine umfangreichen Tests darüber hinaus.
+
+## Projekt-Detailseiten
+Vorlage ist die von Hand gebaute FLZ-Seite. Alle weiteren Projektseiten entstehen aus `factory/projekte.json` über `python3 factory/projekte.py` (danach `build.py`) – **nicht** die erzeugten `pages/projekt-*.html` bearbeiten, sondern JSON bzw. Generator.
+- Aufbau: Titelbild · Hero (Titel, Untertitel, Kennwerte) · Galerie · Kapitel · Stimme (Platzhalter) · Pläne · Projektdaten (Platzhalter) · Kontakt · Verwandt.
+- Text 1:1 von der Live-Seite, nur Schreibweise korrigiert. Keine erfundenen Kapitelüberschriften: Kapitel heißen „Projekt“ oder tragen die Zwischenüberschriften der Live-Seite.
+- Bilder in Live-Reihenfolge; `"plan": true` → Abschnitt „Pläne“, nie beschnitten. Galerie-Raster automatisch aus Hoch-/Querformat (Doku in `projekte.py`), `"layout"` überschreibt. Galerien über 9 Zeilen werden geteilt („Weitere Bilder“ nach der Stimme).
+- Kategorie: Live-Kategorien der Projektseite, sonst Nutzung aus dem Projektarchiv (Ausgangstext 01).
