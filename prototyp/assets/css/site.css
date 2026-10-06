@@ -300,6 +300,12 @@ a.ext::after{content:'\2197';font-size:.72em;margin-left:.15em;color:var(--mute)
 .band--dark a.ext{border-bottom-color:var(--on-dark-rule);color:var(--on-dark)}
 .band--dark a.ext:hover{border-bottom-color:var(--on-dark)}
 
+/* Links etwas kräftiger. PX Grotesk und Carlito haben keinen Medium-
+   Schnitt (500 fiele auf Regular zurück), daher feine Kontur in Textfarbe;
+   im Fließtext (Carlito, dünnere Striche) schwächer */
+.btn,.link-arrow{-webkit-text-stroke:.02em currentColor}
+a.ext,a.ext-in{-webkit-text-stroke:.01em currentColor}
+
 /* Zeilenliste: oben kräftige Linie, Zeilen fein getrennt
    .rows > li  — beliebiger Inhalt, optional .rows__row als 12er-Raster */
 .rows{border-top:1px solid var(--ink)}
