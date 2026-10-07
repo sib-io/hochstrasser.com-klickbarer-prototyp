@@ -1,4 +1,4 @@
-/* Startseite: Projektkacheln, Aktuelles (Weiterschalten), Team-Namen bei Hover */
+/* Startseite: Projektkacheln, Aktuelles (Weiterschalten) */
 (function () {
   var IMG = {
     a: 'assets/img/wp/842_landscape-01-scaled.jpg',
@@ -55,10 +55,7 @@
       desc: 'Das Strohballenatelier wurde mit der Auszeichnung Hugo-Häring gewürdigt.' },
     { img: IMG.f, alt: PH, kind: 'Büro', year: '2023',
       title: 'Wir beteiligen uns an der Initiative Phase Nachhaltigkeit',
-      desc: 'Das Büro ist Teil der Initiative Phase Nachhaltigkeit.' },
-    { img: IMG.c, alt: PH, kind: 'Beitrag', year: '2024',
-      title: 'Beitrag aktualisiert: Fußgängerpassage am Bahnhof',
-      desc: 'Der Beitrag zur Fußgängerpassage am Bahnhof wurde aktualisiert.' }
+      desc: 'Das Büro ist Teil der Initiative Phase Nachhaltigkeit.' }
   ];
   var media = document.getElementById('newsMedia');
   var img = document.getElementById('nImg');
@@ -90,22 +87,5 @@
       media.classList.add('is-swapping');
       setTimeout(function () { paint(); media.classList.remove('is-swapping'); }, 340);
     });
-  }
-
-  /* Team: Name bei Hover/Fokus */
-  var crew = document.getElementById('crew');
-  var crewName = document.getElementById('crewName');
-  if (crew && crewName) {
-    var base = crewName.textContent;
-    var show = function (e) {
-      var f = e.target.closest('.idx-face');
-      if (f) crewName.textContent = f.getAttribute('data-name');
-    };
-    var reset = function () { crewName.textContent = base; };
-    crew.addEventListener('mouseover', show);
-    crew.addEventListener('focusin', show);
-    crew.addEventListener('click', show);
-    crew.addEventListener('mouseleave', reset);
-    crew.addEventListener('focusout', reset);
   }
 })();

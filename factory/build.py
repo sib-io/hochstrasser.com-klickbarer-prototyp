@@ -20,7 +20,6 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / 'prototyp'
 NAV = [  # Reihenfolge wie auf der Startseite
     ('projekte', 'projekte.html', 'Projekte'),
-    ('auszeichnungen', 'auszeichnungen.html', 'Auszeichnungen'),
     ('expertise', 'expertise.html', 'Expertise'),
     ('profil', 'profil.html', 'Profil'),
     ('buero', 'buero.html', 'Büro'),
