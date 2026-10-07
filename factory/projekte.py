@@ -208,7 +208,7 @@ KONTAKT = '''  <!-- KONTAKT -->
         <div class="contact-card__body">
           <h2 class="t-h2">Fragen zum Projekt</h2>
           <p class="t-mute">Wir sprechen gern über die Herausforderungen und die Konzepte unserer Projekte. Kommen Sie gern auf uns zu, wir freuen uns auf den Austausch.</p>
-          <div class="btn-row"><a class="btn" href="tel:+49731935110">07 31 . 9 35 11-0</a><a class="link-arrow" href="kontakt.html">Nachricht schreiben <span aria-hidden="true">→</span></a></div>
+          <div class="btn-row"><a class="link-arrow" href="tel:+49731935110">07 31 . 9 35 11-0</a><a class="link-arrow" href="kontakt.html">Nachricht schreiben <span aria-hidden="true">→</span></a></div>
         </div>
       </div>
     </div>
@@ -227,7 +227,7 @@ def verwandt(p, by):
             '      <p class="t-label prj-rail s-2">Verwandt</p>\n      <div class="prj-rel s-10 o-3">\n'
             f'        <h2 class="t-h2 prj-rel__title">{head}</h2>\n        <div class="tiles">\n'
             + '\n'.join(tile(by[s]) for s in p['related']) +
-            f'\n        </div>\n        <p class="prj-rel__more"><a class="btn" href="projekte.html">{more} <span aria-hidden="true">→</span></a></p>\n'
+            f'\n        </div>\n        <p class="prj-rel__more"><a class="link-arrow" href="projekte.html">{more} <span aria-hidden="true">→</span></a></p>\n'
             '      </div>\n    </div>\n  </section>')
 
 

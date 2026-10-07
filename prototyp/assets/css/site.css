@@ -277,14 +277,8 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 
 /* 8 Komponenten ---------------------------------------------- */
 
-/* Button (Umriss) und Pfeil-Link */
-.btn{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:3.5rem;padding:.875rem 1.75rem;border:1px solid var(--ink);font-family:var(--font-ui);font-size:var(--fs-ui);letter-spacing:.01em;line-height:1.2;color:var(--ink);transition:background .3s var(--ease),color .3s var(--ease)}
-.btn:hover{background:var(--ink);color:var(--paper)}
-.btn>span[aria-hidden]{display:inline-block;transition:transform .3s var(--ease)}
-.btn:hover>span[aria-hidden]{transform:translateX(4px)}
-.btn--back:hover>span[aria-hidden]{transform:translateX(-4px)}
-.band--dark .btn{border-color:var(--on-dark);color:var(--on-dark)}
-.band--dark .btn:hover{background:var(--on-dark);color:var(--ink)}
+/* Pfeil-Link (unterstrichen) – einzige Link-/Button-Form, keine Kästchen.
+   .link-arrow--back: Pfeil vorn, weicht beim Hover nach links */
 .btn-row{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-5);align-items:center}
 .btn-row--center{justify-content:center}
 
@@ -292,6 +286,8 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 .link-arrow>span[aria-hidden]{display:inline-block;margin-left:.35em;transition:transform .3s var(--ease)}
 .link-arrow:hover>span[aria-hidden]{transform:translateX(5px)}
 .band--dark .link-arrow{color:var(--on-dark)}
+.link-arrow--back>span[aria-hidden]{margin-left:0;margin-right:.35em}
+.link-arrow--back:hover>span[aria-hidden]{transform:translateX(-5px)}
 
 /* externer Link im Text */
 a.ext{border-bottom:1px solid var(--rule);transition:border-color .2s var(--ease)}
@@ -303,7 +299,7 @@ a.ext::after{content:'\2197';font-size:.72em;margin-left:.15em;color:var(--mute)
 /* Links etwas kräftiger. PX Grotesk und Carlito haben keinen Medium-
    Schnitt (500 fiele auf Regular zurück), daher feine Kontur in Textfarbe;
    im Fließtext (Carlito, dünnere Striche) schwächer */
-.btn,.link-arrow{-webkit-text-stroke:.02em currentColor}
+.link-arrow{-webkit-text-stroke:.02em currentColor}
 a.ext,a.ext-in{-webkit-text-stroke:.01em currentColor}
 
 /* Zeilenliste: oben kräftige Linie, Zeilen fein getrennt
