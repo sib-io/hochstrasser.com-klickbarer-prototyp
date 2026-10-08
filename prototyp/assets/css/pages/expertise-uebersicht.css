@@ -15,18 +15,16 @@
 .xp-row{position:relative;display:flex;align-items:center;gap:.3em;padding-block:var(--sp-1);border-bottom:1px solid var(--rule-tint)}
 .xp-w,.xp-dot{--i:0;margin-left:calc(min(var(--i), 1) * (100% + var(--gutter)) / 4)}
 .xp-i1{--i:1}
+.xp-i2{--i:2}
 .xp-i3{--i:3}
 .xp-w{position:relative;white-space:nowrap;color:var(--ink)}
 .xp-w::after{content:'';position:absolute;left:0;right:0;bottom:.12em;height:.055em;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .xp-w:hover::after,.xp-w:focus-visible::after{transform:scaleX(1)}
 .xp-dot{flex:none;display:block;width:.62em;height:.62em;border-radius:50%;background:var(--ink)}
-/* Punkt frei am Beginn des dritten Felds (Bauphysik), unabhängig von der Wortlänge */
-.xp-dot--c3{position:absolute;top:calc(50% - .31em);left:calc(2 * (100% + var(--gutter)) / 4);margin-left:0}
 @media (min-width:600px){
   .xp-gw__lines i{grid-column:span 2}
   .xp-gw__lines i:nth-child(n+5){display:block}
   .xp-w,.xp-dot{margin-left:calc(var(--i) * (100% + var(--gutter)) / 6)}
-  .xp-dot--c3{left:calc(2 * (100% + var(--gutter)) / 6);margin-left:0}
 }
 .xp-foot{margin-top:var(--sp-8)}
 
