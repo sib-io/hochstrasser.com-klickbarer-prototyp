@@ -1,4 +1,4 @@
-<!--meta {"title": "Büro", "description": "36 Menschen, zwei Hunde, ein Büro in der Ulmer Altstadt. Haltung, Leitbild und Team von hochstrasser. Architekten und Generalplaner.", "nav": "buero", "css": ["pages/buero.css"], "js": [], "proto": null} -->
+<!--meta {"title": "Büro", "description": "36 Menschen, zwei Hunde, ein Büro in der Ulmer Altstadt. Haltung, Leitbild und Team von hochstrasser. Architekten und Generalplaner.", "nav": "buero", "css": ["pages/buero.css"], "js": ["pages/buero.js"], "proto": null} -->
   <!-- 1 Claim -->
   <section class="wrap hero">
     <h1 class="t-label hero__eyebrow">Büro</h1>
@@ -14,17 +14,8 @@
   </section>
 
   <!-- 2 Bildband: unser Haus K5 -->
-  <svg class="buero-filter" width="0" height="0" aria-hidden="true" focusable="false">
-    <filter id="schatten-lift" color-interpolation-filters="sRGB">
-      <feComponentTransfer>
-        <feFuncR type="gamma" amplitude="0.97" exponent="0.92" offset="0.03"/>
-        <feFuncG type="gamma" amplitude="0.97" exponent="0.92" offset="0.03"/>
-        <feFuncB type="gamma" amplitude="0.97" exponent="0.92" offset="0.03"/>
-      </feComponentTransfer>
-    </filter>
-  </svg>
   <figure class="buero-band rv">
-    <img src="assets/img/buero-haus-k5.jpg" alt="Unser Haus K5">
+    <img src="assets/img/buero-haus-k5-bunt.jpg" alt="Das Bürohaus K5 in der Ulmer Karpfengasse von unten gesehen: Sichtbetonfassade mit hölzernen Fensterlaibungen vor Abendhimmel">
   </figure>
 
   <!-- 3 Team -->
@@ -35,7 +26,7 @@
     <p class="t-small t-mute buero-hint">Prototyp: Porträts im Raster sind Platzhalter.</p>
     <div class="grid buero-team">
         <div class="buero-person sm-s-4 s-2">
-          <div class="media media--1x1"><img src="assets/img/team/adrian-hochstrasser.jpg" alt="Porträt Adrian Hochstrasser" loading="lazy"></div>
+          <button class="media media--1x1 buero-person__open" type="button" aria-haspopup="dialog" aria-controls="cvAdrian"><img src="assets/img/team/adrian-hochstrasser.jpg" alt="Porträt Adrian Hochstrasser – Lebenslauf öffnen" loading="lazy"></button>
           <p class="buero-person__name">Adrian Hochstrasser</p>
           <p class="t-small t-mute">Gründer und Geschäftsführer, BDA DWB</p>
         </div>
@@ -247,7 +238,26 @@
     </div>
   </section>
 
-  <!-- 6 Anfahrt -->
+  <!-- 6 Auszeichnungen -->
+  <section class="wrap band rv" id="auszeichnungen">
+    <div class="sec-head">
+      <h2 class="t-rubric sec-head__title buero-rubric-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="6"/><path d="M8.4 13.85V21.4l3.6-2.45 3.6 2.45v-7.55"/></svg>
+        Auszeichnungen
+      </h2>
+      <a class="link-arrow sec-head__aside" href="auszeichnungen.html">Alle Auszeichnungen und Publikationen <span aria-hidden="true">→</span></a>
+    </div>
+    <ul class="rows buero-awards">
+      <li><a class="rows__row" href="#"><span class="t-label">2023</span> <span class="t-h4">Hugo-Häring-Auszeichnung</span> <span>Strohballenatelier, Diepoldshofen</span></a></li>
+      <li><a class="rows__row" href="#"><span class="t-label">2017</span> <span class="t-h4">Hugo-Häring-Auszeichnung</span> <span>K5 Wohn- und Geschäftshaus, Ulm</span></a></li>
+      <li><a class="rows__row" href="#"><span class="t-label">2013</span> <span class="t-h4">Auszeichnung Beispielhaftes Bauen</span> <span>Volkshochschule Ulm</span></a></li>
+      <li><a class="rows__row" href="#"><span class="t-label">2009</span> <span class="t-h4">Hugo-Häring-Preis</span> <span>Parkhaus am Rathaus, Ulm</span></a></li>
+      <li><a class="rows__row" href="#"><span class="t-label">2009</span> <span class="t-h4">BDA-Auszeichnung</span> <span>Parkhaus am Rathaus, Ulm</span></a></li>
+      <li><a class="rows__row" href="#"><span class="t-label">2002</span> <span class="t-h4">BDA-Auszeichnung</span> <span>Parkhaus Deutschhaus, Ulm</span></a></li>
+    </ul>
+  </section>
+
+  <!-- 7 Anfahrt -->
   <section class="band band--tint rv" id="anfahrt">
     <div class="wrap">
       <div class="sec-head">
@@ -279,3 +289,33 @@
       </div>
     </div>
   </section>
+
+  <!-- Lebenslauf Adrian Hochstrasser (öffnet per Klick auf das Porträt) -->
+  <dialog class="buero-cv" id="cvAdrian" aria-labelledby="cvAdrianTitel">
+    <button class="buero-cv__close" type="button" aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <div class="grid buero-cv__grid">
+      <div class="s-7">
+        <h2 class="t-h3" id="cvAdrianTitel">Adrian Hochstrasser</h2>
+        <ul class="buero-cv__list">
+          <li><span class="t-label">1966</span> <span>Geburt in Ulm/D.</span></li>
+          <li><span class="t-label">1987</span> <span>Abitur Freie Waldorfschule Ulm</span></li>
+          <li><span class="t-label">1988–90</span> <span>Studium Produktgestaltung, FH Schwäbisch Gmünd</span></li>
+          <li><span class="t-label">1990–98</span> <span>Assistent IFG Ulm, Stiftung HfG Ulm</span></li>
+          <li><span class="t-label">1992–96</span> <span>Studium Architektur, FH Biberach</span></li>
+          <li><span class="t-label">1996–99</span> <span>Mitarbeit Hochstrasser Bleiker Architekten, D‑Ulm &amp; CH‑St.&nbsp;Gallen</span></li>
+          <li><span class="t-label">1999–02</span> <span>Büro in Berlin</span></li>
+          <li><span class="t-label">2001</span> <span>Art Director „The Pianist“ von Roman Polanski mit Allan Starski</span></li>
+          <li><span class="t-label">2001–02</span> <span>Verschiedene Filmprojekte für Studio Babelsberg, Berlin</span></li>
+          <li><span class="t-label">2002</span> <span>Neugründung hochstrasser.architekten, Ulm/Neu-Ulm</span></li>
+          <li><span class="t-label">2002</span> <span>BDA-Auszeichnung, Parkhaus Deutschhaus, Ulm</span></li>
+          <li><span class="t-label">2003</span> <span>Berufung BDA und DWB</span></li>
+          <li><span class="t-label">2004–09</span> <span>Lehrauftrag Gestaltungslehre und Architekturpraxis, HS Biberach</span></li>
+          <li><span class="t-label">2009</span> <span>BDA-Auszeichnung, Parkhaus am Rathaus, Ulm</span></li>
+          <li><span class="t-label">2009</span> <span>Hugo-Häring-Preis, Parkhaus am Rathaus, Ulm</span></li>
+          <li><span class="t-label">2013</span> <span>Auszeichnung Beispielhaftes Bauen, Volkshochschule Ulm</span></li>
+          <li><span class="t-label">2017</span> <span>Hugo-Häring-Auszeichnung, K5 Wohn- und Geschäftshaus, Ulm</span></li>
+        </ul>
+      </div>
+      <div class="s-5 o-8"><div class="media media--1x1"><img src="assets/img/team/adrian-hochstrasser.jpg" alt="Porträt Adrian Hochstrasser" loading="lazy"></div></div>
+    </div>
+  </dialog>
