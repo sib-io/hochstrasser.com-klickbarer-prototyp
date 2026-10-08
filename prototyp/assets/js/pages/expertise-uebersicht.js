@@ -31,7 +31,7 @@
     raf = requestAnimationFrame(fitAll);
   });
 
-  /* wechselndes Quadratbild (farbig, etwa alle 2,4 s) */
+  /* wechselndes Quadratbild (farbig, etwa alle 1,6 s) */
   var MOTIVE = [
     { src: 'assets/img/wp/842_landscape-01-scaled.jpg', alt: 'Ehemaliges Kriegsspital Neu-Ulm' },
     { src: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg', alt: 'Wohnbebauung Neu-Ulm' },
@@ -53,7 +53,7 @@
         shots[k].classList.remove('is-on'); shots[k].alt = '';
         k = (k + 1) % shots.length;
         shots[k].classList.add('is-on'); shots[k].alt = MOTIVE[k].alt;
-      }, 2400);
+      }, 1600);
     }
   }
 })();
