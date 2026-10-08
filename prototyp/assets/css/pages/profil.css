@@ -37,9 +37,13 @@
 .profil-face .media{margin-bottom:var(--sp-2)}
 .profil-face .media img{transition:transform .8s var(--ease)}
 .profil-face:hover .media img{transform:scale(1.04)}
-/* Architektur: Collage aus vier Porträts (2 × 2) */
+/* Architektur: Collage aus vier Porträts (2 × 2); profil.js blendet nach und nach
+   ein Feld auf ein weiteres Teammitglied über */
 .profil-collage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--sp-1) / 4);background:var(--paper)}
-.profil-collage img{width:100%;height:100%;object-fit:cover}
+.profil-collage__cell{position:relative;overflow:hidden;background:var(--shade)}
+.profil-collage__cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .9s var(--ease)}
+.profil-collage__cell img.is-in{opacity:0}
+@media (prefers-reduced-motion:reduce){.profil-collage__cell img{transition:none}}
 .profil-face:hover .t-h4{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .profil-face p+p{margin-top:var(--sp-1)}
 
