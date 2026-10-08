@@ -38,7 +38,7 @@
 /* Zuordnung: wechselndes Quadratbild (farbig) + zweizeilige Überschrift */
 .xp-cut{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:center}
 .xp-fig{grid-column:1/span 4}
-.xp-fig img{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--ease)}
+.xp-fig img{position:absolute;inset:0;opacity:0;transition:opacity .5s var(--ease)}
 .xp-fig img.is-on{opacity:1}
 .xp-cut__txt{grid-column:5/-1;font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h2);line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
 @media (min-width:900px){
