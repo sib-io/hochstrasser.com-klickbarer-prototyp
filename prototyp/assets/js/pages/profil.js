@@ -87,3 +87,65 @@
   schema.classList.add('has-on');
   mark();
 })();
+
+/* Profil — Collage Architektur: alle 2,5 s wechselt ein Feld (reihum in gemischter Folge)
+   auf ein Teammitglied, das gerade nicht zu sehen ist */
+(function () {
+  var box = document.getElementById('collage');
+  if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var TEAM = [
+    ['adrian-hochstrasser', 'Adrian Hochstrasser'],
+    ['michael-geitner', 'Michael Geitner'],
+    ['stefanie-geywitz', 'Stefanie Geywitz'],
+    ['patricia-selig', 'Patricia Selig'],
+    ['frank-scheer', 'Frank Scheer'],
+    ['sebastian-baier', 'Sebastian Baier'],
+    ['georg-mueller', 'Georg Müller'],
+    ['viktoria-kessler', 'Viktoria Kessler'],
+    ['aileen-elser', 'Aileen Elser'],
+    ['simon-mueller', 'Simon Müller'],
+    ['stefanie-seemann-corneel', 'Stefanie Seemann-Corneel'],
+    ['wolfgang-kliesch', 'Wolfgang Kliesch'],
+    ['miriam-steigerwald', 'Miriam Steigerwald'],
+    ['niklas-berthold', 'Niklas Berthold'],
+    ['michael-amann', 'Michael Amann'],
+    ['andreas-borgolte', 'Andreas Borgolte'],
+    ['nicola-span', 'Nicola Span'],
+    ['maximilian-hoeppler', 'Maximilian Höppler'],
+    ['alexandra-schmidt', 'Alexandra Schmidt'],
+    ['sonja-lambert', 'Sonja Lambert'],
+    ['ipek-maremoglou', 'Ipek Maremoglou'],
+    ['jens-taube', 'Jens Taube'],
+    ['kira-poleschal-seemann', 'Kira Poleschal-Seemann'],
+    ['alma-salkic', 'Alma Salkic'],
+    ['markus-hauser', 'Markus Hauser'],
+    ['ralph-thiemann', 'Ralph Thiemann'],
+    ['louisa-maria-gloeckle', 'Louisa Maria Glöckle'],
+    ['lukas-fischer', 'Lukas Fischer'],
+    ['anna-verena-wittlinger', 'Anna-Verena Wittlinger'],
+    ['sabine-schuessler', 'Sabine Schüssler'],
+    ['laura-rallo-sanchez', 'Laura Rallo Sánchez']
+  ];
+  var cells = Array.prototype.slice.call(box.querySelectorAll('.profil-collage__cell'));
+  var order = [0, 3, 1, 2];
+  var step = 0;
+  function shown() {
+    return cells.map(function (c) { var i = c.querySelector('img:last-child'); return i ? i.getAttribute('src') : ''; });
+  }
+  function next() {
+    var vis = shown();
+    var free = TEAM.filter(function (p) { return vis.indexOf('assets/img/team/' + p[0] + '.jpg') < 0; });
+    var pick = free[Math.floor(Math.random() * free.length)];
+    var cell = cells[order[step++ % order.length]];
+    var img = new Image();
+    img.alt = pick[1];
+    img.className = 'is-in';
+    img.onload = function () {
+      cell.appendChild(img);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { img.classList.remove('is-in'); }); });
+      setTimeout(function () { while (cell.children.length > 1) cell.removeChild(cell.firstElementChild); }, 1000);
+    };
+    img.src = 'assets/img/team/' + pick[0] + '.jpg';
+  }
+  setInterval(function () { if (!document.hidden) next(); }, 2500);
+})();
