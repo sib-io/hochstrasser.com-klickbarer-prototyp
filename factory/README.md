@@ -45,7 +45,7 @@ prototyp/
 | Expertise | 02 | `expertise` |
 | Auszeichnungen | 03 | `auszeichnungen` |
 | Profil | 04 | `profil` |
-| Büro | 05a | `buero` |
+| Büro | 05a (Bildband aus 05b) | `buero` |
 | Projekt FLZ | 06 + Live-Seite | `projekt-flz-neuer-bau-ulm` |
 | Zehn neueste Projekte | Live-Seiten hochstrasser.com | `projekt-<name>` (erzeugt, siehe unten) |
 | Brandschutz | 07 | `expertise-brandschutz` |
@@ -65,7 +65,7 @@ prototyp/
 
 ## Bilder
 - Alle Bilder lokal unter `assets/img/`. Mapping für Hotlinks `https://hochstrasser.com/wp-content/uploads/JJJJ/MM/<datei>` → `assets/img/wp/<datei>`; Ausnahme `02_header-23.jpg` → `assets/img/flz/02_header-23.jpg`.
-- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5.jpg`.
+- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5-bunt.jpg` (Büro-Bildband, farbig aus Ausgangstext 05b).
 - Team-Porträts (Büro): `assets/img/team/<vorname-nachname>.jpg`, 600 × 600, von der Live-Büroseite (dort nach Namen zugeordnet). Ohne Porträt: Dagmar Schmidt, Michael Doll, Leyla Ali und Volker Knopp (live nur Platzhalter).
 - FLZ-Projektbilder: `assets/img/flz/02_header-23.jpg … 14_landscape-1.jpg` (05 ist Hochformat), Kachelbild `01_3_square_500x500_acf_cropped.jpg`.
 - Weitere Projektbilder: `assets/img/<name>/` (Original-Dateinamen der Live-Seite, längste Kante ≤ 2000 px, Kachelbild `*_500x500_acf_cropped.jpg`).

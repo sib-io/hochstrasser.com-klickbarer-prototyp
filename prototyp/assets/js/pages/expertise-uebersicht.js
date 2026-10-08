@@ -2,20 +2,7 @@
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Wortmarke exakt auf die Satzbreite bringen */
-  var word = document.getElementById('xpWord');
-  function fitWord() {
-    var inner = word && word.firstElementChild;
-    if (!inner) return;
-    var avail = word.clientWidth;
-    if (!avail) return;
-    word.style.fontSize = '100px';
-    var w = inner.getBoundingClientRect().width;
-    if (!w) return;
-    word.style.fontSize = (100 * avail / w).toFixed(2) + 'px';
-  }
-
-  /* Gitterschrift so groß setzen, dass die längste Zeile bis in die letzte Spalte läuft */
+  /* Gitterschrift so groß setzen, dass die längste Zeile etwa vier Fünftel der Breite füllt */
   var rows = document.getElementById('xpRows');
   function fitGrid() {
     if (!rows) return;
@@ -30,12 +17,12 @@
         if (last) max = Math.max(max, last.getBoundingClientRect().right - left);
       });
       if (!max) return;
-      var next = Math.min(base * (avail * 0.985) / max, avail * 0.115);
+      var next = Math.min(base * (avail * 0.8) / max, avail * 0.09);
       rows.style.fontSize = next.toFixed(2) + 'px';
     }
   }
 
-  function fitAll() { fitWord(); fitGrid(); }
+  function fitAll() { fitGrid(); }
   fitAll();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
   var raf;
@@ -44,7 +31,7 @@
     raf = requestAnimationFrame(fitAll);
   });
 
-  /* wechselndes Quadratbild */
+  /* wechselndes Quadratbild (farbig, etwa alle 2,4 s) */
   var MOTIVE = [
     { src: 'assets/img/wp/842_landscape-01-scaled.jpg', alt: 'Ehemaliges Kriegsspital Neu-Ulm' },
     { src: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg', alt: 'Wohnbebauung Neu-Ulm' },
@@ -66,7 +53,7 @@
         shots[k].classList.remove('is-on'); shots[k].alt = '';
         k = (k + 1) % shots.length;
         shots[k].classList.add('is-on'); shots[k].alt = MOTIVE[k].alt;
-      }, 3400);
+      }, 2400);
     }
   }
 })();

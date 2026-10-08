@@ -256,7 +256,7 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 /* Footer ----------------------------------------------------- */
 .ftr{background:var(--ink);color:var(--on-dark-2);padding-block:var(--band) var(--sp-5)}
 .ftr .brand{display:block;color:var(--on-dark);font-size:clamp(1.75rem, 1.2rem + 2vw, 2.625rem);letter-spacing:-.02em;margin-bottom:var(--sp-3)}
-.ftr__addr{color:var(--on-dark-mute)} /* Zeilen per <br>, kein Umbruch in „Architektur + Gestaltung + Verantwortung“ */
+.ftr__addr{color:var(--on-dark-mute)} /* Zeilen per <br>, kein Umbruch in „Architektur + Verantwortung + Lösungen“ */
 .ftr__big{margin-top:var(--sp-4);font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h3);letter-spacing:-.01em;line-height:1.35;color:var(--on-dark)}
 .ftr__big+.ftr__big{margin-top:var(--sp-1)}
 .ftr__big a{border-bottom:1px solid var(--on-dark-rule);transition:border-color .25s var(--ease)}

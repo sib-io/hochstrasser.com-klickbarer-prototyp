@@ -18,9 +18,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / 'prototyp'
-NAV = [  # Reihenfolge wie auf der Startseite
-    ('projekte', 'projekte.html', 'Projekte'),
+NAV = [  # Reihenfolge der Hauptnavigation
     ('expertise', 'expertise.html', 'Expertise'),
+    ('projekte', 'projekte.html', 'Projekte'),
     ('profil', 'profil.html', 'Profil'),
     ('buero', 'buero.html', 'Büro'),
 ]
