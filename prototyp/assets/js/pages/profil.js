@@ -88,7 +88,7 @@
   mark();
 })();
 
-/* Profil — Collage Architektur: alle 2,5 s wechselt ein Feld (reihum in gemischter Folge)
+/* Profil — Collage Architektur: alle 0,8 s wechselt ein Feld (reihum in gemischter Folge)
    auf ein Teammitglied, das gerade nicht zu sehen ist */
 (function () {
   var box = document.getElementById('collage');
@@ -101,23 +101,17 @@
     ['frank-scheer', 'Frank Scheer'],
     ['sebastian-baier', 'Sebastian Baier'],
     ['georg-mueller', 'Georg Müller'],
-    ['viktoria-kessler', 'Viktoria Kessler'],
     ['aileen-elser', 'Aileen Elser'],
     ['simon-mueller', 'Simon Müller'],
-    ['stefanie-seemann-corneel', 'Stefanie Seemann-Corneel'],
     ['wolfgang-kliesch', 'Wolfgang Kliesch'],
     ['miriam-steigerwald', 'Miriam Steigerwald'],
-    ['niklas-berthold', 'Niklas Berthold'],
     ['michael-amann', 'Michael Amann'],
-    ['andreas-borgolte', 'Andreas Borgolte'],
     ['nicola-span', 'Nicola Span'],
     ['maximilian-hoeppler', 'Maximilian Höppler'],
     ['alexandra-schmidt', 'Alexandra Schmidt'],
     ['sonja-lambert', 'Sonja Lambert'],
     ['ipek-maremoglou', 'Ipek Maremoglou'],
-    ['jens-taube', 'Jens Taube'],
     ['kira-poleschal-seemann', 'Kira Poleschal-Seemann'],
-    ['alma-salkic', 'Alma Salkic'],
     ['markus-hauser', 'Markus Hauser'],
     ['ralph-thiemann', 'Ralph Thiemann'],
     ['louisa-maria-gloeckle', 'Louisa Maria Glöckle'],
@@ -143,9 +137,9 @@
     img.onload = function () {
       cell.appendChild(img);
       requestAnimationFrame(function () { requestAnimationFrame(function () { img.classList.remove('is-in'); }); });
-      setTimeout(function () { while (cell.children.length > 1) cell.removeChild(cell.firstElementChild); }, 1000);
+      setTimeout(function () { while (cell.children.length > 1) cell.removeChild(cell.firstElementChild); }, 500);
     };
     img.src = 'assets/img/team/' + pick[0] + '.jpg';
   }
-  setInterval(function () { if (!document.hidden) next(); }, 2500);
+  setInterval(function () { if (!document.hidden) next(); }, 800);
 })();
