@@ -52,22 +52,15 @@
 .idx-feed .is-lead .idx-feed__desc>p{padding-top:var(--sp-2)}
 @media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}}
 
-/* Leistungsband: 900–1199 Aussage + Liste links (6), Zeichnung rechts (5, Spalten 8–12);
-   ab 1200 nebeneinander: Aussage 6 | Zeichnung 2 | 1 frei | Liste 3 (Seitenspalte 10–12);
-   der Fließtext darunter nur 5 Spalten breit, damit die Zeichnung links eine Spalte Luft hat */
+/* Leistungsband: bis 1199 Aussage, darunter Liste (6 Spalten);
+   ab 1200 nebeneinander: Aussage 6 | 1 frei | Liste 5 (Spalten 8–12), breit genug für einzeilige Begriffe;
+   der Fließtext darunter nur 5 Spalten breit */
 .idx-svc{row-gap:var(--sp-6)}
-.idx-svc__fig img{width:100%;height:auto} /* Bildgrund = --shade, kein Blend nötig */
-@media (min-width:900px){
-  .idx-svc__say{grid-row:1}
-  .idx-svc__list{grid-row:2}
-  .idx-svc__fig{grid-row:1/span 2;align-self:center}
-}
 @media (min-width:1200px){
   .idx-svc{align-items:center}
   .idx-svc>.idx-svc__say{grid-column:1/span 6;grid-row:1}
   .idx-svc__say .prose{max-width:calc(5 * var(--col) + 4 * var(--gutter))}
-  .idx-svc>.idx-svc__fig{grid-column:7/span 2;grid-row:1}
-  .idx-svc>.idx-svc__list{grid-column:10/span 3;grid-row:1}
+  .idx-svc>.idx-svc__list{grid-column:8/span 5;grid-row:1}
 }
 .idx-terms{border-top-color:var(--rule-tint)} /* obere Linie so fein wie die Trennlinien darunter */
 .idx-terms a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--sp-3);align-items:center}
