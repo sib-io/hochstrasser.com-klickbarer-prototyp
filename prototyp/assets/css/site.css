@@ -257,16 +257,17 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 .ftr{background:var(--ink);color:var(--on-dark-2);padding-block:var(--band) var(--sp-5)}
 .ftr .brand{display:block;color:var(--on-dark);font-size:clamp(1.75rem, 1.2rem + 2vw, 2.625rem);letter-spacing:-.02em;margin-bottom:var(--sp-3)}
 .ftr__addr{color:var(--on-dark-mute)} /* Zeilen per <br>, kein Umbruch in „Architektur + Verantwortung + Lösungen“ */
-.ftr__big{margin-top:var(--sp-4);font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h3);letter-spacing:-.01em;line-height:1.35;color:var(--on-dark)}
+.ftr__big{margin-top:var(--sp-4);font-family:var(--font-text);font-weight:400;font-size:var(--fs-h3);line-height:1.35;color:var(--on-dark)}
 .ftr__big+.ftr__big{margin-top:var(--sp-1)}
 .ftr__big a{border-bottom:1px solid var(--on-dark-rule);transition:border-color .25s var(--ease)}
 .ftr__big a:hover{border-bottom-color:var(--on-dark)}
-.ftr__right{display:flex;flex-direction:column;gap:var(--sp-5)}
-@media (min-width:900px){.ftr__right{padding-top:var(--sp-1)}.ftr__social{justify-content:flex-end}}
-.ftr__links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-2) var(--gutter)}
+/* Links einspaltig, Social-Icons gestapelt rechts oben */
+.ftr__right{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--gutter)}
+@media (min-width:900px){.ftr__right{padding-top:var(--sp-1)}}
+.ftr__links{display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-2)}
 .ftr__links a{font-family:var(--font-ui);font-size:var(--fs-ui);color:var(--on-dark-2);transition:color .22s var(--ease)}
 .ftr__links a:hover{color:var(--on-dark)}
-.ftr__social{display:flex;gap:var(--sp-1)}
+.ftr__social{display:flex;flex-direction:column;gap:var(--sp-1)}
 .ftr__social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--on-dark-rule);color:var(--on-dark-2);transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
 .ftr__social a:hover{border-color:var(--on-dark);background:var(--on-dark);color:var(--ink)}
 .ftr__social svg{width:19px;height:19px}
