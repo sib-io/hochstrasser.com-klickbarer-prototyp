@@ -254,17 +254,19 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 .sheet__close{position:absolute;top:calc((var(--hdr-h) - 2.5rem) / 2);right:var(--side);height:2.5rem;font-family:var(--font-ui);font-size:var(--fs-ui);color:var(--mute)}
 
 /* Footer ----------------------------------------------------- */
-.ftr{background:var(--ink);color:var(--on-dark-2);padding-block:var(--band) var(--sp-5)}
-.ftr .brand{display:block;color:var(--on-dark);font-size:clamp(1.75rem, 1.2rem + 2vw, 2.625rem);letter-spacing:-.02em;margin-bottom:var(--sp-3)}
+.ftr{background:var(--ink);color:var(--on-dark-2);padding-block:var(--sp-5) var(--sp-3)}
+@media (min-width:900px){.ftr{padding-top:var(--sp-6)}}
+.ftr .wrap>.grid:first-child{row-gap:var(--sp-4)}
+.ftr .brand{display:block;color:var(--on-dark);font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2rem);letter-spacing:-.02em;margin-bottom:var(--sp-2)}
 .ftr__addr{color:var(--on-dark-mute)} /* Zeilen per <br>, kein Umbruch in „Architektur + Verantwortung + Lösungen“ */
-.ftr__big{margin-top:var(--sp-4);font-family:var(--font-text);font-weight:400;font-size:var(--fs-h4);line-height:1.35;color:var(--on-dark)}
-.ftr__big+.ftr__big{margin-top:var(--sp-1)}
+.ftr__big{margin-top:var(--sp-3);font-family:var(--font-text);font-weight:400;font-size:var(--fs-h4);line-height:1.35;color:var(--on-dark)}
+.ftr__big+.ftr__big{margin-top:.25rem}
 .ftr__big a{border-bottom:1px solid var(--on-dark-rule);transition:border-color .25s var(--ease)}
 .ftr__big a:hover{border-bottom-color:var(--on-dark)}
 /* Links spaltenweise (3 Zeilen je Spalte), Social-Icons gestapelt rechts oben; ab 1200 px Spalten 8–12 */
 .ftr__right{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--gutter)}
 @media (min-width:900px){.ftr__right{padding-top:var(--sp-1)}}
-.ftr__links{display:grid;grid-template-rows:repeat(4,auto);grid-auto-flow:column;grid-auto-columns:max-content;column-gap:var(--sp-4);row-gap:var(--sp-2);align-items:start;justify-items:start} /* mobil 2 Spalten, ab 600 px 3 Spalten à 3 Zeilen */
+.ftr__links{display:grid;grid-template-rows:repeat(4,auto);grid-auto-flow:column;grid-auto-columns:max-content;column-gap:var(--sp-4);row-gap:var(--sp-1);align-items:start;justify-items:start} /* mobil 2 Spalten, ab 600 px 3 Spalten à 3 Zeilen */
 @media (min-width:600px){.ftr__links{grid-template-rows:repeat(3,auto)}}
 @media (min-width:1200px){.grid>.ftr__right{grid-column:8/span 5}.ftr__links{column-gap:var(--sp-5)}}
 .ftr__links a{font-family:var(--font-ui);font-size:var(--fs-ui);color:var(--on-dark-2);transition:color .22s var(--ease)}
@@ -273,7 +275,7 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 .ftr__social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--on-dark-rule);color:var(--on-dark-2);transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
 .ftr__social a:hover{border-color:var(--on-dark);background:var(--on-dark);color:var(--ink)}
 .ftr__social svg{width:19px;height:19px}
-.ftr__base{margin-top:var(--sp-7);padding-top:var(--sp-3);border-top:1px solid var(--on-dark-rule);row-gap:var(--sp-1)}
+.ftr__base{margin-top:var(--sp-5);padding-top:var(--sp-2);border-top:1px solid var(--on-dark-rule);row-gap:var(--sp-1)}
 .ftr__base .t-label{color:var(--on-dark-mute)}
 .ftr__base a:hover{color:var(--on-dark)}
 @media (min-width:900px){.ftr__base>:last-child{justify-self:end}}
