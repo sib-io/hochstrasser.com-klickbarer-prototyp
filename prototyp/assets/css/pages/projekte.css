@@ -82,5 +82,7 @@
 
 .pj-count{margin-top:var(--sp-5);padding-bottom:var(--sp-2);border-bottom:1px solid var(--rule)}
 .pj-tiles{margin-top:var(--sp-4)}
+/* Bildunterschrift beim Überfahren durchscheinender als im Standard (.94), wie auf der Startseite */
+@media (hover:hover){.pj-tiles .tile__cap{background:rgba(255,255,255,.6)}}
 .pj-empty{padding-block:var(--sp-6);color:var(--mute);max-width:44ch}
 .pj-empty[hidden]{display:none}
