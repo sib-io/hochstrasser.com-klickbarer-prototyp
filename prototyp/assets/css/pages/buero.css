@@ -15,12 +15,11 @@
 }
 
 /* Bildband: vollflächig, farbig, Höhe und Ausschnitt wie im Entwurf 05b (38 vw, 300–600 px).
-   Abstand zum Hero wie auf Projekte: Hero-Abstand + ein Band */
-.buero-band{margin-top:var(--band);background:var(--shade)}
+   Abstand zum Hero: nur der Hero-Abstand */
+.buero-band{background:var(--shade)}
 .buero-band img{display:block;width:100%;height:clamp(300px, 38vw, 600px);object-fit:cover;object-position:center 46%}
 
 /* Team */
-.buero-hint{padding-left:var(--sp-2);border-left:2px solid var(--rule);margin-bottom:var(--sp-5)}
 .buero-team{row-gap:var(--sp-5)}
 @media (max-width:599px){.buero-team>.buero-person{grid-column:span 6}}
 .buero-person .media{margin-bottom:var(--sp-2)}
