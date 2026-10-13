@@ -103,7 +103,7 @@ Semantik (h1/h2/h3) und Optik (Klasse) sind getrennt: genau ein `<h1>` pro Seite
 **Farbe.** Nur Tokens: `--ink`, `--ink-2`, `--mute`, `--rule`, `--rule-tint`, `--shade`, `--paper`, `--on-dark*`, auf Digitales Bauen zusätzlich `--accent`/`--wash`. Keine neuen Grauwerte.
 
 **Komponenten aus `site.css` (wiederverwenden statt nachbauen):**
-`.hero` (+ `__eyebrow`, `__title`, `__sub`, `__foot`), `.sec-head` (+ `__title`, `__aside`), `.band`, `.band--s`, `.band--tint`, `.band--dark`, `.rule-top`, `.link-arrow` (+ `--back`), `.btn-row`, `a.ext`, `.rows` (+ `--compact`, `--marked`, `.rows__row`), `.facts` (dl), `.tags`/`.tag`, `.chip`, `.quote` (+ `__src`, `__who`), `.ph` (Bild-/Porträtplatzhalter), `.media` (+ `--16x9` …), `.tiles`/`.tile` (+ `__cap`, `__title`, `__year`, `__star`), `.contact-card` (+ `__body`), `.faq` (details/summary + `.faq__answer`), `.sources`, `.note`, `.rv`, `.stack`, `.sr-only`.
+`.hero` (+ `__eyebrow`, `__title`, `__sub`, `__foot`), `.sec-head` (+ `__title`, `__aside`), `.band`, `.band--s`, `.band--tint`, `.band--dark`, `.rule-top`, `.link-arrow` (+ `--back`), `.btn-row`, `a.ext`, `.rows` (+ `--compact`, `--marked`, `.rows__row`), `.facts` (dl), `.tags`/`.tag`, `.chip`, `.quote` (Zitat im Split: `__img`, `__field`, `__pill`, `__text`, `__foot`, `__who`, `__ctx`, `__link`), `.ph` (Bild-/Porträtplatzhalter), `.media` (+ `--16x9` …), `.tiles`/`.tile` (+ `__cap`, `__title`, `__year`, `__star`), `.contact-card` (+ `__body`), `.faq` (details/summary + `.faq__answer`), `.sources`, `.note`, `.rv`, `.stack`, `.sr-only`.
 Links und Buttons immer als `.link-arrow` (unterstrichen, keine umrandeten Kästchen). Pfeile: `<span aria-hidden="true">→</span>`.
 Referenzbeispiele: `factory/pages/_system.html` (gebaut: `prototyp/_system.html`).
 
@@ -122,7 +122,7 @@ Keine umfangreichen Tests darüber hinaus.
 
 ## Projekt-Detailseiten
 Vorlage ist die von Hand gebaute FLZ-Seite. Alle weiteren Projektseiten entstehen aus `factory/projekte.json` über `python3 factory/projekte.py` (danach `build.py`) – **nicht** die erzeugten `pages/projekt-*.html` bearbeiten, sondern JSON bzw. Generator.
-- Aufbau: Titelbild · Hero (Titel, Untertitel, Kennwerte) · Galerie · Kapitel · Stimme (Platzhalter) · Pläne · Projektdaten (Platzhalter) · Kontakt · Verwandt.
+- Aufbau: Titelbild · Hero (Titel, Untertitel, Kennwerte) · Galerie · Kapitel · Stimme (Zitat im Split, Platzhalter; Bild: `"stimme_bild"` oder letztes Foto) · Pläne · Projektdaten (Platzhalter) · Kontakt · Verwandt.
 - Text 1:1 von der Live-Seite, nur Schreibweise korrigiert. Keine erfundenen Kapitelüberschriften: Kapitel heißen „Projekt“ oder tragen die Zwischenüberschriften der Live-Seite.
 - Bilder in Live-Reihenfolge; `"plan": true` → Abschnitt „Pläne“, nie beschnitten. Galerie-Raster automatisch aus Hoch-/Querformat (Doku in `projekte.py`), `"layout"` überschreibt. Galerien über 9 Zeilen werden geteilt („Weitere Bilder“ nach der Stimme).
 - Kategorie: Live-Kategorien der Projektseite, sonst Nutzung aus dem Projektarchiv (Ausgangstext 01).

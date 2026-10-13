@@ -46,6 +46,10 @@
   --on-dark-2:rgba(255,255,255,.74);
   --on-dark-mute:rgba(255,255,255,.52);
   --on-dark-rule:rgba(255,255,255,.2);
+  /* Farbfeld im Zitat (Stroh) */
+  --stroh:#e4b94b;
+  --stroh-ink:#3f2a06;
+  --stroh-mute:#6a4a10;
 
   /* Schriften */
   --font-ui:'PX Grotesk','Helvetica Neue',Arial,sans-serif;
@@ -167,7 +171,7 @@ em{font-style:italic}
 .t-small{font-size:var(--fs-small);line-height:1.55}
 .t-mute{color:var(--mute)}
 .t-display em,.t-h1 em,.t-h2 em{font-style:normal;color:var(--mute)}
-:is(.t-display,.t-h1,.t-h2,.t-h3,.t-h4,.quote){text-wrap:balance}
+:is(.t-display,.t-h1,.t-h2,.t-h3,.t-h4,.quote__text){text-wrap:balance}
 
 /* Fließtext-Block */
 .prose{max-width:66ch;color:var(--ink-2)}
@@ -345,13 +349,30 @@ a.ext,a.ext-in{-webkit-text-stroke:.01em currentColor}
 .chip:hover{background:var(--shade)}
 .chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--ink);color:var(--paper)}
 
-/* Zitat */
-.quote{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h1);line-height:1.1;letter-spacing:-.022em;color:var(--ink);max-width:18ch}
-.quote__src{margin-top:var(--sp-5);padding-top:var(--sp-3);border-top:1px solid var(--rule);display:grid;gap:var(--sp-1)}
-.quote__who{font-family:var(--font-ui);color:var(--ink)}
-.band--dark .quote{color:var(--on-dark)}
-.band--dark .quote__src{border-top-color:var(--on-dark-rule)}
-.band--dark .quote__who{color:var(--on-dark)}
+/* Zitat: Projektbild und Farbfeld im Split (Startseite, Projektseiten).
+   Ab 900 px Bild Spalte 1–6, Farbfeld 7–12; das Feld schließt die Gutter-Fuge zum Bild.
+   Darunter gestapelt: Bild (4:3) über dem Feld. Die Farbe kann aus dem Projekt kommen
+   (--quote-bg/-ink/-mute je Zitat überschreiben), Standard ist Stroh. */
+.quote{--quote-bg:var(--stroh);--quote-ink:var(--stroh-ink);--quote-mute:var(--stroh-mute);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
+.quote>*{grid-column:1/-1;min-width:0}
+.quote__img{position:relative;overflow:hidden;background:var(--shade);aspect-ratio:4/3}
+.quote__img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.quote__field{background:var(--quote-bg);color:var(--quote-ink);padding:clamp(2rem, 1rem + 3vw, 4rem);display:flex;flex-direction:column;justify-content:space-between;gap:var(--sp-5)}
+@media (min-width:900px){
+  .quote{min-height:35rem}
+  .quote__img{grid-column:1/span 6;aspect-ratio:auto}
+  .quote__field{grid-column:7/span 6;margin-left:calc(-1 * var(--gutter))}
+}
+.quote__pill{align-self:flex-start;border:1px solid currentColor;border-radius:2.5rem;padding:.375rem 1rem;font-family:var(--font-ui);font-size:var(--fs-small);line-height:1.3;letter-spacing:.01em}
+.quote__text{font-family:var(--font-ui);font-weight:400;font-size:clamp(1.875rem, 3vw, 3rem);line-height:1.1;letter-spacing:-.02em;color:inherit}
+.quote__foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:var(--sp-3)}
+.quote__who{display:block;font-family:var(--font-ui);font-size:var(--fs-ui);line-height:1.4}
+.quote__ctx{display:block;margin-top:2px;font-family:var(--font-ui);font-size:var(--fs-small);line-height:1.45;color:var(--quote-mute)}
+/* Pfeil im Kästchen – nur hier, als Einstieg ins Projekt */
+.quote__link{display:inline-flex;align-items:center;gap:var(--sp-2);font-family:var(--font-ui);font-size:var(--fs-ui);letter-spacing:.01em;white-space:nowrap}
+.quote__link>span[aria-hidden]{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid currentColor;transition:background .25s var(--ease),color .25s var(--ease)}
+.quote__link:hover>span[aria-hidden]{background:var(--quote-ink);color:var(--quote-bg)}
+.quote__link:focus-visible{outline-color:var(--quote-ink)}
 
 /* Bildplatzhalter / Porträt folgt */
 .ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-2);background:var(--shade);color:var(--mute);aspect-ratio:3/4}

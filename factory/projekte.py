@@ -6,7 +6,7 @@
   danach wie gewohnt: python3 factory/build.py
 
 Vorlage ist die von Hand gebaute FLZ-Seite (projekt-flz-neuer-bau-ulm, "generate": false):
-Titelbild · Hero mit Kennwerten · Galerie · Kapitel · Stimme · Pläne · Projektdaten ·
+Titelbild · Hero mit Kennwerten · Galerie · Kapitel · Stimme (Zitat im Split mit Projektbild) · Pläne · Projektdaten ·
 Kontakt · Verwandt. Alle Projektseiten teilen pages/projekt.css.
 
 Galerie im Raster (Spalten 3–12, links die mitlaufende Seitenspalte):
@@ -171,15 +171,17 @@ def chapter(label, ch, rule):
             f'      <div class="stack s-8 o-3">\n{stmt}{blocks_html(ch["blocks"])}\n      </div>\n    </div>\n  </section>')
 
 
-def stimme(org):
+def stimme(org, pic):
+    """Zitat im Split: Projektbild links, Farbfeld rechts (.quote in site.css)"""
     src = (t(org) + '. ' if org and org != 'Privat' else '') + '<i>Kurze Einordnung des Zitats ergänzen.</i>'
-    return ('  <!-- STIMME -->\n  <section class="band band--dark">\n    <div class="wrap grid rv">\n'
-            '      <p class="t-label prj-rail s-2">Stimme</p>\n'
-            f'      <div class="s-2 o-3"><div class="ph">{PERSON.format(w="1.2", f=NOFOCUS)}<span>Porträt folgt</span></div></div>\n'
-            '      <figure class="s-7 o-6">\n'
-            '        <blockquote class="quote"><i>„Platzhalter — ein bis zwei Sätze des Bauherrn oder der Projektleitung.“</i></blockquote>\n'
-            f'        <figcaption class="quote__src"><span class="quote__who"><i>Name, Funktion ergänzen</i></span><span>{src}</span></figcaption>\n'
-            '      </figure>\n    </div>\n  </section>')
+    return ('  <!-- STIMME -->\n  <section class="wrap band">\n    <div class="quote rv">\n'
+            f'      <div class="quote__img">{pic.img()}</div>\n'
+            '      <div class="quote__field">\n'
+            '        <p class="quote__pill">Stimme</p>\n'
+            '        <blockquote class="quote__text"><p><i>„Platzhalter — ein bis zwei Sätze des Bauherrn oder der Projektleitung.“</i></p></blockquote>\n'
+            '        <div class="quote__foot">\n'
+            f'          <p><span class="quote__who"><i>Name, Funktion ergänzen</i></span><span class="quote__ctx">{src}</span></p>\n'
+            '        </div>\n      </div>\n    </div>\n  </section>')
 
 
 def projektdaten(p, rule):
@@ -237,6 +239,9 @@ def page(p, by):
     pics = [Pic(p, it, n) for n, it in enumerate(p['images'], 2)]
     photos, drawings = [x for x in pics if not x.plan], [x for x in pics if x.plan]
     cover = Pic(p, {'f': p['cover']}, 1)
+    # Bild im Zitat: "stimme_bild" (Dateiname) oder das letzte Foto der Galerie
+    quote_pic = next((x for x in photos if x.src.endswith('/' + p['stimme_bild'])), None) if p.get('stimme_bild') else None
+    quote_pic = quote_pic or (photos[-1] if photos else cover)
     desc = (p['sub'] if p.get('sub') else f"{p['title']}, {facts.get('Standort', '')}") + '. Ein Projekt von hochstrasser., Architekturbüro in Ulm.'
     meta = {'title': p['title'], 'description': desc, 'nav': 'projekte', 'css': ['pages/projekt.css']}
     sub = f'\n        <p class="t-lead hero__sub">{t(p["sub"])}</p>' if p.get('sub') else ''
@@ -286,7 +291,7 @@ def page(p, by):
         elif s[0] == 'ch':
             parts.append(chapter(s[1], s[2], rule))
         elif s[0] == 'stimme':
-            parts.append(stimme(org))
+            parts.append(stimme(org, quote_pic))
         elif s[0] == 'daten':
             parts.append(projektdaten(p, rule))
         elif s[0] == 'kontakt':
