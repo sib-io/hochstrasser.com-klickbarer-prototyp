@@ -88,3 +88,6 @@
 .idx-face:hover{background:var(--rule);box-shadow:inset 0 0 0 1px var(--ink)}
 .idx-face img{width:100%;height:100%;object-fit:cover}
 .idx-crew-foot{margin-top:var(--sp-4)}
+
+/* Zitat: Bildausschnitt auf Strohwand und Fensterfront */
+.idx-quote .quote__img>img{object-position:30% 50%}
