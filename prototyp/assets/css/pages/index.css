@@ -52,10 +52,9 @@
 .idx-feed .is-lead .idx-feed__desc>p{padding-top:var(--sp-2)}
 @media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}}
 
-/* Leistungsband: Aussage über die volle Breite, darunter Fließtext (ab 900 zwei Spalten 6 | 6),
+/* Leistungsband (kleinere Sektion, enge Abstände): Aussage über die volle Breite, darunter Fließtext (ab 900 zwei Spalten 6 | 6),
    darunter die Begriffe; ab 900 in drei Spalten (je 4) mit je zwei Begriffen untereinander */
-.idx-svc{row-gap:var(--sp-5)}
-.idx-svc>.idx-svc__terms{margin-top:var(--sp-3)}
+.idx-svc{row-gap:var(--sp-4)}
 @media (min-width:900px){
   .idx-svc__text{max-width:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
   .idx-svc__text>p{grid-column:span 6;max-width:66ch;margin-top:0}
@@ -66,7 +65,7 @@
 .idx-terms{border-top-color:var(--rule-tint)} /* obere Linie so fein wie die Trennlinien darunter */
 .idx-terms a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--sp-3);align-items:center}
 .idx-terms>li{padding-block:0;border-bottom-color:var(--rule-tint)}
-.idx-terms>li>a{padding-block:var(--sp-3)}
+.idx-terms>li>a{padding-block:var(--sp-2)}
 .idx-term{display:grid;row-gap:var(--sp-1)}
 .idx-term__sub{font-size:var(--fs-small);color:var(--mute);transition:color .3s var(--ease)}
 .idx-terms a:hover .idx-term__sub,.idx-terms a:focus-visible .idx-term__sub{color:var(--ink)}
