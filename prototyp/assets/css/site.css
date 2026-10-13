@@ -352,7 +352,8 @@ a.ext,a.ext-in{-webkit-text-stroke:.01em currentColor}
 /* Zitat: Projektbild und Farbfeld im Split (Startseite, Projektseiten).
    Ab 900 px Bild Spalte 1–6, Farbfeld 7–12; das Feld schließt die Gutter-Fuge zum Bild.
    Darunter gestapelt: Bild (4:3) über dem Feld. Die Farbe kann aus dem Projekt kommen
-   (--quote-bg/-ink/-mute je Zitat überschreiben), Standard ist Stroh. */
+   (--quote-bg/-ink/-mute je Zitat überschreiben), Standard ist Stroh.
+   Die Sektion trägt kein eigenes .band: Abstand nach oben/unten kommt nur aus den Nachbarbändern. */
 .quote{--quote-bg:var(--stroh);--quote-ink:var(--stroh-ink);--quote-mute:var(--stroh-mute);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
 .quote>*{grid-column:1/-1;min-width:0}
 .quote__img{position:relative;overflow:hidden;background:var(--shade);aspect-ratio:4/3}
