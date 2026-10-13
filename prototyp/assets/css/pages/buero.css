@@ -1,15 +1,18 @@
 /* Büro — Claim, Bildband, Team, Lebenslauf, Anschluss, Leitbild, Auszeichnungen, Anfahrt */
 
 .buero-claim{max-width:none}
-/* Claim + Lead links, Dreiklang ab 1200 in der Seitenspalte 10–12, mittig zum linken Block;
-   darunter folgt er dem Lead (wie das Leistungsband der Startseite) */
-@media (min-width:1200px){
-  .buero-intro>.buero-claim{grid-column:1/span 9}
-  .buero-intro>.buero-tri{grid-column:10/span 3;grid-row:1/span 2;align-self:center}
-}
-/* Dreiklang in der Optik der Begriffsliste der Startseite (.idx-terms) */
-.buero-tri>li{display:grid;row-gap:var(--sp-1)}
+
+/* Dreiklang unter dem Bildband (wie Entwurf 05a): drei volle Zeilen mit Haarlinie,
+   das große Wort links, der Satz ab Spalte 6 auf derselben Grundlinie */
+.buero-tri-sec{padding-top:var(--band-s)}
+.buero-tri>li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:baseline;border-top:1px solid var(--ink);padding-block:var(--sp-2) var(--sp-3)}
+.buero-tri>li>*{grid-column:1/-1;min-width:0}
+.buero-tri__term{font-family:var(--font-ui);font-weight:400;font-size:clamp(1.625rem, 1rem + 2.2vw, 2.75rem);line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
 .buero-tri__sub{font-size:var(--fs-small);color:var(--mute)}
+@media (min-width:760px){
+  .buero-tri>li>.buero-tri__term{grid-column:1/span 5}
+  .buero-tri>li>.buero-tri__sub{grid-column:6/span 6}
+}
 
 /* Bildband: vollflächig, farbig, Höhe und Ausschnitt wie im Entwurf 05b (38 vw, 300–600 px).
    Abstand zum Hero wie auf Projekte: Hero-Abstand + ein Band */
