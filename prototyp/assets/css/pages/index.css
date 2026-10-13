@@ -75,7 +75,7 @@
 
 /* Projekte: Bildunterschrift beim Überfahren durchscheinender als im Standard (.94) */
 .idx-more{margin-top:var(--sp-6)}
-@media (hover:hover){#projekte .tile__cap{background:rgba(255,255,255,.78)}}
+@media (hover:hover){#projekte .tile__cap{background:rgba(255,255,255,.6)}}
 
 /* Profil: Wortmarke, Subline, Team-Raster – linksbündig */
 /* Wortmarke so groß wie im Footer */
