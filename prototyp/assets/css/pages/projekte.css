@@ -2,15 +2,17 @@
    Alles Weitere (Hero, Band, Kacheln, Buttons) kommt aus site.css. */
 
 /* Bildfeld: ein Projektbild, von zwei Fugen in neun Felder geteilt,
-   drei Felder sind gegen andere Projekte getauscht. */
-.pj-mosaic{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--shade)}
+   drei Felder sind gegen andere Projekte getauscht (wechseln per projekte.js). */
+.pj-mosaic{position:relative;aspect-ratio:5/4;overflow:hidden;background:var(--shade)}
 .pj-mosaic img{position:absolute;object-fit:cover;display:block}
 .pj-mosaic__base{inset:0;width:100%;height:100%}
 .pj-mosaic__in{
   width:calc(100% / 3);height:calc(100% / 3);
   left:calc((var(--c) - 1) * 100% / 3);top:calc((var(--r) - 1) * 100% / 3);
-  z-index:1;
+  z-index:1;transition:opacity .5s var(--ease);
 }
+.pj-mosaic__in.is-off{opacity:0}
+@media (prefers-reduced-motion:reduce){.pj-mosaic__in{transition:none}}
 .pj-mosaic i{position:absolute;background:var(--paper);z-index:2}
 .pj-mosaic i.v{top:0;bottom:0;width:3px;left:calc(var(--p) * 100% / 3 - 1.5px)}
 .pj-mosaic i.h{left:0;right:0;height:3px;top:calc(var(--p) * 100% / 3 - 1.5px)}

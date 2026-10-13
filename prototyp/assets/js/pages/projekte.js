@@ -234,3 +234,56 @@ Musikpavillon|2002|beleben|realisiert|oeffentlich|0
   }
   apply();
 })();
+
+/* Projekte — Bildfeld im Hero: jede Sekunde kehrt das älteste getauschte Feld
+   zum Grundbild zurück, dafür erscheint ein anderer Ausschnitt in einem freien Feld */
+(function () {
+  var box = document.getElementById('mosaic');
+  if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var DIR = 'assets/img/projekte-hero/';
+  var PARTS = [
+    ['teil-glas-treppenhaus', 'Treppenhaus mit Glasfassade'],
+    ['teil-holz-galerie', 'Galerie mit Holzeinbauten'],
+    ['teil-gold-gewoelbe', 'Goldene Wandpaneele unter Gewölbe'],
+    ['teil-windsack-beton', 'Sichtbetonbau mit Windsack auf dem Dach'],
+    ['teil-alu-fassade', 'Bürobau mit Aluminiumfassade und Funkturm'],
+    ['teil-holzlamellen', 'Holzlamellen vor Himmel'],
+    ['teil-rampe-ringe', 'Parkhausrampe mit Lichtringen']
+  ];
+  var CELLS = [];
+  for (var r = 1; r <= 3; r++) for (var c = 1; c <= 3; c++) CELLS.push(r + ';' + c);
+  var cellOf = function (img) { return img.style.getPropertyValue('--r') + ';' + img.style.getPropertyValue('--c'); };
+  var queue = Array.prototype.slice.call(box.querySelectorAll('.pj-mosaic__in'));
+  var gone = [];   /* zuletzt ausgeblendete Teile, kommen nicht gleich wieder */
+  var lines = box.querySelector('i');
+
+  /* alle Teile vorladen, damit der Wechsel nicht auf das Netz wartet */
+  PARTS.forEach(function (p) { new Image().src = DIR + p[0] + '.jpg'; });
+
+  function next() {
+    var old = queue.shift();
+    gone = [old.getAttribute('src')].concat(gone).slice(0, 2);
+    var srcs = queue.map(function (i) { return i.getAttribute('src'); }).concat(gone);
+    var cells = queue.concat(old).map(cellOf);
+    var parts = PARTS.filter(function (p) { return srcs.indexOf(DIR + p[0] + '.jpg') < 0; });
+    var free = CELLS.filter(function (k) { return cells.indexOf(k) < 0; });
+    var pick = parts[Math.floor(Math.random() * parts.length)];
+    var at = free[Math.floor(Math.random() * free.length)].split(';');
+
+    old.classList.add('is-off');
+    setTimeout(function () { old.remove(); }, 600);
+
+    var img = new Image();
+    img.className = 'pj-mosaic__in is-off';
+    img.alt = pick[1];
+    img.style.setProperty('--r', at[0]);
+    img.style.setProperty('--c', at[1]);
+    img.onload = function () {
+      box.insertBefore(img, lines);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { img.classList.remove('is-off'); }); });
+    };
+    img.src = DIR + pick[0] + '.jpg';
+    queue.push(img);
+  }
+  setInterval(function () { if (!document.hidden) next(); }, 1000);
+})();
