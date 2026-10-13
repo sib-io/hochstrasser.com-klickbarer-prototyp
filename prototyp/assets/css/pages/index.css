@@ -52,15 +52,16 @@
 .idx-feed .is-lead .idx-feed__desc>p{padding-top:var(--sp-2)}
 @media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}}
 
-/* Leistungsband: bis 1199 Aussage, darunter Liste (6 Spalten);
-   ab 1200 nebeneinander: Aussage 6 | 1 frei | Liste 5 (Spalten 8–12), breit genug für einzeilige Begriffe;
-   der Fließtext darunter nur 5 Spalten breit */
-.idx-svc{row-gap:var(--sp-6)}
-@media (min-width:1200px){
-  .idx-svc{align-items:center}
-  .idx-svc>.idx-svc__say{grid-column:1/span 6;grid-row:1}
-  .idx-svc__say .prose{max-width:calc(5 * var(--col) + 4 * var(--gutter))}
-  .idx-svc>.idx-svc__list{grid-column:8/span 5;grid-row:1}
+/* Leistungsband: Aussage über die volle Breite, darunter Fließtext (ab 900 zwei Spalten 6 | 6),
+   darunter die Begriffe; ab 900 in drei Spalten (je 4) mit je zwei Begriffen untereinander */
+.idx-svc{row-gap:var(--sp-5)}
+.idx-svc>.idx-svc__terms{margin-top:var(--sp-3)}
+@media (min-width:900px){
+  .idx-svc__text{max-width:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
+  .idx-svc__text>p{grid-column:span 6;max-width:66ch;margin-top:0}
+  .idx-terms{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(2,auto);grid-auto-flow:column;column-gap:var(--gutter);border-top:0}
+  .idx-terms>li{grid-column:span 4}
+  .idx-terms>li:nth-child(odd){border-top:1px solid var(--rule-tint)}
 }
 .idx-terms{border-top-color:var(--rule-tint)} /* obere Linie so fein wie die Trennlinien darunter */
 .idx-terms a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--sp-3);align-items:center}
@@ -73,11 +74,13 @@
 .idx-terms a:hover .idx-term__go,.idx-terms a:focus-visible .idx-term__go{opacity:1;transform:none;color:var(--ink)}
 @media (hover:none){.idx-term__go{opacity:.5;transform:none}}
 
-/* Projekte */
+/* Projekte: Bildunterschrift beim Überfahren durchscheinender als im Standard (.94) */
 .idx-more{margin-top:var(--sp-6)}
+@media (hover:hover){#projekte .tile__cap{background:rgba(255,255,255,.78)}}
 
 /* Profil: Wortmarke, Subline, Team-Raster – linksbündig */
-.idx-mark{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-display);line-height:1;letter-spacing:-.03em;color:var(--ink)}
+/* Wortmarke so groß wie im Footer */
+.idx-mark{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h2);line-height:1;letter-spacing:-.02em;color:var(--ink)}
 /* Team-Raster: 12 Spalten mit feiner Fuge (--sp-1); Außenkanten = Inhaltsbreite,
    wirkt als eine Fläche statt als zerfasertes Raster. Unter 900 px 6 Spalten */
 .idx-crew{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-3)}
