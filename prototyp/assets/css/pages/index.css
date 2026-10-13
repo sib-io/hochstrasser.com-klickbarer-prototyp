@@ -7,30 +7,30 @@
 .idx-hero-link{justify-self:start}
 @media (min-width:900px){.idx-hero-link{justify-self:end}}
 
-/* Aktuelles: Bild + Pfeil */
+/* Aktuelles: Bild (fest 16:10) + Pfeile hoch/runter */
 .idx-news-media{position:relative}
 .idx-news-media .media>img{transition:opacity .35s var(--ease)}
 .idx-news-media.is-swapping .media>img{opacity:0}
-.idx-news-next{position:absolute;right:0;bottom:0;display:inline-flex;align-items:center;justify-content:center;width:var(--sp-6);height:var(--sp-6);background:var(--paper);color:var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
-.idx-news-next:hover{background:var(--ink);color:var(--paper)}
-.idx-news-next svg{width:1.5rem;height:1.5rem}
-/* ab 1200: Bild 8 | 1 frei | Meldungen 3 (Seitenspalte 10–12), um einen Gutter nach links
-   verbreitert (beginnt an der rechten Kante von Spalte 9); der Pfeil sitzt mittig
-   auf der Bildkante und ragt in die freie Spalte */
-@media (min-width:1200px){
-  .grid>.idx-news-side{grid-column:10/span 3;margin-left:calc(-1 * var(--gutter))}
-  .idx-news-next{top:50%;bottom:auto;transform:translate(50%,-50%);border:1px solid var(--ink)}
+.idx-news-nav{position:absolute;right:0;bottom:0;display:flex} /* unter 1200 nebeneinander in der Ecke, ab 1200 übereinander */
+.idx-news-btn{display:inline-flex;align-items:center;justify-content:center;width:var(--sp-5);height:var(--sp-5);background:var(--paper);color:var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
+.idx-news-btn+.idx-news-btn{border-left:1px solid var(--rule)}
+.idx-news-btn:hover{background:var(--ink);color:var(--paper)}
+.idx-news-btn svg{width:1.5rem;height:1.5rem}
+/* unter 1200: Bild und Meldungen untereinander über die volle Breite
+   (daneben reicht die Bildhöhe nicht für die Liste) */
+@media (min-width:900px) and (max-width:1199px){
+  .grid>.idx-news-media,.grid>.idx-news-side{grid-column:1/-1}
 }
-
-/* Bild und Meldungen enden auf gleicher Höhe (nebeneinander ab 900): beide füllen die Rasterzeile;
-   ist die Liste kürzer als das 16:10-Bild, nimmt die aktive Meldung den Rest auf, ist sie länger,
-   wächst das Bild mit (Zuschnitt per object-fit) */
-@media (min-width:900px){
-  .idx-news-media,.idx-news-side{align-self:stretch;display:flex;flex-direction:column}
-  .idx-news-media .media{flex:1 0 auto}
-  .idx-news-media .media>img{position:absolute;inset:0}
-  .idx-feed{flex:1 0 auto;display:flex;flex-direction:column}
-  .idx-feed>.is-lead{flex-grow:1}
+/* ab 1200: Bild 8 | 1 frei | Meldungen 3 (Seitenspalte 10–12), um einen Gutter nach links
+   verbreitert (beginnt an der rechten Kante von Spalte 9); die Pfeile sitzen mittig
+   auf der Bildkante und ragen in die freie Spalte.
+   Das Bild behält immer 16:10; die Liste nimmt genau die Bildhöhe ein (obere und untere Linie
+   schließen mit der Bildkante ab), siehe unten bei der Meldungsliste */
+@media (min-width:1200px){
+  .grid>.idx-news-side{grid-column:10/span 3;margin-left:calc(-1 * var(--gutter));align-self:stretch;position:relative}
+  .idx-news-nav{top:50%;bottom:auto;flex-direction:column;transform:translate(50%,-50%)}
+  .idx-news-btn{width:var(--sp-6);height:var(--sp-6);border:1px solid var(--ink)}
+  .idx-news-btn+.idx-news-btn{margin-top:-1px;border-left-color:var(--ink)}
 }
 
 /* Meldungsliste: Kategorie + Jahr rechtsbündig als Meta-Zeile über dem Titel, Titel über die volle Spaltenbreite;
@@ -51,6 +51,19 @@
 .idx-feed .is-lead .idx-feed__desc{grid-row:3;grid-template-rows:1fr;opacity:1}
 .idx-feed .is-lead .idx-feed__desc>p{padding-top:var(--sp-2)}
 @media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}}
+/* ab 1200 neben dem Bild: die Liste ist genau so hoch wie das Bild, die aktive Meldung füllt den Rest.
+   Übrige Titel höchstens zweizeilig; passt die aktive Meldung nicht, setzt index.js je Meldung
+   eine kleinere Titelgröße (--lead-fs) und kürzt den Teaser (--desc-lines, .no-desc) */
+@media (min-width:1200px){
+  .idx-feed{position:absolute;inset:0;display:flex;flex-direction:column;overflow:hidden}
+  .idx-feed>li{flex:none}
+  .idx-feed>.is-lead{flex-grow:1}
+  .idx-feed>li:not(.is-lead) .idx-feed__title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .idx-feed .is-lead .idx-feed__title{font-size:var(--lead-fs,var(--fs-h3))}
+  .idx-feed .is-lead .idx-feed__desc>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--desc-lines,99)}
+  .idx-feed .is-lead.no-desc .idx-feed__desc{display:none}
+  .idx-feed.is-fitting,.idx-feed.is-fitting *{transition:none!important}
+}
 
 /* Leistungsband (kleinere Sektion, enge Abstände): Aussage über die volle Breite, darunter Fließtext (ab 900 zwei Spalten 6 | 6),
    darunter die Begriffe; ab 900 in drei Spalten (je 4) mit je zwei Begriffen untereinander */
