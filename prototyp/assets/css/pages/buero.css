@@ -15,8 +15,8 @@
 }
 
 /* Bildband: vollflächig, farbig, Höhe und Ausschnitt wie im Entwurf 05b (38 vw, 300–600 px).
-   Abstand zum Hero: nur der Hero-Abstand */
-.buero-band{background:var(--shade)}
+   Abstand zum Hero: Hero-Abstand + 48 px */
+.buero-band{margin-top:var(--sp-5);background:var(--shade)}
 .buero-band img{display:block;width:100%;height:clamp(300px, 38vw, 600px);object-fit:cover;object-position:center 46%}
 
 /* Team */
