@@ -28,9 +28,9 @@
 }
 .xp-foot{margin-top:var(--sp-8)}
 
-/* Beleg im dunklen Band */
+/* Beleg im getönten Band */
 .xp-pfs{margin-top:var(--sp-7)}
-.xp-pf{padding-top:var(--sp-3);border-top:1px solid var(--on-dark-rule)}
+.xp-pf{padding-top:var(--sp-3);border-top:1px solid var(--rule-tint)}
 .xp-pf p{margin-top:var(--sp-2);max-width:56ch}
 
 /* Zuordnung: wechselndes Quadratbild (farbig) + zweizeilige Überschrift */
