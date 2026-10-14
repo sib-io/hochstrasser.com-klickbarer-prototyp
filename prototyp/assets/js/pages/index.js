@@ -41,7 +41,7 @@
     }).join('');
   }
 
-  /* Aktuelles: feste Reihenfolge; Klick auf den Pfeil schaltet Bild und Meldung weiter */
+  /* Aktuelles: feste Reihenfolge; die Pfeile schalten Bild und Meldung vor und zurück */
   var PH = 'Platzhalter – Bild zur Meldung folgt';
   var NEWS = [
     { img: IMG.a, alt: 'Das sanierte ehemalige Kriegsspital in Neu-Ulm mit Backsteinfassade', href: 'projekt-kriegsspital-neu-ulm.html',
@@ -60,10 +60,12 @@
   var media = document.getElementById('newsMedia');
   var img = document.getElementById('nImg');
   var feed = document.getElementById('newsFeed');
+  var prev = document.getElementById('newsPrev');
   var next = document.getElementById('newsNext');
-  if (feed && img && next) {
+  if (feed && img && prev && next) {
     var idx = 0;
     var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var side = window.matchMedia('(min-width: 1200px)');
     feed.innerHTML = NEWS.map(function (n, i) {
       return '<li' + (i === 0 ? ' class="is-lead" aria-current="true"' : '') + '><a href="' + (n.href || '#') + '">' +
         '<span class="idx-feed__title t-h4">' + n.title + '</span> ' +
@@ -72,20 +74,81 @@
         '<span class="idx-feed__desc"><p>' + n.desc + '</p></span></a></li>';
     }).join('');
     var items = Array.prototype.slice.call(feed.children);
+    var lead = function (i) {
+      items.forEach(function (li, k) { li.classList.toggle('is-lead', k === i); });
+    };
+
+    /* ab 1200 ist die Liste so hoch wie das Bild: je Meldung Titelgröße (in 1px-Schritten
+       bis 75 %) und Teaserzeilen suchen, mit denen sie als aktive Meldung hineinpasst –
+       vorrangig mit vollem Teaser, sonst gekürzt, sonst ohne; jeweils mit dem größten Titel.
+       Gemessen wird synchron ohne Übergänge, danach ist wieder die aktuelle Meldung aktiv */
+    var fits = function () { return feed.scrollHeight <= feed.clientHeight; };
+    var set = function (li, fs, lines) {
+      li.style.setProperty('--lead-fs', fs + 'px');
+      if (lines > 0 && lines < 99) li.style.setProperty('--desc-lines', lines);
+      else li.style.removeProperty('--desc-lines');
+      li.classList.toggle('no-desc', lines === 0);
+    };
+    var fit = function () {
+      items.forEach(function (li) {
+        li.style.removeProperty('--lead-fs');
+        li.style.removeProperty('--desc-lines');
+        li.classList.remove('no-desc');
+      });
+      if (!side.matches) return;
+      feed.classList.add('is-fitting');
+      items.forEach(function (li, i) {
+        lead(i);
+        if (fits()) return;
+        var title = li.querySelector('.idx-feed__title');
+        var p = li.querySelector('.idx-feed__desc>p');
+        var max = Math.floor(parseFloat(getComputedStyle(title).fontSize));
+        var lh = parseFloat(getComputedStyle(p).lineHeight);
+        var all = Math.round((p.scrollHeight - parseFloat(getComputedStyle(p).paddingTop)) / lh);
+        var full, cut, none;
+        for (var fs = max; fs >= Math.ceil(max * 0.75) && !full; fs--) {
+          for (var lines = all; lines >= 0; lines--) {
+            set(li, fs, lines === all ? 99 : lines);
+            if (fits()) break;
+          }
+          if (lines === all) full = [fs, 99];
+          else if (lines > 0 && !cut) cut = [fs, lines];
+          else if (lines === 0 && !none) none = [fs, 0];
+        }
+        var pick = full || cut || none || [Math.ceil(max * 0.75), 0];
+        set(li, pick[0], pick[1]);
+      });
+      lead(idx);
+      void feed.offsetHeight;
+      feed.classList.remove('is-fitting');
+    };
+    var queued = 0;
+    var refit = function () {
+      if (queued) return;
+      queued = requestAnimationFrame(function () { queued = 0; fit(); });
+    };
+    fit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
+    window.addEventListener('resize', refit);
+
     window.addEventListener('load', function () {
+      refit();
       NEWS.slice(1).forEach(function (n) { new Image().src = n.img; });
     });
-    next.addEventListener('click', function () {
-      items[idx].classList.remove('is-lead');
+
+    /* Pfeil runter: nächste Meldung, Pfeil hoch: vorherige (jeweils im Kreis) */
+    var show = function (step) {
       items[idx].removeAttribute('aria-current');
-      idx = (idx + 1) % NEWS.length;
-      items[idx].classList.add('is-lead');
+      idx = (idx + step + NEWS.length) % NEWS.length;
+      lead(idx);
       items[idx].setAttribute('aria-current', 'true');
       var n = NEWS[idx];
       var paint = function () { img.src = n.img; img.alt = n.alt; };
       if (still.matches) { paint(); return; }
       media.classList.add('is-swapping');
       setTimeout(function () { paint(); media.classList.remove('is-swapping'); }, 340);
-    });
+    };
+    prev.addEventListener('click', function () { show(-1); });
+    next.addEventListener('click', function () { show(1); });
   }
 })();
