@@ -65,12 +65,10 @@
   .idx-feed.is-fitting,.idx-feed.is-fitting *{transition:none!important}
 }
 
-/* Leistungsband (kleinere Sektion, enge Abstände): Aussage über die volle Breite, darunter Fließtext (ab 900 zwei Spalten 6 | 6),
+/* Leistungsband (kleinere Sektion, enge Abstände): Fließtext (zwei Absätze untereinander),
    darunter die Begriffe; ab 900 in drei Spalten (je 4) mit je zwei Begriffen untereinander */
 .idx-svc{row-gap:var(--sp-4)}
 @media (min-width:900px){
-  .idx-svc__text{max-width:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
-  .idx-svc__text>p{grid-column:span 6;max-width:66ch;margin-top:0}
   .idx-terms{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(2,auto);grid-auto-flow:column;column-gap:var(--gutter);border-top:0}
   .idx-terms>li{grid-column:span 4}
   .idx-terms>li:nth-child(odd){border-top:1px solid var(--rule-tint)}
