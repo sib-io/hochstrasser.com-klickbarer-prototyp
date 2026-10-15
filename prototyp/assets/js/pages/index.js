@@ -9,23 +9,24 @@
     f: 'assets/img/wp/jobs-e1530280090729.jpg'
   };
   var P = [
-    { t: 'Wohnbebauung Neu-Ulm', y: 2024, aw: 0, i: 'b' },
-    { t: 'Kriegsspital Neu-Ulm', y: 2024, aw: 0, i: 'a' },
-    { t: 'BA3 Baubetriebshof der Stadt Ulm', y: 2024, aw: 0, i: 'c' },
-    { t: 'Wohnbebauung Laichingen', y: 2024, aw: 0, i: 'e' },
-    { t: 'Fassadenvarianten Wärmespeicher HKW', y: 2023, aw: 0, i: 'c' },
-    { t: 'Rechenzentrum SWU', y: 2023, aw: 0, i: 'f' },
-    { t: 'Erweiterung WITec', y: 2023, aw: 0, i: 'e' },
+    { t: 'Zentrum für Gestaltung HFG Ulm', y: 2011, aw: 0, i: 'a' },
+    { t: 'Parkhaus am Rathaus', y: 2009, aw: 1, i: 'c' },
+    { t: 'Bootshaus Ulm', y: 2013, aw: 0, i: 'e' },
+    { t: 'FLZ im „Neuen Bau“ Ulm', y: 2017, aw: 0, i: 'b' },
     { t: 'Friesenhofen – An der Sägemühle', y: 2023, aw: 0, i: 'b' },
-    { t: 'WBW ehemaliges Kriegsspital', y: 2023, aw: 0, i: 'a' },
+    { t: 'K5', y: 2016, aw: 1, i: 'd' },
+    { t: 'BA3 Baubetriebshof der Stadt Ulm', y: 2024, aw: 0, i: 'c' },
+    { t: 'Sanierung VH Ulm', y: 2013, aw: 1, i: 'f' },
     { t: 'Haus MK', y: 2023, aw: 0, i: 'd' },
-    { t: 'WBW Betreuungs- und Verpflegungsgebäude', y: 2023, aw: 0, i: 'f' },
-    { t: 'Strohballenatelier', y: 2022, aw: 1, i: 'e' },
+    { t: 'Infopunkt Citybahnhof', y: 2005, aw: 0, i: 'b' },
     { t: 'Hubschrauberdachlandeplatz BWK', y: 2022, aw: 0, i: 'c' },
-    { t: 'WBW Wohnbebauung Weißenhorn', y: 2022, aw: 0, i: 'b' },
-    { t: 'Haus S4', y: 2022, aw: 0, i: 'd' },
+    { t: 'Strohballenatelier', y: 2022, aw: 1, i: 'e' },
+    { t: 'Wohnbebauung Lettenwald', y: 2010, aw: 0, i: 'a' },
+    { t: 'Kriegsspital Neu-Ulm', y: 2024, aw: 0, i: 'a' },
+    { t: 'Gesundheitsbox', y: 2002, aw: 0, i: 'd' },
     { t: 'Parkhaus am Bahnhof und Fußgängerpassage', y: 2022, aw: 0, i: 'f' }
   ];
+
   /* Projekte mit eigener Detailseite (projektseiten.js) bekommen Link und Kachelbild,
      alle übrigen führen auf die Beispielseite FLZ */
   var PS = window.PROJEKTSEITEN || {};
