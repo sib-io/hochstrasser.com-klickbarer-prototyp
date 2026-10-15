@@ -8,24 +8,28 @@
     e: 'assets/img/wp/14_landscape-1.jpg',
     f: 'assets/img/wp/jobs-e1530280090729.jpg'
   };
+  /* Reihenfolge und Auswahl festgelegt; img = Kachelbild der Live-Seite,
+     Projekte mit Detailseite holen Link und Bild aus projektseiten.js */
   var P = [
-    { t: 'Wohnbebauung Neu-Ulm', y: 2024, aw: 0, i: 'b' },
-    { t: 'Kriegsspital Neu-Ulm', y: 2024, aw: 0, i: 'a' },
-    { t: 'BA3 Baubetriebshof der Stadt Ulm', y: 2024, aw: 0, i: 'c' },
-    { t: 'Wohnbebauung Laichingen', y: 2024, aw: 0, i: 'e' },
-    { t: 'Fassadenvarianten Wärmespeicher HKW', y: 2023, aw: 0, i: 'c' },
-    { t: 'Rechenzentrum SWU', y: 2023, aw: 0, i: 'f' },
-    { t: 'Erweiterung WITec', y: 2023, aw: 0, i: 'e' },
-    { t: 'Friesenhofen – An der Sägemühle', y: 2023, aw: 0, i: 'b' },
-    { t: 'WBW ehemaliges Kriegsspital', y: 2023, aw: 0, i: 'a' },
-    { t: 'Haus MK', y: 2023, aw: 0, i: 'd' },
-    { t: 'WBW Betreuungs- und Verpflegungsgebäude', y: 2023, aw: 0, i: 'f' },
-    { t: 'Strohballenatelier', y: 2022, aw: 1, i: 'e' },
-    { t: 'Hubschrauberdachlandeplatz BWK', y: 2022, aw: 0, i: 'c' },
-    { t: 'WBW Wohnbebauung Weißenhorn', y: 2022, aw: 0, i: 'b' },
-    { t: 'Haus S4', y: 2022, aw: 0, i: 'd' },
-    { t: 'Parkhaus am Bahnhof und Fußgängerpassage', y: 2022, aw: 0, i: 'f' }
+    { t: 'Zentrum für Gestaltung HFG Ulm', y: 2011, aw: 0, img: 'assets/img/hfg-ulm/01_2_squared.jpg' },
+    { t: 'Parkhaus am Rathaus', y: 2009, aw: 1, img: 'assets/img/parkhaus-am-rathaus/01_square_500x500_acf_cropped.jpg' },
+    { t: 'Bootshaus Ulm', y: 2013, aw: 0, img: 'assets/img/bootshaus-ulm/01_2_squared-2_500x500_acf_cropped.jpg' },
+    { t: 'FLZ im „Neuen Bau“ Ulm', y: 2017, aw: 0 },
+    { t: 'Friesenhofen – An der Sägemühle', y: 2023, aw: 0 },
+    { t: 'K5', y: 2016, aw: 1, img: 'assets/img/k5/01_squared_500x500_acf_cropped-2.jpg' },
+    { t: 'BA3 Baubetriebshof der Stadt Ulm', y: 2024, aw: 0 },
+    { t: 'Sanierung VH Ulm', y: 2013, aw: 1, img: 'assets/img/sanierung-vh-ulm/01_2_squared.jpg' },
+    { t: 'Haus MK', y: 2023, aw: 0 },
+    { t: 'Infopunkt Citybahnhof', y: 2005, aw: 0, img: 'assets/img/infopunkt-citybahnhof/01_2_squared-3_500x500_acf_cropped.jpg' },
+    { t: 'Hubschrauberdachlandeplatz BWK', y: 2022, aw: 0, img: 'assets/img/hubschrauberdachlandeplatz-bwk/624_square_Plattform-1_500x500_acf_cropped.jpg' },
+    { t: 'Strohballenatelier', y: 2022, aw: 1, img: 'assets/img/strohballenatelier/864_square_aussen_500x500_acf_cropped.jpg' },
+    { t: 'Wohnbebauung Lettenwald', y: 2010, aw: 0, img: 'assets/img/wohnbebauung-lettenwald/01_squared.jpg' },
+    { t: 'Kriegsspital Neu-Ulm', y: 2024, aw: 0 },
+    { t: 'Gesundheitsbox', y: 2002, aw: 0, img: 'assets/img/gesundheitsbox/01_2_squared-1_500x500_acf_cropped-5.jpg' },
+    { t: 'Parkhaus am Bahnhof und Fußgängerpassage', y: 2022, aw: 0, img: 'assets/img/parkhaus-am-bahnhof/502_square-Kunst-2_500x500_acf_cropped.jpg' }
   ];
+
+
   /* Projekte mit eigener Detailseite (projektseiten.js) bekommen Link und Kachelbild,
      alle übrigen führen auf die Beispielseite FLZ */
   var PS = window.PROJEKTSEITEN || {};
@@ -34,7 +38,7 @@
     tiles.innerHTML = P.map(function (p) {
       var s = PS[p.t];
       return '<a class="tile" href="' + (s ? s.href : 'projekt-flz-neuer-bau-ulm.html') + '">' +
-        '<img src="' + (s ? s.img : IMG[p.i]) + '" alt="' + p.t + '" loading="lazy">' +
+        '<img src="' + (s ? s.img : p.img) + '" alt="' + p.t + '" loading="lazy">' +
         ' <div class="tile__cap"><span class="tile__title">' + p.t +
         (p.aw ? '<span class="tile__star" title="Ausgezeichnet"></span>' : '') +
         '</span> <span class="tile__year">' + p.y + '</span></div></a>';
