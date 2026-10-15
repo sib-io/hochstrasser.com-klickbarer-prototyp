@@ -47,13 +47,24 @@
 .profil-face:hover .t-h4{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .profil-face p+p{margin-top:var(--sp-1)}
 
-/* Leitbild */
+/* Leitbild: typografisches Akkordeon. Die vier Werte als Bildelement; offen ist der Wert
+   in der Bildschirmmitte bzw. der zuletzt angeklickte (profil.js). Klappen über grid-template-rows. */
 .profil-creed__intro{color:var(--on-dark-2)}
-.profil-values{margin-top:var(--sp-7);row-gap:var(--sp-7)}
-.profil-value{padding-top:var(--sp-4);border-top:1px solid var(--on-dark-rule)}
-.profil-value ul{margin-top:var(--sp-4);display:grid;gap:var(--sp-1)}
-.profil-value li{position:relative;padding-left:var(--sp-3);color:var(--on-dark-2)}
-.profil-value li::before{content:'';position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--on-dark-mute)}
+.profil-acc{margin-top:var(--sp-7)}
+.profil-acc__item{border-top:1px solid var(--on-dark-rule)}
+.profil-acc__item:last-child{border-bottom:1px solid var(--on-dark-rule)}
+.profil-acc__btn{display:block;width:100%;text-align:left;padding-block:var(--sp-2)}
+.profil-acc__btn:focus-visible{outline-color:var(--on-dark)}
+.profil-acc__word{display:block;font-family:var(--font-ui);font-weight:300;font-size:clamp(2.625rem, 9.5vw, 9.25rem);line-height:.95;letter-spacing:-.035em;color:var(--on-dark-rule);transition:color .6s var(--ease)}
+.profil-acc__item.is-on .profil-acc__word,.profil-acc__btn:hover .profil-acc__word{color:var(--on-dark)}
+.profil-acc__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.profil-acc__item.is-on .profil-acc__body{grid-template-rows:1fr}
+.profil-acc__body>div{overflow:hidden}
+.profil-acc__item:not(.is-on) .profil-acc__body>div{visibility:hidden;transition:visibility 0s .7s}
+.profil-acc__inner{padding-block:var(--sp-1) var(--sp-5);row-gap:var(--sp-2)}
+.profil-acc__key{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1.25;letter-spacing:-.01em;color:var(--on-dark);text-wrap:balance}
+.profil-acc__more{align-self:end;color:var(--on-dark-2)}
+.profil-acc__more p+p{margin-top:var(--sp-1)}
 
 /* Anschlusskarten: Pfeil-Links stehen auf einer Linie, egal wie lang der Text ist */
 .profil-card{display:flex;flex-direction:column;align-self:stretch}
