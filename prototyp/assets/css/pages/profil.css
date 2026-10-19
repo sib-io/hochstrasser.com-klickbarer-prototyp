@@ -33,7 +33,7 @@
 #schema ~ .note,.profil-panel ~ .note{margin-top:var(--sp-4)}
 
 /* Expertise: Einleitungstext über den Gesichtern */
-.profil-expertise__intro{margin-bottom:var(--sp-6)}
+.profil-expertise__intro{margin-bottom:var(--sp-7)}
 
 /* Gesichter: Porträts von der Büroseite */
 .profil-face{display:block}
