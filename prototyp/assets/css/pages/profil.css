@@ -62,9 +62,9 @@
 .profil-acc__body>div{overflow:hidden}
 .profil-acc__item:not(.is-on) .profil-acc__body>div{visibility:hidden;transition:visibility 0s .7s}
 .profil-acc__inner{padding-block:var(--sp-1) var(--sp-5);row-gap:var(--sp-2)}
-.profil-acc__key{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1.25;letter-spacing:-.01em;color:var(--on-dark);text-wrap:balance}
-.profil-acc__more{align-self:end;color:var(--on-dark-2)}
-.profil-acc__more p+p{margin-top:var(--sp-1)}
+.profil-acc__lines{display:grid;gap:var(--sp-2)}
+@media (min-width:900px){.profil-acc__lines{gap:var(--sp-1)}}
+.profil-acc__lines li{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1.25;letter-spacing:-.01em;color:var(--on-dark);text-wrap:balance}
 
 /* Anschlusskarten: Pfeil-Links stehen auf einer Linie, egal wie lang der Text ist */
 .profil-card{display:flex;flex-direction:column;align-self:stretch}
