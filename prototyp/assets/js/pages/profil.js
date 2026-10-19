@@ -2,43 +2,43 @@
 (function () {
   var KT = {
     einfach: {
-      img: 'assets/img/wp/825_header-scaled.jpg',
-      cap: 'Platzhalter: Rechenzentrum SWU, Ulm',
+      img: 'assets/img/ba3-baubetriebshof-ulm/799_lanscape-03-scaled.jpg',
+      cap: 'Baubetriebshof Ulm: Fahrzeughalle mit Fassade aus Holzlatten',
       name: 'Einfach bauen',
       claim: 'Komplexität ist nicht automatisch Qualität.',
       text: 'Wir hinterfragen Standards, reduzieren unnötige Komplexität und entwickeln angemessene Lösungen, die funktional, robust und nachvollziehbar sind. Einfach bauen bedeutet für uns, mit klugen Entscheidungen mehr zu erreichen – nicht mit mehr Aufwand.'
     },
     wirtschaft: {
-      img: 'assets/img/wp/799_lanscape-02-scaled.jpg',
-      cap: 'Platzhalter: BA3 Baubetriebshof der Stadt Ulm',
+      img: 'assets/img/erweiterung-witec/757_landscape_SuedWest-Ecke.jpg',
+      cap: 'Erweiterung WITec: Büro- und Produktionsgebäude mit heller Betonfassade',
       name: 'Wirtschaftlichkeit schaffen',
       claim: 'Gute Architektur muss leistbar sein.',
       text: 'Wirtschaftlichkeit entsteht nicht durch Verzicht, sondern durch intelligente Planung, klare Prozesse und frühzeitige Entscheidungen. Unser Ziel sind kostensichere und langlebige Lösungen mit einem Mehrwert für unsere Auftraggeber.'
     },
     kreislauf: {
-      img: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg',
-      cap: 'Platzhalter: Wohnbebauung Neu-Ulm',
+      img: 'assets/img/strohballenatelier/atelier-innenraum.jpg',
+      cap: 'Strohballenatelier: Wände aus Strohballen, Holztragwerk und wiederverwendete Schlossfenster',
       name: 'Kreislaufgerecht planen und bauen',
       claim: 'Unsere Ressourcen sind wertvoll und endlich.',
       text: 'Deshalb denken wir Gebäude über ihren gesamten Lebenszyklus hinweg – von der Materialwahl über die Nutzung bis zur Wiederverwendung. Kreislaufgerechtes Planen und Bauen schafft langlebige, ressourcenschonende und wirtschaftlich tragfähige Lösungen.'
     },
     bestand: {
-      img: 'assets/img/wp/02_header-1.jpg',
-      cap: 'Platzhalter: Umbau Neue Straße, Ulm',
+      img: 'assets/img/kriegsspital-neu-ulm/842_potrait-MItte-EG-01-scaled.jpg',
+      cap: 'Ehemaliges Kriegsspital Neu-Ulm: Gewölbe aus Ziegel und Naturstein, heute als Werkstatt genutzt',
       name: 'Bestand weiterdenken',
       claim: 'Bestand ist eine wertvolle Ressource.',
       text: 'Wir sehen Bestand nicht als Beschränkung, sondern als Ausgangspunkt für neue Potenziale. Durch Umbau, Weiterentwicklung und behutsame Transformation schaffen wir nachhaltige Lösungen, die Geschichte bewahren und Zukunft ermöglichen.'
     },
     kompetenzen: {
-      img: 'assets/img/wp/744_landscape_Treppenhaus-3-scaled.jpg',
-      cap: 'Platzhalter: Haus MK, Ulm',
+      img: 'assets/img/rechenzentrum-swu/825_header-scaled.jpg',
+      cap: 'Rechenzentrum der Stadtwerke Ulm/Neu-Ulm',
       name: 'Kompetenzen verbinden',
       claim: 'Die besten Lösungen entstehen im Zusammenspiel unterschiedlicher Perspektiven.',
       text: 'Wir vernetzen Architektur und Fachdisziplinen frühzeitig zu einem integralen Planungsprozess. So entstehen qualitativ hochwertige Ergebnisse, klare Verantwortlichkeiten und effiziente Abläufe aus einer Hand.'
     },
     zukunft: {
-      img: 'assets/img/wp/14_landscape-1.jpg',
-      cap: 'Platzhalter: Erweiterung WITec',
+      img: 'assets/img/friesenhofen-saegemuehle/784_header.jpg',
+      cap: 'Wohnareal Sägemühle Friesenhofen: Visualisierung der Häuser am Fluss',
       name: 'Zukunft gestalten',
       claim: 'Architektur prägt das Leben von morgen.',
       text: 'Deshalb verstehen wir jede Planungsaufgabe als Verantwortung für die gebaute Umwelt und die kommenden Generationen. Wir entwickeln Gebäude und Räume, die langfristig Bestand haben und sich an veränderte Anforderungen anpassen können.'
