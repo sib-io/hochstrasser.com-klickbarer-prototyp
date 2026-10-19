@@ -75,7 +75,11 @@
   .idx-terms>li:nth-child(odd){border-top:1px solid var(--rule-tint)}
 }
 .idx-terms{border-top-color:var(--rule-tint)} /* obere Linie so fein wie die Trennlinien darunter */
-.idx-terms a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--sp-3);align-items:center}
+.idx-terms{counter-reset:idx-term}
+.idx-terms a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:var(--sp-3);align-items:baseline}
+/* Durchnummerierung 01–06 (Reihenfolge wie im Quelltext: ab 900 spaltenweise von oben nach unten) */
+.idx-terms a::before{counter-increment:idx-term;content:counter(idx-term,decimal-leading-zero);font-family:var(--font-ui);font-size:var(--fs-small);font-variant-numeric:tabular-nums;color:var(--mute);transition:color .3s var(--ease)}
+.idx-terms a:hover::before,.idx-terms a:focus-visible::before{color:var(--ink)}
 .idx-terms>li{padding-block:0;border-bottom-color:var(--rule-tint)}
 .idx-terms>li>a{padding-block:var(--sp-2)}
 .idx-term{display:grid;row-gap:var(--sp-1)}
