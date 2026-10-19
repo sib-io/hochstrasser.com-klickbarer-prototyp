@@ -41,12 +41,12 @@
     { src: 'assets/img/ba3-baubetriebshof-ulm/799_lanscape-05-scaled.jpg', pos: '30% 50%', alt: 'BA3 Baubetriebshof der Stadt Ulm: Holzlamellen der Fassade' },
     { src: 'assets/img/strohballenatelier/atelier-innenraum.jpg', pos: '40% 50%', alt: 'Strohballenatelier: Innenraum mit Holztragwerk' },
     { src: 'assets/img/flz/02_header-23.jpg', pos: '30% 50%', alt: 'FLZ im „Neuen Bau“ Ulm: Gewölbe mit goldenen Wandflächen' },
-    { src: 'assets/img/kriegsspital-neu-ulm/842_landscape-Steg-Eingang-scaled.jpg', pos: '100% 50%', alt: 'Kriegsspital Neu-Ulm: Steg zum Eingang über der Blumenwiese' },
+    { src: 'assets/img/friesenhofen-saegemuehle/784_square_500x500_acf_cropped.jpg', pos: '50% 50%', alt: 'Friesenhofen – An der Sägemühle: Häuser am Bachlauf' },
     { src: 'assets/img/wohnbebauung-laichingen/773_square_500x500_acf_cropped.jpg', pos: '50% 50%', alt: 'Wohnbebauung Laichingen: Glasfassade des Treppenhauses' },
     { src: 'assets/img/wohnbebauung-laichingen/773_Haus-A-C_TG-Abfahrt.jpg', pos: '35% 50%', alt: 'Wohnbebauung Laichingen: Haus A bis C mit Tiefgaragenabfahrt' },
     { src: 'assets/img/erweiterung-witec/757_portrait_Auskragung-Ecke-scaled.jpg', pos: '50% 30%', alt: 'Erweiterung WITec: auskragende Gebäudeecke' },
     { src: 'assets/img/rechenzentrum-swu/825_square-01_500x500_acf_cropped.jpg', pos: '50% 50%', alt: 'Rechenzentrum SWU: Sichtbeton und Metallfassade' },
-    { src: 'assets/img/kriegsspital-neu-ulm/842_landscape-11-scaled.jpg', pos: '70% 50%', alt: 'Kriegsspital Neu-Ulm: historisches Treppengeländer' }
+    { src: 'assets/img/wohnbebauung-lettenwald/01_squared.jpg', pos: '50% 50%', alt: 'Wohnbebauung Lettenwald: weiße Baukörper vor blauem Himmel' }
   ];
   var fig = document.getElementById('markFig');
   if (fig) {
