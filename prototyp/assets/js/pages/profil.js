@@ -19,22 +19,22 @@
       img: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg',
       cap: 'Platzhalter: Wohnbebauung Neu-Ulm',
       name: 'Kreislaufgerecht planen und bauen',
-      claim: 'Die besten Lösungen entstehen im Zusammenspiel unterschiedlicher Perspektiven.',
-      text: 'Wir vernetzen Architektur und Fachdisziplinen frühzeitig zu einem integralen Planungsprozess. So entstehen qualitativ hochwertige Ergebnisse, klare Verantwortlichkeiten und effiziente Abläufe aus einer Hand.'
+      claim: 'Unsere Ressourcen sind wertvoll und endlich.',
+      text: 'Deshalb denken wir Gebäude über ihren gesamten Lebenszyklus hinweg – von der Materialwahl über die Nutzung bis zur Wiederverwendung. Kreislaufgerechtes Planen und Bauen schafft langlebige, ressourcenschonende und wirtschaftlich tragfähige Lösungen.'
     },
     bestand: {
       img: 'assets/img/wp/02_header-1.jpg',
       cap: 'Platzhalter: Umbau Neue Straße, Ulm',
       name: 'Bestand weiterdenken',
       claim: 'Bestand ist eine wertvolle Ressource.',
-      text: 'Wir Bestand nicht als Beschränkung, sondern als Ausgangspunkt für neue Potenziale. Durch Umbau, Weiterentwicklung und behutsame Transformation schaffen wir nachhaltige Lösungen, die Geschichte bewahren und Zukunft ermöglichen.'
+      text: 'Wir sehen Bestand nicht als Beschränkung, sondern als Ausgangspunkt für neue Potenziale. Durch Umbau, Weiterentwicklung und behutsame Transformation schaffen wir nachhaltige Lösungen, die Geschichte bewahren und Zukunft ermöglichen.'
     },
     kompetenzen: {
       img: 'assets/img/wp/744_landscape_Treppenhaus-3-scaled.jpg',
       cap: 'Platzhalter: Haus MK, Ulm',
       name: 'Kompetenzen verbinden',
-      claim: 'Unsere Ressourcen sind wertvoll und endlich.',
-      text: 'Deshalb denken wir Gebäude über ihren gesamten Lebenszyklus hinweg – von der Materialwahl über die Nutzung bis zur Wiederverwendung. Kreislaufgerechtes Planen und Bauen schafft langlebige, ressourcenschonende und wirtschaftlich tragfähige Lösungen.'
+      claim: 'Die besten Lösungen entstehen im Zusammenspiel unterschiedlicher Perspektiven.',
+      text: 'Wir vernetzen Architektur und Fachdisziplinen frühzeitig zu einem integralen Planungsprozess. So entstehen qualitativ hochwertige Ergebnisse, klare Verantwortlichkeiten und effiziente Abläufe aus einer Hand.'
     },
     zukunft: {
       img: 'assets/img/wp/14_landscape-1.jpg',
