@@ -28,7 +28,6 @@
 /* Textfeld zum gewählten Kernthema */
 .profil-panel{margin-top:var(--sp-6);padding-top:var(--sp-5);border-top:1px solid var(--ink);transition:opacity .25s var(--ease)}
 .profil-panel.is-fading{opacity:0}
-.profil-kicker{padding-top:var(--sp-3);border-top:1px solid var(--rule);text-wrap:balance}
 .profil-panel .link-arrow{margin-top:var(--sp-4)}
 #schema ~ .note,.profil-panel ~ .note{margin-top:var(--sp-4)}
 
