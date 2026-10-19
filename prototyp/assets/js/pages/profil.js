@@ -1,45 +1,47 @@
 /* Profil — Kernthemen-Schema */
 (function () {
   var KT = {
-    integral: {
+    einfach: {
       img: 'assets/img/wp/825_header-scaled.jpg',
       cap: 'Platzhalter: Rechenzentrum SWU, Ulm',
-      name: 'Integrale Planung',
-      claim: 'Gemeinsam planen. Einfach bauen.',
-      text: 'Komplexe Bauprojekte entstehen nicht mehr in einzelnen Fachbereichen, sondern im Zusammenspiel aller Beteiligten. Deshalb verbinden wir Architektur und technische Fachdisziplinen von Beginn an in einem integralen Planungsprozess. Klare Verantwortlichkeit, kurze Entscheidungswege und frühzeitige Abstimmungen schaffen Transparenz, vereinfachen Schnittstellen und erhöhen die Planungs-, Termin- und Kostensicherheit.',
-      kicker: 'Komplexität braucht keine komplizierten Prozesse. Sie braucht klare Strukturen.'
+      name: 'Einfach bauen',
+      claim: 'Komplexität ist nicht automatisch Qualität.',
+      text: 'Wir hinterfragen Standards, reduzieren unnötige Komplexität und entwickeln angemessene Lösungen, die funktional, robust und nachvollziehbar sind. Einfach bauen bedeutet für uns, mit klugen Entscheidungen mehr zu erreichen – nicht mit mehr Aufwand.'
     },
     wirtschaft: {
       img: 'assets/img/wp/799_lanscape-02-scaled.jpg',
       cap: 'Platzhalter: BA3 Baubetriebshof der Stadt Ulm',
-      name: 'Wirtschaftlichkeit',
+      name: 'Wirtschaftlichkeit schaffen',
       claim: 'Gute Architektur muss leistbar sein.',
-      text: 'Wirtschaftlichkeit beginnt nicht auf der Baustelle, sondern bereits in der Planung. Durch intelligente Prozesse, frühzeitige Entscheidungen und integrale Zusammenarbeit schaffen wir kostensichere und langlebige Lösungen mit einem Mehrwert für unsere Auftraggeber.',
-      kicker: 'Qualität entsteht nicht durch höhere Budgets, sondern durch bessere Entscheidungen.'
+      text: 'Wirtschaftlichkeit entsteht nicht durch Verzicht, sondern durch intelligente Planung, klare Prozesse und frühzeitige Entscheidungen. Unser Ziel sind kostensichere und langlebige Lösungen mit einem Mehrwert für unsere Auftraggeber.'
     },
-    nachhaltigkeit: {
+    kreislauf: {
       img: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg',
       cap: 'Platzhalter: Wohnbebauung Neu-Ulm',
-      name: 'Nachhaltigkeit',
-      claim: 'Heute planen. Für morgen bauen.',
-      text: 'Nachhaltigkeit ist für uns kein Zusatz, sondern Bestandteil jeder Entscheidung. Wir hinterfragen Standards, planen ressourcenschonend und mit Blick auf den gesamten Lebenszyklus eines Gebäudes. Durch das enge Zusammenspiel aller Fachdisziplinen entstehen angemessene Lösungen, die ökologisch sinnvoll, wirtschaftlich tragfähig und somit langfristig zukunftssicher sind.',
-      kicker: 'Nachhaltigkeit entsteht im Zusammenspiel von Architektur und technischen Fachdisziplinen.'
+      name: 'Kreislaufgerecht planen und bauen',
+      claim: 'Unsere Ressourcen sind wertvoll und endlich.',
+      text: 'Deshalb denken wir Gebäude über ihren gesamten Lebenszyklus hinweg – von der Materialwahl über die Nutzung bis zur Wiederverwendung. Kreislaufgerechtes Planen und Bauen schafft langlebige, ressourcenschonende und wirtschaftlich tragfähige Lösungen.'
     },
     bestand: {
       img: 'assets/img/wp/02_header-1.jpg',
       cap: 'Platzhalter: Umbau Neue Straße, Ulm',
-      name: 'Bestand',
-      claim: 'Erhalten. Weiterentwickeln. Zukunft schaffen.',
-      text: 'Der nachhaltigste Quadratmeter ist häufig der, der bereits existiert. Deshalb verstehen wir den Bestand nicht als Einschränkung, sondern als Chance. Mit intelligenten Konzepten für Umbau, Sanierung, Revitalisierung und Denkmalschutz entwickeln wir Gebäude weiter und verbinden Geschichte mit den Anforderungen für morgen.',
-      kicker: 'Bestand bewahren heißt Zukunft gestalten.'
+      name: 'Bestand weiterdenken',
+      claim: 'Bestand ist eine wertvolle Ressource.',
+      text: 'Wir sehen Bestand nicht als Beschränkung, sondern als Ausgangspunkt für neue Potenziale. Durch Umbau, Weiterentwicklung und behutsame Transformation schaffen wir nachhaltige Lösungen, die Geschichte bewahren und Zukunft ermöglichen.'
     },
-    verantwortung: {
+    kompetenzen: {
       img: 'assets/img/wp/744_landscape_Treppenhaus-3-scaled.jpg',
       cap: 'Platzhalter: Haus MK, Ulm',
-      name: 'Verantwortung',
-      claim: 'Ein Ansprechpartner. Klare Verantwortung.',
-      text: 'Wir übernehmen Verantwortung für das gesamte Projekt — von der ersten Idee bis zur Realisierung. Als integraler Planungspartner koordinieren wir alle Disziplinen, führen Interessen zusammen und behalten Qualität, Termine und Kosten jederzeit im Blick. Für unsere Auftraggeber bedeutet dies klare Zuständigkeiten, transparente Prozesse und einen zentralen Ansprechpartner über alle Projektphasen hinweg.',
-      kicker: 'Verantwortung schafft Vertrauen. Vertrauen schafft erfolgreiche Projekte.'
+      name: 'Kompetenzen verbinden',
+      claim: 'Die besten Lösungen entstehen im Zusammenspiel unterschiedlicher Perspektiven.',
+      text: 'Wir vernetzen Architektur und Fachdisziplinen frühzeitig zu einem integralen Planungsprozess. So entstehen qualitativ hochwertige Ergebnisse, klare Verantwortlichkeiten und effiziente Abläufe aus einer Hand.'
+    },
+    zukunft: {
+      img: 'assets/img/wp/14_landscape-1.jpg',
+      cap: 'Platzhalter: Erweiterung WITec',
+      name: 'Zukunft gestalten',
+      claim: 'Architektur prägt das Leben von morgen.',
+      text: 'Deshalb verstehen wir jede Planungsaufgabe als Verantwortung für die gebaute Umwelt und die kommenden Generationen. Wir entwickeln Gebäude und Räume, die langfristig Bestand haben und sich an veränderte Anforderungen anpassen können.'
     }
   };
 
@@ -48,17 +50,15 @@
   var chips = Array.prototype.slice.call(document.querySelectorAll('.profil-chips .chip'));
   var panel = document.getElementById('ktPanel');
   var ktName = document.getElementById('ktName'), ktClaim = document.getElementById('ktClaim'),
-      ktText = document.getElementById('ktText'), ktKicker = document.getElementById('ktKicker'),
-      ktImg = document.getElementById('ktImg');
+      ktText = document.getElementById('ktText'), ktImg = document.getElementById('ktImg');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var current = 'integral';
+  var current = 'einfach';
 
   function paint(key) {
     var d = KT[key];
     ktName.textContent = d.name;
     ktClaim.textContent = d.claim;
     ktText.textContent = d.text;
-    ktKicker.textContent = d.kicker;
     ktImg.src = d.img;
     ktImg.alt = d.cap;
   }
