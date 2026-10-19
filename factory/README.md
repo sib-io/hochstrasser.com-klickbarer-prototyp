@@ -69,6 +69,7 @@ prototyp/
 - Team-Porträts (Büro): `assets/img/team/<vorname-nachname>.jpg`, 600 × 600, von der Live-Büroseite (dort nach Namen zugeordnet). Ohne Porträt: Dagmar Schmidt, Michael Doll, Leyla Ali und Volker Knopp (live nur Platzhalter) – dafür die Beton-Grafik `assets/img/team/platzhalter-beton.jpg` (wie live).
 - FLZ-Projektbilder: `assets/img/flz/02_header-23.jpg … 14_landscape-1.jpg` (05 ist Hochformat), Kachelbild `01_3_square_500x500_acf_cropped.jpg`.
 - Weitere Projektbilder: `assets/img/<name>/` (Original-Dateinamen der Live-Seite, längste Kante ≤ 2000 px, Kachelbild `*_500x500_acf_cropped.jpg`).
+- Projektarchiv (`projekte.html`) und Startseiten-Kacheln: Kachelbild der Live-Seite je Projekt unter `assets/img/<projekt-titel-als-slug>/` (Original-Dateiname, quadratisch 500 bzw. 800 px), Pfad als letzte Spalte in `assets/js/pages/projekte.js`; Projekte mit Detailseite nehmen das Bild aus `projektseiten.js`.
 - Immer `alt` (aus dem Ausgangstext, korrekt geschrieben), `loading="lazy"` außer beim ersten Bild.
 
 ## Text: 1:1, aber korrektes Deutsch

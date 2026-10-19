@@ -1,156 +1,145 @@
 /* Projekte: Archiv mit Filter und erweiterter Suche.
-   Format: Titel | Jahr | Nutzung | Status | Bauherrschaft | ausgezeichnet */
+   Format: Titel | Jahr | Nutzung | Status | Bauherrschaft | ausgezeichnet | Kachelbild
+   Kachelbild = Kachelbild der Live-Seite; leer bei Projekten mit Detailseite (Bild aus projektseiten.js) */
 (function () {
   'use strict';
 
-  var IMG = {
-    a: 'assets/img/wp/842_landscape-01-scaled.jpg',
-    b: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg',
-    c: 'assets/img/wp/799_lanscape-02-scaled.jpg',
-    d: 'assets/img/wp/744_landscape_Treppenhaus-3-scaled.jpg',
-    e: 'assets/img/wp/14_landscape-1.jpg',
-    f: 'assets/img/wp/jobs-e1530280090729.jpg'
-  };
-  /* bewusst unregelmäßige Reihenfolge (11er-Muster) */
-  var PATTERN = ['a', 'c', 'e', 'b', 'f', 'd', 'c', 'a', 'd', 'e', 'b'];
-  var pic = function (i) { return IMG[PATTERN[i % PATTERN.length]]; };
-
   var RAW = `
-Wohnbebauung Neu-Ulm|2024|wohnen|realisiert|gewerblich|0
-Kriegsspital Neu-Ulm|2024|erhalten|realisiert|privat|0
-BA3 Baubetriebshof der Stadt Ulm|2024|arbeiten|realisiert|oeffentlich|0
-Wohnbebauung Laichingen|2024|wohnen|realisiert|gewerblich|0
-Fassadenvarianten Wärmespeicher HKW der Fernwärme Ulm|2023|arbeiten|realisiert|oeffentlich|0
-Rechenzentrum SWU|2023|arbeiten|realisiert|oeffentlich|0
-Erweiterung WITec|2023|arbeiten|realisiert|gewerblich|0
-Friesenhofen – An der Sägemühle|2023|wohnen|realisiert|gewerblich|0
-WBW ehemaliges Kriegsspital|2023|wettbewerbe|wettbewerb|privat|0
-Haus MK|2023|erhalten|realisiert|privat|0
-WBW Betreuungs- und Verpflegungsgebäude|2023|wettbewerbe|wettbewerb|oeffentlich|0
-Strohballenatelier|2022|arbeiten|realisiert|privat|1
-Hubschrauberdachlandeplatz BWK|2022|arbeiten|realisiert|oeffentlich|0
-WBW Neubau Wohnbebauung Weißenhorn|2022|wettbewerbe|wettbewerb|gewerblich|0
-Haus S4|2022|wohnen|realisiert|privat|0
-Parkhaus am Bahnhof und Fußgängerpassage|2022|parken|realisiert|oeffentlich|0
-WBW Bauliche Entwicklung Heigeleshof|2021|wettbewerbe|wettbewerb|gewerblich|0
-WBW Schweinemarkt 6-8|2021|wettbewerbe|wettbewerb|gewerblich|0
-Z4 Science Park 3|2021|arbeiten|realisiert|gewerblich|0
-Haus B3|2021|wohnen|realisiert|privat|0
-Entwicklung „Am Weinberg“ Ulm|2020|beleben|wettbewerb|oeffentlich|0
-Unterführung Blaubeurer Straße|2020|beleben|realisiert|oeffentlich|0
-Sanitätsversorgungszentrum Wilhelmsburgkaserne|2020|erhalten|realisiert|oeffentlich|0
-WBW Wohnbebauung Safranberg|2020|wettbewerbe|wettbewerb|gewerblich|0
-WBW Jahnsportpark Friedrichsau|2019|wettbewerbe|wettbewerb|oeffentlich|0
-BA2 Baubetriebshof der Stadt Ulm|2019|arbeiten|realisiert|oeffentlich|0
-WBW Jörg-Syrlin-Grundschule und Astrid-Lindgren-Schule|2019|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Gemeindehaus Langenau|2019|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Wohngebäude mit Café Biberach|2019|wettbewerbe|wettbewerb|gewerblich|0
-WBW Wohnungsbau Balingen|2018|wettbewerbe|wettbewerb|gewerblich|0
-Produktionshalle Nagel|2018|arbeiten|realisiert|gewerblich|0
-WBW Neubau Kindertagesstätte Hauderboschen|2018|wettbewerbe|wettbewerb|oeffentlich|0
-Nordsee 2018|2018|essen|realisiert|gewerblich|0
-Möbel Haus S|2018|möblieren|realisiert|privat|0
-Haus S3|2018|wohnen|realisiert|privat|0
-WBW Söflingen-Welz Areal|2017|wettbewerbe|wettbewerb|gewerblich|0
-Stauferkaserne Pfullendorf|2017|erhalten|realisiert|oeffentlich|0
-WBW Ludwig-Erhard-Brücke|2017|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Z4 Science Park 3|2017|wettbewerbe|wettbewerb|gewerblich|0
-WBW Erweiterung WITec|2017|wettbewerbe|wettbewerb|gewerblich|0
-Nordsee 2017|2017|essen|realisiert|gewerblich|0
-FLZ im „Neuen Bau“ Ulm|2017|umnutzen|realisiert|oeffentlich|0
-Lagerbürogebäude Setzingen|2016|arbeiten|realisiert|gewerblich|0
-Wetterschutzhütte New Golf Club Neu-Ulm|2016|beleben|realisiert|gewerblich|0
-Neubau Kettenhäuser Lettenwald|2016|wohnen|realisiert|gewerblich|0
-Haus Marner-Walk-Straße|2016|wohnen|realisiert|privat|0
-Haus R|2016|wohnen|realisiert|privat|0
-WBW Gummi-Welz-Areal Söflingen|2016|wettbewerbe|wettbewerb|gewerblich|0
-New Golf Club Neu-Ulm|2016|essen|realisiert|gewerblich|0
-Umbau Neue Straße | Barfüßer und Riku Hotel|2015|umnutzen|realisiert|gewerblich|0
-Umbau Neue Straße | Wohnungsbau|2015|wohnen|realisiert|gewerblich|0
-Wohnbebauung Senden|2015|wohnen|realisiert|gewerblich|0
-Nordsee 2016|2016|essen|realisiert|gewerblich|0
-K5|2016|beleben|realisiert|gewerblich|1
-Haus E|2015|wohnen|realisiert|privat|0
-WBW Erweiterung der Grundschule Eichenplatz|2015|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Untermarchtal|2014|wettbewerbe|wettbewerb|privat|0
-Unterkunftsgebäude S|2014|arbeiten|realisiert|oeffentlich|0
-Fahrradverleih am Rathaus|2014|parken|realisiert|oeffentlich|0
-WBW Reutlinger Straße 30-88|2014|wettbewerbe|wettbewerb|gewerblich|0
-Praxis M|2014|arbeiten|realisiert|privat|0
-Gartenstraße NU|2013|wohnen|realisiert|gewerblich|0
-Wohnbau Pfaffenhofen|2013|wohnen|realisiert|gewerblich|0
-Sonja Quandt Silbermanufaktur|2013|verkaufen|realisiert|gewerblich|0
-Bootshaus Ulm|2013|beleben|realisiert|oeffentlich|0
-WBW Meininger Allee|2013|wettbewerbe|wettbewerb|gewerblich|0
-Sanierung VH Ulm|2013|lernen|realisiert|oeffentlich|1
-Baubetriebshof|2012|arbeiten|realisiert|oeffentlich|0
-Haus G2|2012|wohnen|realisiert|privat|0
-Haus S|2012|wohnen|realisiert|privat|0
-Haus M|2012|wohnen|realisiert|privat|0
-Haus V|2011|wohnen|realisiert|privat|0
-Radstadel DH|2011|parken|realisiert|oeffentlich|0
-Haus B2|2011|wohnen|realisiert|privat|0
-Wilken GmbH|2011|arbeiten|realisiert|gewerblich|0
-Zentrum für Gestaltung HFG Ulm|2011|lernen|realisiert|oeffentlich|0
-Waldorf Kindergarten Blaustein|2010|lernen|realisiert|privat|0
-Haus S2|2010|wohnen|realisiert|privat|0
-Wohnbebauung Lettenwald|2010|wohnen|realisiert|gewerblich|0
-WBW Lönsstraße|2010|wettbewerbe|wettbewerb|gewerblich|0
-EHS @ HFG|2010|lernen|realisiert|oeffentlich|0
-WBW Konzertsaal|2009|wettbewerbe|wettbewerb|oeffentlich|0
-Kita Illerblick|2009|lernen|realisiert|oeffentlich|0
-WBW Parkhaus Laupheim|2009|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Mehrfachbeauftragung Lettenwald|2009|wettbewerbe|wettbewerb|gewerblich|0
-WBW Sedanstraße|2009|wettbewerbe|wettbewerb|gewerblich|0
-WBW U3 Ausbauoffensive|2009|wettbewerbe|wettbewerb|oeffentlich|0
-Parkhaus am Rathaus|2009|parken|realisiert|oeffentlich|1
-Wohn- und Geschäftshaus Pranger|2008|beleben|realisiert|gewerblich|0
-WBW Finanzamt Biberach|2008|wettbewerbe|wettbewerb|oeffentlich|0
-Ausstellung 200 Jahre NU|2008|ausstellen|realisiert|oeffentlich|0
-WBW Karpfengasse|2008|wettbewerbe|wettbewerb|gewerblich|0
-Anbau Scholl-Gymnasium|2008|lernen|realisiert|oeffentlich|0
-WBW Bürogebäude Wilken|2007|wettbewerbe|wettbewerb|gewerblich|0
-Restaurantgebäude La Bagatta|2007|essen|realisiert|gewerblich|0
-Geschäftsstelle SSV Ulm|2007|arbeiten|realisiert|gewerblich|0
-Büro T|2007|arbeiten|realisiert|gewerblich|0
-Radhaus Heilbronn|2007|parken|realisiert|oeffentlich|0
-FLZ der Saarländischen Vollzugspolizei|2006|arbeiten|realisiert|oeffentlich|0
-Nordsee am Viktualienmarkt|2006|essen|realisiert|gewerblich|0
-WBW Kita Ost|2006|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Stadtregal Ulm|2006|wettbewerbe|wettbewerb|gewerblich|0
-Pavillon NU21|2006|ausstellen|realisiert|oeffentlich|0
-Haus der Wirtschaft|2005|arbeiten|realisiert|gewerblich|0
-Infopunkt Citybahnhof|2005|ausstellen|realisiert|oeffentlich|0
-WBW HTW Saarbrücken|2005|wettbewerbe|wettbewerb|oeffentlich|0
-Gründerzeithaus S|2005|erhalten|realisiert|privat|0
-Radhaus Ulm|2005|parken|realisiert|oeffentlich|0
-WBW Finanzamt Hersbruck|2004|wettbewerbe|wettbewerb|oeffentlich|0
-Haus K|2004|wohnen|realisiert|privat|0
-Puma Eventbox|2004|ausstellen|realisiert|gewerblich|0
-Haus N|2004|wohnen|realisiert|privat|0
-Bischof-Sproll-Haus|2003|erhalten|realisiert|privat|0
-WBW Ausstellungsgestaltung|2003|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Donaubastion|2003|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Judenhof|2003|wettbewerbe|wettbewerb|oeffentlich|0
-WBW Obergericht Zürich|2003|wettbewerbe|wettbewerb|oeffentlich|0
-Kardiologische Klinik|2003|arbeiten|realisiert|privat|0
-Haus H|2003|wohnen|realisiert|privat|0
-WBW Entertainment Center|2002|wettbewerbe|wettbewerb|gewerblich|0
-Gesundheitsbox|2002|ausstellen|realisiert|gewerblich|0
-Haus B|2002|wohnen|realisiert|privat|0
-Haus G|2002|wohnen|realisiert|privat|0
-Hörsaalgebäude Uni Ulm|2002|lernen|realisiert|oeffentlich|0
-Saftbar Smoothies|2002|essen|realisiert|gewerblich|0
-Parkhaus Deutschhaus|2002|parken|realisiert|oeffentlich|1
-Musikpavillon|2002|beleben|realisiert|oeffentlich|0
+Wohnbebauung Neu-Ulm|2024|wohnen|realisiert|gewerblich|0|
+Kriegsspital Neu-Ulm|2024|erhalten|realisiert|privat|0|
+BA3 Baubetriebshof der Stadt Ulm|2024|arbeiten|realisiert|oeffentlich|0|
+Wohnbebauung Laichingen|2024|wohnen|realisiert|gewerblich|0|
+Fassadenvarianten Wärmespeicher HKW der Fernwärme Ulm|2023|arbeiten|realisiert|oeffentlich|0|
+Rechenzentrum SWU|2023|arbeiten|realisiert|oeffentlich|0|
+Erweiterung WITec|2023|arbeiten|realisiert|gewerblich|0|
+Friesenhofen – An der Sägemühle|2023|wohnen|realisiert|gewerblich|0|
+WBW ehemaliges Kriegsspital|2023|wettbewerbe|wettbewerb|privat|0|
+Haus MK|2023|erhalten|realisiert|privat|0|
+WBW Betreuungs- und Verpflegungsgebäude|2023|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-betreuungs-und-verpflegungsgebaeude/144_landscape_Rueckbaubarkeit-scaled_500x500_acf_cropped.jpg
+Strohballenatelier|2022|arbeiten|realisiert|privat|1|assets/img/strohballenatelier/864_square_aussen_500x500_acf_cropped.jpg
+Hubschrauberdachlandeplatz BWK|2022|arbeiten|realisiert|oeffentlich|0|assets/img/hubschrauberdachlandeplatz-bwk/624_square_Plattform-1_500x500_acf_cropped.jpg
+WBW Neubau Wohnbebauung Weißenhorn|2022|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-neubau-wohnbebauung-weissenhorn/142_square_Visu2_500x500_acf_cropped.jpg
+Haus S4|2022|wohnen|realisiert|privat|0|assets/img/haus-s4/748_Treppe_zquare_500x500_acf_cropped.jpg
+Parkhaus am Bahnhof und Fußgängerpassage|2022|parken|realisiert|oeffentlich|0|assets/img/parkhaus-am-bahnhof/502_square-Kunst-2_500x500_acf_cropped.jpg
+WBW Bauliche Entwicklung Heigeleshof|2021|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-bauliche-entwicklung-heigeleshof/01_139_header_Lageplan_500x500_acf_cropped.jpg
+WBW Schweinemarkt 6-8|2021|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-schweinemarkt-6-8/01_140_landscape_Ansicht-SO_500x500_acf_cropped.jpg
+Z4 Science Park 3|2021|arbeiten|realisiert|gewerblich|0|assets/img/z4-science-park-3/736_square-Fassase-Ecke-1.jpg
+Haus B3|2021|wohnen|realisiert|privat|0|assets/img/haus-b3/780_square_Terrasse_500x500_acf_cropped.jpg
+Entwicklung „Am Weinberg“ Ulm|2020|beleben|wettbewerb|oeffentlich|0|assets/img/entwicklung-am-weinberg-ulm/845_1_square_500x500_acf_cropped.jpg
+Unterführung Blaubeurer Straße|2020|beleben|realisiert|oeffentlich|0|assets/img/unterfuehrung-blaubeurer-strasse/01_squared_745_800x800_500x500_acf_cropped.jpg
+Sanitätsversorgungszentrum Wilhelmsburgkaserne|2020|erhalten|realisiert|oeffentlich|0|assets/img/sanitaetsversorgungszentrum-wilhelmsburgkaserne/690_1_Square_Sanitaetsversorgungszentrum-Ulm-0237-scaled_500x500_acf_cropped.jpg
+WBW Wohnbebauung Safranberg|2020|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-wohnbebauung-safranberg/01_squared_138_500x500_acf_cropped.jpg
+WBW Jahnsportpark Friedrichsau|2019|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-jahnsportpark-friedrichsau/01_squared-2_500x500_acf_cropped.jpg
+BA2 Baubetriebshof der Stadt Ulm|2019|arbeiten|realisiert|oeffentlich|0|assets/img/ba2-baubetriebshof-der-stadt-ulm/01_squared-1_500x500_acf_cropped-1.jpg
+WBW Jörg-Syrlin-Grundschule und Astrid-Lindgren-Schule|2019|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-joerg-syrlin-grundschule-und-astrid-lindgren-schule/01_squared_500x500_acf_cropped-1.jpg
+WBW Gemeindehaus Langenau|2019|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-gemeindehaus-langenau/01_squared-3_500x500_acf_cropped.jpg
+WBW Wohngebäude mit Café Biberach|2019|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-wohngebaeude-mit-caf-biberach/01_squared-2_500x500_acf_cropped.jpg
+WBW Wohnungsbau Balingen|2018|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-wohnungsbau-balingen/01_squared_500x500_acf_cropped.jpg
+Produktionshalle Nagel|2018|arbeiten|realisiert|gewerblich|0|assets/img/produktionshalle-nagel/01_1_square_500x500_acf_cropped.jpg
+WBW Neubau Kindertagesstätte Hauderboschen|2018|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-neubau-kindertagesstaette-hauderboschen/01_square-3_500x500_acf_cropped.jpg
+Nordsee 2018|2018|essen|realisiert|gewerblich|0|assets/img/nordsee-2018/01_squared-3_500x500_acf_cropped.jpg
+Möbel Haus S|2018|möblieren|realisiert|privat|0|assets/img/moebel-haus-s/Haus-S_0006_500x500_acf_cropped.jpg
+Haus S3|2018|wohnen|realisiert|privat|0|assets/img/haus-s3/01_squared_500x500_acf_cropped-2.jpg
+WBW Söflingen-Welz Areal|2017|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-soeflingen-welz-areal/01_1_square-1_500x500_acf_cropped.jpg
+Stauferkaserne Pfullendorf|2017|erhalten|realisiert|oeffentlich|0|assets/img/stauferkaserne-pfullendorf/01_squared_500x500_acf_cropped-1.jpg
+WBW Ludwig-Erhard-Brücke|2017|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-ludwig-erhard-bruecke/01_square-1_500x500_acf_cropped.jpg
+WBW Z4 Science Park 3|2017|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-z4-science-park-3/01_square_500x500_acf_cropped.jpg
+WBW Erweiterung WITec|2017|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-erweiterung-witec/01_squared-4_500x500_acf_cropped.jpg
+Nordsee 2017|2017|essen|realisiert|gewerblich|0|assets/img/nordsee-2017/01_2_squared-1_500x500_acf_cropped-4.jpg
+FLZ im „Neuen Bau“ Ulm|2017|umnutzen|realisiert|oeffentlich|0|
+Lagerbürogebäude Setzingen|2016|arbeiten|realisiert|gewerblich|0|assets/img/lagerbuerogebaeude-setzingen/01_square_500x500_acf_cropped-3.jpg
+Wetterschutzhütte New Golf Club Neu-Ulm|2016|beleben|realisiert|gewerblich|0|assets/img/wetterschutzhuette-new-golf-club-neu-ulm/01_square-27_500x500_acf_cropped.jpg
+Neubau Kettenhäuser Lettenwald|2016|wohnen|realisiert|gewerblich|0|assets/img/neubau-kettenhaeuser-lettenwald/01_squared-6_500x500_acf_cropped.jpg
+Haus Marner-Walk-Straße|2016|wohnen|realisiert|privat|0|assets/img/haus-marner-walk-strasse/01_squared_500x500_acf_cropped-6.jpg
+Haus R|2016|wohnen|realisiert|privat|0|assets/img/haus-r/01_2_squared-1_500x500_acf_cropped.jpg
+WBW Gummi-Welz-Areal Söflingen|2016|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-gummi-welz-areal-soeflingen/01_square_500x500_acf_cropped-2.jpg
+New Golf Club Neu-Ulm|2016|essen|realisiert|gewerblich|0|assets/img/new-golf-club-neu-ulm/01_squared_500x500_acf_cropped-4.jpg
+Umbau Neue Straße | Barfüßer und Riku Hotel|2015|umnutzen|realisiert|gewerblich|0|assets/img/umbau-neue-strasse-barfuesser-und-riku-hotel/01_squared_1_500x500_acf_cropped.jpg
+Umbau Neue Straße | Wohnungsbau|2015|wohnen|realisiert|gewerblich|0|assets/img/umbau-neue-strasse-wohnungsbau/01_squared_1-1_500x500_acf_cropped-1.jpg
+Wohnbebauung Senden|2015|wohnen|realisiert|gewerblich|0|assets/img/wohnbebauung-senden/01_header-1_500x500_acf_cropped.jpg
+Nordsee 2016|2016|essen|realisiert|gewerblich|0|assets/img/nordsee-2016/01_2_squared-1_500x500_acf_cropped-3.jpg
+K5|2016|beleben|realisiert|gewerblich|1|assets/img/k5/01_squared_500x500_acf_cropped-2.jpg
+Haus E|2015|wohnen|realisiert|privat|0|assets/img/haus-e/01_2_squared-1_500x500_acf_cropped-2.jpg
+WBW Erweiterung der Grundschule Eichenplatz|2015|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-erweiterung-der-grundschule-eichenplatz/01_squared_500x500_acf_cropped-5.jpg
+WBW Untermarchtal|2014|wettbewerbe|wettbewerb|privat|0|assets/img/wbw-untermarchtal/01_squared_500x500_acf_cropped-4.jpg
+Unterkunftsgebäude S|2014|arbeiten|realisiert|oeffentlich|0|assets/img/unterkunftsgebaeude-s/01_squared_500x500_acf_cropped-1.jpg
+Fahrradverleih am Rathaus|2014|parken|realisiert|oeffentlich|0|assets/img/fahrradverleih-am-rathaus/01_squared-1_500x500_acf_cropped.jpg
+WBW Reutlinger Straße 30-88|2014|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-reutlinger-strasse-30-88/01_squared_500x500_acf_cropped.jpg
+Praxis M|2014|arbeiten|realisiert|privat|0|assets/img/praxis-m/01_4_squared-1_500x500_acf_cropped.jpg
+Gartenstraße NU|2013|wohnen|realisiert|gewerblich|0|assets/img/gartenstrasse-nu/01_squared-1_500x500_acf_cropped-1.jpg
+Wohnbau Pfaffenhofen|2013|wohnen|realisiert|gewerblich|0|assets/img/wohnbau-pfaffenhofen/01_squared_500x500_acf_cropped-2.jpg
+Sonja Quandt Silbermanufaktur|2013|verkaufen|realisiert|gewerblich|0|assets/img/sonja-quandt-silbermanufaktur/01_squared_500x500_acf_cropped-3.jpg
+Bootshaus Ulm|2013|beleben|realisiert|oeffentlich|0|assets/img/bootshaus-ulm/01_2_squared-2_500x500_acf_cropped.jpg
+WBW Meininger Allee|2013|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-meininger-allee/01_squared_500x500_acf_cropped-2.jpg
+Sanierung VH Ulm|2013|lernen|realisiert|oeffentlich|1|assets/img/sanierung-vh-ulm/01_2_squared.jpg
+Baubetriebshof|2012|arbeiten|realisiert|oeffentlich|0|assets/img/baubetriebshof/01_2_squared-1_500x500_acf_cropped-1.jpg
+Haus G2|2012|wohnen|realisiert|privat|0|assets/img/haus-g2/01_square_500x500_acf_cropped-1.jpg
+Haus S|2012|wohnen|realisiert|privat|0|assets/img/haus-s/01_squared_500x500_acf_cropped-1.jpg
+Haus M|2012|wohnen|realisiert|privat|0|assets/img/haus-m/01_squared-1_500x500_acf_cropped.jpg
+Haus V|2011|wohnen|realisiert|privat|0|assets/img/haus-v/01_square_500x500_acf_cropped.jpg
+Radstadel DH|2011|parken|realisiert|oeffentlich|0|assets/img/radstadel-dh/01_squared-1_500x500_acf_cropped.jpg
+Haus B2|2011|wohnen|realisiert|privat|0|assets/img/haus-b2/01_2_squared-1_500x500_acf_cropped.jpg
+Wilken GmbH|2011|arbeiten|realisiert|gewerblich|0|assets/img/wilken-gmbh/01_squared_500x500_acf_cropped.jpg
+Zentrum für Gestaltung HFG Ulm|2011|lernen|realisiert|oeffentlich|0|assets/img/hfg-ulm/01_2_squared.jpg
+Waldorf Kindergarten Blaustein|2010|lernen|realisiert|privat|0|assets/img/waldorf-kindergarten-blaustein/01_squared_500x500_acf_cropped.jpg
+Haus S2|2010|wohnen|realisiert|privat|0|assets/img/haus-s2/01_1_squared.jpg
+Wohnbebauung Lettenwald|2010|wohnen|realisiert|gewerblich|0|assets/img/wohnbebauung-lettenwald/01_squared.jpg
+WBW Lönsstraße|2010|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-loensstrasse/01_squared_500x500_acf_cropped-16.jpg
+EHS @ HFG|2010|lernen|realisiert|oeffentlich|0|assets/img/ehs-hfg/01_squared-8.jpg
+WBW Konzertsaal|2009|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-konzertsaal/01_square-1.jpg
+Kita Illerblick|2009|lernen|realisiert|oeffentlich|0|assets/img/kita-illerblick/01_2_squared.jpg
+WBW Parkhaus Laupheim|2009|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-parkhaus-laupheim/01_squared_500x500_acf_cropped-15_500x500_acf_cropped.jpg
+WBW Mehrfachbeauftragung Lettenwald|2009|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-mehrfachbeauftragung-lettenwald/01_squared_500x500_acf_cropped-14_500x500_acf_cropped.jpg
+WBW Sedanstraße|2009|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-sedanstrasse/01_squared_500x500_acf_cropped-13.jpg
+WBW U3 Ausbauoffensive|2009|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-u3-ausbauoffensive/01_squared-1_500x500_acf_cropped-1.jpg
+Parkhaus am Rathaus|2009|parken|realisiert|oeffentlich|1|assets/img/parkhaus-am-rathaus/01_square_500x500_acf_cropped.jpg
+Wohn- und Geschäftshaus Pranger|2008|beleben|realisiert|gewerblich|0|assets/img/wohn-und-geschaeftshaus-pranger/01_squared-9.jpg
+WBW Finanzamt Biberach|2008|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-finanzamt-biberach/01_squared_500x500_acf_cropped-12.jpg
+Ausstellung 200 Jahre NU|2008|ausstellen|realisiert|oeffentlich|0|assets/img/ausstellung-200-jahre-nu/01_squared_500x500_acf_cropped-11.jpg
+WBW Karpfengasse|2008|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-karpfengasse/01_squared-4.jpg
+Anbau Scholl-Gymnasium|2008|lernen|realisiert|oeffentlich|0|assets/img/anbau-scholl-gymnasium/01_squared.jpg
+WBW Bürogebäude Wilken|2007|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-buerogebaeude-wilken/01_square_500x500_acf_cropped-7.jpg
+Restaurantgebäude La Bagatta|2007|essen|realisiert|gewerblich|0|assets/img/restaurantgebaeude-la-bagatta/01_squared-3.jpg
+Geschäftsstelle SSV Ulm|2007|arbeiten|realisiert|gewerblich|0|assets/img/geschaeftsstelle-ssv-ulm/01_square-19.jpg
+Büro T|2007|arbeiten|realisiert|gewerblich|0|assets/img/buero-t/01_squared_500x500_acf_cropped-10.jpg
+Radhaus Heilbronn|2007|parken|realisiert|oeffentlich|0|assets/img/radhaus-heilbronn/01_square_500x500_acf_cropped.jpg
+FLZ der Saarländischen Vollzugspolizei|2006|arbeiten|realisiert|oeffentlich|0|assets/img/flz-der-saarlaendischen-vollzugspolizei/01_square_500x500_acf_cropped-1_500x500_acf_cropped.jpg
+Nordsee am Viktualienmarkt|2006|essen|realisiert|gewerblich|0|assets/img/nordsee-am-viktualienmarkt/01_squared.jpg
+WBW Kita Ost|2006|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-kita-ost/01_2_squared.jpg
+WBW Stadtregal Ulm|2006|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-stadtregal-ulm/01_squared.jpg
+Pavillon NU21|2006|ausstellen|realisiert|oeffentlich|0|assets/img/pavillon-nu21/01_squared_500x500_acf_cropped-9.jpg
+Haus der Wirtschaft|2005|arbeiten|realisiert|gewerblich|0|assets/img/haus-der-wirtschaft/01_2_squared-2.jpg
+Infopunkt Citybahnhof|2005|ausstellen|realisiert|oeffentlich|0|assets/img/infopunkt-citybahnhof/01_2_squared-3_500x500_acf_cropped.jpg
+WBW HTW Saarbrücken|2005|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-htw-saarbruecken/01_square-25.jpg
+Gründerzeithaus S|2005|erhalten|realisiert|privat|0|assets/img/gruenderzeithaus-s/01_squared-1_500x500_acf_cropped.jpg
+Radhaus Ulm|2005|parken|realisiert|oeffentlich|0|assets/img/radhaus-ulm/01_2_squared-1_500x500_acf_cropped-7.jpg
+WBW Finanzamt Hersbruck|2004|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-finanzamt-hersbruck/01_2_squared.jpg
+Haus K|2004|wohnen|realisiert|privat|0|assets/img/haus-k/01_squared_500x500_acf_cropped-7.jpg
+Puma Eventbox|2004|ausstellen|realisiert|gewerblich|0|assets/img/puma-eventbox/01_square.jpg
+Haus N|2004|wohnen|realisiert|privat|0|assets/img/haus-n/01_squared_500x500_acf_cropped-6.jpg
+Bischof-Sproll-Haus|2003|erhalten|realisiert|privat|0|assets/img/bischof-sproll-haus/01_square-6.jpg
+WBW Ausstellungsgestaltung|2003|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-ausstellungsgestaltung/01_square-5.jpg
+WBW Donaubastion|2003|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-donaubastion/01_square-3.jpg
+WBW Judenhof|2003|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-judenhof/01_2-squared.jpg
+WBW Obergericht Zürich|2003|wettbewerbe|wettbewerb|oeffentlich|0|assets/img/wbw-obergericht-zuerich/01_square-4.jpg
+Kardiologische Klinik|2003|arbeiten|realisiert|privat|0|assets/img/kardiologische-klinik/01_squared_500x500_acf_cropped-5.jpg
+Haus H|2003|wohnen|realisiert|privat|0|assets/img/haus-h/01_square_500x500_acf_cropped-5.jpg
+WBW Entertainment Center|2002|wettbewerbe|wettbewerb|gewerblich|0|assets/img/wbw-entertainment-center/01_square-22.jpg
+Gesundheitsbox|2002|ausstellen|realisiert|gewerblich|0|assets/img/gesundheitsbox/01_2_squared-1_500x500_acf_cropped-5.jpg
+Haus B|2002|wohnen|realisiert|privat|0|assets/img/haus-b/01_square-1_500x500_acf_cropped.jpg
+Haus G|2002|wohnen|realisiert|privat|0|assets/img/haus-g/01_square-2_500x500_acf_cropped.jpg
+Hörsaalgebäude Uni Ulm|2002|lernen|realisiert|oeffentlich|0|assets/img/hoersaalgebaeude-uni-ulm/01-square_500x500_acf_cropped.jpg
+Saftbar Smoothies|2002|essen|realisiert|gewerblich|0|assets/img/saftbar-smoothies/01_squared-4.jpg
+Parkhaus Deutschhaus|2002|parken|realisiert|oeffentlich|1|assets/img/parkhaus-deutschhaus/01_squared-1_500x500_acf_cropped.jpg
+Musikpavillon|2002|beleben|realisiert|oeffentlich|0|assets/img/musikpavillon/01_squared-2_500x500_acf_cropped.jpg
 `;
 
   /* Der Titel „Umbau Neue Straße | …“ enthält selbst einen Strich,
      deshalb wird von hinten getrennt. */
-  var P = RAW.trim().split('\n').map(function (row, i) {
+  var P = RAW.trim().split('\n').map(function (row) {
     var f = row.split('|');
-    var aw = +f.pop(), k = f.pop(), s = f.pop(), c = f.pop(), y = +f.pop();
-    return { t: f.join('|').trim(), y: y, c: c, s: s, k: k, aw: aw, img: pic(i) };
+    var img = f.pop(), aw = +f.pop(), k = f.pop(), s = f.pop(), c = f.pop(), y = +f.pop();
+    return { t: f.join('|').trim(), y: y, c: c, s: s, k: k, aw: aw, img: img };
   });
 
   /* Projekte mit eigener Detailseite (projektseiten.js) bekommen Link und Kachelbild,
