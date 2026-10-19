@@ -49,14 +49,18 @@
 .profil-face:hover .t-h4{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .profil-face p+p{margin-top:var(--sp-1)}
 
-/* Leitbild: typografisches Akkordeon. Die vier Werte als Bildelement; offen ist der Wert
-   in der Bildschirmmitte bzw. der zuletzt angeklickte (profil.js). Klappen über grid-template-rows. */
-.profil-acc__item{border-top:1px solid var(--on-dark-rule)}
-.profil-acc__item:last-child{border-bottom:1px solid var(--on-dark-rule)}
+/* Leitbild: typografisches Akkordeon auf getöntem Grund. Die vier Werte als Bildelement; offen ist der Wert
+   in der Bildschirmmitte bzw. der zuletzt angeklickte (profil.js), er steht in seiner Leitbildfarbe,
+   die übrigen schwarz. Klappen über grid-template-rows. */
+.profil-acc__item{--lb:var(--ink);border-top:1px solid var(--rule-tint)}
+.profil-acc__item:nth-child(1){--lb:var(--leitbild-1)}
+.profil-acc__item:nth-child(2){--lb:var(--leitbild-2)}
+.profil-acc__item:nth-child(3){--lb:var(--leitbild-3)}
+.profil-acc__item:nth-child(4){--lb:var(--leitbild-4)}
+.profil-acc__item:last-child{border-bottom:1px solid var(--rule-tint)}
 .profil-acc__btn{display:block;width:100%;text-align:left;padding-block:var(--sp-2)}
-.profil-acc__btn:focus-visible{outline-color:var(--on-dark)}
-.profil-acc__word{display:block;font-family:var(--font-ui);font-weight:300;font-size:clamp(2.625rem, 9.5vw, 9.25rem);line-height:.95;letter-spacing:-.035em;color:var(--on-dark-rule);transition:color .6s var(--ease)}
-.profil-acc__item.is-on .profil-acc__word,.profil-acc__btn:hover .profil-acc__word{color:var(--on-dark)}
+.profil-acc__word{display:block;font-family:var(--font-ui);font-weight:300;font-size:clamp(2.625rem, 9.5vw, 9.25rem);line-height:.95;letter-spacing:-.035em;color:var(--ink);transition:color .6s var(--ease)}
+.profil-acc__item.is-on .profil-acc__word,.profil-acc__btn:hover .profil-acc__word{color:var(--lb)}
 .profil-acc__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
 .profil-acc__item.is-on .profil-acc__body{grid-template-rows:1fr}
 .profil-acc__body>div{overflow:hidden}
@@ -64,7 +68,7 @@
 .profil-acc__inner{padding-block:var(--sp-1) var(--sp-5);row-gap:var(--sp-2)}
 .profil-acc__lines{display:grid;gap:var(--sp-2)}
 @media (min-width:900px){.profil-acc__lines{gap:var(--sp-1)}}
-.profil-acc__lines li{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1.25;letter-spacing:-.01em;color:var(--on-dark);text-wrap:balance}
+.profil-acc__lines li{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1.25;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
 
 /* Anschlusskarten: Pfeil-Links stehen auf einer Linie, egal wie lang der Text ist */
 .profil-card{display:flex;flex-direction:column;align-self:stretch}
