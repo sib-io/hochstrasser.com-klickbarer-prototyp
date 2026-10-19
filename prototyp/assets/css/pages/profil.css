@@ -32,6 +32,9 @@
 .profil-panel .link-arrow{margin-top:var(--sp-4)}
 #schema ~ .note,.profil-panel ~ .note{margin-top:var(--sp-4)}
 
+/* Expertise: Einleitungstext über den Gesichtern */
+.profil-expertise__intro{margin-bottom:var(--sp-6)}
+
 /* Gesichter: Porträts von der Büroseite */
 .profil-face{display:block}
 .profil-face .media{margin-bottom:var(--sp-2)}
@@ -49,8 +52,6 @@
 
 /* Leitbild: typografisches Akkordeon. Die vier Werte als Bildelement; offen ist der Wert
    in der Bildschirmmitte bzw. der zuletzt angeklickte (profil.js). Klappen über grid-template-rows. */
-.profil-creed__intro{color:var(--on-dark-2)}
-.profil-acc{margin-top:var(--sp-7)}
 .profil-acc__item{border-top:1px solid var(--on-dark-rule)}
 .profil-acc__item:last-child{border-bottom:1px solid var(--on-dark-rule)}
 .profil-acc__btn{display:block;width:100%;text-align:left;padding-block:var(--sp-2)}
