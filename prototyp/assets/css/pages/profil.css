@@ -49,15 +49,15 @@
 .profil-face:hover .t-h4{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .profil-face p+p{margin-top:var(--sp-1)}
 
-/* Leitbild: typografisches Akkordeon auf getöntem Grund. Die vier Werte als Bildelement; offen ist der Wert
+/* Leitbild: typografisches Akkordeon auf weißem Grund. Die vier Werte als Bildelement; offen ist der Wert
    in der Bildschirmmitte bzw. der zuletzt angeklickte (profil.js), er steht in seiner Leitbildfarbe,
    die übrigen schwarz. Klappen über grid-template-rows. */
-.profil-acc__item{--lb:var(--ink);border-top:1px solid var(--rule-tint)}
+.profil-acc__item{--lb:var(--ink);border-top:1px solid var(--rule)}
 .profil-acc__item:nth-child(1){--lb:var(--leitbild-1)}
 .profil-acc__item:nth-child(2){--lb:var(--leitbild-2)}
 .profil-acc__item:nth-child(3){--lb:var(--leitbild-3)}
 .profil-acc__item:nth-child(4){--lb:var(--leitbild-4)}
-.profil-acc__item:last-child{border-bottom:1px solid var(--rule-tint)}
+.profil-acc__item:last-child{border-bottom:1px solid var(--rule)}
 .profil-acc__btn{display:block;width:100%;text-align:left;padding-block:var(--sp-2)}
 .profil-acc__word{display:block;font-family:var(--font-ui);font-weight:300;font-size:clamp(2.625rem, 9.5vw, 9.25rem);line-height:.95;letter-spacing:-.035em;color:var(--ink);transition:color .6s var(--ease)}
 .profil-acc__item.is-on .profil-acc__word,.profil-acc__btn:hover .profil-acc__word{color:var(--lb)}
