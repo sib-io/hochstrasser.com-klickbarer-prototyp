@@ -1,13 +1,5 @@
 /* Startseite: Projektkacheln, Aktuelles (Weiterschalten) */
 (function () {
-  var IMG = {
-    a: 'assets/img/wp/842_landscape-01-scaled.jpg',
-    b: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg',
-    c: 'assets/img/wp/799_lanscape-02-scaled.jpg',
-    d: 'assets/img/wp/744_landscape_Treppenhaus-3-scaled.jpg',
-    e: 'assets/img/wp/14_landscape-1.jpg',
-    f: 'assets/img/wp/jobs-e1530280090729.jpg'
-  };
   /* Reihenfolge und Auswahl festgelegt; img = Kachelbild der Live-Seite,
      Projekte mit Detailseite holen Link und Bild aus projektseiten.js */
   var P = [
@@ -45,47 +37,76 @@
     }).join('');
   }
 
-  /* Aktuelles: feste Reihenfolge; die Pfeile schalten Bild und Meldung vor und zurück */
-  var PH = 'Platzhalter – Bild zur Meldung folgt';
+  /* Aktuelles: die zehn neuesten Meldungen der Live-Startseite (Slider), in Live-Reihenfolge.
+     Titel = Überschrift des Slides, Teaser = Unterzeile (nur, wenn live vorhanden).
+     Slides ohne Text: Titel aus der Bildaufschrift. Kategorie und Jahr aus Slide/Upload-Datum */
+  var WP = 'assets/img/wp/';
   var NEWS = [
-    { img: IMG.a, alt: 'Das sanierte ehemalige Kriegsspital in Neu-Ulm mit Backsteinfassade', href: 'projekt-kriegsspital-neu-ulm.html',
-      kind: 'Fertigstellung', year: '2024', title: 'Ehemaliges Kriegsspital Neu-Ulm',
-      desc: 'Umbau und Sanierung eines Baudenkmals. Zwei Bauabschnitte, fertiggestellt im laufenden Betrieb.' },
-    { img: IMG.d, alt: PH, kind: 'Fertigstellung', year: '2025',
-      title: 'Umbau und Modernisierung Kornhaus Kempten — Wir gratulieren zur Eröffnung',
-      desc: 'Umbau und Modernisierung des Kornhauses in Kempten. Das Haus ist eröffnet.' },
-    { img: IMG.e, alt: PH, kind: 'Auszeichnung', year: '2023',
-      title: 'Strohballenatelier Schrade — Auszeichnung Hugo-Häring',
-      desc: 'Das Strohballenatelier wurde mit der Auszeichnung Hugo-Häring gewürdigt.' },
-    { img: IMG.f, alt: PH, kind: 'Büro', year: '2023',
-      title: 'Wir beteiligen uns an der Initiative Phase Nachhaltigkeit',
-      desc: 'Das Büro ist Teil der Initiative Phase Nachhaltigkeit.' }
+    { img: WP + 'Homepage-Banner_BDA.jpg', alt: 'Frank Scheer, Stefanie Geywitz und Michael Geitner, Schriftzug „BDA Berufung“',
+      kind: 'Büro', year: '2026', title: 'BDA-Berufung' },
+    { img: WP + 'Kornhaus-Kempten_0022.jpg', alt: 'Das umgebaute und modernisierte Kornhaus in Kempten',
+      href: 'https://www.kempten.de/videogalerie-27976.html', ext: 1,
+      kind: 'Fertigstellung', year: '2025', title: 'Fertigstellung Umbau und Modernisierung Kornhaus Kempten',
+      desc: 'Wir gratulieren zur Eröffnung! Foto: Conné van d’Grachten' },
+    { img: WP + 'Banner-baupysik_kompr.jpg', alt: 'Planungsbesprechung von oben, Schriftzug „neue kompetenzen: Energieberatung, thermische und akustische Bauphysik, Nachhaltigkeitszertifizierungen“',
+      kind: 'Büro', year: '2025', title: 'Neue Kompetenzen' },
+    { img: WP + 'aktuelles-Banner-Veraenderung_final-scaled.jpg', alt: 'Plakat „veränderung.“ zu 64 Jahren Büro: Haus K5 mit Stationen und Kompetenzen',
+      href: 'https://hochstrasser.com/wp-content/uploads/2024/10/Plakat-Veraenderung_reduziert.pdf', ext: 1,
+      kind: 'Büro', year: '2024', title: 'Veränderung' },
+    { img: WP + 'NU-Schwabenstr_0025-scaled.jpg', alt: 'Die Wohnbebauung in Neu-Ulm', href: 'projekt-wohnbebauung-neu-ulm.html',
+      kind: 'Fertigstellung', year: '2024', title: 'Fertigstellung: Wohnbebauung Neu-Ulm',
+      desc: '→ Hier geht’s zum Beitrag' },
+    { img: WP + 'Sedelhof-Passage-Ulm-Hbf_0005-scaled.jpg', alt: 'Die Fußgängerpassage am Ulmer Hauptbahnhof', href: 'projekt-flz-neuer-bau-ulm.html',
+      kind: 'Projekt', year: '2024', title: 'Beitrag aktualisiert: Fußgängerpassage am Bahnhof',
+      desc: '→ Hier geht’s zum Beitrag' },
+    { img: WP + '842_landscape-Ostfluegel-scaled.jpg', alt: 'Der Ostflügel des sanierten ehemaligen Kriegsspitals in Neu-Ulm', href: 'projekt-kriegsspital-neu-ulm.html',
+      kind: 'Fertigstellung', year: '2024', title: 'Fertigstellung ehemaliges Kriegsspital Neu-Ulm' },
+    { img: WP + '799_lanscape-02-scaled.jpg', alt: 'Der BA3 Baubetriebshof der Stadt Ulm', href: 'projekt-ba3-baubetriebshof-ulm.html',
+      kind: 'Fertigstellung', year: '2024', title: 'Fertigstellung BA3 Baubetriebshof der Stadt Ulm',
+      desc: 'Foto: Conné van d’Grachten' },
+    { img: WP + 'Banner-Phase-Nachaltigkeit.jpg', alt: 'Logo „Wir unterstützen die Phase Nachhaltigkeit“',
+      kind: 'Büro', year: '2024', title: 'Phase Nachhaltigkeit' },
+    { img: WP + '864_landscape_gurt2-mit-Logos-scaled.jpg', alt: 'Das Strohballenatelier Schrade mit den Logos der Hugo-Häring-Auszeichnung',
+      href: 'https://www.xn--hugo-hring-preis-0nb.de/preistraeger/object/2680/-1/-1/-1/-1', ext: 1,
+      kind: 'Auszeichnung', year: '2023', title: 'Strohballenatelier Schrade – Auszeichnung Hugo-Häring 2023',
+      desc: 'Wir bauen ein Atelier! Foto: Conné van d’Grachten' }
   ];
+  var VIS = 4; /* sichtbare Meldungen; die Pfeile schieben das Fenster im Kreis weiter */
   var media = document.getElementById('newsMedia');
   var img = document.getElementById('nImg');
   var feed = document.getElementById('newsFeed');
   var prev = document.getElementById('newsPrev');
   var next = document.getElementById('newsNext');
   if (feed && img && prev && next) {
-    var idx = 0;
+    var N = NEWS.length, idx = 0, top = 0;
     var still = window.matchMedia('(prefers-reduced-motion: reduce)');
     var side = window.matchMedia('(min-width: 1200px)');
-    feed.innerHTML = NEWS.map(function (n, i) {
-      return '<li' + (i === 0 ? ' class="is-lead" aria-current="true"' : '') + '><a href="' + (n.href || '#') + '">' +
+    feed.innerHTML = NEWS.map(function (n) {
+      return '<li><a href="' + (n.href || '#') + '"' + (n.ext ? ' target="_blank" rel="noopener"' : '') + '>' +
         '<span class="idx-feed__title t-h4">' + n.title + '</span> ' +
         '<span class="idx-feed__kind t-label">' + n.kind + '</span> ' +
         '<span class="idx-feed__year t-label">' + n.year + '</span> ' +
-        '<span class="idx-feed__desc"><p>' + n.desc + '</p></span></a></li>';
+        (n.desc ? '<span class="idx-feed__desc"><p>' + n.desc + '</p></span>' : '') + '</a></li>';
     }).join('');
     var items = Array.prototype.slice.call(feed.children);
-    var lead = function (i) {
-      items.forEach(function (li, k) { li.classList.toggle('is-lead', k === i); });
+    /* Fenster ab Meldung t (im Kreis), aktive Meldung i */
+    var place = function (t, i) {
+      for (var k = 0; k < N; k++) {
+        var li = items[(t + k) % N];
+        li.hidden = k >= VIS;
+        feed.appendChild(li);
+      }
+      items.forEach(function (li, k) {
+        li.classList.toggle('is-lead', k === i);
+        if (k === i) li.setAttribute('aria-current', 'true'); else li.removeAttribute('aria-current');
+      });
     };
 
-    /* ab 1200 ist die Liste so hoch wie das Bild: je Meldung Titelgröße (in 1px-Schritten
-       bis 75 %) und Teaserzeilen suchen, mit denen sie als aktive Meldung hineinpasst –
+    /* ab 1200 ist die Liste so hoch wie das Bild: für die aktive Meldung im jeweiligen Fenster
+       Titelgröße (in 1px-Schritten bis 75 %) und Teaserzeilen suchen, mit denen sie hineinpasst –
        vorrangig mit vollem Teaser, sonst gekürzt, sonst ohne; jeweils mit dem größten Titel.
-       Gemessen wird synchron ohne Übergänge, danach ist wieder die aktuelle Meldung aktiv */
+       Gemessen wird synchron ohne Übergänge (Ergebnis je Fenster gemerkt), danach ist wieder
+       der bisherige Zustand aktiv, damit der Wechsel animiert */
     var fits = function () { return feed.scrollHeight <= feed.clientHeight; };
     var set = function (li, fs, lines) {
       li.style.setProperty('--lead-fs', fs + 'px');
@@ -93,60 +114,82 @@
       else li.style.removeProperty('--desc-lines');
       li.classList.toggle('no-desc', lines === 0);
     };
-    var fit = function () {
-      items.forEach(function (li) {
-        li.style.removeProperty('--lead-fs');
-        li.style.removeProperty('--desc-lines');
-        li.classList.remove('no-desc');
-      });
-      if (!side.matches) return;
-      feed.classList.add('is-fitting');
-      items.forEach(function (li, i) {
-        lead(i);
-        if (fits()) return;
-        var title = li.querySelector('.idx-feed__title');
-        var p = li.querySelector('.idx-feed__desc>p');
-        var max = Math.floor(parseFloat(getComputedStyle(title).fontSize));
+    var reset = function (li) {
+      li.style.removeProperty('--lead-fs');
+      li.style.removeProperty('--desc-lines');
+      li.classList.remove('no-desc');
+    };
+    var size = function (li, r) { if (r) set(li, r[0], r[1]); else reset(li); };
+    var measure = function (li) {
+      reset(li);
+      if (!side.matches || fits()) return null;
+      var title = li.querySelector('.idx-feed__title');
+      var p = li.querySelector('.idx-feed__desc>p');
+      var max = Math.floor(parseFloat(getComputedStyle(title).fontSize));
+      var all = 0;
+      if (p) {
         var lh = parseFloat(getComputedStyle(p).lineHeight);
-        var all = Math.round((p.scrollHeight - parseFloat(getComputedStyle(p).paddingTop)) / lh);
-        var full, cut, none;
-        for (var fs = max; fs >= Math.ceil(max * 0.75) && !full; fs--) {
-          for (var lines = all; lines >= 0; lines--) {
-            set(li, fs, lines === all ? 99 : lines);
-            if (fits()) break;
-          }
-          if (lines === all) full = [fs, 99];
-          else if (lines > 0 && !cut) cut = [fs, lines];
-          else if (lines === 0 && !none) none = [fs, 0];
+        all = Math.round((p.scrollHeight - parseFloat(getComputedStyle(p).paddingTop)) / lh);
+      }
+      var full, cut, none;
+      for (var fs = max; fs >= Math.ceil(max * 0.75) && !full; fs--) {
+        for (var lines = all; lines >= 0; lines--) {
+          set(li, fs, lines === all ? 99 : lines);
+          if (fits()) break;
         }
-        var pick = full || cut || none || [Math.ceil(max * 0.75), 0];
-        set(li, pick[0], pick[1]);
-      });
-      lead(idx);
+        if (lines === all) full = [fs, 99];
+        else if (lines > 0 && !cut) cut = [fs, lines];
+        else if (lines === 0 && !none) none = [fs, 0];
+      }
+      return full || cut || none || [Math.ceil(max * 0.75), 0];
+    };
+    var fitted = {};
+    var go = function (t, i) {
+      var key = t + ':' + i;
+      if (!(key in fitted)) {
+        feed.classList.add('is-fitting');
+        place(t, i);
+        fitted[key] = measure(items[i]);
+        place(top, idx);
+        size(items[idx], fitted[top + ':' + idx]);
+        void feed.offsetHeight;
+        feed.classList.remove('is-fitting');
+      }
+      top = t; idx = i;
+      place(t, i);
+      size(items[i], fitted[key]);
+    };
+    var refit = function () {
+      fitted = {};
+      feed.classList.add('is-fitting');
+      place(top, idx);
+      fitted[top + ':' + idx] = measure(items[idx]);
+      size(items[idx], fitted[top + ':' + idx]);
       void feed.offsetHeight;
       feed.classList.remove('is-fitting');
     };
     var queued = 0;
-    var refit = function () {
+    var refitSoon = function () {
       if (queued) return;
-      queued = requestAnimationFrame(function () { queued = 0; fit(); });
+      queued = requestAnimationFrame(function () { queued = 0; refit(); });
     };
-    fit();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
-    window.addEventListener('resize', refit);
+    refit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refitSoon);
+    window.addEventListener('resize', refitSoon);
 
     window.addEventListener('load', function () {
-      refit();
+      refitSoon();
       NEWS.slice(1).forEach(function (n) { new Image().src = n.img; });
     });
 
-    /* Pfeil runter: nächste Meldung, Pfeil hoch: vorherige (jeweils im Kreis) */
+    /* Pfeil runter: nächste Meldung, Pfeil hoch: vorherige (jeweils im Kreis). Verlässt die aktive
+       Meldung das Fenster, rückt es um eine Meldung nach (unten bzw. oben) */
     var show = function (step) {
-      items[idx].removeAttribute('aria-current');
-      idx = (idx + step + NEWS.length) % NEWS.length;
-      lead(idx);
-      items[idx].setAttribute('aria-current', 'true');
-      var n = NEWS[idx];
+      var i = (idx + step + N) % N;
+      var t = top;
+      if ((i - top + N) % N >= VIS) t = step > 0 ? (i - VIS + 1 + N) % N : i;
+      go(t, i);
+      var n = NEWS[i];
       var paint = function () { img.src = n.img; img.alt = n.alt; };
       if (still.matches) { paint(); return; }
       media.classList.add('is-swapping');
