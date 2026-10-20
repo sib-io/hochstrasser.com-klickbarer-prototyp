@@ -1,13 +1,5 @@
 /* Startseite: Projektkacheln, Aktuelles (Weiterschalten) */
 (function () {
-  var IMG = {
-    a: 'assets/img/wp/842_landscape-01-scaled.jpg',
-    b: 'assets/img/wp/NU-Schwabenstr_0025-scaled.jpg',
-    c: 'assets/img/wp/799_lanscape-02-scaled.jpg',
-    d: 'assets/img/wp/744_landscape_Treppenhaus-3-scaled.jpg',
-    e: 'assets/img/wp/14_landscape-1.jpg',
-    f: 'assets/img/wp/jobs-e1530280090729.jpg'
-  };
   /* Reihenfolge und Auswahl festgelegt; img = Kachelbild der Live-Seite,
      Projekte mit Detailseite holen Link und Bild aus projektseiten.js */
   var P = [
@@ -45,22 +37,45 @@
     }).join('');
   }
 
-  /* Aktuelles: feste Reihenfolge; die Pfeile schalten Bild und Meldung vor und zurück */
-  var PH = 'Platzhalter – Bild zur Meldung folgt';
+  /* Aktuelles: feste Reihenfolge, gepflegt über das News-Formular; zu Beginn sind die ersten
+     SHOW Meldungen zu sehen, die Pfeile schalten Bild und Meldung vor und zurück und holen dabei
+     die folgenden in die Liste. Ohne href ist die Meldung nicht verlinkt, externe Links öffnen in neuem Tab */
   var NEWS = [
-    { img: IMG.a, alt: 'Das sanierte ehemalige Kriegsspital in Neu-Ulm mit Backsteinfassade', href: 'projekt-kriegsspital-neu-ulm.html',
-      kind: 'Fertigstellung', year: '2024', title: 'Ehemaliges Kriegsspital Neu-Ulm',
-      desc: 'Umbau und Sanierung eines Baudenkmals. Zwei Bauabschnitte, fertiggestellt im laufenden Betrieb.' },
-    { img: IMG.d, alt: PH, kind: 'Fertigstellung', year: '2025',
-      title: 'Umbau und Modernisierung Kornhaus Kempten — Wir gratulieren zur Eröffnung',
-      desc: 'Umbau und Modernisierung des Kornhauses in Kempten. Das Haus ist eröffnet.' },
-    { img: IMG.e, alt: PH, kind: 'Auszeichnung', year: '2023',
-      title: 'Strohballenatelier Schrade — Auszeichnung Hugo-Häring',
-      desc: 'Das Strohballenatelier wurde mit der Auszeichnung Hugo-Häring gewürdigt.' },
-    { img: IMG.f, alt: PH, kind: 'Büro', year: '2023',
-      title: 'Wir beteiligen uns an der Initiative Phase Nachhaltigkeit',
-      desc: 'Das Büro ist Teil der Initiative Phase Nachhaltigkeit.' }
+    { img: 'assets/img/news/detail-konstruktionshandbuch-stroh.jpg', alt: 'Publikation von hochstrasser Architekten im neuen Konstruktionshandbuchs „Stroh" von DETAIL', href: 'https://www.detail.de/187323/stroh',
+      kind: 'Presse', year: '2026', title: 'Publikation im neuen DETAIL-Konstruktionshandbuch',
+      desc: 'Unser Projekt ist Teil des neuen DETAIL-Konstruktionshandbuchs „Stroh", das Nachschlagewerk zum nachhaltigen & kreislauffähigen Bauen mit Stroh.' },
+    { img: 'assets/img/news/kornhaus-kempten.jpg', alt: 'Bauen im Bestand Sanierung Kornhaus Kempten hochstrasser Architekten', href: 'https://www.byak.de/planen-und-bauen/projektsuche-systematik-alt-vor-16042026/detail/umbau-und-modernisierung-des-kornhauses/-.html?no_cache=1&cHash=801c191ca41c850759df2f77f4380798',
+      kind: 'Auszeichnung', year: '2025', title: 'Kornhaus Kempten',
+      desc: 'Sanierung und Modernisierung des Kornhauses in Kempten, ein barockes Einzeldenkmal aus der Zeit um 1700. KlimaKulturKompetenz-Prädikat für Barrierefreiheit.' },
+    { img: 'assets/img/news/baubetriebshof-ulm.jpg', alt: 'Bau Betriebshof Stadt Ulm hochstrasser. Architekten', href: 'projekt-ba3-baubetriebshof-ulm.html',
+      kind: 'Fertigstellung', year: '2024', title: 'Baubetriebshof der Stadt Ulm',
+      desc: 'Neubau einer Fahrzeughalle als Stahl-/Holzkonstruktion (Foto: Conné van d`Grachten)' },
+    { img: 'assets/img/news/vortrag-einsteinhaus.jpg', alt: 'Vortrag Adrian hochstrasser Architekten Ulm VH Einsteinhaus',
+      kind: 'Veranstaltung', year: '2026', title: 'Vortrag im EinsteinHaus - Ulmer Volkshochschule',
+      desc: 'Anlässlich des 80-jährigen Jubiläums ist Adrian Hochstrasser zu Gast im Einsteinhaus und spricht über die Entstehung, Architektur und Sanierung des Gebäudes.' },
+    { img: 'assets/img/news/hugo-haering-auszeichnung.jpg', alt: 'Atelier aus Stroh hochstrasser Architekten',
+      kind: 'Auszeichnung', year: '2023', title: 'Hugo-Häring-Auszeichnung',
+      desc: 'Hugo-Häring-Auszeichnung 2023 für das Atelier von Dorotha Schrade. (Foto: Conné van d\'Grachten)' },
+    { img: 'assets/img/news/bda-berufung.jpg', alt: 'BDA Berufung unserer Mitarbeiter Scheer, Geywitz und Geitner hochstrasser Architekten',
+      kind: 'Büro', year: '2026', title: 'BDA-Berufung',
+      desc: 'Stolz präsentieren wir unsere 3 neuen BDA-Mitglieder. Frank Scheer, Stefanie Geywitz und Michael Geitner.' },
+    { img: 'assets/img/news/wohnbebauung-neu-ulm.jpg', alt: 'sanierung und modernisierung eines wohnquartiers hochstrasser Architekten', href: 'projekt-wohnbebauung-neu-ulm.html',
+      kind: 'Fertigstellung', year: '2024', title: 'Wohnbebauung Neu-Ulm',
+      desc: 'Sanierung und Modernisierung eines Wohnquartiers mit insgesamt 33 Mieteinheiten in Neu-Ulm.' },
+    { img: 'assets/img/news/phase-nachhaltigkeit.jpg', alt: 'Initiative "Phase Nachhaltigkeit"', href: 'https://www.phase-nachhaltigkeit.jetzt/',
+      kind: 'Presse', year: '2024', title: 'Phase Nachhaltigkeit',
+      desc: 'Wir unterstützen die Initiative "Phase Nachhaltigkeit".' },
+    { img: 'assets/img/news/strohballenatelier.jpg', alt: 'Strohballenatelier hochstrasser Architekten',
+      kind: 'Fertigstellung', year: '2022', title: 'Strohballenatelier',
+      desc: 'Ein Atelier aus Strohballen, alte Fenstern und Naturmaterialien. Das Ergebnis: Teamwork und eine Hugo-Häring-Auszeichnung 2023.' },
+    { img: 'assets/img/news/kriegsspital-neu-ulm.jpg', alt: 'Sanierung und Modernisierung des Kriegspitals in Neu Ulm hochstrasser Architektenn',
+      kind: 'Fertigstellung', year: '2024', title: 'Kriegsspital Neu-Ulm',
+      desc: 'Umbau und Sanierung des ehmaligen Kriegsspitals in Neu-Ulm.' },
+    { img: 'assets/img/news/haus-mk.jpg', alt: 'Sanierung Privat-Haus MK', href: 'projekt-haus-mk.html',
+      kind: 'Fertigstellung', year: '2023', title: 'Haus MK',
+      desc: 'Energetische Sanierung & Umbau eines Einfamilienhauses mit Einliegerwohnung.' }
   ];
+  var SHOW = 4;
   var media = document.getElementById('newsMedia');
   var img = document.getElementById('nImg');
   var feed = document.getElementById('newsFeed');
@@ -70,16 +85,25 @@
     var idx = 0;
     var still = window.matchMedia('(prefers-reduced-motion: reduce)');
     var side = window.matchMedia('(min-width: 1200px)');
+    var esc = function (v) { return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); };
     feed.innerHTML = NEWS.map(function (n, i) {
-      return '<li' + (i === 0 ? ' class="is-lead" aria-current="true"' : '') + '><a href="' + (n.href || '#') + '">' +
-        '<span class="idx-feed__title t-h4">' + n.title + '</span> ' +
-        '<span class="idx-feed__kind t-label">' + n.kind + '</span> ' +
-        '<span class="idx-feed__year t-label">' + n.year + '</span> ' +
-        '<span class="idx-feed__desc"><p>' + n.desc + '</p></span></a></li>';
+      var link = !n.href ? '' : ' href="' + esc(n.href) + '"' + (/^https?:/.test(n.href) ? ' target="_blank" rel="noopener"' : '');
+      return '<li' + (i === 0 ? ' class="is-lead" aria-current="true"' : '') + (i >= SHOW ? ' hidden' : '') + '><a' + link + '>' +
+        '<span class="idx-feed__title t-h4">' + esc(n.title) + '</span> ' +
+        '<span class="idx-feed__kind t-label">' + esc(n.kind) + '</span> ' +
+        '<span class="idx-feed__year t-label">' + esc(n.year) + '</span> ' +
+        '<span class="idx-feed__desc"><p>' + esc(n.desc) + '</p></span></a></li>';
     }).join('');
     var items = Array.prototype.slice.call(feed.children);
+    /* sichtbar sind SHOW Meldungen am Stück: bis zur vierten die ersten vier, danach rückt
+       die Liste mit, sodass die aktive Meldung die unterste ist */
+    var first = function (i) { return Math.max(0, Math.min(i - SHOW + 1, NEWS.length - SHOW)); };
     var lead = function (i) {
-      items.forEach(function (li, k) { li.classList.toggle('is-lead', k === i); });
+      var f = first(i);
+      items.forEach(function (li, k) {
+        li.classList.toggle('is-lead', k === i);
+        li.hidden = k < f || k >= f + SHOW;
+      });
     };
 
     /* ab 1200 ist die Liste so hoch wie das Bild: je Meldung Titelgröße (in 1px-Schritten
@@ -144,7 +168,13 @@
     var show = function (step) {
       items[idx].removeAttribute('aria-current');
       idx = (idx + step + NEWS.length) % NEWS.length;
+      var was = items.map(function (li) { return li.hidden; });
       lead(idx);
+      items.forEach(function (li, k) {
+        if (was[k] && !li.hidden && !still.matches) {
+          li.classList.remove('is-in'); void li.offsetWidth; li.classList.add('is-in');
+        }
+      });
       items[idx].setAttribute('aria-current', 'true');
       var n = NEWS[idx];
       var paint = function () { img.src = n.img; img.alt = n.alt; };
