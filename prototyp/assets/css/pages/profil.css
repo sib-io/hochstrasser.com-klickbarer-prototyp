@@ -8,8 +8,8 @@
 @media (min-width:900px){.profil-schema{display:block}}
 .profil-schema .sv-rail{stroke:var(--ink);stroke-width:1}
 .profil-schema .sv-link{stroke:var(--mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;transition:stroke .25s var(--ease),stroke-dasharray .25s var(--ease)}
-.profil-schema .sv-svc rect{fill:none;stroke:var(--ink);stroke-width:1}
-.profil-schema .sv-svc text{font-family:var(--font-ui);font-weight:400;font-size:20px;letter-spacing:.01em;fill:var(--ink)}
+/* Leistungen bewusst ohne Rahmen: Kasten = klickbar, Text = Ergebnis */
+.profil-schema .sv-svc text{font-family:var(--font-ui);font-weight:400;font-size:24px;letter-spacing:.01em;fill:var(--ink)}
 .profil-schema .node{cursor:pointer;transition:opacity .25s var(--ease)}
 .profil-schema .node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
 .profil-schema .node text{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.01em;fill:var(--ink);transition:fill .3s var(--ease)}
