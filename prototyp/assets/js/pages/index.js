@@ -55,7 +55,7 @@
       desc: 'Anlässlich des 80-jährigen Jubiläums ist Adrian Hochstrasser zu Gast im Einsteinhaus und spricht über die Entstehung, Architektur und Sanierung des Gebäudes.' },
     { img: 'assets/img/news/hugo-haering-auszeichnung.jpg', alt: 'Atelier aus Stroh hochstrasser Architekten',
       kind: 'Auszeichnung', year: '2023', title: 'Hugo-Häring-Auszeichnung',
-      desc: 'Hugo-Häring-Auszeichnung 2023 für das Atelier von Dorotha Schrade. (Foto: Conné van d’Grachten)' },
+      desc: 'Hugo-Häring-Auszeichnung 2023 für das Atelier von Dorothea Schrade. (Foto: Conné van d’Grachten)' },
     { img: 'assets/img/news/bda-berufung.jpg', alt: 'BDA Berufung unserer Mitarbeiter Scheer, Geywitz und Geitner hochstrasser Architekten',
       kind: 'Büro', year: '2026', title: 'BDA-Berufung',
       desc: 'Stolz präsentieren wir unsere 3 neuen BDA-Mitglieder. Frank Scheer, Stefanie Geywitz und Michael Geitner.' },
