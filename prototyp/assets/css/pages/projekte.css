@@ -66,7 +66,7 @@
 .pj-opt:has(input:checked){border-color:var(--ink)}
 .pj-opt input{appearance:none;width:8px;height:8px;border-radius:50%;border:1px solid var(--mute);flex:none}
 .pj-opt input:checked{background:var(--ink);border-color:var(--ink)}
-/* Mobil: Nutzung wandert aus der Leiste in die erweiterten Filter */
+/* Mobil: die Auswahl der Leiste wandert in die erweiterten Filter */
 .pj-adv__use{display:none}
 .pj-adv .pj-fchip{opacity:1}
 .pj-adv .pj-fchip::before{content:"";width:8px;height:8px;border-radius:50%;border:1px solid var(--mute);flex:none}

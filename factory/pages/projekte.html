@@ -102,37 +102,43 @@
     <div class="sec-head sec-head--flat rv">
       <h2 class="t-rubric sec-head__title">Projekte</h2>
     </div>
-    <div class="pj-bar rv" role="group" aria-label="Projekte nach Nutzung filtern">
+    <div class="pj-bar rv" role="group" aria-label="Projekte filtern">
       <button class="pj-fchip" data-cat="alle" aria-pressed="true">Alle</button>
-      <button class="pj-fchip" data-cat="arbeiten" aria-pressed="false">Arbeiten</button>
-      <button class="pj-fchip" data-cat="beleben" aria-pressed="false">Beleben</button>
-      <button class="pj-fchip" data-cat="erhalten" aria-pressed="false">Erhalten</button>
-      <button class="pj-fchip" data-cat="essen" aria-pressed="false">Essen</button>
-      <button class="pj-fchip" data-cat="lernen" aria-pressed="false">Lernen</button>
-      <button class="pj-fchip" data-cat="parken" aria-pressed="false">Parken</button>
-      <button class="pj-fchip" data-cat="umnutzen" aria-pressed="false">Umnutzen</button>
-      <button class="pj-fchip" data-cat="verkaufen" aria-pressed="false">Verkaufen</button>
-      <button class="pj-fchip" data-cat="wohnen" aria-pressed="false">Wohnen</button>
-      <button class="pj-fchip" data-cat="wettbewerbe" aria-pressed="false">Wettbewerbe</button>
+      <button class="pj-fchip" data-cat="oeffentlich" aria-pressed="false">Öffentlich</button>
+      <button class="pj-fchip" data-cat="privat" aria-pressed="false">Privat</button>
+      <button class="pj-fchip" data-cat="neubau" aria-pressed="false">Neubau</button>
+      <button class="pj-fchip" data-cat="umbau" aria-pressed="false">Umbau</button>
+      <button class="pj-fchip" data-cat="konzepte" aria-pressed="false">Konzepte</button>
       <button class="pj-more" id="advBtn" aria-expanded="false" aria-controls="advanced">Erweiterte Filter <b id="advGlyph" aria-hidden="true">+</b></button>
     </div>
 
     <div class="pj-adv" id="advanced">
       <div class="pj-adv__grid">
         <fieldset class="pj-adv__use">
-          <legend class="t-label">Nutzung</legend>
+          <legend class="t-label">Auswahl</legend>
           <div class="pj-opts">
             <button class="pj-opt pj-fchip" type="button" data-cat="alle" aria-pressed="true">Alle</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="arbeiten" aria-pressed="false">Arbeiten</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="beleben" aria-pressed="false">Beleben</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="erhalten" aria-pressed="false">Erhalten</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="essen" aria-pressed="false">Essen</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="lernen" aria-pressed="false">Lernen</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="parken" aria-pressed="false">Parken</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="umnutzen" aria-pressed="false">Umnutzen</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="verkaufen" aria-pressed="false">Verkaufen</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="wohnen" aria-pressed="false">Wohnen</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="wettbewerbe" aria-pressed="false">Wettbewerbe</button>
+            <button class="pj-opt pj-fchip" type="button" data-cat="oeffentlich" aria-pressed="false">Öffentlich</button>
+            <button class="pj-opt pj-fchip" type="button" data-cat="privat" aria-pressed="false">Privat</button>
+            <button class="pj-opt pj-fchip" type="button" data-cat="neubau" aria-pressed="false">Neubau</button>
+            <button class="pj-opt pj-fchip" type="button" data-cat="umbau" aria-pressed="false">Umbau</button>
+            <button class="pj-opt pj-fchip" type="button" data-cat="konzepte" aria-pressed="false">Konzepte</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend class="t-label">Nutzung</legend>
+          <div class="pj-opts">
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="arbeiten"> Arbeiten</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="ausstellen"> Ausstellen</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="beleben"> Beleben</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="erhalten"> Erhalten</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="essen"> Essen</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="lernen"> Lernen</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="möblieren"> Möblieren</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="parken"> Parken</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="umnutzen"> Umnutzen</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="verkaufen"> Verkaufen</label>
+            <label class="pj-opt"><input type="checkbox" data-f="use" value="wohnen"> Wohnen</label>
           </div>
         </fieldset>
         <fieldset>
@@ -157,13 +163,6 @@
             <label class="pj-opt"><input type="checkbox" data-f="client" value="oeffentlich"> Öffentlich</label>
             <label class="pj-opt"><input type="checkbox" data-f="client" value="gewerblich"> Gewerblich</label>
             <label class="pj-opt"><input type="checkbox" data-f="client" value="privat"> Privat</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend class="t-label">Weitere Nutzungen</legend>
-          <div class="pj-opts">
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="ausstellen"> Ausstellen</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="möblieren"> Möblieren</label>
           </div>
         </fieldset>
       </div>
