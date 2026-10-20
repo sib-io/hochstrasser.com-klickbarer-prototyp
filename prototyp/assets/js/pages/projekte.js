@@ -189,12 +189,12 @@ Musikpavillon|2002|beleben|realisiert|oeffentlich|neubau|0|assets/img/musikpavil
   function picked(name) {
     return [].slice.call(document.querySelectorAll('.pj-adv input[data-f="' + name + '"]:checked')).map(function (i) { return i.value; });
   }
-  /* Leiste: Öffentlich / Privat nach Bauherrschaft (Privat umfasst auch gewerbliche Bauherren),
+  /* Leiste: Öffentlich / Privat nach Bauherrschaft,
      Neubau / Umbau / Konzepte nach Bauart */
   function inCat(t) {
     if (cat === 'alle') return true;
     if (cat === 'oeffentlich') return t.dataset.client === 'oeffentlich';
-    if (cat === 'privat') return t.dataset.client !== 'oeffentlich';
+    if (cat === 'privat') return t.dataset.client === 'privat';
     if (cat === 'konzepte') return t.dataset.build === 'konzept';
     return t.dataset.build === cat;
   }
