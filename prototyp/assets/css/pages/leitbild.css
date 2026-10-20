@@ -7,6 +7,8 @@
 .leitbild-acc__item:nth-child(3){--lb:var(--leitbild-3)}
 .leitbild-acc__item:nth-child(4){--lb:var(--leitbild-4)}
 .leitbild-acc__item:last-child{border-bottom:1px solid var(--rule)}
+/* auf getöntem Grund (Büro) kräftigere Trennlinien */
+.band--tint .leitbild-acc__item{border-color:var(--rule-tint)}
 .leitbild-acc__btn{display:block;width:100%;text-align:left;padding-block:var(--sp-2)}
 .leitbild-acc__word{display:block;font-family:var(--font-ui);font-weight:300;font-size:clamp(2.625rem, 9.5vw, 9.25rem);line-height:.95;letter-spacing:-.035em;color:var(--ink);transition:color .6s var(--ease)}
 .leitbild-acc__item.is-on .leitbild-acc__word,.leitbild-acc__btn:hover .leitbild-acc__word{color:var(--lb)}
