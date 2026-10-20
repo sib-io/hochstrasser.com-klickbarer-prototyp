@@ -47,13 +47,6 @@
 .buero-card p+p{margin-top:var(--sp-2);max-width:38ch}
 .buero-card:hover .t-h3{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 
-/* Leitbild */
-.buero-values{row-gap:var(--sp-7)}
-.buero-value{padding-top:var(--sp-4);border-top:1px solid var(--on-dark-rule)}
-.buero-value ul{margin-top:var(--sp-4);display:grid;gap:var(--sp-1)}
-.buero-value li{position:relative;padding-left:var(--sp-3);color:var(--on-dark-2)}
-.buero-value li::before{content:'';position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--on-dark-mute)}
-
 /* Auszeichnungen (wie bisher auf der Startseite) */
 .buero-rubric-ico{display:inline-flex;align-items:center;gap:var(--sp-2)}
 .buero-rubric-ico svg{width:1.5rem;height:1.5rem;flex:none}

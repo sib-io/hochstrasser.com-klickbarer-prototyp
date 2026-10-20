@@ -46,7 +46,7 @@
   --on-dark-2:rgba(255,255,255,.74);
   --on-dark-mute:rgba(255,255,255,.52);
   --on-dark-rule:rgba(255,255,255,.2);
-  /* Leitbild (Profil): Farbe des jeweils geöffneten Werts */
+  /* Leitbild (Profil, Büro): Farbe des jeweils geöffneten Werts */
   --leitbild-1:rgb(111,125,114);  /* Individualität */
   --leitbild-2:rgb(155,125,114);  /* Partnerschaft */
   --leitbild-3:rgb(45,60,90);     /* Verantwortung */
