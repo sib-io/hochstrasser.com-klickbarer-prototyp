@@ -1,11 +1,19 @@
 /* Büro — Claim, Bildband, Team, Lebenslauf, Anschluss, Leitbild, Auszeichnungen, Anfahrt */
 
 .buero-claim{max-width:none}
-/* Hero so hoch wie auf der Projekteseite: dort bestimmt das quadratische Bildfeld (s-4) die Höhe.
+/* Hero so hoch wie auf der Projekteseite: dort bestimmt das quadratische Bildfeld (s-4) die Höhe,
+   unter 1188 px die höhere Textspalte (Titel 2 Zeilen + Lead + Text, Zeilenzahl je Breite).
    Claim oben, Einleitung unten bündig */
 @media (min-width:900px){
-  .buero-intro{min-height:calc(4 * var(--col) + 3 * var(--gutter));align-content:space-between}
+  .buero-intro{
+    --pj-lead:3;--pj-text:4;
+    min-height:max(
+      calc(4 * var(--col) + 3 * var(--gutter)),
+      calc(2 * 1.06 * var(--fs-h1) + var(--sp-4) + var(--stack) + (var(--pj-lead) * 1.5 + var(--pj-text) * 1.6) * var(--fs-body)));
+    align-content:space-between}
 }
+@media (min-width:900px) and (max-width:901.98px){.buero-intro{--pj-text:5}}
+@media (min-width:1101px){.buero-intro{--pj-lead:2}}
 
 /* Dreiklang unter dem Bildband (wie Entwurf 05a): drei volle Zeilen mit Haarlinie,
    das große Wort links, der Satz ab Spalte 6 auf derselben Grundlinie */
@@ -20,8 +28,8 @@
 }
 
 /* Bildband: vollflächig, farbig, Höhe und Ausschnitt wie im Entwurf 05b (38 vw, 300–600 px).
-   Abstand zum Hero: Hero-Abstand + 48 px */
-.buero-band{margin-top:var(--sp-5);background:var(--shade)}
+   Schließt direkt an den Hero an – beginnt auf derselben Höhe wie der Kontaktblock der Projekteseite */
+.buero-band{margin:0;background:var(--shade)}
 .buero-band img{display:block;width:100%;height:clamp(300px, 38vw, 600px);object-fit:cover;object-position:center 46%}
 
 /* Team */
