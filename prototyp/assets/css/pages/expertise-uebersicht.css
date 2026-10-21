@@ -21,6 +21,16 @@
 .xp-w::after{content:'';position:absolute;left:0;right:0;bottom:.12em;height:.055em;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .xp-w:hover::after,.xp-w:focus-visible::after{transform:scaleX(1)}
 .xp-dot{flex:none;display:block;width:.62em;height:.62em;border-radius:50%;background:var(--ink)}
+/* Versuch: beim Überfahren eines Begriffs wird sein Punkt zum Symbol (data-sym am Punkt);
+   Begriffe ohne Punkt zeigen das Symbol an der Stelle, an der der Punkt stünde (data-sym am Link,
+   absolut gesetzt, damit die Zeilenbreite für die Schriftgröße gleich bleibt) */
+.xp-dot[data-sym]{position:relative;transition:background-color .25s var(--ease)}
+.xp-dot[data-sym]::after,.xp-w[data-sym]::before{content:attr(data-sym);content:attr(data-sym) / "";position:absolute;top:50%;left:50%;font-size:1em;font-weight:400;line-height:1;letter-spacing:0;opacity:0;transform:translate(-50%,-50%) scale(.4);transition:opacity .25s var(--ease),transform .35s var(--ease);pointer-events:none}
+.xp-w[data-sym]::before{left:calc(100% + .3em + .31em)}
+.xp-row:has(.xp-w:hover,.xp-w:focus-visible) .xp-dot[data-sym]{background-color:transparent}
+.xp-row:has(.xp-w:hover,.xp-w:focus-visible) .xp-dot[data-sym]::after,
+.xp-w[data-sym]:hover::before,.xp-w[data-sym]:focus-visible::before{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media (prefers-reduced-motion:reduce){.xp-dot[data-sym],.xp-dot[data-sym]::after,.xp-w[data-sym]::before{transition:none}}
 @media (min-width:600px){
   .xp-gw__lines i{grid-column:span 2}
   .xp-gw__lines i:nth-child(n+5){display:block}

@@ -106,7 +106,8 @@
 .idx-face{aspect-ratio:1/1;background:var(--shade);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:background .25s var(--ease),box-shadow .25s var(--ease)}
 .idx-face:hover{background:var(--rule);box-shadow:inset 0 0 0 1px var(--ink)}
 .idx-face img{width:100%;height:100%;object-fit:cover}
+/* erste vier Porträts: kolorierte Fassung liegt darüber und blendet beim Überfahren ein */
+.idx-face{position:relative}
+.idx-face__farbe{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease)}
+.idx-face:hover .idx-face__farbe{opacity:1}
 .idx-crew-foot{margin-top:var(--sp-4)}
-
-/* Zitat: Bildausschnitt auf Strohwand und Fensterfront */
-.idx-quote .quote__img>img{object-position:30% 50%}
