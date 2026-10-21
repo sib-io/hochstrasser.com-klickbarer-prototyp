@@ -1,10 +1,10 @@
 /* Büro — Claim, Bildband, Team, Lebenslauf, Anschluss, Leitbild, Auszeichnungen, Anfahrt */
 
 .buero-claim{max-width:none}
-/* Hero so hoch wie auf der Projekteseite: dort bestimmt das quadratische Bildfeld (s-5) die Höhe.
+/* Hero so hoch wie auf der Projekteseite: dort bestimmt das quadratische Bildfeld (s-4) die Höhe.
    Claim oben, Einleitung unten bündig */
 @media (min-width:900px){
-  .buero-intro{min-height:calc(5 * var(--col) + 4 * var(--gutter));align-content:space-between}
+  .buero-intro{min-height:calc(4 * var(--col) + 3 * var(--gutter));align-content:space-between}
 }
 
 /* Dreiklang unter dem Bildband (wie Entwurf 05a): drei volle Zeilen mit Haarlinie,
