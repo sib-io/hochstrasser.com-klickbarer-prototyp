@@ -9,7 +9,7 @@
 
 /* Aktuelles: Bild (fest 16:10) + Pfeile hoch/runter */
 .idx-news-media{position:relative}
-.idx-news-media .media>img{object-position:0 0;transition:opacity .35s var(--ease)} /* Ausschnitt links oben wie live: Banner tragen Schrift am linken Rand */
+.idx-news-media .media>img{transition:opacity .35s var(--ease)}
 .idx-news-media.is-swapping .media>img{opacity:0}
 .idx-news-nav{position:absolute;right:0;bottom:0;display:flex} /* unter 1200 nebeneinander in der Ecke, ab 1200 übereinander */
 .idx-news-btn{display:inline-flex;align-items:center;justify-content:center;width:var(--sp-5);height:var(--sp-5);background:var(--paper);color:var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
@@ -50,7 +50,10 @@
 .idx-feed .is-lead .idx-feed__title::after{content:'.'}
 .idx-feed .is-lead .idx-feed__desc{grid-row:3;grid-template-rows:1fr;opacity:1}
 .idx-feed .is-lead .idx-feed__desc>p{padding-top:var(--sp-2)}
-@media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}}
+/* Meldung, die beim Blättern neu in die Liste rückt, blendet ein */
+.idx-feed>li.is-in{animation:idx-feed-in .45s var(--ease)}
+@keyframes idx-feed-in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.idx-feed a,.idx-feed__title,.idx-feed__desc{transition:none}.idx-feed>li.is-in{animation:none}}
 /* ab 1200 neben dem Bild: die Liste ist genau so hoch wie das Bild, die aktive Meldung füllt den Rest.
    Übrige Titel höchstens zweizeilig; passt die aktive Meldung nicht, setzt index.js je Meldung
    eine kleinere Titelgröße (--lead-fs) und kürzt den Teaser (--desc-lines, .no-desc) */
