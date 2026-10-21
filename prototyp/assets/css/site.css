@@ -51,6 +51,16 @@
   --leitbild-2:rgb(155,125,114);  /* Partnerschaft */
   --leitbild-3:rgb(45,60,90);     /* Verantwortung */
   --leitbild-4:rgb(186,75,45);    /* Begeisterung */
+  /* Disziplinen (Expertise-Farbvarianten), Tonalität wie Leitbild; Generalplanung, Zertifizierung
+     und Digitales Bauen als warme Goldfamilie */
+  --xp-architektur:rgb(36,58,104);
+  --xp-nachhaltigkeit:rgb(88,118,74);
+  --xp-brandschutz:rgb(186,75,45);
+  --xp-bauphysik:rgb(86,140,142);
+  --xp-generalplanung:rgb(176,136,46);
+  --xp-zertifizierung:rgb(192,112,44);
+  --xp-barrierefreiheit:rgb(154,44,52);
+  --xp-digital:rgb(166,132,88);
   /* Farbfeld im Zitat */
   --terra:#b64827;
 
