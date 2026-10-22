@@ -275,8 +275,8 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 @media (min-width:900px){.ftr{padding-top:var(--sp-5)}}
 .ftr .wrap>.grid:first-child{row-gap:var(--sp-3)}
 .ftr .brand{display:block;color:var(--on-dark);font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2rem);letter-spacing:-.02em;margin-bottom:var(--sp-1)}
-.ftr__addr{color:var(--on-dark-mute)} /* Zeilen per <br>, kein Umbruch in „Architektur + Verantwortung + Lösungen“ */
-.ftr__big{margin-top:var(--sp-2);color:var(--on-dark)} /* gleiche Schriftgröße wie die Adresse darüber */
+.ftr__claim{font-family:var(--font-ui);font-weight:400;font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2rem);letter-spacing:-.02em;line-height:1.15;color:var(--on-dark-mute)} /* gleiche Größe wie die Wortmarke darüber */
+.ftr__big{margin-top:var(--sp-3);color:var(--on-dark)}
 .ftr__big+.ftr__big{margin-top:0}
 .ftr__big a{border-bottom:1px solid var(--on-dark-rule);transition:border-color .25s var(--ease)}
 .ftr__big a:hover{border-bottom-color:var(--on-dark)}
