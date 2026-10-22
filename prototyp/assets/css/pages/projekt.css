@@ -39,11 +39,14 @@
 .prj-line+.prj-line{margin-top:var(--sp-1)}
 @media (max-width:899px){.prj-team{margin-top:var(--sp-4)}}
 
+/* Kontaktkarte ohne Foto (FLZ-Variante ohne Platzhalter): Text über die volle Breite */
+@media (min-width:600px){.prj-contact--text{grid-template-columns:minmax(0,1fr)}}
 /* Kontaktkarte und Kacheln in Spalte 3–12: Innenraster = Seitenraster (subgrid) */
 @media (min-width:900px){
   .prj-contact{grid-template-columns:subgrid}
   .prj-contact>.ph{grid-column:2/span 2}
   .prj-contact .contact-card__body{grid-column:5/span 5}
+  .prj-contact--text .contact-card__body{grid-column:2/span 7}
   .prj-rel{display:grid;grid-template-columns:subgrid}
   .prj-rel>*{grid-column:1/-1}
   .prj-rel .tiles{grid-template-columns:subgrid}
