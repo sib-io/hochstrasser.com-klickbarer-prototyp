@@ -1,4 +1,7 @@
-/* Auszeichnungen: Auszeichnungsliste, Wettbewerbsliste – Zeilen wie die Publikationsliste */
+/* Auszeichnungen: Hero-Marke, Auszeichnungsliste, Wettbewerbsliste – Zeilen wie die Publikationsliste */
+
+/* Hero: Ordenssymbol klein unter dem Titel (viewBox auf die Kontur beschnitten) */
+.az-mark{display:block;width:var(--fs-h1);height:auto;margin-top:var(--sp-5);color:var(--ink)}
 
 /* Auszeichnungen: Jahr | Titel | Projekt, Jahr nur in der ersten Zeile eines Jahrgangs */
 .az-awards>li,.az-comps>li{padding-block:0}
