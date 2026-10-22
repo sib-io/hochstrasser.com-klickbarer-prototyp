@@ -21,6 +21,8 @@
 /* Auswahlknöpfe als Ersatz auf kleinen Schirmen */
 .profil-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-1)}
 @media (min-width:900px){.profil-chips{display:none}}
+/* auf getöntem Grund: Hover hell statt grau, sonst unsichtbar */
+.band--tint .profil-chips .chip:hover{background:var(--paper)}
 
 /* Textfeld zum gewählten Kernthema */
 .profil-panel{margin-top:var(--sp-6);padding-top:var(--sp-5);border-top:1px solid var(--ink);transition:opacity .25s var(--ease)}
