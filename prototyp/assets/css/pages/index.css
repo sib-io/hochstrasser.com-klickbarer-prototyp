@@ -110,3 +110,7 @@
 .idx-face__farbe{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease)}
 .idx-face:hover .idx-face__farbe{opacity:1}
 .idx-crew-foot{margin-top:var(--sp-4)}
+
+/* Variante index-2: die drei Begriffe im Hero in PX Grotesk Light statt Calibri Light
+   (Laufweite wie .t-display aus site.css) */
+.idx-hero--px .hero__title{font-family:var(--font-ui);letter-spacing:-.028em}
