@@ -63,6 +63,7 @@
   --xp-digital:rgb(166,132,88);
   /* Farbfeld im Zitat */
   --terra:#b64827;
+  --graublau:#4e5d6e;      /* mitteldunkles Grau-Blau (FLZ) */
 
   /* Schriften */
   --font-ui:'PX Grotesk','Helvetica Neue',Arial,sans-serif;
@@ -372,6 +373,7 @@ a.ext,a.ext-in{-webkit-text-stroke:.01em currentColor}
    Die Farbe kann aus dem Projekt kommen (--quote-bg/-ink/-mute je Zitat überschreiben), Standard ist Terrakotta.
    Die Sektion trägt weder .wrap noch .band: Abstand nach oben/unten kommt nur aus den Nachbarbändern. */
 .quote{--quote-bg:var(--terra);--quote-ink:var(--on-dark);--quote-mute:var(--on-dark);--quote-pad:clamp(2rem, 1rem + 3vw, 4rem);display:grid}
+.quote--graublau{--quote-bg:var(--graublau)}
 .quote>*{min-width:0}
 .quote__img{position:relative;overflow:hidden;background:var(--shade);aspect-ratio:4/3}
 .quote__img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
