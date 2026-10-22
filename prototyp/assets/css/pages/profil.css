@@ -1,5 +1,16 @@
 /* Profil — Schema, Kernthemen-Panel, Gesichter, Anschlusskarten */
 
+/* Hero: gleicher Aufbau und gleiche Mindesthöhe wie auf der Büroseite (.buero-intro) */
+@media (min-width:900px){
+  .profil-intro{
+    --pj-lead:3;--pj-text:4;
+    min-height:max(
+      calc(4 * var(--col) + 3 * var(--gutter)),
+      calc(2 * 1.06 * var(--fs-h1) + var(--sp-4) + var(--stack) + (var(--pj-lead) * 1.5 + var(--pj-text) * 1.6) * var(--fs-body)))}
+}
+@media (min-width:900px) and (max-width:901.98px){.profil-intro{--pj-text:5}}
+@media (min-width:1101px){.profil-intro{--pj-lead:2}}
+
 /* Schema (SVG) */
 .profil-schema{width:100%;height:auto;display:none;overflow:visible}
 @media (min-width:900px){.profil-schema{display:block}}
@@ -7,13 +18,15 @@
 .profil-schema .sv-link{stroke:var(--mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;transition:stroke .25s var(--ease),stroke-dasharray .25s var(--ease)}
 /* Leistungen bewusst ohne Rahmen: Kasten = klickbar, Text = Ergebnis */
 .profil-schema .sv-svc text{font-family:var(--font-ui);font-weight:400;font-size:24px;letter-spacing:.01em;fill:var(--ink)}
-.profil-schema .node{cursor:pointer;transition:opacity .25s var(--ease)}
-.profil-schema .node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
-.profil-schema .node text{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.01em;fill:var(--ink);transition:fill .3s var(--ease)}
+.profil-schema .node{cursor:pointer}
+.profil-schema .node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease),stroke-opacity .25s var(--ease)}
+.profil-schema .node text{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.01em;fill:var(--ink);transition:fill .3s var(--ease),opacity .25s var(--ease)}
 .profil-schema .node:hover rect{fill:var(--shade)}
 .profil-schema .node:focus{outline:none}
 .profil-schema .node:focus-visible rect{stroke-width:2}
-.profil-schema.has-on .node:not(.is-on){opacity:.4}
+/* nicht gewählte Kästen: nur Rahmen, Text und Linie blassen ab, der Grund bleibt weiß */
+.profil-schema.has-on .node:not(.is-on) rect{stroke-opacity:.4}
+.profil-schema.has-on .node:not(.is-on) :is(text,.sv-link){opacity:.4}
 .profil-schema .node.is-on rect,.profil-schema .node.is-on:hover rect{fill:var(--ink)}
 .profil-schema .node.is-on text{fill:var(--paper)}
 .profil-schema .node.is-on .sv-link{stroke:var(--ink);stroke-dasharray:none}
