@@ -1,40 +1,31 @@
-/* Auszeichnungen: Opener-Marke, Auszeichnungsliste, Wettbewerbsliste */
+/* Auszeichnungen: Auszeichnungsliste, Wettbewerbsliste – Zeilen wie die Publikationsliste */
 
-/* Opener: Band ~75 % der Fensterhöhe (ab 900 px); Kennzeichnung und Titel oben auf gleicher Höhe wie
-   auf den übrigen Seiten; Titel doppelte Hero-Größe
-   (mobil auf die Breite begrenzt), Marke darunter, bündig mit dem Titel
-   (viewBox auf die Kontur beschnitten) */
-.az-hero{--az-fs:min(2 * var(--fs-h1), 11.5vw)}
-@media (min-width:900px){.az-hero{min-height:75vh}} /* mobil ohne Mindesthöhe, sonst bleibt unten eine leere Fläche */
-.az-hero .hero__title{font-size:var(--az-fs);line-height:1;max-width:none}
-.az-mark{display:block;width:calc(.9 * var(--az-fs));height:auto;margin-top:var(--sp-6);color:var(--on-dark)}
-
-/* Auszeichnungen: Jahr | Titel | Projekt im 12er-Raster, Zeile kippt beim Überfahren ins Schwarz */
-.az-awards>li{padding-block:0}
-.az-award{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:baseline;padding-block:var(--sp-4);transition:background .28s var(--ease),color .28s var(--ease),box-shadow .28s var(--ease)}
-.az-award>*{grid-column:1/-1;min-width:0}
-.az-award:hover,.az-award:focus-visible{background:var(--ink);color:var(--paper);box-shadow:var(--sp-2) 0 0 var(--ink),calc(-1 * var(--sp-2)) 0 0 var(--ink)}
-.az-award__year{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1;letter-spacing:-.022em;color:inherit}
-.az-award__name{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-h3);line-height:1.28;letter-spacing:-.012em;color:inherit}
-.az-award__proj{color:var(--mute);transition:color .28s var(--ease)}
-.az-award:hover .az-award__proj,.az-award:focus-visible .az-award__proj{color:var(--on-dark-2)}
+/* Auszeichnungen: Jahr | Titel | Projekt, Jahr nur in der ersten Zeile eines Jahrgangs */
+.az-awards>li,.az-comps>li{padding-block:0}
+.az-award,.az-comp{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:2px;align-items:baseline;padding-block:var(--sp-2)}
+.az-award>*,.az-comp>*{grid-column:1/-1;min-width:0}
+.az-award__year,.az-comp__year{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1;letter-spacing:-.022em;color:var(--ink);margin-bottom:var(--sp-1)}
+.az-award__year:empty,.az-comp__year:empty{display:none}
+.az-award__name,.az-comp__title{font-family:var(--font-ui);font-size:var(--fs-h4);line-height:1.3;color:var(--ink)}
+.az-award__proj{font-family:var(--font-ui);font-size:var(--fs-small);color:var(--ink-2)}
+.az-award__proj a{border-bottom:1px solid var(--rule);transition:border-color .25s var(--ease)}
+.az-award__proj a:hover{border-bottom-color:var(--ink)}
 @media (min-width:900px){
-  .az-award__year{grid-column:1/span 2}
+  .az-award__year,.az-comp__year{grid-column:1/span 2;margin-bottom:0}
+  .az-award__year:empty,.az-comp__year:empty{display:block}
   .az-award__name{grid-column:3/span 6}
-  .az-award__proj{grid-column:9/span 4}
+  .az-award__proj{grid-column:10/span 3;text-align:right}
 }
 
-/* Wettbewerbe: leiser, als Gegengewicht */
-.az-comp{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:baseline}
-.az-comp>*{grid-column:1/-1;min-width:0}
-.az-comp__year,.az-comp__rank{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;color:var(--mute)}
+/* Wettbewerbe: Jahr | Titel | Platzierung, 1. Plätze hervorgehoben */
 .az-comp__with{color:var(--mute)}
-.az-comps .win .az-comp__year,.az-comps .win .az-comp__rank{color:var(--ink)}
-.az-comps .win .az-comp__title{font-weight:700;color:var(--ink)}
-.az-comps a.az-comp__title:hover{text-decoration:underline;text-underline-offset:.22em}
+.az-comp__rank{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.01em;color:var(--mute)}
+.az-comps .win .az-comp__title{font-weight:700}
+.az-comps .win .az-comp__rank{color:var(--ink)}
+.az-comps a.az-comp__title{justify-self:start;border-bottom:1px solid var(--rule);transition:border-color .25s var(--ease)}
+.az-comps a.az-comp__title:hover{border-bottom-color:var(--ink)}
 @media (min-width:900px){
-  .az-comp__year{grid-column:1/span 1}
-  .az-comp__title{grid-column:2/span 8}
-  .az-comp__rank{grid-column:11/span 2;text-align:right;justify-self:end}
+  .az-comp__title{grid-column:3/span 7}
+  .az-comp__rank{grid-column:10/span 3;text-align:right}
 }
 .az-note{margin-top:var(--sp-3);min-height:1.4em}
