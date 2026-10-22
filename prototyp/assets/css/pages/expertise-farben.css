@@ -1,0 +1,30 @@
+/* Expertise (Übersicht), Farbvarianten expertise-1/-2/-3: jede Disziplin hat ihre Farbe (data-c an der Zeile,
+   Tokens --xp-* in site.css); die Variante steht am body (data-xp). */
+.xp-row{--xc:var(--ink)}
+.xp-row[data-c=architektur]{--xc:var(--xp-architektur)}
+.xp-row[data-c=nachhaltigkeit]{--xc:var(--xp-nachhaltigkeit)}
+.xp-row[data-c=brandschutz]{--xc:var(--xp-brandschutz)}
+.xp-row[data-c=bauphysik]{--xc:var(--xp-bauphysik)}
+.xp-row[data-c=generalplanung]{--xc:var(--xp-generalplanung)}
+.xp-row[data-c=zertifizierung]{--xc:var(--xp-zertifizierung)}
+.xp-row[data-c=barrierefreiheit]{--xc:var(--xp-barrierefreiheit)}
+.xp-row[data-c=digital]{--xc:var(--xp-digital)}
+.xp-w{transition:color .25s var(--ease)}
+.xp-dot,.xp-w--dot::before{transition:background-color .25s var(--ease)}
+
+/* 1: Begriffe und Punkte immer in ihrer Farbe */
+[data-xp="1"] .xp-w{color:var(--xc)}
+[data-xp="1"] .xp-dot,[data-xp="1"] .xp-w::after{background:var(--xc)}
+
+/* 2: jeder Begriff hat einen Punkt; fehlende Punkte stehen hinter dem Wort (absolut gesetzt, damit die
+   Schriftgröße des Gitters gleich bleibt). Beim Überfahren färbt sich nur der Punkt. */
+.xp-w--dot::before{content:'';position:absolute;top:50%;left:calc(100% + .3em);width:.62em;height:.62em;border-radius:50%;background:var(--ink);transform:translateY(-50%)}
+[data-xp="2"] .xp-row:has(.xp-w:hover,.xp-w:focus-visible) .xp-dot,
+[data-xp="2"] .xp-w--dot:hover::before,[data-xp="2"] .xp-w--dot:focus-visible::before{background:var(--xc)}
+
+/* 3: beim Überfahren färben sich Begriff, Unterstrich und Punkt (falls vorhanden) */
+[data-xp="3"] .xp-w:hover,[data-xp="3"] .xp-w:focus-visible{color:var(--xc)}
+[data-xp="3"] .xp-w::after,
+[data-xp="3"] .xp-row:has(.xp-w:hover,.xp-w:focus-visible) .xp-dot{background:var(--xc)}
+
+@media (prefers-reduced-motion:reduce){.xp-w,.xp-dot,.xp-w--dot::before{transition:none}}

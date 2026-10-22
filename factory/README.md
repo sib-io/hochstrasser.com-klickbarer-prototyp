@@ -57,6 +57,7 @@ prototyp/
 | Architektur | 14 | `expertise-architektur` |
 | Kontakt | 24 | `kontakt` |
 | Jobs | 25 | `jobs` |
+| Publikationen | 26 | `publikationen` |
 
 - Links auf diese Seiten immer als `slug.html` (ggf. mit Anker). Profil-Anker: `profil.html#n-integral`, `#n-wirtschaft`, `#n-nachhaltigkeit`, `#n-bestand`, `#n-verantwortung`.
 - „Zurück zu unseren Expertisen“ → `expertise.html`. Projektkacheln/-links → eigene Detailseite, falls vorhanden (Zuordnung Titel → Seite/Kachelbild in `assets/js/projektseiten.js`, erzeugt aus `projekte.json`), sonst → `projekt-flz-neuer-bau-ulm.html` (Beispielseite). „Alle Projekte“ → `projekte.html`. Kontakt/„Nachricht schreiben“ intern → `kontakt.html` (bzw. `mailto:` wo im Ausgangstext).
@@ -65,7 +66,7 @@ prototyp/
 
 ## Bilder
 - Alle Bilder lokal unter `assets/img/`. Mapping für Hotlinks `https://hochstrasser.com/wp-content/uploads/JJJJ/MM/<datei>` → `assets/img/wp/<datei>`; Ausnahme `02_header-23.jpg` → `assets/img/flz/02_header-23.jpg`.
-- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5-bunt.jpg` (Büro-Bildband, farbig aus Ausgangstext 05b).
+- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5-bunt.jpg` (Büro-Bildband, farbig aus Ausgangstext 05b), `publikationen/titelseiten.jpg` (Publikationen, Titelseiten-Collage).
 - Team-Porträts (Büro): `assets/img/team/<vorname-nachname>.jpg`, 600 × 600, von der Live-Büroseite (dort nach Namen zugeordnet). Ohne Porträt: Dagmar Schmidt, Michael Doll, Leyla Ali und Volker Knopp (live nur Platzhalter) – dafür die Beton-Grafik `assets/img/team/platzhalter-beton.jpg` (wie live).
 - FLZ-Projektbilder: `assets/img/flz/02_header-23.jpg … 14_landscape-1.jpg` (05 ist Hochformat), Kachelbild `01_3_square_500x500_acf_cropped.jpg`.
 - Weitere Projektbilder: `assets/img/<name>/` (Original-Dateinamen der Live-Seite, längste Kante ≤ 2000 px, Kachelbild `*_500x500_acf_cropped.jpg`).

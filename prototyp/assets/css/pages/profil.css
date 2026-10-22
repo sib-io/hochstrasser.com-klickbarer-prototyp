@@ -1,15 +1,12 @@
-/* Profil — Schema, Kernthemen-Panel, Gesichter, Leitbild, Anschlusskarten */
-
-/* Kennzahlen unter dem Hero: Werte rechtsbündig (ab 600 px, darunter gestapelt) */
-@media (min-width:600px){.profil-facts dd{text-align:right}}
+/* Profil — Schema, Kernthemen-Panel, Gesichter, Anschlusskarten */
 
 /* Schema (SVG) */
 .profil-schema{width:100%;height:auto;display:none;overflow:visible}
 @media (min-width:900px){.profil-schema{display:block}}
 .profil-schema .sv-rail{stroke:var(--ink);stroke-width:1}
 .profil-schema .sv-link{stroke:var(--mute);stroke-width:1;stroke-dasharray:1.5 5;stroke-linecap:round;transition:stroke .25s var(--ease),stroke-dasharray .25s var(--ease)}
-.profil-schema .sv-svc rect{fill:none;stroke:var(--ink);stroke-width:1}
-.profil-schema .sv-svc text{font-family:var(--font-ui);font-weight:400;font-size:20px;letter-spacing:.01em;fill:var(--ink)}
+/* Leistungen bewusst ohne Rahmen: Kasten = klickbar, Text = Ergebnis */
+.profil-schema .sv-svc text{font-family:var(--font-ui);font-weight:400;font-size:24px;letter-spacing:.01em;fill:var(--ink)}
 .profil-schema .node{cursor:pointer;transition:opacity .25s var(--ease)}
 .profil-schema .node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
 .profil-schema .node text{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.01em;fill:var(--ink);transition:fill .3s var(--ease)}
@@ -39,36 +36,8 @@
 .profil-face .media{margin-bottom:var(--sp-2)}
 .profil-face .media img{transition:transform .8s var(--ease)}
 .profil-face:hover .media img{transform:scale(1.04)}
-/* Architektur: Collage aus vier Porträts (2 × 2); profil.js blendet nach und nach
-   ein Feld auf ein weiteres Teammitglied über */
-.profil-collage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--sp-1) / 4);background:var(--paper)}
-.profil-collage__cell{position:relative;overflow:hidden;background:var(--shade)}
-.profil-collage__cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s var(--ease)}
-.profil-collage__cell img.is-in{opacity:0}
-@media (prefers-reduced-motion:reduce){.profil-collage__cell img{transition:none}}
 .profil-face:hover .t-h4{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .profil-face p+p{margin-top:var(--sp-1)}
-
-/* Leitbild: typografisches Akkordeon auf weißem Grund. Die vier Werte als Bildelement; offen ist der Wert
-   in der Bildschirmmitte bzw. der zuletzt angeklickte (profil.js), er steht in seiner Leitbildfarbe,
-   die übrigen schwarz. Klappen über grid-template-rows. */
-.profil-acc__item{--lb:var(--ink);border-top:1px solid var(--rule)}
-.profil-acc__item:nth-child(1){--lb:var(--leitbild-1)}
-.profil-acc__item:nth-child(2){--lb:var(--leitbild-2)}
-.profil-acc__item:nth-child(3){--lb:var(--leitbild-3)}
-.profil-acc__item:nth-child(4){--lb:var(--leitbild-4)}
-.profil-acc__item:last-child{border-bottom:1px solid var(--rule)}
-.profil-acc__btn{display:block;width:100%;text-align:left;padding-block:var(--sp-2)}
-.profil-acc__word{display:block;font-family:var(--font-ui);font-weight:300;font-size:clamp(2.625rem, 9.5vw, 9.25rem);line-height:.95;letter-spacing:-.035em;color:var(--ink);transition:color .6s var(--ease)}
-.profil-acc__item.is-on .profil-acc__word,.profil-acc__btn:hover .profil-acc__word{color:var(--lb)}
-.profil-acc__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
-.profil-acc__item.is-on .profil-acc__body{grid-template-rows:1fr}
-.profil-acc__body>div{overflow:hidden}
-.profil-acc__item:not(.is-on) .profil-acc__body>div{visibility:hidden;transition:visibility 0s .7s}
-.profil-acc__inner{padding-block:var(--sp-1) var(--sp-5);row-gap:var(--sp-2)}
-.profil-acc__lines{display:grid;gap:var(--sp-2)}
-@media (min-width:900px){.profil-acc__lines{gap:var(--sp-1)}}
-.profil-acc__lines li{font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h2);line-height:1.25;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
 
 /* Anschlusskarten: Pfeil-Links stehen auf einer Linie, egal wie lang der Text ist */
 .profil-card{display:flex;flex-direction:column;align-self:stretch}

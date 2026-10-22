@@ -174,7 +174,7 @@ def chapter(label, ch, rule):
 def stimme(org, pic):
     """Zitat im Split: Projektbild links, Farbfeld rechts (.quote in site.css)"""
     src = (t(org) + '. ' if org and org != 'Privat' else '') + '<i>Kurze Einordnung des Zitats ergänzen.</i>'
-    return ('  <!-- STIMME -->\n  <section class="wrap">\n    <div class="quote rv">\n'
+    return ('  <!-- STIMME -->\n  <section>\n    <div class="quote rv">\n'
             f'      <div class="quote__img">{pic.img()}</div>\n'
             '      <div class="quote__field">\n'
             '        <p class="quote__pill">Stimme</p>\n'
