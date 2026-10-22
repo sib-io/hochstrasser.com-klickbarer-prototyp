@@ -47,6 +47,8 @@
   .xp-fig{grid-column:1/span 2}
   .xp-cut__txt{grid-column:3/-1}
 }
+/* ohne Bild (Expertise-Übersicht): Überschrift einzeilig über die ganze Breite */
+.xp-cut__txt:only-child{grid-column:1/-1;white-space:nowrap}
 
 /* Disziplinen in einem einheitlichen Raster: 4 | 2 | 1 je Zeile, Links unten bündig */
 .xp-sets{margin-top:var(--sp-8);row-gap:var(--sp-7)}

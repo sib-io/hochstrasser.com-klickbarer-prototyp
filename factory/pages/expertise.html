@@ -1,6 +1,6 @@
 <!--meta {"title": "Expertise", "description": "Architektur, Brandschutz, Bauphysik, Nachhaltigkeit, Generalplanung: acht Disziplinen im eigenen Haus. Die Expertise von hochstrasser. Gesellschaft für Architektur mbH in Ulm.", "nav": "expertise",
-           "css": ["pages/expertise-uebersicht.css"], "js": ["pages/expertise-uebersicht.js"],
-           "proto": "Prototyp Expertise · Übersicht"} -->
+           "css": ["pages/expertise-uebersicht.css", "pages/expertise-farben.css"], "js": ["pages/expertise-uebersicht.js"],
+           "body": "data-xp=\"3\"", "proto": "Prototyp Expertise · Übersicht"} -->
   <!-- 1 Kennzeichnung -->
   <section class="wrap hero xp-mark">
     <p class="t-label hero__eyebrow">Expertise</p>
@@ -14,14 +14,14 @@
       <div class="xp-gw__rows" id="xpRows">
         <div class="xp-gw__lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
-        <div class="xp-row"><a class="xp-w" href="expertise-architektur.html">Architektur</a><i class="xp-dot" aria-hidden="true"></i></div>
-        <div class="xp-row"><a class="xp-w xp-i1" href="expertise-nachhaltigkeit.html">Nachhaltigkeit</a></div>
-        <div class="xp-row"><i class="xp-dot xp-i3" aria-hidden="true"></i><a class="xp-w" href="expertise-brandschutz.html">Brandschutz</a></div>
-        <div class="xp-row"><i class="xp-dot xp-i2" aria-hidden="true"></i><a class="xp-w" href="expertise-bauphysik.html">Bauphysik</a></div>
-        <div class="xp-row"><a class="xp-w xp-i1" href="expertise-generalplanung.html">Generalplanung</a></div>
-        <div class="xp-row"><a class="xp-w" href="expertise-dgnb-zertifizierung.html">DGNB / Zertifizierung</a><i class="xp-dot" aria-hidden="true"></i></div>
-        <div class="xp-row"><a class="xp-w xp-i3" href="#">Barrierefreiheit</a></div>
-        <div class="xp-row"><a class="xp-w xp-i1" href="expertise-digitales-bauen.html">Digitales Bauen</a><i class="xp-dot" aria-hidden="true"></i></div>
+        <div class="xp-row" data-c="architektur"><a class="xp-w" href="expertise-architektur.html">Architektur</a><i class="xp-dot" aria-hidden="true"></i></div>
+        <div class="xp-row" data-c="nachhaltigkeit"><a class="xp-w xp-i1" href="expertise-nachhaltigkeit.html">Nachhaltigkeit</a></div>
+        <div class="xp-row" data-c="brandschutz"><i class="xp-dot xp-i3" aria-hidden="true"></i><a class="xp-w" href="expertise-brandschutz.html">Brandschutz</a></div>
+        <div class="xp-row" data-c="bauphysik"><i class="xp-dot xp-i2" aria-hidden="true"></i><a class="xp-w" href="expertise-bauphysik.html">Bauphysik</a></div>
+        <div class="xp-row" data-c="generalplanung"><a class="xp-w xp-i1" href="expertise-generalplanung.html">Generalplanung</a></div>
+        <div class="xp-row" data-c="zertifizierung"><a class="xp-w" href="expertise-dgnb-zertifizierung.html">DGNB / Zertifizierung</a><i class="xp-dot" aria-hidden="true"></i></div>
+        <div class="xp-row" data-c="barrierefreiheit"><a class="xp-w xp-i3" href="#">Barrierefreiheit</a></div>
+        <div class="xp-row" data-c="digital"><a class="xp-w xp-i1" href="expertise-digitales-bauen.html">Digitales Bauen</a><i class="xp-dot" aria-hidden="true"></i></div>
       </div>
     </div>
 
@@ -67,8 +67,7 @@
   <section class="wrap band rv" id="zuordnung">
     <h2 class="sr-only">Was jede Disziplin im Projekt leistet</h2>
     <div class="xp-cut">
-      <figure class="media media--1x1 xp-fig" id="markFig"></figure>
-      <p class="xp-cut__txt" aria-hidden="true">Unsere<br>Expertise</p>
+      <p class="xp-cut__txt" aria-hidden="true">Unsere Expertise</p>
     </div>
 
     <div class="grid xp-sets">
