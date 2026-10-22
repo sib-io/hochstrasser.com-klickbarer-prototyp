@@ -1,34 +1,10 @@
 /* Büro — Claim, Bildband, Team, Lebenslauf, Anschluss, Leitbild, Auszeichnungen, Anfahrt */
 
+/* Claim mit Einleitung direkt darunter, wie auf der Profilseite (.hero__title / .hero__sub) */
 .buero-claim{max-width:none}
-/* Hero so hoch wie auf der Projekteseite: dort bestimmt das quadratische Bildfeld (s-4) die Höhe,
-   unter 1188 px die höhere Textspalte (Titel 2 Zeilen + Lead + Text, Zeilenzahl je Breite).
-   Claim oben, Einleitung unten bündig */
-@media (min-width:900px){
-  .buero-intro{
-    --pj-lead:3;--pj-text:4;
-    min-height:max(
-      calc(4 * var(--col) + 3 * var(--gutter)),
-      calc(2 * 1.06 * var(--fs-h1) + var(--sp-4) + var(--stack) + (var(--pj-lead) * 1.5 + var(--pj-text) * 1.6) * var(--fs-body)));
-    align-content:space-between}
-}
-@media (min-width:900px) and (max-width:901.98px){.buero-intro{--pj-text:5}}
-@media (min-width:1101px){.buero-intro{--pj-lead:2}}
-
-/* Dreiklang unter dem Bildband (wie Entwurf 05a): drei volle Zeilen mit Haarlinie,
-   das große Wort links, der Satz ab Spalte 6 auf derselben Grundlinie */
-.buero-tri-sec{padding-top:var(--band-s)}
-.buero-tri>li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);align-items:baseline;border-top:1px solid var(--ink);padding-block:var(--sp-2) var(--sp-3)}
-.buero-tri>li>*{grid-column:1/-1;min-width:0}
-.buero-tri__term{font-family:var(--font-ui);font-weight:400;font-size:clamp(1.625rem, 1rem + 2.2vw, 2.75rem);line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
-.buero-tri__sub{font-size:var(--fs-small);color:var(--mute)}
-@media (min-width:760px){
-  .buero-tri>li>.buero-tri__term{grid-column:1/span 5}
-  .buero-tri>li>.buero-tri__sub{grid-column:6/span 6}
-}
 
 /* Bildband: vollflächig, farbig, Höhe und Ausschnitt wie im Entwurf 05b (38 vw, 300–600 px).
-   Schließt direkt an den Hero an – beginnt auf derselben Höhe wie der Kontaktblock der Projekteseite */
+   Schließt direkt an den Hero an */
 .buero-band{margin:0;background:var(--shade)}
 .buero-band img{display:block;width:100%;height:clamp(300px, 38vw, 600px);object-fit:cover;object-position:center 46%}
 
