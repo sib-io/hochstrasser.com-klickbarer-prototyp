@@ -17,15 +17,6 @@
 .pj-mosaic i.v{top:0;bottom:0;width:3px;left:calc(var(--p) * 100% / 3 - 1.5px)}
 .pj-mosaic i.h{left:0;right:0;height:3px;top:calc(var(--p) * 100% / 3 - 1.5px)}
 
-/* Riss-Reihe über dem Abschluss-Statement */
-.pj-plate{margin-bottom:var(--sp-6)}
-.pj-plate__frame{overflow-x:auto;overscroll-behavior-x:contain}
-.riss-plate{width:100%;min-width:600px;height:auto;display:block}
-/* Strichstärken in Zeichnungseinheiten: skalieren mit, damit das Verhältnis zur Vorlage bleibt */
-.riss-plate .datum,.riss-plate .sil{stroke:var(--ink);stroke-width:3}
-.riss-plate .sil{fill:none;stroke-linejoin:miter}
-.riss-plate .void{fill:var(--ink)}
-.riss-plate .tex line{stroke:var(--ink);stroke-width:2;opacity:.45}
 @media (min-width:900px){.pj-close__btn{justify-self:end;align-self:end}} /* unten bündig mit der letzten Zeile */
 
 /* Archiv */
