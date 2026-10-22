@@ -11,9 +11,9 @@
 .idx-news-media{position:relative}
 .idx-news-media .media>img{transition:opacity .35s var(--ease)}
 .idx-news-media.is-swapping .media>img{opacity:0}
-.idx-news-nav{position:absolute;right:0;bottom:0;display:flex} /* unter 1200 nebeneinander in der Ecke, ab 1200 übereinander */
-.idx-news-btn{display:inline-flex;align-items:center;justify-content:center;width:var(--sp-5);height:var(--sp-5);background:var(--paper);color:var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
-.idx-news-btn+.idx-news-btn{border-left:1px solid var(--rule)}
+/* zwei getrennte weiße Felder ohne Rahmen, mit weichem Schatten; unter 1200 nebeneinander in der Ecke, ab 1200 übereinander */
+.idx-news-nav{position:absolute;right:0;bottom:0;display:flex;gap:var(--sp-1)}
+.idx-news-btn{display:inline-flex;align-items:center;justify-content:center;width:var(--sp-5);height:var(--sp-5);background:var(--paper);color:var(--ink);box-shadow:0 8px 28px rgba(22,22,22,.16),0 1px 3px rgba(22,22,22,.08);transition:background .25s var(--ease),color .25s var(--ease)}
 .idx-news-btn:hover{background:var(--ink);color:var(--paper)}
 .idx-news-btn svg{width:1.5rem;height:1.5rem}
 /* unter 1200: Bild und Meldungen untereinander über die volle Breite
@@ -29,8 +29,7 @@
 @media (min-width:1200px){
   .grid>.idx-news-side{grid-column:10/span 3;margin-left:calc(-1 * var(--gutter));align-self:stretch;position:relative}
   .idx-news-nav{top:50%;bottom:auto;flex-direction:column;transform:translate(50%,-50%)}
-  .idx-news-btn{width:var(--sp-6);height:var(--sp-6);border:1px solid var(--ink)}
-  .idx-news-btn+.idx-news-btn{margin-top:-1px;border-left-color:var(--ink)}
+  .idx-news-btn{width:var(--sp-6);height:var(--sp-6)}
 }
 
 /* Meldungsliste: Kategorie + Jahr rechtsbündig als Meta-Zeile über dem Titel, Titel über die volle Spaltenbreite;
