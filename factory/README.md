@@ -67,6 +67,7 @@ prototyp/
 ## Bilder
 - Alle Bilder lokal unter `assets/img/`. Mapping für Hotlinks `https://hochstrasser.com/wp-content/uploads/JJJJ/MM/<datei>` → `assets/img/wp/<datei>`; Ausnahme `02_header-23.jpg` → `assets/img/flz/02_header-23.jpg`.
 - Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5-bunt.jpg` (Büro-Bildband, farbig aus Ausgangstext 05b), `publikationen/titelseiten.jpg` (Publikationen, Titelseiten-Collage).
+- Auszeichnungs-Collage: `auszeichnungen/collage.jpg` (2000 × 1125), selbst gesetzt (typografisch, keine Original-Logos); Quelle `factory/grafik/auszeichnungen-collage.html`, bei 2000 × 1125 px als JPEG rendern.
 - Team-Porträts (Büro): `assets/img/team/<vorname-nachname>.jpg`, 600 × 600, von der Live-Büroseite (dort nach Namen zugeordnet). Ohne Porträt: Dagmar Schmidt, Michael Doll, Leyla Ali und Volker Knopp (live nur Platzhalter) – dafür die Beton-Grafik `assets/img/team/platzhalter-beton.jpg` (wie live).
 - FLZ-Projektbilder: `assets/img/flz/02_header-23.jpg … 14_landscape-1.jpg` (05 ist Hochformat), Kachelbild `01_3_square_500x500_acf_cropped.jpg`.
 - Weitere Projektbilder: `assets/img/<name>/` (Original-Dateinamen der Live-Seite, längste Kante ≤ 2000 px, Kachelbild `*_500x500_acf_cropped.jpg`).
