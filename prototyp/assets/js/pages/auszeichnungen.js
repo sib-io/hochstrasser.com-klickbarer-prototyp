@@ -6,6 +6,8 @@
 
   /* eine Liste, chronologisch */
   var awards = [
+    { y: 2026, n: 'KlimaKulturKompetenz-Auszeichnung „Barrierefreiheit“, Bayerische Architektenkammer', p: 'Kornhaus, Kempten', u: N },
+    { y: 2026, n: 'Beispielhaftes Bauen Stadt Ulm und Alb-Donau-Kreis <span class="nobr">2019–2026</span>', p: 'Parkhaus am Bahnhof, Ulm', u: N },
     { y: 2023, n: 'Hugo-Häring-Auszeichnung', p: 'Strohballenatelier, Diepoldshofen', u: P },
     { y: 2020, n: 'Anerkennung Staatspreis Baukultur Baden-Württemberg „Städtebau und Freiraum“', p: 'K5, Ulm', u: P },
     { y: 2020, n: 'Auszeichnung Otto-Borst-Preis „Stadterneuerung“', p: 'K5, Ulm', u: P },
