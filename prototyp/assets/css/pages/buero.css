@@ -29,6 +29,9 @@
 .buero-person__open{display:block;width:100%;cursor:pointer}
 .buero-person__open img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .buero-person__open:hover img,.buero-person__open:focus-visible img{transform:scale(1.04)}
+/* Farbfassung (gleicher Ausschnitt) liegt über dem s/w-Porträt und blendet beim Überfahren ein */
+.buero-person .media>.buero-person__farbe{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease),transform .8s var(--ease)}
+.buero-person .media:hover>.buero-person__farbe,.buero-person__open:focus-visible>.buero-person__farbe{opacity:1}
 
 /* Lebenslauf-Pop-up: Daten links, Porträt rechts */
 .buero-cv{width:calc(100% - 2 * var(--side));max-width:none;max-height:calc(100dvh - 2 * var(--sp-4));margin:auto;padding:var(--sp-6) var(--sp-3) var(--sp-4);border:0;background:var(--paper);color:var(--ink)}
