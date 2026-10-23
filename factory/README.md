@@ -33,6 +33,9 @@ prototyp/
 - `nav`: `projekte` | `auszeichnungen` | `expertise` | `profil` | `buero` | `null` → setzt den aktiven Menüpunkt.
 - `proto`: nur setzen, wenn der Ausgangstext eine Prototyp-Leiste mit „offene Punkte einblenden“ hat. Die `.note`-Hinweise bleiben 1:1 erhalten (Markup `<div class="note"><b>Titel</b> Text</div>`), der Schalter kommt aus dem Build. Die Leiste ist im Prototyp verborgen und erscheint mit Alt+Shift+P (gilt für die Sitzung im Tab, `site.js`).
 - `body`: zusätzliche Attribute für `<body>` (nur Digitales Bauen: Akzentfarbe).
+- `url`: Pfad der Seite auf hochstrasser.com (z. B. `"faq/"`, Startseite `""`) → Canonical, Open-Graph-Tags und Eintrag in `prototyp/sitemap.xml` (wird bei jedem Build neu geschrieben). Nur für Seiten mit feststehender Live-Adresse; Varianten und `_system` bekommen keine.
+- `modified`: Datum der letzten inhaltlichen Änderung (`JJJJ-MM-TT`) → `dateModified` im Schema und `<lastmod>` in der Sitemap. Sichtbares „Stand“-Datum auf der Seite mitpflegen.
+- `schema`: `"faq"` erzeugt FAQPage-JSON-LD im `<head>` aus den Fragen der Seite (`<details id="…"><summary>…</summary><div class="faq__answer">…</div></details>`, je Frage eine Zeile). Das Schema nie von Hand pflegen – so bleibt es deckungsgleich mit dem sichtbaren Text.
 - **Kein** `<header>`, `<footer>`, Menü, `<html>`/`<head>` in der Seitenquelle. Keine Inline-`<style>`. Seitenskript entweder als Datei (`js`) oder als `<script>` am Ende der Seitenquelle.
 - `site.js` läuft nach dem Seiteninhalt und blendet alle `.rv` ein, die beim Laden im DOM sind. Per JS erzeugte Elemente bekommen **kein** `.rv` (oder das Skript steht inline in der Seitenquelle, dann läuft es vorher).
 
@@ -58,10 +61,11 @@ prototyp/
 | Kontakt | 24 | `kontakt` |
 | Jobs | 25 | `jobs` |
 | Publikationen | 26 | `publikationen` |
+| FAQs | Word-Datei hochstrasser_FAQs (Strukturbaum 26) | `faq` |
 
 - Links auf diese Seiten immer als `slug.html` (ggf. mit Anker). Profil-Anker: `profil.html#n-integral`, `#n-wirtschaft`, `#n-nachhaltigkeit`, `#n-bestand`, `#n-verantwortung`, Leitbild `#werte`.
 - „Zurück zu unseren Expertisen“ → `expertise.html`. Projektkacheln/-links → eigene Detailseite, falls vorhanden (Zuordnung Titel → Seite/Kachelbild in `assets/js/projektseiten.js`, erzeugt aus `projekte.json`), sonst → `projekt-flz-neuer-bau-ulm.html` (Beispielseite). „Alle Projekte“ → `projekte.html`. Kontakt/„Nachricht schreiben“ intern → `kontakt.html` (bzw. `mailto:` wo im Ausgangstext).
-- Ziele ohne Seite (Barrierefreiheit, FAQs, Impressum, Datenschutz, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
+- Ziele ohne Seite (Barrierefreiheit, Impressum, Datenschutz, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
 - Externe Links bleiben, wie sie sind (`target="_blank" rel="noopener"`).
 
 ## Bilder
