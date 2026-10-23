@@ -1,0 +1,16 @@
+/* FAQ-Seite: Fragen nach Themen gruppiert, Themenkopf links, Fragen rechts (4 | 1 frei | 7). */
+
+.faq-toc .btn-row{gap:var(--sp-2) var(--sp-4)}
+.faq-toc .t-label{margin-top:var(--sp-4)}
+
+.hero+.faq-group,.faq-group+.faq-group{padding-top:0}
+.faq-group>.grid{row-gap:var(--sp-3)}
+.faq-group__head{padding-top:var(--sp-3)}
+.faq-group__head .t-label{margin-top:var(--sp-1)}
+
+/* Frage als Überschrift (h3) in der summary: Optik bleibt die der .faq-Komponente. */
+.faq summary h3{font:inherit;letter-spacing:inherit;color:inherit;text-wrap:pretty}
+
+@media (min-width:900px){
+  .faq-group__head{position:sticky;top:calc(var(--hdr-h) + var(--sp-3));align-self:start}
+}
