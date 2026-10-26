@@ -91,7 +91,7 @@
 .idx-terms a:hover .idx-term__go,.idx-terms a:focus-visible .idx-term__go{opacity:1;transform:none;color:var(--ink)}
 @media (hover:none){.idx-term__go{opacity:.5;transform:none}}
 
-/* Projekte: Bildunterschrift beim Überfahren durchscheinender als im Standard (.94) */
+/* Link unter Projekten und Team; Projekte: Bildunterschrift beim Überfahren durchscheinender als im Standard (.94) */
 .idx-more{margin-top:var(--sp-6)}
 @media (hover:hover){#projekte .tile__cap{background:rgba(255,255,255,.6)}}
 
@@ -107,7 +107,6 @@
 .idx-face{position:relative}
 .idx-face__farbe{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease)}
 .idx-face:hover .idx-face__farbe{opacity:1}
-.idx-crew-foot{margin-top:var(--sp-4)}
 
 /* Startseite: die drei Begriffe im Hero in PX Grotesk Light statt Calibri Light
    (Laufweite wie .t-display aus site.css) */
