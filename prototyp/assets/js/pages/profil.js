@@ -4,44 +4,58 @@
     einfach: {
       img: 'assets/img/ba3-baubetriebshof-ulm/799_lanscape-03-scaled.jpg',
       cap: 'Baubetriebshof Ulm: Fahrzeughalle mit Fassade aus Holzlatten',
-      name: 'Einfach bauen',
+      name: 'Einfach bauen.',
       claim: 'Komplexität ist nicht automatisch Qualität.',
-      text: 'Wir hinterfragen Standards, reduzieren unnötige Komplexität und entwickeln angemessene Lösungen, die funktional, robust und nachvollziehbar sind. Einfach bauen bedeutet für uns, mit klugen Entscheidungen mehr zu erreichen – nicht mit mehr Aufwand.'
+      text: [
+        'Wir hinterfragen Standards, vermeiden unnötige Komplexität und entwickeln angemessene Lösungen, die funktional, robust und nachvollziehbar sind.',
+        'Einfach bauen bedeutet für uns, mit klugen Entscheidungen mehr zu erreichen – nicht mit mehr Aufwand.'
+      ]
     },
     wirtschaft: {
       img: 'assets/img/erweiterung-witec/757_landscape_SuedWest-Ecke.jpg',
       cap: 'Erweiterung WITec: Büro- und Produktionsgebäude mit heller Betonfassade',
-      name: 'Wirtschaftlichkeit schaffen',
-      claim: 'Gute Architektur muss leistbar sein.',
-      text: 'Wirtschaftlichkeit entsteht nicht durch Verzicht, sondern durch intelligente Planung, klare Prozesse und frühzeitige Entscheidungen. Unser Ziel sind kostensichere und langlebige Lösungen mit einem Mehrwert für unsere Auftraggeber.'
+      name: 'Wirtschaftlich denken.',
+      claim: 'Gute Architektur muss auch wirtschaftlich überzeugen.',
+      text: [
+        'Wirtschaftlichkeit entsteht nicht durch Verzicht, sondern durch intelligente Planung, klare Prozesse und vorausschauende Entscheidungen. Wir verbinden gestalterische Qualität mit einem verantwortungsvollen Umgang mit Ressourcen und Budgets.',
+        'So entstehen langlebige Lösungen mit wirtschaftlichem Mehrwert für unsere Auftraggeber.'
+      ]
     },
     kreislauf: {
       img: 'assets/img/strohballenatelier/atelier-innenraum.jpg',
       cap: 'Strohballenatelier: Wände aus Strohballen, Holztragwerk und wiederverwendete Schlossfenster',
-      name: 'Kreislaufgerecht planen und bauen',
-      claim: 'Unsere Ressourcen sind wertvoll und endlich.',
-      text: 'Deshalb denken wir Gebäude über ihren gesamten Lebenszyklus hinweg – von der Materialwahl über die Nutzung bis zur Wiederverwendung. Kreislaufgerechtes Planen und Bauen schafft langlebige, ressourcenschonende und wirtschaftlich tragfähige Lösungen.'
+      name: 'Kreislaufgerecht bauen.',
+      claim: 'Ressourcen sind wertvoll. Ihr verantwortungsvoller Einsatz ist entscheidend.',
+      text: [
+        'Wir betrachten Gebäude über ihren gesamten Lebenszyklus hinweg – von der Materialwahl über die Nutzung bis zur möglichen Wiederverwendung. So entwickeln wir langlebige, ressourcenschonende Konzepte, die ökologische Verantwortung mit wirtschaftlicher Tragfähigkeit verbinden.'
+      ]
     },
     bestand: {
       img: 'assets/img/kriegsspital-neu-ulm/842_potrait-MItte-EG-01-scaled.jpg',
       cap: 'Ehemaliges Kriegsspital Neu-Ulm: Gewölbe aus Ziegel und Naturstein, heute als Werkstatt genutzt',
-      name: 'Bestand weiterdenken',
-      claim: 'Bestand ist eine wertvolle Ressource.',
-      text: 'Wir sehen Bestand nicht als Beschränkung, sondern als Ausgangspunkt für neue Potenziale. Durch Umbau, Weiterentwicklung und behutsame Transformation schaffen wir nachhaltige Lösungen, die Geschichte bewahren und Zukunft ermöglichen.'
+      name: 'Bestand weiterdenken.',
+      claim: 'Bestehende Gebäude bieten Potenzial für Neues.',
+      text: [
+        'Wir verstehen den Bestand nicht als Einschränkung, sondern als wertvolle Grundlage für die Zukunft. Durch Umbau, Weiterentwicklung und behutsame Transformation schaffen wir neue Nutzungsmöglichkeiten, erhalten vorhandene Qualitäten und entwickeln Gebäude nachhaltig weiter.'
+      ]
     },
     kompetenzen: {
       img: 'assets/img/rechenzentrum-swu/825_header-scaled.jpg',
       cap: 'Rechenzentrum der Stadtwerke Ulm/Neu-Ulm',
-      name: 'Kompetenzen verbinden',
-      claim: 'Die besten Lösungen entstehen im Zusammenspiel unterschiedlicher Perspektiven.',
-      text: 'Wir vernetzen Architektur und Fachdisziplinen frühzeitig zu einem integralen Planungsprozess. So entstehen qualitativ hochwertige Ergebnisse, klare Verantwortlichkeiten und effiziente Abläufe aus einer Hand.'
+      name: 'Kompetenzen verbinden.',
+      claim: 'Unterschiedliche Perspektiven. Ein gemeinsames Ziel.',
+      text: [
+        'Wir bringen Architektur, technische Fachdisziplinen und wirtschaftliches Denken von Anfang an zusammen. Durch integrale Planung entstehen abgestimmte Lösungen, klare Verantwortlichkeiten und kurze Entscheidungswege – für mehr Qualität und Sicherheit im gesamten Planungsprozess.'
+      ]
     },
     zukunft: {
       img: 'assets/img/friesenhofen-saegemuehle/784_header.jpg',
       cap: 'Wohnareal Sägemühle Friesenhofen: Visualisierung der Häuser am Fluss',
-      name: 'Zukunft gestalten',
-      claim: 'Architektur prägt das Leben von morgen.',
-      text: 'Deshalb verstehen wir jede Planungsaufgabe als Verantwortung für die gebaute Umwelt und die kommenden Generationen. Wir entwickeln Gebäude und Räume, die langfristig Bestand haben und sich an veränderte Anforderungen anpassen können.'
+      name: 'Zukunft gestalten.',
+      claim: 'Was wir heute planen, prägt das Leben von morgen.',
+      text: [
+        'Architektur bedeutet für uns Verantwortung – für Menschen, Umwelt und kommende Generationen. Wir entwickeln Gebäude und Räume, die sich an veränderte Anforderungen anpassen, langfristig funktionieren und einen nachhaltigen Beitrag zur gebauten Umwelt leisten.'
+      ]
     }
   };
 
@@ -58,7 +72,12 @@
     var d = KT[key];
     ktName.textContent = d.name;
     ktClaim.textContent = d.claim;
-    ktText.textContent = d.text;
+    ktText.textContent = '';
+    d.text.forEach(function (absatz) {
+      var p = document.createElement('p');
+      p.textContent = absatz;
+      ktText.appendChild(p);
+    });
     ktImg.src = d.img;
     ktImg.alt = d.cap;
   }
