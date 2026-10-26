@@ -1,9 +1,33 @@
 /* Projektseiten (FLZ von Hand, alle übrigen aus factory/projekte.py):
-   Titelbild, Seitenspalte, Galerie, Pläne, Projektdaten, Kontakt, verwandte Projekte. */
+   Titelbild ohne Beschnitt · Einstieg mit Titel, Text und Kennwerten · Galerie über die volle Breite ·
+   weitere Kapitel · Pläne und Projektdaten · weitere Projekte.
+   Keine Sektionsköpfe außer der Rubrik „Weitere Projekte“, keine Trennlinien außer an den Kennwertlisten;
+   zwei Schriften: PX Grotesk für Titel, Rubriken und Links, Carlito für alles Übrige. */
+
+/* Titelbild oben, im natürlichen Seitenverhältnis */
 .prj-cover{padding-top:var(--sp-5)}
-.prj-cover__img{aspect-ratio:16/9}
-@media (min-width:900px){.prj-cover__img{aspect-ratio:21/9}}
-.prj-cover+.hero{padding-top:var(--band-s)}
+.prj-cover img,.prj-plan{width:100%}
+
+/* Einstieg: Titel in PX Grotesk wie die übrigen Überschriften (kein .hero → kein Calibri Light) */
+.prj-intro{padding-block:var(--band-s)}
+.prj-intro .grid{row-gap:var(--sp-5)}
+.prj-sub{margin-top:var(--sp-3);color:var(--mute)}
+
+/* Kennwerte und Projektdaten als ruhige Liste in Fließtextschrift, Begriff gedämpft und etwas kleiner;
+   nur oben und unten eine feine Linie */
+.prj-facts{display:grid;row-gap:var(--sp-2);padding-block:var(--sp-3);border-block:1px solid var(--rule)}
+.prj-facts>div{display:grid;grid-template-columns:minmax(0,1fr)}
+.prj-facts dt{font-size:var(--fs-small);color:var(--mute)}
+.prj-facts dd{color:var(--ink)}
+@media (min-width:600px){
+  .prj-facts>div{grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--gutter);align-items:baseline}
+}
+/* mehrere Einträge je Kennwert */
+.prj-line{display:block}
+.prj-line+.prj-line{margin-top:var(--sp-1)}
+/* Kennwert Auszeichnung mit Symbol */
+.prj-award{display:flex;gap:var(--sp-1);align-items:flex-start}
+.prj-award svg{width:22px;height:22px;flex:none}
 
 /* Galerie im 12er-Raster: vollbreit, Paare, Quer- neben Hochformat */
 .prj-gal{row-gap:var(--gutter);align-items:stretch}
@@ -16,39 +40,22 @@
 }
 /* Pläne: nie beschneiden, natürliches Seitenverhältnis, oben bündig */
 .prj-gal--plans{align-items:start}
+/* Plan neben den Projektdaten schließt an die übrigen Pläne an wie eine weitere Bildzeile */
+.prj-plans:has(+.prj-data--plan){padding-bottom:0}
+.prj-plans+.prj-data--plan{padding-top:var(--gutter)}
 
-/* Seitenspalte links (Galerie, Kapitel, Projektdaten, Kontakt), mitlaufend ab 900 px */
-@media (min-width:900px){
-  .prj-rail{position:sticky;top:calc(var(--hdr-h) + var(--sp-3));align-self:start}
-  .prj-gal>.prj-rail{grid-row:span var(--rows)} /* über alle Bildzeilen */
-}
-/* gestapelt: Seitenspalte steht als Kopf direkt über dem Inhalt */
-@media (max-width:899px){.grid:not(.prj-gal):has(>.prj-rail){row-gap:var(--sp-3)}}
-
-/* Kapitel: Aufzählung mit Kopf je Punkt */
+/* Weitere Kapitel nach der Galerie: Rubrik und Text, linksbündig zum Einstiegstext */
+.prj-chapters{row-gap:var(--sp-6)}
+/* Aufzählung mit Kopf je Punkt, ohne Linien; Kopf fett in der Textschrift */
+.prj-points{display:grid;row-gap:var(--sp-3)}
 .prj-points>li{display:grid;row-gap:var(--sp-1)}
+.prj-points h3{font-family:var(--font-text);font-size:inherit;font-weight:700;line-height:1.6;color:var(--ink)}
 .prj-points p{max-width:66ch;color:var(--ink-2)}
 
-/* Kennwert Auszeichnung mit Symbol */
-.prj-award{display:flex;gap:var(--sp-1);align-items:flex-start}
-.prj-award svg{width:22px;height:22px;flex:none}
-
-/* Projektdaten: Unterköpfe „Projekt“, „Team“; mehrere Einträge je Kennwert */
-.prj-sub-h{margin-bottom:var(--sp-1)}
-.prj-line{display:block}
-.prj-line+.prj-line{margin-top:var(--sp-1)}
-@media (max-width:899px){.prj-team{margin-top:var(--sp-4)}}
-
-/* Kontaktkarte und Kacheln in Spalte 3–12: Innenraster = Seitenraster (subgrid) */
-@media (min-width:900px){
-  .prj-contact{grid-template-columns:subgrid}
-  .prj-contact>.ph{grid-column:2/span 2}
-  .prj-contact .contact-card__body{grid-column:5/span 5}
-  .prj-rel{display:grid;grid-template-columns:subgrid}
-  .prj-rel>*{grid-column:1/-1}
-  .prj-rel .tiles{grid-template-columns:subgrid}
-}
-.prj-rel__title{margin-bottom:var(--head-gap)}
+/* Weitere Projekte: vier Kacheln, mittlere Breite zwei je Zeile statt drei plus eine */
+@media (min-width:600px) and (max-width:899px){.prj-tiles .tile{grid-column:span 6}}
+/* Bildunterschrift beim Überfahren durchscheinend wie im Projektarchiv (projekte.css) */
+@media (hover:hover){.prj-tiles .tile__cap{background:rgba(255,255,255,.6)}}
 .prj-rel__more{margin-top:var(--sp-5)}
 
 .prj-nowrap{white-space:nowrap}

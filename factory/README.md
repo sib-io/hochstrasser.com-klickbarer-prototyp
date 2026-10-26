@@ -128,7 +128,7 @@ Keine umfangreichen Tests darüber hinaus.
 
 ## Projekt-Detailseiten
 Vorlage ist die von Hand gebaute FLZ-Seite. Alle weiteren Projektseiten entstehen aus `factory/projekte.json` über `python3 factory/projekte.py` (danach `build.py`) – **nicht** die erzeugten `pages/projekt-*.html` bearbeiten, sondern JSON bzw. Generator.
-- Aufbau: Titelbild · Hero (Titel, Untertitel, Kennwerte) · Galerie · Kapitel · Stimme (Zitat im Split, Platzhalter; Bild: `"stimme_bild"` oder letztes Foto) · Pläne · Projektdaten (Platzhalter) · Kontakt · Verwandt.
-- Text 1:1 von der Live-Seite, nur Schreibweise korrigiert. Keine erfundenen Kapitelüberschriften: Kapitel heißen „Projekt“ oder tragen die Zwischenüberschriften der Live-Seite.
-- Bilder in Live-Reihenfolge; `"plan": true` → Abschnitt „Pläne“, nie beschnitten. Galerie-Raster automatisch aus Hoch-/Querformat (Doku in `projekte.py`), `"layout"` überschreibt. Galerien über 9 Zeilen werden geteilt („Weitere Bilder“ nach der Stimme).
+- Aufbau: Titelbild (volles Format, ohne Beschnitt) · Einstieg (Titel in PX Grotesk, Untertitel, erstes Kapitel, Kennwerte rechts mit feiner Linie oben und unten) · Galerie über die volle Breite · weitere Kapitel · Pläne und Projektdaten · Weitere Projekte (Rubrik, vier Kacheln, „Alle Projekte“). Kein Zitat, kein Kontakt, keine Sektionsköpfe in der Seitenspalte, keine Trennlinien zwischen den Abschnitten.
+- Text 1:1 von der Live-Seite, nur Schreibweise korrigiert. Keine erfundenen Kapitelüberschriften: Kapitel ohne eigene Überschrift („Projekt“) stehen ohne Rubrik, sonst trägt die Rubrik (`.t-rubric`) die Zwischenüberschrift der Live-Seite.
+- Bilder in Live-Reihenfolge; `"plan": true` → Pläne, nie beschnitten; bei ungerader Zahl steht der letzte Plan neben den Projektdaten. Galerie-Raster automatisch aus Hoch-/Querformat (Doku in `projekte.py`), `"layout"` überschreibt. `"related"`: vier Projekte.
 - Kategorie: Live-Kategorien der Projektseite, sonst Nutzung aus dem Projektarchiv (Ausgangstext 01).

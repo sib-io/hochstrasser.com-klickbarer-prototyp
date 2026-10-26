@@ -6,18 +6,18 @@
   danach wie gewohnt: python3 factory/build.py
 
 Vorlage ist die von Hand gebaute FLZ-Seite (projekt-flz-neuer-bau-ulm, "generate": false):
-Titelbild · Hero mit Kennwerten · Galerie · Kapitel · Stimme (Zitat im Split mit Projektbild) · Pläne · Projektdaten ·
-Kontakt · Verwandt. Alle Projektseiten teilen pages/projekt.css.
+Titelbild (ohne Beschnitt) · Einstieg mit Titel, Untertitel, erstem Kapitel und Kennwerten · Galerie ·
+weitere Kapitel · Pläne und Projektdaten · Weitere Projekte (vier Kacheln). Alle Projektseiten teilen pages/projekt.css.
+Keine Sektionsköpfe (nur die Rubrik „Weitere Projekte“ und Zwischenüberschriften der Live-Seite), kein Zitat, kein Kontakt.
 
-Galerie im Raster (Spalten 3–12, links die mitlaufende Seitenspalte):
-  F  ein Querformat über 10 Spalten, natürliches Seitenverhältnis
-  LL zwei Querformate je 5 Spalten (16:9 oder 3:2)
-  LP/PL Querformat 7 Spalten, füllt die Höhe des Hochformats mit 3 Spalten
-  PP zwei Hochformate je 5 Spalten (3:4), P ein Hochformat
+Galerie im Raster über die volle Breite (12 Spalten):
+  F  ein Querformat über 12 Spalten, natürliches Seitenverhältnis
+  LL zwei Querformate je 6 Spalten (16:9 oder 3:2)
+  LP/PL Querformat 8 Spalten, füllt die Höhe des Hochformats mit 4 Spalten
+  PP zwei Hochformate je 6 Spalten (3:4), P ein Hochformat
 Die Folge ergibt sich aus Hoch-/Querformat (nach jedem F höchstens zwei Paarzeilen);
-"layout" in der JSON überschreibt sie. Pläne ("plan": true) werden nie beschnitten.
-Galerien mit mehr als 9 Zeilen werden geteilt: 6 Zeilen vor dem Text, der Rest
-("Weitere Bilder") nach der Stimme – sonst steht der Text erst nach Tausenden Pixeln Bild.
+"layout" in der JSON überschreibt sie. Pläne ("plan": true) werden nie beschnitten; bei ungerader Zahl
+steht der letzte Plan neben den Projektdaten, die übrigen paarweise davor.
 """
 import html, json, struct
 from pathlib import Path
@@ -25,10 +25,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 IMG = ROOT.parent / 'prototyp' / 'assets' / 'img'
 FLZ = 'projekt-flz-neuer-bau-ulm.html'  # Ziel für Projekte ohne eigene Seite
-
-NOFOCUS = ' focusable="false"'
-PERSON = ('<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="{w}" stroke-linecap="round" aria-hidden="true"{f}>'
-          '<circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg>')
 
 
 def t(s):
@@ -98,18 +94,18 @@ def gallery(pics, layout):
         y = pics[i + 1] if len(kind) == 2 else None
         port = lambda p: ' media--2x3' if p.r < .8 else ' media--3x4'
         if kind == 'F':
-            out.append(figure(x, 's-10 o-3'))
+            out.append(figure(x, 's-12'))
         elif kind == 'LL':
             r = ' media--16x9' if min(x.r, y.r) >= 1.7 else ' media--3x2'
-            out += [figure(x, 'sm-s-6 s-5 o-3', r), figure(y, 'sm-s-6 s-5', r)]
+            out += [figure(x, 'sm-s-6 s-6', r), figure(y, 'sm-s-6 s-6', r)]
         elif kind == 'LP':
-            out += [figure(x, 'sm-s-8 s-7 o-3', ' prj-fill'), figure(y, 'sm-s-4 s-3', port(y))]
+            out += [figure(x, 'sm-s-8 s-8', ' prj-fill'), figure(y, 'sm-s-4 s-4', port(y))]
         elif kind == 'PL':
-            out += [figure(x, 'sm-s-4 s-3 o-3', port(x)), figure(y, 'sm-s-8 s-7', ' prj-fill')]
+            out += [figure(x, 'sm-s-4 s-4', port(x)), figure(y, 'sm-s-8 s-8', ' prj-fill')]
         elif kind == 'PP':
-            out += [figure(x, 'sm-s-6 s-5 o-3', ' media--3x4'), figure(y, 'sm-s-6 s-5', ' media--3x4')]
+            out += [figure(x, 'sm-s-6 s-6', ' media--3x4'), figure(y, 'sm-s-6 s-6', ' media--3x4')]
         else:
-            out.append(figure(x, 'sm-s-6 s-5 o-3', ' media--3x4'))
+            out.append(figure(x, 'sm-s-6 s-6', ' media--3x4'))
         rows.append(out)
         i += 1 if y is None else 2
     assert i == len(pics), f'Layout passt nicht zur Bildzahl ({i} von {len(pics)})'
@@ -117,28 +113,24 @@ def gallery(pics, layout):
 
 
 def plans(pics):
-    out, rows = [], 0
+    out = []
     for i in range(0, len(pics), 2):
         x, y = pics[i], pics[i + 1] if i + 1 < len(pics) else None
-        rows += 1
         if y is None:
-            cls = 's-7 o-3' if len(pics) == 1 and x.o == 'L' else 'sm-s-6 s-5 o-3' if x.o == 'L' else 'sm-s-6 s-4 o-3'
-            out.append(figure(x, cls))
+            out.append(figure(x, 'sm-s-6 s-6' if x.o == 'L' else 'sm-s-6 s-4'))
         elif x.o == y.o:
-            out += [figure(x, 'sm-s-6 s-5 o-3'), figure(y, 'sm-s-6 s-5')]
+            out += [figure(x, 'sm-s-6 s-6'), figure(y, 'sm-s-6 s-6')]
         elif x.o == 'P':
-            out += [figure(x, 'sm-s-4 s-3 o-3'), figure(y, 'sm-s-8 s-7')]
+            out += [figure(x, 'sm-s-4 s-4'), figure(y, 'sm-s-8 s-8')]
         else:
-            out += [figure(x, 'sm-s-8 s-7 o-3'), figure(y, 'sm-s-4 s-3')]
-    return out, rows
+            out += [figure(x, 'sm-s-8 s-8'), figure(y, 'sm-s-4 s-4')]
+    return out
 
 
-def media_section(name, label, figs, rows, extra='', rule=True, plan=False):
+def media_section(name, label, figs, extra='', plan=False):
     cls = 'grid prj-gal' + (' prj-gal--plans' if plan else '') + ' rv'
-    return (f'  <!-- {name} -->\n  <section class="wrap band band--s{" rule-top" if rule else ""}">\n'
-            f'    <div class="{cls}" style="--rows:{rows}">\n'
-            f'      <h2 class="t-label prj-rail s-2">{label}</h2>\n' + '\n'.join(figs) + extra +
-            '\n    </div>\n  </section>')
+    return (f'  <!-- {name} -->\n  <section class="wrap band band--s{" prj-plans" if plan else ""}">\n    <h2 class="sr-only">{label}</h2>\n'
+            f'    <div class="{cls}">\n' + '\n'.join(figs) + extra + '\n    </div>\n  </section>')
 
 
 def blocks_html(blocks):
@@ -157,148 +149,84 @@ def blocks_html(blocks):
             prose.append('        <p>' + '<br>'.join(f'<a href="{a(h)}">{t(s)}</a>' for s, h in b['links']) + '</p>')
         elif 'points' in b:
             flush()
-            out.append('        <ul class="rows prj-points">\n' + '\n'.join(
-                f'          <li><h3 class="t-h4">{t(h)}</h3><p>{t(s)}</p></li>' for h, s in b['points']) + '\n        </ul>')
+            out.append('        <ul class="prj-points">\n' + '\n'.join(
+                f'          <li><h3>{t(h)}</h3><p>{t(s)}</p></li>' for h, s in b['points']) + '\n        </ul>')
     flush()
     return '\n'.join(out)
 
 
-def chapter(label, ch, rule):
-    stmt = f'        <h2 class="t-h2">{t(ch["h"])}</h2>\n' if ch.get('h') else ''
-    tag = 'p' if ch.get('h') else 'h2'
-    return (f'  <!-- KAPITEL {label.upper()} -->\n  <section class="wrap band{" rule-top" if rule else ""}">\n'
-            f'    <div class="grid rv">\n      <{tag} class="t-label prj-rail s-2">{t(label)}</{tag}>\n'
-            f'      <div class="stack s-8 o-3">\n{stmt}{blocks_html(ch["blocks"])}\n      </div>\n    </div>\n  </section>')
+def chapter(ch, head='h2'):
+    """Kapitel als Rubrik (Zwischenüberschrift der Live-Seite) und Text; „Projekt“ bleibt ohne Rubrik"""
+    h = ch.get('h') or (ch['label'] if ch['label'] != 'Projekt' else '')
+    rubric = f'        <{head} class="t-rubric">{t(h)}</{head}>\n' if h else ''
+    return f'      <div class="stack s-7">\n{rubric}{blocks_html(ch["blocks"])}\n      </div>'
 
 
-def stimme(org, pic):
-    """Zitat im Split: Projektbild links, Farbfeld rechts (.quote in site.css)"""
-    src = (t(org) + '. ' if org and org != 'Privat' else '') + '<i>Kurze Einordnung des Zitats ergänzen.</i>'
-    return ('  <!-- STIMME -->\n  <section>\n    <div class="quote rv">\n'
-            f'      <div class="quote__img">{pic.img()}</div>\n'
-            '      <div class="quote__field">\n'
-            '        <p class="quote__pill">Stimme</p>\n'
-            '        <blockquote class="quote__text"><p><i>„Platzhalter — ein bis zwei Sätze des Bauherrn oder der Projektleitung.“</i></p></blockquote>\n'
-            '        <div class="quote__foot">\n'
-            f'          <p><span class="quote__who"><i>Name, Funktion ergänzen</i></span><span class="quote__ctx">{src}</span></p>\n'
-            '        </div>\n      </div>\n    </div>\n  </section>')
-
-
-def projektdaten(p, rule):
+def projektdaten(p, plan):
     foto = t(p['fotografie']) if p.get('fotografie') else '<i>Fotograf:in ergänzen</i>'
     pub = '<span class="prj-line"><i>Publikation, Medium, Jahr — ergänzen</i></span>'
-    return (f'  <!-- PROJEKTDATEN -->\n  <section class="wrap band{" rule-top" if rule else ""}">\n    <div class="grid rv">\n'
-            '      <h2 class="t-label prj-rail s-2">Projektdaten</h2>\n      <div class="s-5 o-3">\n'
-            '        <h3 class="t-label prj-sub-h">Projekt</h3>\n        <dl class="facts">\n'
-            '          <div><dt>Nutzung</dt><dd><i>Nutzung ergänzen</i></dd></div>\n'
-            '          <div><dt>Erbrachte Leistungen</dt><dd><i>Objektplanung, Integralplanung — ergänzen</i></dd></div>\n'
-            '          <div><dt>Zertifikate</dt><dd><i>Zertifizierung ergänzen</i></dd></div>\n'
-            f'          <div><dt>Fotografie</dt><dd>{foto}</dd></div>\n'
-            f'          <div><dt>Veröffentlichungen</dt><dd>{pub}{pub}</dd></div>\n'
-            '        </dl>\n      </div>\n      <div class="prj-team s-4 o-9">\n'
-            '        <h3 class="t-label prj-sub-h">Team</h3>\n        <ul class="rows rows--compact">\n'
-            + '          <li><i>Name ergänzen</i></li>\n' * 3 +
-            '        </ul>\n      </div>\n    </div>\n  </section>')
-
-
-KONTAKT = '''  <!-- KONTAKT -->
-  <section class="wrap band rule-top">
-    <div class="grid">
-      <p class="t-label prj-rail s-2">Kontakt</p>
-      <div class="contact-card prj-contact s-10 o-3">
-        <div class="ph">''' + PERSON.format(w='1.4', f='') + '''<span>Foto folgt</span></div>
-        <div class="contact-card__body">
-          <h2 class="t-h2">Fragen zum Projekt</h2>
-          <p class="t-mute">Wir sprechen gern über die Herausforderungen und die Konzepte unserer Projekte. Kommen Sie gern auf uns zu, wir freuen uns auf den Austausch.</p>
-          <div class="btn-row"><a class="link-arrow" href="tel:+49731935110">07 31 . 9 35 11-0</a><a class="link-arrow" href="kontakt.html">Nachricht schreiben <span aria-hidden="true">→</span></a></div>
-        </div>
-      </div>
-    </div>
-  </section>'''
+    team = '<span class="prj-line"><i>Name ergänzen</i></span>' * 3
+    fig = ''
+    if plan:
+        img = plan.img().replace('<img ', '<img class="prj-plan" ', 1)
+        fig = f'      <figure class="{"s-6" if plan.o == "L" else "sm-s-6 s-4"}">{img}</figure>\n'
+    head = 'Plan und Projektdaten' if plan else 'Projektdaten'
+    return ('  <!-- PROJEKTDATEN' + (' mit Plan (6 | 1 frei | 5)' if plan else '') + ' -->\n'
+            f'  <section class="wrap band{" prj-data--plan" if plan else ""}">\n    <h2 class="sr-only">{head}</h2>\n    <div class="grid rv">\n{fig}'
+            '      <dl class="prj-facts s-5 o-8">\n'
+            '        <div><dt>Nutzung</dt><dd><i>Nutzung ergänzen</i></dd></div>\n'
+            '        <div><dt>Erbrachte Leistungen</dt><dd><i>Objektplanung, Integralplanung — ergänzen</i></dd></div>\n'
+            '        <div><dt>Zertifikate</dt><dd><i>Zertifizierung ergänzen</i></dd></div>\n'
+            f'        <div><dt>Fotografie</dt><dd>{foto}</dd></div>\n'
+            f'        <div><dt>Veröffentlichungen</dt><dd>{pub}{pub}</dd></div>\n'
+            f'        <div><dt>Team</dt><dd>{team}</dd></div>\n'
+            '      </dl>\n    </div>\n  </section>')
 
 
 def tile(q):
-    return (f'          <a class="tile" href="{q["slug"]}.html"><img src="assets/img/{q["dir"]}/{a(q["square"])}" alt="{a(q["title"])}" loading="lazy">'
+    return (f'        <a class="tile" href="{q["slug"]}.html"><img src="assets/img/{q["dir"]}/{a(q["square"])}" alt="{a(q["title"])}" loading="lazy">'
             f'<div class="tile__cap"><span class="tile__title">{t(q["title"])}</span> <span class="tile__year">{q["year"]}</span></div></a>')
 
 
 def verwandt(p, by):
-    best = p.get('group') == 'bestand'
-    head, more = ('Weitere Projekte im Bestand', 'Alle Projekte im Bestand') if best else ('Weitere Projekte', 'Alle Projekte')
-    return ('  <!-- VERWANDT -->\n  <section class="wrap band rule-top">\n    <div class="grid rv">\n'
-            '      <p class="t-label prj-rail s-2">Verwandt</p>\n      <div class="prj-rel s-10 o-3">\n'
-            f'        <h2 class="t-h2 prj-rel__title">{head}</h2>\n        <div class="tiles">\n'
+    return ('  <!-- VERWANDT -->\n  <section class="wrap band band--flush-top">\n    <div class="rv">\n'
+            '      <div class="sec-head"><h2 class="t-rubric sec-head__title">Weitere Projekte</h2></div>\n'
+            '      <div class="tiles prj-tiles">\n'
             + '\n'.join(tile(by[s]) for s in p['related']) +
-            f'\n        </div>\n        <p class="prj-rel__more"><a class="link-arrow" href="projekte.html">{more} <span aria-hidden="true">→</span></a></p>\n'
-            '      </div>\n    </div>\n  </section>')
+            '\n      </div>\n      <p class="prj-rel__more"><a class="link-arrow" href="projekte.html">Alle Projekte <span aria-hidden="true">→</span></a></p>\n'
+            '    </div>\n  </section>')
 
 
 def page(p, by):
     facts = dict(p['facts'])
-    org = facts.get('Bauherr') or facts.get('Auslober')
     pics = [Pic(p, it, n) for n, it in enumerate(p['images'], 2)]
     photos, drawings = [x for x in pics if not x.plan], [x for x in pics if x.plan]
     cover = Pic(p, {'f': p['cover']}, 1)
-    # Bild im Zitat: "stimme_bild" (Dateiname) oder das letzte Foto der Galerie
-    quote_pic = next((x for x in photos if x.src.endswith('/' + p['stimme_bild'])), None) if p.get('stimme_bild') else None
-    quote_pic = quote_pic or (photos[-1] if photos else cover)
     desc = (p['sub'] if p.get('sub') else f"{p['title']}, {facts.get('Standort', '')}") + '. Ein Projekt von hochstrasser., Architekturbüro in Ulm.'
     meta = {'title': p['title'], 'description': desc, 'nav': 'projekte', 'css': ['pages/projekt.css']}
-    sub = f'\n        <p class="t-lead hero__sub">{t(p["sub"])}</p>' if p.get('sub') else ''
+    sub = f'\n        <p class="prj-sub">{t(p["sub"])}</p>' if p.get('sub') else ''
     dl = '\n'.join(f'        <div><dt>{t(k)}</dt><dd>{t(v)}</dd></div>' for k, v in p['facts'])
-    parts = [f'<!--meta {json.dumps(meta, ensure_ascii=False)} -->',
-             '  <!-- HERO -->\n  <section class="wrap prj-cover">\n'
-             f'    <figure class="media prj-cover__img rv">{cover.img(lazy=False)}</figure>\n  </section>\n\n'
-             '  <section class="wrap hero">\n    <div class="grid">\n      <div class="s-7">\n'
-             f'        <h1 class="t-h1">{t(p["title"])}</h1>{sub}\n      </div>\n'
-             f'      <dl class="facts s-4 o-9">\n{dl}\n      </dl>\n    </div>\n  </section>']
-    sections = []  # (html, dunkel?)
-    rest = []
-    if photos:
-        rows = gallery(photos, p.get('layout') or auto_rows(photos))
-        if len(rows) > 9:
-            rows, rest = rows[:6], rows[6:]
-        credit = f'\n      <p class="t-small t-mute s-10 o-3">{t(p["credit"])}</p>' if p.get('credit') else ''
-        last = rest or rows
-        parts_gal = [('gal', 'Galerie', rows)] + ([('gal', 'Weitere Bilder', rest)] if rest else [])
-        gal = [(k, label, sum(r, []), len(r) + (1 if credit and r is last else 0), credit if r is last else '')
-               for k, label, r in parts_gal]
-        sections.append(gal[0])
-    elif drawings:
-        sections.append(('plans', *plans(drawings), ''))
-        drawings = []
     chs = p['chapters']
-    many = len(chs) > 1
-    for i, ch in enumerate(chs, 1):
-        sections.append(('ch', f'{i:02d} — {ch["label"]}' if many else ch['label'], ch))
-        if i == 2 and len(chs) >= 3:
-            sections.append(('stimme',))
-    if not any(s[0] == 'stimme' for s in sections):
-        sections.append(('stimme',))
-    if rest:
-        sections.append(gal[1])
+    # Einstieg: erstes Kapitel neben den Kennwerten; ohne Text stehen die Kennwerte neben dem Titel
+    first = chapter(chs[0]) + '\n' if chs else ''
+    parts = [f'<!--meta {json.dumps(meta, ensure_ascii=False)} -->',
+             '  <!-- TITELBILD im vollen Format ohne Beschnitt -->\n  <section class="wrap prj-cover">\n'
+             f'    <figure class="rv">{cover.img(lazy=False)}</figure>\n  </section>',
+             '  <!-- EINSTIEG: Titel, Text und Kennwerte -->\n  <section class="wrap prj-intro">\n    <div class="grid">\n'
+             f'      <div class="{"s-8" if chs else "s-7"}">\n        <h1 class="t-h1">{t(p["title"])}</h1>{sub}\n      </div>\n'
+             f'{first}      <dl class="prj-facts s-4 o-9">\n{dl}\n      </dl>\n    </div>\n  </section>']
+    if photos:
+        figs = sum(gallery(photos, p.get('layout') or auto_rows(photos)), [])
+        credit = f'\n      <p class="t-small t-mute s-12">{t(p["credit"])}</p>' if p.get('credit') else ''
+        parts.append(media_section('GALERIE', 'Galerie', figs, credit))
+    if len(chs) > 1:
+        parts.append('  <!-- WEITERE KAPITEL -->\n  <section class="wrap">\n    <div class="grid prj-chapters rv">\n'
+                     + '\n'.join(chapter(ch) for ch in chs[1:]) + '\n    </div>\n  </section>')
+    # ungerade Zahl von Plänen: der letzte steht neben den Projektdaten, die übrigen paarweise davor
+    plan = drawings.pop() if len(drawings) % 2 else None
     if drawings:
-        sections.append(('plans', *plans(drawings), ''))
-    sections += [('daten',), ('kontakt',), ('verwandt',)]
-
-    prev = 'hero'
-    for s in sections:
-        rule = prev not in ('hero', 'stimme')
-        if s[0] == 'gal':
-            parts.append(media_section(s[1].upper(), s[1], s[2], s[3], s[4], rule=rule))
-        elif s[0] == 'plans':
-            parts.append(media_section('PLÄNE', 'Pläne', s[1], s[2], s[3], rule=rule, plan=True))
-        elif s[0] == 'ch':
-            parts.append(chapter(s[1], s[2], rule))
-        elif s[0] == 'stimme':
-            parts.append(stimme(org, quote_pic))
-        elif s[0] == 'daten':
-            parts.append(projektdaten(p, rule))
-        elif s[0] == 'kontakt':
-            parts.append(KONTAKT)
-        else:
-            parts.append(verwandt(p, by))
-        prev = s[0]
+        parts.append(media_section('PLÄNE', 'Pläne', plans(drawings), plan=True))
+    parts += [projektdaten(p, plan), verwandt(p, by)]
     return '\n\n'.join(parts) + '\n'
 
 
