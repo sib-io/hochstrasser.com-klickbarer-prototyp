@@ -1,4 +1,4 @@
-/* Projekte: Archiv mit Filter und erweiterter Suche.
+/* Projekte: Archiv mit Filterleiste.
    Format: Titel | Jahr | Nutzung | Status | Bauherrschaft | Bauart | ausgezeichnet | Kachelbild
    Bauart = neubau | umbau | konzept (Wettbewerbsbeiträge und Studien)
    Kachelbild = Kachelbild der Live-Seite; leer bei Projekten mit Detailseite (Bild aus projektseiten.js) */
@@ -149,8 +149,7 @@ Musikpavillon|2002|beleben|realisiert|oeffentlich|neubau|0|assets/img/musikpavil
   var tiles = document.getElementById('tiles');
   tiles.innerHTML = P.map(function (p) {
     var s = PS[p.t];
-    return '<a class="tile" href="' + (s ? s.href : 'projekt-flz-neuer-bau-ulm.html') + '" data-cat="' + p.c + '" data-year="' + p.y +
-      '" data-status="' + p.s + '" data-client="' + p.k + '" data-build="' + p.b + '" data-award="' + p.aw + '">' +
+    return '<a class="tile" href="' + (s ? s.href : 'projekt-flz-neuer-bau-ulm.html') + '" data-client="' + p.k + '" data-build="' + p.b + '">' +
       '<img src="' + (s ? s.img : p.img) + '" alt="' + p.t + '" loading="lazy">' +
       '<div class="tile__cap"><span class="tile__title">' + p.t +
       (p.aw ? '<span class="tile__star" title="Ausgezeichnet"></span>' : '') + '</span> ' +
@@ -158,36 +157,15 @@ Musikpavillon|2002|beleben|realisiert|oeffentlich|neubau|0|assets/img/musikpavil
   }).join('\n');
 
   var chips = [].slice.call(document.querySelectorAll('.pj-fchip'));
-  var advBtn = document.getElementById('advBtn');
-  var advPanel = document.getElementById('advanced');
   var countEl = document.getElementById('count');
-  var emptyEl = document.getElementById('empty');
-  var onlyAward = document.getElementById('onlyAward');
   var cat = 'alle';
 
-  advBtn.addEventListener('click', function () {
-    var open = advPanel.hasAttribute('data-open');
-    if (open) { advPanel.removeAttribute('data-open'); } else { advPanel.setAttribute('data-open', ''); }
-    advBtn.setAttribute('aria-expanded', String(!open));
-    document.getElementById('advGlyph').textContent = open ? '+' : '\u2212';
-  });
   chips.forEach(function (ch) { ch.addEventListener('click', function () { setCat(ch.dataset.cat); }); });
 
   function setCat(c) {
     cat = c;
     chips.forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.cat === c)); });
     apply();
-  }
-  document.querySelectorAll('.pj-adv input').forEach(function (i) { i.addEventListener('change', apply); });
-  document.getElementById('resetBtn').addEventListener('click', function () {
-    cat = 'alle';
-    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.cat === 'alle')); });
-    document.querySelectorAll('.pj-adv input').forEach(function (i) { i.checked = false; });
-    apply();
-  });
-
-  function picked(name) {
-    return [].slice.call(document.querySelectorAll('.pj-adv input[data-f="' + name + '"]:checked')).map(function (i) { return i.value; });
   }
   /* Leiste: Öffentlich / Privat nach Bauherrschaft,
      Neubau / Umbau / Konzepte nach Bauart */
@@ -199,26 +177,15 @@ Musikpavillon|2002|beleben|realisiert|oeffentlich|neubau|0|assets/img/musikpavil
     return t.dataset.build === cat;
   }
   function apply() {
-    var eras = picked('era'), st = picked('status'), cl = picked('client'), use = picked('use');
     var n = 0;
     document.querySelectorAll('.tile').forEach(function (t) {
-      var y = +t.dataset.year;
-      var era = y >= 2020 ? '2020' : (y >= 2010 ? '2010' : '2000');
-      var ok = true;
-      if (!inCat(t)) ok = false;
-      if (use.length && use.indexOf(t.dataset.cat) < 0) ok = false;
-      if (eras.length && eras.indexOf(era) < 0) ok = false;
-      if (st.length && st.indexOf(t.dataset.status) < 0) ok = false;
-      if (cl.length && cl.indexOf(t.dataset.client) < 0) ok = false;
-      if (onlyAward.checked && t.dataset.award !== '1') ok = false;
+      var ok = inCat(t);
       t.hidden = !ok;
       if (ok) n++;
     });
-    var none = (cat === 'alle' && !eras.length && !st.length && !cl.length && !use.length && !onlyAward.checked);
-    countEl.textContent = none
+    countEl.textContent = cat === 'alle'
       ? P.length + ' Projekte'
       : (n === 1 ? '1 Projekt für diese Auswahl' : n + ' Projekte für diese Auswahl');
-    emptyEl.hidden = n > 0;
   }
   apply();
 })();
