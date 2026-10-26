@@ -1,2 +1,5 @@
 /* Kontakt: die drei Wege */
 .kontakt-nb{white-space:nowrap}
+/* Kontakt: Inhalt ohne PX Grotesk – alle UI-Rollen (Labels, Titel, Links) in der Textschrift;
+   Header und Footer bleiben wie auf allen Seiten */
+main{--font-ui:var(--font-text)}
