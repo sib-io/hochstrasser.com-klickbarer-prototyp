@@ -1,5 +1,5 @@
 /* Projektseite, ruhige Variante (projekt-wohnbebauung-neu-ulm-2):
-   Titelbild als Hero ohne Beschnitt über dem Einstieg mit Text, Galerie wie projekt.css,
+   Titelbild als Hero ohne Beschnitt über dem Einstieg mit Text, Galerie über die volle Breite,
    Sektionsköpfe nur als Rubrik bei „Weitere Projekte“, nur zwei Schriften (PX Grotesk für Titel und Links, Carlito für alles Übrige). */
 
 /* Titelbild oben, Abstand zum Header wie projekt.css (.prj-cover) */
@@ -10,21 +10,18 @@
 .prr-intro .grid{row-gap:var(--sp-5)}
 .prr-sub{margin-top:var(--sp-3);color:var(--mute)}
 
-/* Kennwerte als ruhige Liste: gleiche Schrift und Größe wie der Fließtext, Begriff gedämpft;
+/* Kennwerte als ruhige Liste in Fließtextschrift, Begriff gedämpft und etwas kleiner;
    nur oben und unten eine feine Linie */
 .prr-facts{display:grid;row-gap:var(--sp-2);padding-block:var(--sp-3);border-block:1px solid var(--rule)}
 .prr-facts>div{display:grid;grid-template-columns:minmax(0,1fr)}
-.prr-facts dt{color:var(--mute)}
+.prr-facts dt{font-size:var(--fs-small);color:var(--mute)}
 .prr-facts dd{color:var(--ink)}
 @media (min-width:600px){
-  .prr-facts>div{grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--gutter)}
+  .prr-facts>div{grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--gutter);align-items:baseline}
 }
 
 /* Titelbild und Lageplan im natürlichen Seitenverhältnis */
 .prr-hero img,.prr-plan{width:100%}
-
-/* Textbaustein unter der Galerie, Abstand zum Zitat wie zwischen Bändern */
-.prr-text{padding-bottom:var(--band)}
 
 /* Weitere Projekte: vier Kacheln, mittlere Breite zwei je Zeile statt drei plus eine */
 @media (min-width:600px) and (max-width:899px){.prr-tiles .tile{grid-column:span 6}}
