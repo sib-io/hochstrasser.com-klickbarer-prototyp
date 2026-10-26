@@ -59,6 +59,8 @@
 .profil-face .t-h4>span[aria-hidden]{display:inline-block;opacity:0;transform:translateX(-4px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
 .profil-face:is(:hover,:focus-visible) .t-h4>span[aria-hidden]{opacity:1;transform:none}
 .profil-face p+p{margin-top:var(--sp-1)}
+/* Qualifikation direkt unter dem Namen */
+.profil-face .t-small+.t-small{margin-top:0}
 
 /* Anschlusskarten: Pfeil-Links stehen auf einer Linie, egal wie lang der Text ist */
 .profil-card{display:flex;flex-direction:column;align-self:stretch}
