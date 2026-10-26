@@ -1,5 +1,5 @@
 /* Projektseite, ruhige Variante (projekt-wohnbebauung-neu-ulm-2):
-   Einstieg mit Text statt Titelbild, Bilder ohne Beschnitt, keine Linien,
+   Einstieg mit Text, darunter das Titelbild als Hero ohne Beschnitt, Galerie wie projekt.css,
    keine Sektionsköpfe, nur zwei Schriften (PX Grotesk für Titel und Links, Carlito für alles Übrige). */
 
 /* Einstieg: Titel steht wie die übrigen Überschriften in PX Grotesk (kein .hero → kein Calibri Light) */
@@ -7,8 +7,9 @@
 .prr-intro .grid{row-gap:var(--sp-5)}
 .prr-sub{margin-top:var(--sp-3);color:var(--mute)}
 
-/* Kennwerte als ruhige Liste: gleiche Schrift und Größe wie der Fließtext, Begriff gedämpft, ohne Linien */
-.prr-facts{display:grid;row-gap:var(--sp-2)}
+/* Kennwerte als ruhige Liste: gleiche Schrift und Größe wie der Fließtext, Begriff gedämpft;
+   nur oben und unten eine feine Linie */
+.prr-facts{display:grid;row-gap:var(--sp-2);padding-block:var(--sp-3);border-block:1px solid var(--rule)}
 .prr-facts>div{display:grid;grid-template-columns:minmax(0,1fr)}
 .prr-facts dt{color:var(--mute)}
 .prr-facts dd{color:var(--ink)}
@@ -16,11 +17,11 @@
   .prr-facts>div{grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--gutter)}
 }
 
-/* Bilder im natürlichen Seitenverhältnis */
-.prr-gal{row-gap:var(--gutter)}
-.prr-gal img,.prr-plan{width:100%}
-.prr-pics+.prr-voice{margin-top:var(--band-s)}
+/* Titelbild und Lageplan im natürlichen Seitenverhältnis */
+.prr-hero img,.prr-plan{width:100%}
 
-/* Kontakt: Porträt quadratisch, auf getöntem Band ohne Rahmen */
-.prr-photo{aspect-ratio:1/1}
-@media (max-width:599px){.prr-photo{width:50%}}
+/* Textbaustein unter der Galerie, Abstand zum Zitat wie zwischen Bändern */
+.prr-text{padding-bottom:var(--band)}
+
+/* Weitere Projekte: vier Kacheln, mittlere Breite zwei je Zeile statt drei plus eine */
+@media (min-width:600px) and (max-width:899px){.prr-tiles .tile{grid-column:span 6}}
