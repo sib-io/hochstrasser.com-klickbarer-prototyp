@@ -34,9 +34,10 @@
 .buero-person .media:hover>.buero-person__farbe,.buero-person__open:focus-visible>.buero-person__farbe{opacity:1}
 
 /* Lebenslauf-Pop-up: Daten links, Porträt rechts */
-.buero-cv{width:calc(100% - 2 * var(--side));max-width:none;max-height:calc(100dvh - 2 * var(--sp-4));margin:auto;padding:var(--sp-6) var(--sp-3) var(--sp-4);border:0;background:var(--paper);color:var(--ink)}
+.buero-cv{--cv-px:var(--sp-3);width:calc(100% - 2 * var(--side));max-width:none;max-height:calc(100dvh - 2 * var(--sp-4));margin:auto;padding:var(--sp-2) var(--cv-px) var(--sp-4);border:0;background:var(--paper);color:var(--ink)}
 .buero-cv::backdrop{background:color-mix(in srgb, var(--ink) 60%, transparent)}
-.buero-cv__close{position:absolute;top:var(--sp-2);right:var(--sp-2);display:inline-flex;width:var(--sp-5);height:var(--sp-5);align-items:center;justify-content:center;color:var(--mute);transition:color .2s var(--ease)}
+/* X im Fluss statt absolut: eigene Zeile über dem Inhalt, kann Bild/Titel nie überdecken; rechts weiterhin --sp-2 vom Rand */
+.buero-cv__close{display:flex;margin:0 calc(var(--sp-2) - var(--cv-px)) var(--sp-1) auto;width:var(--sp-5);height:var(--sp-5);align-items:center;justify-content:center;color:var(--mute);transition:color .2s var(--ease)}
 .buero-cv__close:hover,.buero-cv__close:focus-visible{color:var(--ink)}
 .buero-cv__close svg{width:1.25rem;height:1.25rem}
 .buero-cv__grid{row-gap:var(--sp-4)}
@@ -44,7 +45,7 @@
 .buero-cv__list li{display:grid;grid-template-columns:4.5rem minmax(0,1fr);column-gap:var(--sp-2);padding-block:calc(var(--sp-1) / 2);font-size:var(--fs-small);line-height:1.4}
 .buero-cv__list .t-label{padding-top:.2em}
 @media (max-width:899px){.buero-cv__grid>:last-child{grid-row:1;max-width:12rem}}
-@media (min-width:900px){.buero-cv{width:calc(10 * var(--col) + 9 * var(--gutter));padding:var(--sp-6) var(--sp-5) var(--sp-5)}}
+@media (min-width:900px){.buero-cv{--cv-px:var(--sp-5);width:calc(10 * var(--col) + 9 * var(--gutter));padding:var(--sp-2) var(--cv-px) var(--sp-5)}}
 
 /* Anschlusskarten */
 .buero-card{display:block;border-top:1px solid var(--ink);padding-top:var(--sp-4)}
