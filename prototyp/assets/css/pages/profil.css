@@ -21,8 +21,6 @@
 .profil-schema .node{cursor:pointer}
 .profil-schema .node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease),stroke-opacity .25s var(--ease)}
 .profil-schema .node text{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.01em;fill:var(--ink);transition:fill .3s var(--ease),opacity .25s var(--ease)}
-.profil-schema .node .sv-no{font-size:13px;letter-spacing:.06em;fill:var(--mute)}
-.profil-schema .node .sv-sub{font-size:14px;fill:var(--mute)}
 .profil-schema .node:hover rect{fill:var(--shade)}
 .profil-schema .node:focus{outline:none}
 .profil-schema .node:focus-visible rect{stroke-width:2}
@@ -31,7 +29,6 @@
 .profil-schema.has-on .node:not(.is-on) :is(text,.sv-link){opacity:.4}
 .profil-schema .node.is-on rect,.profil-schema .node.is-on:hover rect{fill:var(--ink)}
 .profil-schema .node.is-on text{fill:var(--paper)}
-.profil-schema .node.is-on :is(.sv-no,.sv-sub){fill:var(--on-dark-2)}
 .profil-schema .node.is-on .sv-link{stroke:var(--ink);stroke-dasharray:none}
 
 /* Auswahlknöpfe als Ersatz auf kleinen Schirmen */
