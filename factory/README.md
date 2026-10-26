@@ -30,7 +30,7 @@ prototyp/
 <section class="wrap hero">…</section>
 …
 ```
-- `nav`: `projekte` | `auszeichnungen` | `expertise` | `profil` | `buero` | `null` → setzt den aktiven Menüpunkt.
+- `nav`: `projekte` | `expertise` | `profil` | `buero` | `null` → setzt den aktiven Menüpunkt.
 - `proto`: nur setzen, wenn der Ausgangstext eine Prototyp-Leiste mit „offene Punkte einblenden“ hat. Die `.note`-Hinweise bleiben 1:1 erhalten (Markup `<div class="note"><b>Titel</b> Text</div>`), der Schalter kommt aus dem Build. Die Leiste ist im Prototyp verborgen und erscheint mit Alt+Shift+P (gilt für die Sitzung im Tab, `site.js`).
 - `body`: zusätzliche Attribute für `<body>` (nur Digitales Bauen: Akzentfarbe).
 - `url`: Pfad der Seite auf hochstrasser.com (z. B. `"faq/"`, Startseite `""`) → Canonical, Open-Graph-Tags und Eintrag in `prototyp/sitemap.xml` (wird bei jedem Build neu geschrieben). Nur für Seiten mit feststehender Live-Adresse; Varianten und `_system` bekommen keine.
@@ -46,7 +46,7 @@ prototyp/
 | Startseite | 00 | `index` |
 | Projekte | 01 | `projekte` |
 | Expertise | 02 | `expertise` |
-| Auszeichnungen | 03 | `auszeichnungen` |
+| Auszeichnungen | 03 | entfällt – Liste auf `buero` (`buero.html#auszeichnungen`, Wettbewerbe `#wettbewerbe`) |
 | Profil | 04 | `profil` |
 | Büro | 05a (Bildband aus 05b) | `buero` |
 | Projekt FLZ | 06 + Live-Seite | `projekt-flz-neuer-bau-ulm` |
@@ -60,7 +60,7 @@ prototyp/
 | Architektur | 14 | `expertise-architektur` |
 | Kontakt | 24 | `kontakt` |
 | Jobs | 25 | `jobs` |
-| Publikationen | 26 | `publikationen` |
+| Publikationen | 26 | entfällt – Liste auf `buero` (`buero.html#publikationen`) |
 | FAQs | Word-Datei hochstrasser_FAQs (Strukturbaum 26) | `faq` |
 
 - Links auf diese Seiten immer als `slug.html` (ggf. mit Anker). Profil-Anker: `profil.html#n-integral`, `#n-wirtschaft`, `#n-nachhaltigkeit`, `#n-bestand`, `#n-verantwortung`, Leitbild `#werte`.
@@ -70,7 +70,7 @@ prototyp/
 
 ## Bilder
 - Alle Bilder lokal unter `assets/img/`. Mapping für Hotlinks `https://hochstrasser.com/wp-content/uploads/JJJJ/MM/<datei>` → `assets/img/wp/<datei>`; Ausnahme `02_header-23.jpg` → `assets/img/flz/02_header-23.jpg`.
-- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5-bunt.jpg` (Büro-Bildband, farbig aus Ausgangstext 05b), `publikationen/titelseiten.jpg` (Publikationen, Titelseiten-Collage).
+- Bisherige base64-Bilder: `leistungen-zeichnung.png` (Startseite, Leistungsband), `buero-haus-k5-bunt.jpg` (Büro-Bildband, farbig aus Ausgangstext 05b), `publikationen/titelseiten.jpg` (Büro, Titelseiten-Collage vor den Publikationen).
 - Team-Porträts (Büro): `assets/img/team/<vorname-nachname>.jpg`, 600 × 600, von der Live-Büroseite (dort nach Namen zugeordnet). Ohne Porträt: Dagmar Schmidt, Michael Doll, Leyla Ali und Volker Knopp (live nur Platzhalter) – dafür die Beton-Grafik `assets/img/team/platzhalter-beton.jpg` (wie live).
 - FLZ-Projektbilder: `assets/img/flz/02_header-23.jpg … 14_landscape-1.jpg` (05 ist Hochformat), Kachelbild `01_3_square_500x500_acf_cropped.jpg`.
 - Weitere Projektbilder: `assets/img/<name>/` (Original-Dateinamen der Live-Seite, längste Kante ≤ 2000 px, Kachelbild `*_500x500_acf_cropped.jpg`).

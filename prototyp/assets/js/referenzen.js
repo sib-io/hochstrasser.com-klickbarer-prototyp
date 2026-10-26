@@ -1,5 +1,5 @@
-/* Auszeichnungen, Wettbewerbe und Publikationen – eine Datenquelle für
-   auszeichnungen.html, publikationen.html und buero.html */
+/* Auszeichnungen, Wettbewerbe und Publikationen – Daten der Listen auf buero.html
+   (die eigenen Seiten Auszeichnungen und Publikationen entfallen, der Footer verlinkt auf die Büro-Anker) */
 window.REFERENZEN = (function () {
   'use strict';
   /* Ziele laut Factory-Vertrag: Projekte -> FLZ-Detailseite, Einzel-Auszeichnungen -> # */
