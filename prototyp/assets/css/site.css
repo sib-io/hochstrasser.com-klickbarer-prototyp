@@ -51,13 +51,13 @@
   --leitbild-2:rgb(155,125,114);  /* Partnerschaft */
   --leitbild-3:rgb(45,60,90);     /* Verantwortung */
   --leitbild-4:rgb(186,75,45);    /* Begeisterung */
-  /* Disziplinen (Expertise-Farbvarianten), Tonalität wie Leitbild; Generalplanung, Zertifizierung
+  /* Disziplinen (Expertise-Farbvarianten), Tonalität wie Leitbild; Integralplanung, Zertifizierung
      und Digitales Bauen als warme Goldfamilie */
   --xp-architektur:rgb(36,58,104);
   --xp-nachhaltigkeit:rgb(88,118,74);
   --xp-brandschutz:rgb(186,75,45);
   --xp-bauphysik:rgb(86,140,142);
-  --xp-generalplanung:rgb(176,136,46);
+  --xp-integralplanung:rgb(176,136,46);
   --xp-zertifizierung:rgb(192,112,44);
   --xp-barrierefreiheit:rgb(154,44,52);
   --xp-digital:rgb(166,132,88);
@@ -275,12 +275,12 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 .ftr{background:var(--ink);color:var(--on-dark-2);padding-block:var(--sp-4) var(--sp-2)}
 @media (min-width:900px){.ftr{padding-top:var(--sp-5)}}
 .ftr .wrap>.grid:first-child{row-gap:var(--sp-3)}
-.ftr .brand{display:block;color:var(--on-dark);font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2rem);letter-spacing:-.02em;margin-bottom:var(--sp-1)}
-.ftr__claim{font-family:var(--font-ui);font-weight:400;font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2rem);letter-spacing:-.02em;line-height:1.15;color:var(--on-dark-mute)} /* gleiche Größe wie die Wortmarke darüber */
+.ftr .brand{display:block;color:var(--on-dark);margin-bottom:.4em} /* Größe wie die Wortmarke in der Menüleiste (.brand) */
+.ftr__claim{font-family:var(--font-ui);font-weight:400;font-size:clamp(1.1875rem, 1.05rem + .5vw, 1.4375rem);letter-spacing:-.015em;line-height:1.15;color:var(--on-dark-mute)} /* gleiche Größe wie die Wortmarke darüber */
 .ftr__big{margin-top:var(--sp-3);color:var(--on-dark)}
 .ftr__big+.ftr__big{margin-top:0}
-.ftr__big a{border-bottom:1px solid var(--on-dark-rule);transition:border-color .25s var(--ease)}
-.ftr__big a:hover{border-bottom-color:var(--on-dark)}
+.ftr__big a{transition:color .25s var(--ease)}
+.ftr__big a:hover{color:var(--on-dark-2)}
 /* Links in drei Spalten (.ftr__col), Social-Icons gestapelt rechts oben (mobil als Zeile unter den Links); ab 1200 px Spalten 8–12 */
 .ftr__right{display:flex;flex-direction:column;gap:var(--sp-3)}
 @media (min-width:600px){.ftr__right{flex-direction:row;justify-content:space-between;align-items:flex-start;gap:var(--gutter)}}

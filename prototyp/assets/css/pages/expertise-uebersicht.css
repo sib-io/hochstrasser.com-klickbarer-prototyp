@@ -50,14 +50,17 @@
 /* ohne Bild (Expertise-Übersicht): Überschrift einzeilig über die ganze Breite */
 .xp-cut__txt:only-child{grid-column:1/-1;white-space:nowrap}
 
-/* Disziplinen in einem einheitlichen Raster: 4 | 2 | 1 je Zeile, Links unten bündig */
+/* Disziplinen in einem einheitlichen Raster: 4 | 2 | 1 je Zeile.
+   Der Titel ist der Link (Fläche über die ganze Karte), der Pfeil erscheint beim Überfahren */
 .xp-sets{margin-top:var(--sp-8);row-gap:var(--sp-7)}
-.xp-item{display:flex;flex-direction:column;padding-top:var(--sp-3);border-top:1px solid var(--ink)}
+.xp-item{position:relative;display:flex;flex-direction:column;padding-top:var(--sp-3);border-top:1px solid var(--ink)}
 .xp-item h3{font-weight:700}
+.xp-item__link{color:var(--ink)}
+.xp-item__link::after{content:'';position:absolute;inset:0}
+.xp-item__link>span[aria-hidden]{display:inline-block;margin-left:.3em;opacity:0;transform:translateX(-6px);transition:opacity .25s var(--ease),transform .3s var(--ease)}
+.xp-item:hover .xp-item__link>span[aria-hidden],.xp-item__link:focus-visible>span[aria-hidden]{opacity:1;transform:none}
 .xp-item>p{margin-top:var(--sp-2);color:var(--mute);max-width:34ch}
-.xp-item>.xp-more{margin-top:auto;padding-top:var(--sp-3)}
-.xp-more .link-arrow{color:var(--ink)}
 .note ul{margin-top:var(--sp-1)}
 .note li{padding-block:2px}
 
-@media (prefers-reduced-motion:reduce){.xp-fig img{transition:none}}
+@media (prefers-reduced-motion:reduce){.xp-fig img,.xp-item__link>span[aria-hidden]{transition:none}}

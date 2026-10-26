@@ -191,7 +191,7 @@ def projektdaten(p, rule):
             '      <h2 class="t-label prj-rail s-2">Projektdaten</h2>\n      <div class="s-5 o-3">\n'
             '        <h3 class="t-label prj-sub-h">Projekt</h3>\n        <dl class="facts">\n'
             '          <div><dt>Nutzung</dt><dd><i>Nutzung ergänzen</i></dd></div>\n'
-            '          <div><dt>Erbrachte Leistungen</dt><dd><i>Objektplanung, Generalplanung — ergänzen</i></dd></div>\n'
+            '          <div><dt>Erbrachte Leistungen</dt><dd><i>Objektplanung, Integralplanung — ergänzen</i></dd></div>\n'
             '          <div><dt>Zertifikate</dt><dd><i>Zertifizierung ergänzen</i></dd></div>\n'
             f'          <div><dt>Fotografie</dt><dd>{foto}</dd></div>\n'
             f'          <div><dt>Veröffentlichungen</dt><dd>{pub}{pub}</dd></div>\n'
