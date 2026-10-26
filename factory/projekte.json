@@ -20,7 +20,7 @@
           {"p": "Das Quartier besteht insgesamt aus drei Gebäuden. Ein viergeschossiges freistehendes Wohnhaus und zwei viergeschossige Doppelhaushälften mit je 12 Mieteinheiten. Diese beiden Gebäudehälften wurden nacheinander energetisch saniert und modernisiert. Die Maßnahme wurde im Rahmen einer Integralplanung umgesetzt und umfasste eine energetische Sanierung, die Ertüchtigung der Fassade, den Bau neuer Balkonanlagen, die Erneuerung der Fenster und Außentüren sowie diverse Brandschutzmaßnahmen. Zusätzlich wurde eine PV-Anlage installiert und die Bäder modernisiert, einschließlich der Erneuerung des gesamten Trinkwassernetzes. In diesem Zuge wurden die Sanitäreinheiten barrierefrei gestaltet und aufgewertet. Die Arbeiten erfolgten im bewohnten Zustand und wurden daher abschnittsweise ausgeführt. Vier Wohneinheiten waren unbewohnt und wurden von Grund auf modernisiert. Zusammen bilden die drei Gebäude ein einheitliches Wohnviertel mit insgesamt 33 Mieteinheiten."}
         ]}
       ],
-      "related": ["projekt-kriegsspital-neu-ulm", "projekt-haus-mk", "projekt-flz-neuer-bau-ulm"]
+      "related": ["projekt-kriegsspital-neu-ulm", "projekt-haus-mk", "projekt-flz-neuer-bau-ulm", "projekt-wohnbebauung-laichingen"]
     },
     {
       "slug": "projekt-kriegsspital-neu-ulm", "dir": "kriegsspital-neu-ulm",
@@ -45,7 +45,7 @@
           {"p": "Der Bauabschnitt 2 sieht vor, das noch immer existierende Notdach, welches die Architektur des Denkmals in nicht unerheblichem Maße beeinträchtigt, durch eine Aufstockung um zwei flachgedeckte Vollgeschosse zu ersetzen. Damit wird das ursprüngliche Erscheinungsbild vor der Zerstörung im 2. Weltkrieg wiederhergestellt."}
         ]}
       ],
-      "related": ["projekt-haus-mk", "projekt-wohnbebauung-neu-ulm", "projekt-flz-neuer-bau-ulm"]
+      "related": ["projekt-haus-mk", "projekt-wohnbebauung-neu-ulm", "projekt-flz-neuer-bau-ulm", "projekt-wbw-ehemaliges-kriegsspital"]
     },
     {
       "slug": "projekt-ba3-baubetriebshof-ulm", "dir": "ba3-baubetriebshof-ulm",
@@ -64,7 +64,7 @@
         ]}
       ],
       "fotografie": "Conné van d’Grachten",
-      "related": ["projekt-rechenzentrum-swu", "projekt-erweiterung-witec", "projekt-waermespeicher-hkw-ulm"]
+      "related": ["projekt-rechenzentrum-swu", "projekt-erweiterung-witec", "projekt-waermespeicher-hkw-ulm", "projekt-flz-neuer-bau-ulm"]
     },
     {
       "slug": "projekt-wohnbebauung-laichingen", "dir": "wohnbebauung-laichingen",
@@ -82,7 +82,7 @@
           {"p": "Damit vereint das Projekt Wohnkomfort und harmonische Quartiersgestaltung."}
         ]}
       ],
-      "related": ["projekt-friesenhofen-saegemuehle", "projekt-wohnbebauung-neu-ulm", "projekt-wbw-ehemaliges-kriegsspital"]
+      "related": ["projekt-friesenhofen-saegemuehle", "projekt-wohnbebauung-neu-ulm", "projekt-wbw-ehemaliges-kriegsspital", "projekt-haus-mk"]
     },
     {
       "slug": "projekt-waermespeicher-hkw-ulm", "dir": "waermespeicher-hkw-ulm",
@@ -109,7 +109,7 @@
           ]}
         ]}
       ],
-      "related": ["projekt-rechenzentrum-swu", "projekt-ba3-baubetriebshof-ulm", "projekt-erweiterung-witec"]
+      "related": ["projekt-rechenzentrum-swu", "projekt-ba3-baubetriebshof-ulm", "projekt-erweiterung-witec", "projekt-flz-neuer-bau-ulm"]
     },
     {
       "slug": "projekt-rechenzentrum-swu", "dir": "rechenzentrum-swu",
@@ -122,7 +122,7 @@
                  {"f": "825_landscape-Ansicht-Ost-scaled.jpg", "plan": true, "alt": "Ansicht Ost"},
                  {"f": "825_landscape-Ansicht-Nord-scaled.jpg", "plan": true, "alt": "Ansicht Nord"}],
       "chapters": [],
-      "related": ["projekt-ba3-baubetriebshof-ulm", "projekt-erweiterung-witec", "projekt-waermespeicher-hkw-ulm"]
+      "related": ["projekt-ba3-baubetriebshof-ulm", "projekt-erweiterung-witec", "projekt-waermespeicher-hkw-ulm", "projekt-flz-neuer-bau-ulm"]
     },
     {
       "slug": "projekt-erweiterung-witec", "dir": "erweiterung-witec",
@@ -139,7 +139,7 @@
           {"ul": ["Nutzung vorhandener Ressourcen", "Bauliche Verbesserung der Anlieferungssituation", "Optimieren und Vereinfachen der inneren Wegeführung und logistischen Abläufe", "Dezentes Weiterbauen des Bestandes von BW Architekten, Ulm"]}
         ]}
       ],
-      "related": ["projekt-ba3-baubetriebshof-ulm", "projekt-rechenzentrum-swu", "projekt-waermespeicher-hkw-ulm"]
+      "related": ["projekt-ba3-baubetriebshof-ulm", "projekt-rechenzentrum-swu", "projekt-waermespeicher-hkw-ulm", "projekt-flz-neuer-bau-ulm"]
     },
     {
       "slug": "projekt-friesenhofen-saegemuehle", "dir": "friesenhofen-saegemuehle",
@@ -166,7 +166,7 @@
           {"p": "Geplant sind 10 kleine Einfamilienhäuser, die sich parallel der Eschach in zwei Reihen gliedern und dabei sparsam mit den Ressourcen Grund und Boden umgehen. Gleichzeitig ist es ein innovatives Mehrgenerationen-Konzept vorgesehen. Die Häuser sind aufgrund verhältnismäßig geringer Wohnfläche für Familien erschwinglich und gleichzeitig für ältere Menschen gut geeignet. So können Jung und Alt zusammenwohnen und zusammenleben."}
         ]}
       ],
-      "related": ["projekt-wohnbebauung-laichingen", "projekt-wbw-ehemaliges-kriegsspital", "projekt-wohnbebauung-neu-ulm"]
+      "related": ["projekt-wohnbebauung-laichingen", "projekt-wbw-ehemaliges-kriegsspital", "projekt-wohnbebauung-neu-ulm", "projekt-haus-mk"]
     },
     {
       "slug": "projekt-wbw-ehemaliges-kriegsspital", "dir": "wbw-ehemaliges-kriegsspital",
@@ -202,7 +202,7 @@
           {"p": "Da das Areal bereits an das Fernwärmenetz der Stadtwerke angeschlossen ist, ist damit eine umweltschonende Energieversorgung garantiert. Die Dachflächen dienen als Rückgewinnung von Grünflächen der damit verbundenen Speicherung von Wasser sowie für die Gewinnung von Solarflächen. Eine Aktivierung der Dachfläche als Nutzgarten für die Bewohner ist durch die flexible Rasterung der Wohneinheiten ebenfalls möglich."}
         ]}
       ],
-      "related": ["projekt-kriegsspital-neu-ulm", "projekt-friesenhofen-saegemuehle", "projekt-wohnbebauung-laichingen"]
+      "related": ["projekt-kriegsspital-neu-ulm", "projekt-friesenhofen-saegemuehle", "projekt-wohnbebauung-laichingen", "projekt-wohnbebauung-neu-ulm"]
     },
     {
       "slug": "projekt-haus-mk", "dir": "haus-mk",
@@ -215,7 +215,7 @@
                  "744_landscape_Gewoelbe-scaled.jpg", "744_landscape_Innenraum-scaled.jpg", "744_landscape_Innenraum-2-scaled.jpg", "744_landscape_Bad1-scaled.jpg",
                  "744_landscape_Aussenraum-2-scaled.jpg", "744_landscape-Wohnraum-3-scaled.jpg", "744_landscape_Bad-2-scaled.jpg", "744_landscape_Aussenraum-1-scaled.jpg"],
       "chapters": [],
-      "related": ["projekt-kriegsspital-neu-ulm", "projekt-wohnbebauung-neu-ulm", "projekt-flz-neuer-bau-ulm"]
+      "related": ["projekt-kriegsspital-neu-ulm", "projekt-wohnbebauung-neu-ulm", "projekt-flz-neuer-bau-ulm", "projekt-wohnbebauung-laichingen"]
     }
   ]
 }
