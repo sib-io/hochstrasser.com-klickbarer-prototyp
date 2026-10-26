@@ -32,6 +32,7 @@
 .xp-pfs{margin-top:var(--sp-7)}
 .xp-pf{padding-top:var(--sp-3);border-top:1px solid var(--rule-tint)}
 .xp-pf p{margin-top:var(--sp-2);max-width:56ch}
+.xp-pf__ico{display:block;width:36px;height:36px;overflow:visible;margin:var(--sp-3) 0;color:var(--ink)}
 
 /* Zuordnung: wechselndes Quadratbild (farbig) + zweizeilige Überschrift */
 .xp-cut{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:center}
