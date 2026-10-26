@@ -95,9 +95,7 @@
 .idx-more{margin-top:var(--sp-6)}
 @media (hover:hover){#projekte .tile__cap{background:rgba(255,255,255,.6)}}
 
-/* Profil: Wortmarke, Subline, Team-Raster – linksbündig */
-/* Wortmarke so groß wie im Footer */
-.idx-mark{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h2);line-height:1;letter-spacing:-.02em;color:var(--ink)}
+/* Profil: Überschrift, Subline, Team-Raster – linksbündig */
 /* Team-Raster: 12 Spalten mit feiner Fuge (--sp-1); Außenkanten = Inhaltsbreite,
    wirkt als eine Fläche statt als zerfasertes Raster. Unter 900 px 6 Spalten */
 .idx-crew{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-3)}
