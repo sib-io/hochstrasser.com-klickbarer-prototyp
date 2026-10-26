@@ -15,10 +15,11 @@
   var R = window.REFERENZEN;
   if (!R) return;
   var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'); };
-  /* eine Zeile je Eintrag: Jahr | Text, Zusatzangaben nach dem Gedankenstrich */
+  /* eine Zeile je Eintrag: Jahr | Text (Publikationen wie live ohne Jahr), Zusatzangaben nach dem Gedankenstrich */
   function zeile(y, text) {
     return '<li><span class="buero-list__year">' + (y || 'o. J.') + '</span><span>' + text + '</span></li>';
   }
+  function zeileOhneJahr(text) { return '<li><span>' + text + '</span></li>'; }
   function meta(t) { return ' <span class="buero-list__meta">– ' + t + '</span>'; }
   function link(u, t) { return '<a href="' + u + '">' + t + '</a>'; }
   function fuellen(id, html) { var el = document.getElementById(id); if (el) el.innerHTML = html; }
@@ -37,6 +38,6 @@
   fuellen('bueroPublikationen', R.publikationen.map(function (x) {
     var titel = esc(x.m) + (x.i ? ', ' + esc(x.i) : '');
     var pr = x.p ? meta(link(R.projekte[x.p].u, esc(R.projekte[x.p].n))) : '';
-    return zeile(x.y, titel + pr);
+    return zeileOhneJahr(titel + pr);
   }).join(''));
 })();
