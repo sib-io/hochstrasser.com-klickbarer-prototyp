@@ -54,7 +54,7 @@ prototyp/
 | Brandschutz | 07 | `expertise-brandschutz` |
 | Nachhaltigkeit | 08 | `expertise-nachhaltigkeit` |
 | Bauphysik | 09 | `expertise-bauphysik` |
-| Integralplanung (Ausgangstext: Generalplanung) | 10 | `expertise-generalplanung` |
+| Integralplanung (Ausgangstext: Generalplanung) | 10 | `expertise-integralplanung` |
 | DGNB / Zertifizierung | 11 | `expertise-dgnb-zertifizierung` |
 | Digitales Bauen | 13b | `expertise-digitales-bauen` |
 | Architektur | 14 | `expertise-architektur` |
