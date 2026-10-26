@@ -1,14 +1,15 @@
-/* Büro: Lebenslauf Adrian Hochstrasser als Pop-up (Klick aufs Porträt);
+/* Büro: Lebensläufe als Pop-up (Klick aufs Porträt, Ziel per aria-controls);
    Auszeichnungen, Wettbewerbe und Publikationen als kompakte Listen (Daten: referenzen.js) */
 (function () {
-  var dlg = document.getElementById('cvAdrian');
-  var open = document.querySelector('.buero-person__open');
-  if (!dlg || !open || typeof dlg.showModal !== 'function') return;
-  open.addEventListener('click', function () { dlg.showModal(); });
-  dlg.querySelector('.buero-cv__close').addEventListener('click', function () { dlg.close(); });
-  /* Klick auf den abgedunkelten Hintergrund schließt ebenfalls */
-  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener('close', function () { open.focus(); });
+  document.querySelectorAll('.buero-person__open').forEach(function (open) {
+    var dlg = document.getElementById(open.getAttribute('aria-controls'));
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    open.addEventListener('click', function () { dlg.showModal(); });
+    dlg.querySelector('.buero-cv__close').addEventListener('click', function () { dlg.close(); });
+    /* Klick auf den abgedunkelten Hintergrund schließt ebenfalls */
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', function () { open.focus(); });
+  });
 })();
 
 (function () {
