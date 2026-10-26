@@ -1,4 +1,4 @@
-/* Profil — Schema, Kernthemen-Panel, Gesichter, Anschlusskarten */
+/* Profil — Schema, Kernthemen-Panel, Gesichter, Fundament */
 
 /* Hero: gleicher Aufbau und gleiche Mindesthöhe wie auf der Büroseite (.buero-intro) */
 @media (min-width:900px){
@@ -58,16 +58,6 @@
 .profil-face p+p{margin-top:var(--sp-1)}
 /* Qualifikation direkt unter dem Namen */
 .profil-face .t-small+.t-small{margin-top:0}
-
-/* Anschlusskarten: Pfeil-Links stehen auf einer Linie, egal wie lang der Text ist */
-.profil-card{display:flex;flex-direction:column;align-self:stretch}
-.profil-card .t-mute{margin-bottom:var(--sp-3)}
-.profil-card .media{margin-bottom:var(--sp-3)}
-.profil-card .media img{transition:transform .8s var(--ease)}
-.profil-card:hover .media img{transform:scale(1.04)}
-.profil-card p+p{margin-top:var(--sp-1)}
-.profil-card .link-arrow{margin-top:auto;align-self:flex-start}
-.profil-card:hover .link-arrow>span[aria-hidden]{transform:translateX(5px)}
 
 /* Fundament: Aussage links, Nutzen mit Symbolen rechts (6 | 1 frei | 5), Trennlinie mittig in der freien Spalte */
 .profil-usp{align-items:start}
