@@ -1,6 +1,9 @@
 /* Projektseite, ruhige Variante (projekt-wohnbebauung-neu-ulm-2):
-   Einstieg mit Text, darunter das Titelbild als Hero ohne Beschnitt, Galerie wie projekt.css,
-   keine Sektionsköpfe, nur zwei Schriften (PX Grotesk für Titel und Links, Carlito für alles Übrige). */
+   Titelbild als Hero ohne Beschnitt über dem Einstieg mit Text, Galerie wie projekt.css,
+   Sektionsköpfe nur als Rubrik bei „Weitere Projekte“, nur zwei Schriften (PX Grotesk für Titel und Links, Carlito für alles Übrige). */
+
+/* Titelbild oben, Abstand zum Header wie projekt.css (.prj-cover) */
+.prr-hero{padding-top:var(--sp-5)}
 
 /* Einstieg: Titel steht wie die übrigen Überschriften in PX Grotesk (kein .hero → kein Calibri Light) */
 .prr-intro{padding-block:var(--band-s)}
@@ -25,3 +28,5 @@
 
 /* Weitere Projekte: vier Kacheln, mittlere Breite zwei je Zeile statt drei plus eine */
 @media (min-width:600px) and (max-width:899px){.prr-tiles .tile{grid-column:span 6}}
+/* Bildunterschrift beim Überfahren durchscheinend wie im Projektarchiv (projekte.css) */
+@media (hover:hover){.prr-tiles .tile__cap{background:rgba(255,255,255,.6)}}
