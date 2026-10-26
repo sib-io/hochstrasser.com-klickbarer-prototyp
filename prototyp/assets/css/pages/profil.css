@@ -66,3 +66,15 @@
 .profil-card p+p{margin-top:var(--sp-1)}
 .profil-card .link-arrow{margin-top:auto;align-self:flex-start}
 .profil-card:hover .link-arrow>span[aria-hidden]{transform:translateX(5px)}
+
+/* Fundament: Aussage links, Nutzen mit Symbolen rechts (6 | 1 frei | 5), Trennlinie mittig in der freien Spalte */
+.profil-usp{align-items:start}
+.profil-usp__list{position:relative}
+.profil-usp__item{display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:var(--sp-4);align-items:start}
+.profil-usp__item+.profil-usp__item{margin-top:var(--sp-5)}
+.profil-usp__ico{grid-row:span 2;display:block;width:36px;height:36px;overflow:visible;color:var(--ink)}
+.profil-usp__item .t-small{margin-top:var(--sp-1)}
+@media (max-width:899.98px){.profil-usp__list{margin-top:var(--sp-6)}}
+@media (min-width:900px){
+  .profil-usp__list::before{content:'';position:absolute;top:0;bottom:0;left:calc(-1 * (var(--gutter) + var(--col) / 2));border-left:1px solid var(--rule)}
+}
