@@ -91,73 +91,11 @@
       <button class="pj-fchip" data-cat="neubau" aria-pressed="false">Neubau</button>
       <button class="pj-fchip" data-cat="umbau" aria-pressed="false">Umbau</button>
       <button class="pj-fchip" data-cat="konzepte" aria-pressed="false">Konzepte</button>
-      <button class="pj-more" id="advBtn" aria-expanded="false" aria-controls="advanced">Erweiterte Filter <b id="advGlyph" aria-hidden="true">+</b></button>
-    </div>
-
-    <div class="pj-adv" id="advanced">
-      <div class="pj-adv__grid">
-        <fieldset class="pj-adv__use">
-          <legend class="t-label">Auswahl</legend>
-          <div class="pj-opts">
-            <button class="pj-opt pj-fchip" type="button" data-cat="alle" aria-pressed="true">Alle</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="oeffentlich" aria-pressed="false">Öffentlich</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="privat" aria-pressed="false">Privat</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="neubau" aria-pressed="false">Neubau</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="umbau" aria-pressed="false">Umbau</button>
-            <button class="pj-opt pj-fchip" type="button" data-cat="konzepte" aria-pressed="false">Konzepte</button>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend class="t-label">Nutzung</legend>
-          <div class="pj-opts">
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="arbeiten"> Arbeiten</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="ausstellen"> Ausstellen</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="beleben"> Beleben</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="erhalten"> Erhalten</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="essen"> Essen</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="lernen"> Lernen</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="möblieren"> Möblieren</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="parken"> Parken</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="umnutzen"> Umnutzen</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="verkaufen"> Verkaufen</label>
-            <label class="pj-opt"><input type="checkbox" data-f="use" value="wohnen"> Wohnen</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend class="t-label">Zeitraum</legend>
-          <div class="pj-opts">
-            <label class="pj-opt"><input type="checkbox" data-f="era" value="2020"> 2020 – 2026</label>
-            <label class="pj-opt"><input type="checkbox" data-f="era" value="2010"> 2010 – 2019</label>
-            <label class="pj-opt"><input type="checkbox" data-f="era" value="2000"> 2002 – 2009</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend class="t-label">Status</legend>
-          <div class="pj-opts">
-            <label class="pj-opt"><input type="checkbox" data-f="status" value="realisiert"> Realisiert</label>
-            <label class="pj-opt"><input type="checkbox" data-f="status" value="bau"> Im Bau</label>
-            <label class="pj-opt"><input type="checkbox" data-f="status" value="wettbewerb"> Wettbewerbsbeitrag</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend class="t-label">Bauherrschaft</legend>
-          <div class="pj-opts">
-            <label class="pj-opt"><input type="checkbox" data-f="client" value="oeffentlich"> Öffentlich</label>
-            <label class="pj-opt"><input type="checkbox" data-f="client" value="gewerblich"> Gewerblich</label>
-            <label class="pj-opt"><input type="checkbox" data-f="client" value="privat"> Privat</label>
-          </div>
-        </fieldset>
-      </div>
-      <div class="pj-adv__foot">
-        <label class="pj-opt"><input type="checkbox" id="onlyAward"> Nur ausgezeichnete Projekte</label>
-        <button class="link-arrow" id="resetBtn" type="button">Alle Filter zurücksetzen</button>
-      </div>
     </div>
 
     <p class="pj-count t-label" id="count" aria-live="polite">24 von über 120 Projekten</p>
 
     <div class="tiles pj-tiles" id="tiles"></div>
-    <p class="pj-empty" id="empty" hidden>Diese Kombination gibt es noch nicht. Einzelne Filter lösen oder zurücksetzen.</p>
   </section>
 </main>
 
