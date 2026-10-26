@@ -277,7 +277,8 @@ main>.band--dark:first-child{margin-top:calc(-1 * var(--hdr-h));border-top:var(-
 .ftr .wrap>.grid:first-child{row-gap:var(--sp-3)}
 .ftr .brand{display:block;color:var(--on-dark);margin-bottom:.4em} /* Größe wie die Wortmarke in der Menüleiste (.brand) */
 .ftr__claim{font-family:var(--font-ui);font-weight:400;font-size:clamp(1.1875rem, 1.05rem + .5vw, 1.4375rem);letter-spacing:-.015em;line-height:1.15;color:var(--on-dark-mute)} /* gleiche Größe wie die Wortmarke darüber */
-.ftr__big{margin-top:var(--sp-3);color:var(--on-dark)}
+.ftr__big{margin-top:var(--sp-4);color:var(--on-dark)} /* Abstand unter dem Claim = Abstand über der Wortmarke (padding-top .ftr) */
+@media (min-width:900px){.ftr__big{margin-top:var(--sp-5)}}
 .ftr__big+.ftr__big{margin-top:0}
 .ftr__big a{transition:color .25s var(--ease)}
 .ftr__big a:hover{color:var(--on-dark-2)}
