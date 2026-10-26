@@ -1,6 +1,10 @@
 /* Projekte: Bildfeld, Riss-Reihe, Filterleiste.
    Alles Weitere (Hero, Band, Kacheln, Buttons) kommt aus site.css. */
 
+/* Claim: zwei Zeilen, darf über die Textspalte bis vor das Bildfeld laufen. */
+.pj-claim{max-width:none}
+@media (min-width:900px){ .pj-claim{margin-right:calc(-2 * (var(--col) + var(--gutter)))} }
+
 /* Bildfeld: ein Projektbild, von zwei Fugen in neun quadratische Felder geteilt,
    drei Felder sind gegen andere Projekte getauscht (wechseln per projekte.js). */
 .pj-mosaic{position:relative;aspect-ratio:1;overflow:hidden;background:var(--shade)}
