@@ -55,19 +55,33 @@
     </div>
   </section>
 
-  <!-- BILDER: Titelbild und Galerie im vollen Format, ohne Beschnitt -->
-  <section class="wrap prr-pics">
-    <h2 class="sr-only">Bilder</h2>
-    <div class="grid prr-gal">
-      <figure class="s-12 rv"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0025-scaled.jpg" width="2000" height="1220" alt="Wohnbebauung Neu-Ulm, Bild 1"></figure>
-      <figure class="s-12 rv"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0040-scaled.jpg" width="2000" height="1332" alt="Wohnbebauung Neu-Ulm, Bild 2" loading="lazy"></figure>
-      <figure class="sm-s-6 s-6 rv"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0028-scaled.jpg" width="2000" height="1332" alt="Wohnbebauung Neu-Ulm, Bild 3" loading="lazy"></figure>
-      <figure class="sm-s-6 s-6 rv"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0097-scaled.jpg" width="2000" height="1333" alt="Wohnbebauung Neu-Ulm, Bild 4" loading="lazy"></figure>
+  <!-- TITELBILD als Hero, im vollen Format ohne Beschnitt -->
+  <section class="wrap prr-hero">
+    <figure class="rv"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0025-scaled.jpg" width="2000" height="1220" alt="Wohnbebauung Neu-Ulm, Bild 1"></figure>
+  </section>
+
+  <!-- GALERIE: Anordnung wie im ursprünglichen Entwurf, eingerückt ab Spalte 3, ohne Sektionskopf -->
+  <section class="wrap band band--s">
+    <h2 class="sr-only">Galerie</h2>
+    <div class="grid prj-gal rv">
+      <figure class="s-10 o-3"><div class="media"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0040-scaled.jpg" width="2000" height="1332" alt="Wohnbebauung Neu-Ulm, Bild 2" loading="lazy"></div></figure>
+      <figure class="sm-s-6 s-5 o-3"><div class="media media--3x2"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0028-scaled.jpg" width="2000" height="1332" alt="Wohnbebauung Neu-Ulm, Bild 3" loading="lazy"></div></figure>
+      <figure class="sm-s-6 s-5"><div class="media media--3x2"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0097-scaled.jpg" width="2000" height="1333" alt="Wohnbebauung Neu-Ulm, Bild 4" loading="lazy"></div></figure>
+      <figure class="s-10 o-3"><div class="media"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0037-scaled.jpg" width="2000" height="1320" alt="Wohnbebauung Neu-Ulm, Bild 5" loading="lazy"></div></figure>
     </div>
   </section>
 
-  <!-- STIMME (Bild 5 nur hier, nicht doppelt in der Galerie) -->
-  <section class="prr-voice">
+  <!-- TEXTBAUSTEIN unter der Galerie (Platzhalter), in der Flucht der Galerie -->
+  <section class="wrap prr-text">
+    <div class="grid rv">
+      <div class="prose s-7 o-3">
+        <p><i>Platzhalter für einen weiteren Textbaustein zum Projekt – zum Beispiel zur Sanierung im bewohnten Zustand, zur neuen Fassade und den Balkonanlagen oder zur Zusammenarbeit mit der Bauherrschaft. Zwei bis vier Sätze ergänzen.</i></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STIMME -->
+  <section>
     <h2 class="sr-only">Stimme</h2>
     <div class="quote rv">
       <div class="quote__img"><img src="assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0037-scaled.jpg" width="2000" height="1320" alt="Wohnbebauung Neu-Ulm, Bild 5" loading="lazy"></div>
@@ -96,30 +110,17 @@
     </div>
   </section>
 
-  <!-- KONTAKT: ohne Rahmen, auf getöntem Band -->
-  <section class="band band--s band--tint">
-    <div class="wrap">
-      <div class="grid grid--center">
-        <div class="ph prr-photo sm-s-3 s-2 o-2"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="18" r="7.6"/><path d="M9.5 40.5c0-7.7 6.5-13.2 14.5-13.2s14.5 5.5 14.5 13.2"/></svg><span>Foto folgt</span></div>
-        <div class="stack s-6 o-5">
-          <h2 class="t-h2">Fragen zum Projekt</h2>
-          <p>Wir sprechen gern über die Herausforderungen und die Konzepte unserer Projekte. Kommen Sie gern auf uns zu, wir freuen uns auf den Austausch.</p>
-          <div class="btn-row"><a class="link-arrow" href="tel:+49731935110">07 31 . 9 35 11-0</a><a class="link-arrow" href="kontakt.html">Nachricht schreiben <span aria-hidden="true">→</span></a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- VERWANDT -->
-  <section class="wrap band">
+  <section class="wrap band band--flush-top">
     <div class="rv">
-      <h2 class="t-h2 prj-rel__title">Weitere Projekte im Bestand</h2>
-      <div class="tiles">
+      <h2 class="t-h2 prj-rel__title">Weitere Projekte</h2>
+      <div class="tiles prr-tiles">
         <a class="tile" href="projekt-kriegsspital-neu-ulm.html"><img src="assets/img/kriegsspital-neu-ulm/842_Square-04_500x500_acf_cropped.jpg" alt="Kriegsspital Neu-Ulm" loading="lazy"><div class="tile__cap"><span class="tile__title">Kriegsspital Neu-Ulm</span> <span class="tile__year">2024</span></div></a>
         <a class="tile" href="projekt-haus-mk.html"><img src="assets/img/haus-mk/744_square_500x500_acf_cropped.jpg" alt="Haus MK" loading="lazy"><div class="tile__cap"><span class="tile__title">Haus MK</span> <span class="tile__year">2023</span></div></a>
         <a class="tile" href="projekt-flz-neuer-bau-ulm.html"><img src="assets/img/flz/01_3_square_500x500_acf_cropped.jpg" alt="FLZ im „Neuen Bau“ Ulm" loading="lazy"><div class="tile__cap"><span class="tile__title">FLZ im „Neuen Bau“ Ulm</span> <span class="tile__year">2017</span></div></a>
+        <a class="tile" href="projekt-wohnbebauung-laichingen.html"><img src="assets/img/wohnbebauung-laichingen/773_square_500x500_acf_cropped.jpg" alt="Wohnbebauung Laichingen" loading="lazy"><div class="tile__cap"><span class="tile__title">Wohnbebauung Laichingen</span> <span class="tile__year">2024</span></div></a>
       </div>
-      <p class="prj-rel__more"><a class="link-arrow" href="projekte.html">Alle Projekte im Bestand <span aria-hidden="true">→</span></a></p>
+      <p class="prj-rel__more"><a class="link-arrow" href="projekte.html">Alle Projekte <span aria-hidden="true">→</span></a></p>
     </div>
   </section>
 </main>
