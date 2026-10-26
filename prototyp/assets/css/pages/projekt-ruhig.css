@@ -1,0 +1,26 @@
+/* Projektseite, ruhige Variante (projekt-wohnbebauung-neu-ulm-2):
+   Einstieg mit Text statt Titelbild, Bilder ohne Beschnitt, keine Linien,
+   keine Sektionsköpfe, nur zwei Schriften (PX Grotesk für Titel und Links, Carlito für alles Übrige). */
+
+/* Einstieg: Titel steht wie die übrigen Überschriften in PX Grotesk (kein .hero → kein Calibri Light) */
+.prr-intro{padding-block:var(--band-s)}
+.prr-intro .grid{row-gap:var(--sp-5)}
+.prr-sub{margin-top:var(--sp-3);color:var(--mute)}
+
+/* Kennwerte als ruhige Liste: gleiche Schrift und Größe wie der Fließtext, Begriff gedämpft, ohne Linien */
+.prr-facts{display:grid;row-gap:var(--sp-2)}
+.prr-facts>div{display:grid;grid-template-columns:minmax(0,1fr)}
+.prr-facts dt{color:var(--mute)}
+.prr-facts dd{color:var(--ink)}
+@media (min-width:600px){
+  .prr-facts>div{grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--gutter)}
+}
+
+/* Bilder im natürlichen Seitenverhältnis */
+.prr-gal{row-gap:var(--gutter)}
+.prr-gal img,.prr-plan{width:100%}
+.prr-pics+.prr-voice{margin-top:var(--band-s)}
+
+/* Kontakt: Porträt quadratisch, auf getöntem Band ohne Rahmen */
+.prr-photo{aspect-ratio:1/1}
+@media (max-width:599px){.prr-photo{width:50%}}
