@@ -53,10 +53,7 @@
 
 /* Auszeichnungen, Wettbewerbe, Publikationen: vollständige Listen, je Eintrag eine kompakte Zeile
    wie auf hochstrasser.com/auszeichnungen (Jahr | Text, keine Trennlinien) */
-.buero-rubric-ico{display:inline-flex;align-items:center;gap:var(--sp-2)}
-.buero-rubric-ico svg{width:1.5rem;height:1.5rem;flex:none}
 .buero-list li{display:grid;grid-template-columns:3rem minmax(0,1fr);column-gap:var(--sp-2);font-family:var(--font-ui);font-size:var(--fs-small);line-height:1.45;color:var(--ink)}
-.buero-list--ohne-jahr li{grid-template-columns:minmax(0,1fr)}
 .buero-list__year{font-variant-numeric:tabular-nums;color:var(--mute)}
 .buero-list__meta{color:var(--mute)}
 .buero-list a{text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .25s var(--ease),color .25s var(--ease)}
