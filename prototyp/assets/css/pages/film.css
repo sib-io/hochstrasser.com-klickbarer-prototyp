@@ -1,0 +1,42 @@
+/* Film-Band „fred hochstrasser – architekt“ — schwarzes Vollband über dem Hero (Startseite, Variante 2).
+   Inhalte und Signaturen der Filmseite fred.hochstrasser.com: gestapelte Wortmarke,
+   Timecode bis zur Premiere, Kapitel-Titel mit Punkt. */
+
+/* Bild: Archivaufnahme, schwarzweiß; mobil 4:5, ab 600 px 16:10, ab 900 px Cinemascope 2.39:1 */
+.film__media{position:relative;overflow:hidden;background:var(--ink)}
+.film__media>img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 40%;filter:grayscale(1) contrast(1.04) brightness(.86)}
+@media (min-width:600px){.film__media>img{aspect-ratio:16/10}}
+@media (min-width:900px){.film__media>img{aspect-ratio:2.39/1}}
+
+/* oben: Timecode links, Abspielmarke rechts */
+.film__top{position:absolute;inset:0 0 auto 0;padding-top:var(--sp-3)}
+.film__top>.wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--sp-2)}
+.film__tc{display:inline-grid;gap:var(--sp-1)}
+.film__tc-num{font-family:var(--font-ui);font-size:var(--fs-h4);font-variant-numeric:tabular-nums;letter-spacing:.08em;line-height:1;color:var(--on-dark);white-space:nowrap}
+.film__tc .t-label{color:var(--on-dark-2)}
+.film__play{display:inline-flex;align-items:center;justify-content:center;flex:none;width:56px;height:56px;border:1px solid var(--on-dark-2);color:var(--on-dark);transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease)}
+.film__play:hover{background:var(--on-dark);border-color:var(--on-dark);color:var(--ink)}
+.film__play svg{width:16px;height:16px;display:block}
+
+/* unten: Wortmarke 1–9, Credit 10–12 rechtsbündig, auf Verlauf */
+.film__over{position:absolute;inset:auto 0 0 0;padding-block:var(--sp-6) var(--sp-4);background:linear-gradient(to top,rgba(22,22,22,.8) 0%,rgba(22,22,22,.36) 50%,transparent 100%)}
+.film__over>.grid{row-gap:var(--sp-2);align-items:end}
+.film__mark{font-family:var(--font-ui);font-weight:700;font-size:clamp(2.6rem, .9rem + 6.8vw, 7.6rem);line-height:.9;letter-spacing:-.035em;color:var(--film)}
+.band--dark .film__mark{color:var(--film)}
+.film__mark>span{display:block}
+.film__credit{color:var(--on-dark-2)}
+.film__credit>span{display:block;color:var(--on-dark-mute)}
+@media (min-width:900px){.film__credit{justify-self:end;text-align:right}}
+
+/* Text und Termine */
+.film__body{padding-block:var(--band-s)}
+.film__cut{display:flex;align-items:center;gap:var(--sp-1)}
+.film__cut::before,.film__cut::after{content:'';height:1px;background:var(--on-dark-rule);flex:1 1 auto}
+.film__cut::before{flex:0 0 var(--sp-3)}
+.band--dark .film__lead{color:var(--on-dark-2)}
+.film__dates{list-style:none;row-gap:var(--sp-4)}
+.film__date>a{display:grid;gap:var(--sp-1);align-content:start;border-top:1px solid var(--on-dark-rule);padding-top:var(--sp-2);transition:border-color .3s var(--ease)}
+.film__date>a:hover{border-top-color:var(--on-dark)}
+.film__date>a:hover .t-h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+.film__num{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h1);line-height:1;letter-spacing:-.022em;color:var(--on-dark);margin-top:var(--sp-1)}
+.film__where{color:var(--on-dark-2)}
