@@ -1,0 +1,41 @@
+/* Büro, Variante 2 — Filmband „Fred Hochstrasser – Architekt“ zwischen Leitbild und Auszeichnungen.
+   Signaturen der Filmseite fred.hochstrasser.com: gestapelte Wortmarke, Timecode bis zur Premiere,
+   Schnitt-Label im Bild, quadratischer Play-Knopf in der Bildecke. Raster 7 | 1 frei | 4 */
+
+/* Bild: schwarzweiß, Ausschnitt auf das Gesicht */
+.buero-film__media{margin:0;background:var(--ink)}
+.buero-film__media>img{object-position:50% 22%;filter:grayscale(1) contrast(1.06) brightness(.82)}
+
+/* Timecode tt:hh:mm:ss:ff oben links */
+.buero-film__tc{position:absolute;top:var(--sp-3);left:var(--sp-3);display:inline-grid;gap:2px}
+.buero-film__tc-num{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-small);font-variant-numeric:tabular-nums;letter-spacing:.08em;white-space:nowrap;color:var(--on-dark)}
+.buero-film__tc .t-label,.buero-film__cut{color:var(--on-dark-2)}
+
+/* Schnitt-Label unten: Linie – Text – Linie, endet vor dem Play-Knopf */
+.buero-film__cut{position:absolute;left:var(--sp-3);right:calc(var(--sp-6) + var(--sp-3));bottom:var(--sp-3);display:flex;align-items:center;gap:var(--sp-1)}
+.buero-film__cut::before,.buero-film__cut::after{content:'';height:1px;background:currentColor;opacity:.6;flex:1 1 auto}
+.buero-film__cut::before{flex:0 0 var(--sp-3)}
+
+.buero-film__play{position:absolute;right:0;bottom:0;width:var(--sp-6);aspect-ratio:1/1;display:inline-flex;align-items:center;justify-content:center;background:var(--ink);border:1px solid var(--on-dark-mute);color:var(--on-dark);transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease)}
+.buero-film__play:hover{background:var(--on-dark);border-color:var(--on-dark);color:var(--ink)}
+.buero-film__play svg{width:16px;height:16px}
+
+/* Wortmarke des Films, dreizeilig; die letzte Zeile gedämpft */
+.buero-film__mark{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h1);line-height:.9;letter-spacing:-.035em}
+.buero-film__mark span{display:block}
+.buero-film .buero-film__mark span:last-child{color:var(--on-dark-mute)}
+.buero-film__lead{margin-top:var(--stack)}
+
+/* Termine: Datum, Ort, Status; Zeile rückt beim Überfahren ein */
+.buero-film__plan{margin-top:var(--sp-4)}
+.buero-film__plan>li{padding-block:0}
+.buero-film__plan a{display:flex;flex-wrap:wrap;gap:2px var(--sp-2);align-items:baseline;padding-block:var(--sp-2);transition:padding-left .4s var(--ease)}
+.buero-film__plan a:hover{padding-left:var(--sp-1)}
+.buero-film__dt{font-family:var(--font-ui);font-size:var(--fs-ui);color:var(--on-dark)}
+.buero-film__plan a:hover .buero-film__dt{text-decoration:underline;text-underline-offset:.2em}
+.buero-film__ort{flex:1 0 auto}
+
+.buero-film__facts{margin-top:var(--sp-4);border-top:0}
+.buero-film__foot{margin-top:var(--sp-4)}
+
+@media (prefers-reduced-motion:reduce){.buero-film__plan a{transition:none}}
