@@ -32,6 +32,10 @@
 .xp-pfs{margin-top:var(--sp-7)}
 .xp-pf p{margin-top:var(--sp-2);max-width:56ch}
 .xp-pf__ico{display:block;width:36px;height:36px;overflow:visible;margin-bottom:var(--sp-3);color:var(--ink)}
+/* drei Spalten: Symbol, Titel und Text teilen sich die Zeilen – bricht ein Titel um, beginnen alle Texte auf gleicher Höhe */
+@media (min-width:900px){
+  .xp-pf{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:0}
+}
 
 /* Zuordnung: wechselndes Quadratbild (farbig) + zweizeilige Überschrift */
 .xp-cut{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:center}
