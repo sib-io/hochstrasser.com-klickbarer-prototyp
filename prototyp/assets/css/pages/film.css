@@ -17,12 +17,11 @@
 .film__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:clamp(56px, 2.5rem + 2.5vw, 80px);aspect-ratio:1/1;border:1px solid var(--on-dark-2);border-radius:50%;color:var(--on-dark);pointer-events:none}
 .film__play svg{width:28%;height:auto;display:block;margin-left:6%}
 
-/* unten: Wortmarke 1–9, Credit 10–12 rechtsbündig, auf Verlauf */
+/* unten: Logo 1–7, Credit 10–12 rechtsbündig, auf Verlauf */
 .film__over{position:absolute;inset:auto 0 0 0;padding-block:var(--sp-6) var(--sp-4);background:linear-gradient(to top,rgba(22,22,22,.8) 0%,rgba(22,22,22,.36) 50%,transparent 100%)}
 .film__over>.grid{row-gap:var(--sp-2);align-items:end}
-.film__mark{font-family:var(--font-ui);font-weight:700;font-size:clamp(2.6rem, .9rem + 6.8vw, 7.6rem);line-height:.9;letter-spacing:-.035em;color:var(--film)}
-.band--dark .film__mark{color:var(--film)}
-.film__mark>span{display:block}
+/* Logo der Filmseite (SVG, Gelb fest in der Datei) */
+.film__mark>img{display:block;width:100%;height:auto}
 .film__credit{color:var(--on-dark-2)}
 .film__credit>span{display:block;color:var(--on-dark-mute)}
 @media (min-width:900px){.film__credit{justify-self:end;text-align:right}}
