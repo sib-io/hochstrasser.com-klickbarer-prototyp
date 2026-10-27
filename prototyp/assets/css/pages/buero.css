@@ -49,7 +49,8 @@
 @media (max-width:899px){.buero-cv__grid>:last-child{grid-row:1;max-width:12rem}}
 @media (min-width:900px){.buero-cv{--cv-px:var(--sp-5);width:calc(10 * var(--col) + 9 * var(--gutter));padding:var(--sp-2) var(--cv-px) var(--sp-5)}}
 
-/* Anschlusskarten */
+/* Anschlusskarten: ohne Abstand oben, damit zum Team nur der Sektionsabstand des Teams bleibt */
+.buero-anschluss{padding-top:0}
 .buero-card{display:block;border-top:1px solid var(--ink);padding-top:var(--sp-4)}
 .buero-card p+p{margin-top:var(--sp-2);max-width:44ch}
 .buero-card:hover .t-h3{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
