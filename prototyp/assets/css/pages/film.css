@@ -14,7 +14,7 @@
 .film__tc-num{font-family:var(--font-ui);font-size:var(--fs-h4);font-variant-numeric:tabular-nums;letter-spacing:.08em;line-height:1;color:var(--on-dark);white-space:nowrap}
 .film__tc .t-label{color:var(--on-dark-2)}
 /* Abspielmarke: rund, mittig im Bild, ohne Link */
-.film__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:clamp(56px, 2.5rem + 2.5vw, 80px);aspect-ratio:1/1;border:1px solid var(--on-dark-2);border-radius:50%;color:var(--on-dark);pointer-events:none}
+.film__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:clamp(80px, 3.5rem + 4vw, 120px);aspect-ratio:1/1;border:1px solid var(--on-dark-2);border-radius:50%;color:var(--on-dark);pointer-events:none}
 .film__play svg{width:28%;height:auto;display:block;margin-left:6%}
 
 /* unten: Logo 1–7, Credit 10–12 rechtsbündig, auf Verlauf */
