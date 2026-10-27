@@ -17,6 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/pages/kontakt.css">
+<link rel="stylesheet" href="assets/css/vendor/maplibre-gl.css">
+<link rel="stylesheet" href="assets/css/pages/karte.css">
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -75,8 +77,7 @@
       <div class="sec-head"><h2 class="t-rubric sec-head__title">Anfahrt</h2></div>
       <div class="grid rv">
         <figure class="s-7">
-          <!-- hier kommt der gezeichnete Lageplan (SVG) hinein -->
-          <div class="media media--16x10" role="img" aria-label="Lageplan Karpfengasse 5, 89073 Ulm"></div>
+          <div class="media media--16x10 karte" data-karte role="region" aria-label="Karte: Karpfengasse 5, 89073 Ulm"></div>
           <figcaption class="t-label caption">Lageplan Karpfengasse 5, 89073 Ulm</figcaption>
         </figure>
         <div class="s-4 o-9 routes">
@@ -146,5 +147,7 @@
 </footer>
 
 <script src="assets/js/site.js"></script>
+<script src="assets/js/vendor/maplibre-gl.js"></script>
+<script src="assets/js/karte.js"></script>
 </body>
 </html>

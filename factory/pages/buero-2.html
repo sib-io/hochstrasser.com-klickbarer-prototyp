@@ -1,4 +1,4 @@
-<!--meta {"title": "Büro, Variante 2: Filmband „Fred Hochstrasser – Architekt“", "description": "36 Menschen, zwei Hunde, ein Büro in der Ulmer Altstadt. Haltung, Leitbild und Team von hochstrasser. Architekten und Integralplaner.", "nav": "buero", "css": ["pages/buero.css", "pages/leitbild.css", "pages/buero-film.css"], "js": ["referenzen.js", "pages/buero.js", "pages/leitbild.js", "pages/buero-film.js"], "proto": null} -->
+<!--meta {"title": "Büro, Variante 2: Filmband „Fred Hochstrasser – Architekt“", "description": "36 Menschen, zwei Hunde, ein Büro in der Ulmer Altstadt. Haltung, Leitbild und Team von hochstrasser. Architekten und Integralplaner.", "nav": "buero", "css": ["pages/buero.css", "pages/leitbild.css", "pages/buero-film.css", "vendor/maplibre-gl.css", "pages/karte.css"], "js": ["referenzen.js", "pages/buero.js", "pages/leitbild.js", "pages/buero-film.js", "vendor/maplibre-gl.js", "karte.js"], "proto": null} -->
   <!-- 1 Claim -->
   <section class="wrap hero">
     <h1 class="t-label hero__eyebrow">Büro</h1>
@@ -351,8 +351,7 @@
       </div>
       <div class="grid">
         <figure class="s-7 buero-plan">
-          <!-- hier kommt der gezeichnete Lageplan (SVG) hinein -->
-          <div class="media media--16x10" role="img" aria-label="Lageplan Karpfengasse 5, 89073 Ulm"></div>
+          <div class="media media--16x10 karte" data-karte role="region" aria-label="Karte: Karpfengasse 5, 89073 Ulm"></div>
           <figcaption class="t-label caption">Lageplan Karpfengasse 5, 89073 Ulm</figcaption>
         </figure>
         <div class="s-4 o-9 routes">
