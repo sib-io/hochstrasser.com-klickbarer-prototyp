@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="assets/css/pages/buero.css">
 <link rel="stylesheet" href="assets/css/pages/leitbild.css">
 <link rel="stylesheet" href="assets/css/pages/buero-film.css">
+<link rel="stylesheet" href="assets/css/vendor/maplibre-gl.css">
+<link rel="stylesheet" href="assets/css/pages/karte.css">
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -389,8 +391,7 @@
       </div>
       <div class="grid">
         <figure class="s-7 buero-plan">
-          <!-- hier kommt der gezeichnete Lageplan (SVG) hinein -->
-          <div class="media media--16x10" role="img" aria-label="Lageplan Karpfengasse 5, 89073 Ulm"></div>
+          <div class="media media--16x10 karte" data-karte role="region" aria-label="Karte: Karpfengasse 5, 89073 Ulm"></div>
           <figcaption class="t-label caption">Lageplan Karpfengasse 5, 89073 Ulm</figcaption>
         </figure>
         <div class="s-4 o-9 routes">
@@ -496,5 +497,7 @@
 <script src="assets/js/pages/buero.js"></script>
 <script src="assets/js/pages/leitbild.js"></script>
 <script src="assets/js/pages/buero-film.js"></script>
+<script src="assets/js/vendor/maplibre-gl.js"></script>
+<script src="assets/js/karte.js"></script>
 </body>
 </html>

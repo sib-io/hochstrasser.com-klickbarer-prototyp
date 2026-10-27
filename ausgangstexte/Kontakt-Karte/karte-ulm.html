@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karte – Karpfengasse 5, Ulm</title>
+<link href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  #karte {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  /* Adressmarker: schlichter Punkt, passt zum ruhigen Positron-Look */
+  .adress-marker {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #444;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .3);
+    cursor: pointer;
+  }
+  .maplibregl-popup-content {
+    font: 14px/1.4 system-ui, sans-serif;
+    padding: 10px 14px;
+  }
+  /* PX Grotesk ist eine kommerzielle Schrift: Die lizenzierte Webfont-Datei
+     muss auf dem eigenen Server liegen. Pfad und Dateiname ggf. anpassen. */
+  @font-face {
+    font-family: "PX Grotesk";
+    src: url("fonts/PXGrotesk-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  .firmenname {
+    display: block;
+    margin-bottom: 4px;
+    font-family: "PX Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #222;
+  }
+  .route-link {
+    display: inline-block;
+    margin-top: 6px;
+    color: #333;
+    font-weight: 600;
+  }
+  .route-hinweis {
+    display: block;
+    font-size: 12px;
+    color: #777;
+  }
+  /* Hinweis im Koordinaten-Modus */
+  .koordinaten-hinweis {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    max-width: 280px;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font: 13px/1.4 system-ui, sans-serif;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  }
+</style>
+</head>
+<body>
+
+<div id="karte"></div>
+
+<script>
+  // ------------------------------------------------------------
+  // EINSTELLUNGEN
+  // ------------------------------------------------------------
+
+  // Koordinaten von Karpfengasse 5 als [Längengrad, Breitengrad].
+  // Solange hier null steht, läuft die Karte im Koordinaten-Modus:
+  // Hineinzoomen, auf das Haus klicken, Werte hier eintragen.
+  const ADRESSE = [9.995305, 48.398713];
+
+  // Routen-Link: öffnet Google Maps im neuen Tab bzw. mobil die Google-Maps-App.
+  // Es werden erst beim Klick Daten an Google übertragen.
+  const ROUTE_URL = 'https://www.google.com/maps/dir/?api=1&destination='
+    + encodeURIComponent('Karpfengasse 5, 89073 Ulm');
+
+  const ADRESS_TEXT = `
+    <span class="firmenname">hochstrasser.</span>
+    Karpfengasse 5<br>
+    89073 Ulm<br>
+    <a class="route-link" href="${ROUTE_URL}" target="_blank" rel="noopener noreferrer">Route</a>
+    <span class="route-hinweis">öffnet Google Maps</span>
+  `;
+
+  // Ulmer Münster (eigenes Label, damit es sicher angezeigt wird)
+  const MUENSTER = [9.9925, 48.3986];
+
+  // ------------------------------------------------------------
+
+  const map = new maplibregl.Map({
+    container: 'karte',
+    style: 'https://tiles.openfreemap.org/styles/positron',
+    center: ADRESSE || MUENSTER,
+    zoom: 15.5,
+    maxZoom: 19.5,
+    cooperativeGestures: true // Scrollen auf der Seite zoomt nicht ungewollt die Karte
+  });
+
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+  map.on('load', () => {
+
+    // 1) Straßennamen früher einblenden
+    //    Positron zeigt Namen kleiner Straßen erst sehr spät.
+    for (const layer of map.getStyle().layers) {
+      if (layer['source-layer'] === 'transportation_name') {
+        const min = Math.min(layer.minzoom ?? 0, 14);
+        map.setLayerZoomRange(layer.id, min, layer.maxzoom ?? 24);
+      }
+    }
+
+    // 2) Hausnummern (sind in den Daten enthalten, Positron blendet sie nur aus)
+    map.addLayer({
+      id: 'hausnummern',
+      type: 'symbol',
+      source: 'openmaptiles',
+      'source-layer': 'housenumber',
+      minzoom: 17,
+      layout: {
+        'text-field': ['get', 'housenumber'],
+        'text-font': ['Noto Sans Regular'],
+        'text-size': 10
+      },
+      paint: {
+        'text-color': '#8a8a8a',
+        'text-halo-color': '#ffffff',
+        'text-halo-width': 1
+      }
+    });
+
+    // 3) Ulmer Münster als eigenes Label
+    map.addSource('orte', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [{
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: MUENSTER },
+          properties: { name: 'Ulmer Münster' }
+        }]
+      }
+    });
+
+    map.addLayer({
+      id: 'orte-label',
+      type: 'symbol',
+      source: 'orte',
+      minzoom: 13,
+      layout: {
+        'text-field': ['get', 'name'],
+        'text-font': ['Noto Sans Bold'],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 13, 11, 17, 15],
+        'text-allow-overlap': true
+      },
+      paint: {
+        'text-color': '#555555',
+        'text-halo-color': '#ffffff',
+        'text-halo-width': 1.5
+      }
+    });
+
+    // 4) Adressmarker oder Koordinaten-Modus
+    if (ADRESSE) {
+      const el = document.createElement('div');
+      el.className = 'adress-marker';
+      el.setAttribute('aria-label', 'Karpfengasse 5, 89073 Ulm');
+
+      new maplibregl.Marker({ element: el })
+        .setLngLat(ADRESSE)
+        .setPopup(new maplibregl.Popup({ offset: 14 }).setHTML(ADRESS_TEXT))
+        .addTo(map);
+    } else {
+      const hinweis = document.createElement('div');
+      hinweis.className = 'koordinaten-hinweis';
+      hinweis.textContent = 'Koordinaten-Modus: Hineinzoomen und auf das Haus klicken. Die Werte dann oben bei ADRESSE eintragen.';
+      document.getElementById('karte').appendChild(hinweis);
+
+      map.on('click', (e) => {
+        const lng = e.lngLat.lng.toFixed(6);
+        const lat = e.lngLat.lat.toFixed(6);
+        new maplibregl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(`<code>[${lng}, ${lat}]</code>`)
+          .addTo(map);
+        console.log(`const ADRESSE = [${lng}, ${lat}];`);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

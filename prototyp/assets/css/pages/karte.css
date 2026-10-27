@@ -1,0 +1,13 @@
+/* Anfahrtskarte (MapLibre, Kartenstil OpenFreeMap Positron) – Kontakt und Büro */
+
+/* Adressmarker: schlichter Punkt, passt zum ruhigen Positron-Look */
+.karte__marker{width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid var(--paper);box-shadow:0 0 0 1px rgba(22,22,22,.3);cursor:pointer}
+
+.karte .maplibregl-popup-content{padding:var(--sp-2);border-radius:0;font-family:var(--font-text);font-size:15px;line-height:1.4;color:var(--ink-2);box-shadow:0 1px 4px rgba(22,22,22,.2)}
+.karte .maplibregl-popup-close-button{font-size:18px;padding:0 var(--sp-1)}
+.karte__name{display:block;margin-bottom:4px;padding-right:var(--sp-3);font-family:var(--font-ui);font-size:18px;font-weight:700;line-height:1.2;color:var(--ink)}
+.karte__route{margin-top:var(--sp-1)}
+.karte__hinweis{display:block;margin-top:var(--sp-1);font-size:12px;color:var(--mute)}
+
+/* Mobil wäre 16:10 zu flach – quadratisch, damit das Popup über dem Marker Platz hat */
+@media (max-width:599px){.karte.media--16x10{aspect-ratio:1/1}}
