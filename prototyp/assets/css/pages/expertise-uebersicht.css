@@ -37,26 +37,9 @@
   .xp-pf{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:0}
 }
 
-/* Zuordnung: wechselndes Quadratbild (farbig) + zweizeilige Überschrift */
-.xp-cut{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:center}
-.xp-fig{grid-column:1/span 4}
-.xp-fig img{position:absolute;inset:0;opacity:0;transition:opacity .5s var(--ease)}
-.xp-fig img.is-on{opacity:1}
-.xp-cut__txt{grid-column:5/-1;font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h2);line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
-@media (min-width:600px){
-  .xp-fig{grid-column:1/span 3}
-  .xp-cut__txt{grid-column:4/-1}
-}
-@media (min-width:900px){
-  .xp-fig{grid-column:1/span 2}
-  .xp-cut__txt{grid-column:3/-1}
-}
-/* ohne Bild (Expertise-Übersicht): Überschrift einzeilig über die ganze Breite */
-.xp-cut__txt:only-child{grid-column:1/-1;white-space:nowrap}
-
 /* Disziplinen in einem einheitlichen Raster: 4 | 2 | 1 je Zeile.
    Der Titel ist der Link (Fläche über die ganze Karte), der Pfeil erscheint beim Überfahren */
-.xp-sets{margin-top:var(--sp-8);row-gap:var(--sp-7)}
+.xp-sets{margin-top:var(--sp-7);row-gap:var(--sp-7)}
 .xp-item{position:relative;display:flex;flex-direction:column;padding-top:var(--sp-3);border-top:1px solid var(--ink)}
 .xp-item h3{font-weight:700}
 .xp-item__link{color:var(--ink)}
@@ -67,4 +50,4 @@
 .note ul{margin-top:var(--sp-1)}
 .note li{padding-block:2px}
 
-@media (prefers-reduced-motion:reduce){.xp-fig img,.xp-item__link>span[aria-hidden]{transition:none}}
+@media (prefers-reduced-motion:reduce){.xp-item__link>span[aria-hidden]{transition:none}}
