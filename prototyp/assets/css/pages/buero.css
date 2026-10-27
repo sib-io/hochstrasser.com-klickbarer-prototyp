@@ -51,7 +51,7 @@
 
 /* Anschlusskarten */
 .buero-card{display:block;border-top:1px solid var(--ink);padding-top:var(--sp-4)}
-.buero-card p+p{margin-top:var(--sp-2);max-width:38ch}
+.buero-card p+p{margin-top:var(--sp-2);max-width:44ch}
 .buero-card:hover .t-h3{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 
 /* Auszeichnungen, Wettbewerbe, Publikationen: vollständige Listen, je Eintrag eine kompakte Zeile
