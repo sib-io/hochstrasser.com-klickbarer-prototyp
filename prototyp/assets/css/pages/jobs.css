@@ -3,4 +3,3 @@
 .jobs__mail{color:var(--ink)}
 .jobs__mail a{border-bottom:1px solid var(--rule-tint);transition:border-color .2s var(--ease);-webkit-text-stroke:.01em currentColor}
 .jobs__mail a:hover,.jobs__mail a:focus-visible{border-bottom-color:var(--ink)}
-.jobs__ask{color:var(--ink)}
