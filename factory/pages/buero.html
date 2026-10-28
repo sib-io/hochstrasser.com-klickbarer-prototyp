@@ -1,4 +1,4 @@
-<!--meta {"title": "Büro", "description": "36 Menschen, zwei Hunde, ein Büro in der Ulmer Altstadt. Haltung, Leitbild und Team von hochstrasser. Architekten und Integralplaner.", "nav": "buero", "css": ["pages/buero.css", "pages/leitbild.css", "vendor/maplibre-gl.css", "pages/karte.css"], "js": ["referenzen.js", "pages/buero.js", "pages/leitbild.js", "vendor/maplibre-gl.js", "karte.js"], "proto": null, "url": "buero/"} -->
+<!--meta {"title": "Büro", "description": "36 Menschen, zwei Hunde, ein Büro in der Ulmer Altstadt. Haltung, Leitbild und Team von hochstrasser. Architekten und Integralplaner.", "nav": "buero", "css": ["pages/buero.css", "pages/leitbild.css", "pages/buero-film.css", "vendor/maplibre-gl.css", "pages/karte.css"], "js": ["referenzen.js", "pages/buero.js", "pages/leitbild.js", "pages/buero-film.js", "vendor/maplibre-gl.js", "karte.js"], "proto": null, "url": "buero/"} -->
   <!-- 1 Claim -->
   <section class="wrap hero">
     <div class="buero-intro">
@@ -284,6 +284,36 @@
             </div>
           </div></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Film: Dokumentarfilm „Fred Hochstrasser – Architekt“, Inhalte und Signaturen der Filmseite
+       fred.hochstrasser.com (Logo, Timecode bis zur Premiere, Schnitt-Label).
+       Logo und Porträt aus dem Repo der Filmseite; im echten Band liefe ein stummer Loop aus dem Film -->
+  <section class="band band--dark rv buero-film" aria-labelledby="filmTitel">
+    <div class="wrap grid grid--center">
+      <figure class="s-7 media media--16x9 buero-film__media">
+        <img src="assets/img/film-fred/vita-portrait.jpg" width="900" height="1272" alt="Fred Hochstrasser, Porträt" loading="lazy">
+        <div class="buero-film__tc" aria-hidden="true">
+          <span class="buero-film__tc-num" data-tc>00:00:00:00:00</span>
+          <span class="t-label">bis zur Premiere</span>
+        </div>
+        <span class="t-label buero-film__cut">Der Dokumentarfilm</span>
+      </figure>
+
+      <div class="s-4 o-9">
+        <h2 class="buero-film__mark" id="filmTitel"><img src="assets/img/film-fred/logo-fred-hochstrasser-architekt.svg" width="842" height="243" alt="Fred Hochstrasser – Architekt" loading="lazy"></h2>
+        <p class="buero-film__lead">Filmdokumentation über den Ulmer Architekten Fred Hochstrasser. Zeitzeugnis einer prägenden Persönlichkeit der Ulmer Architektur- und Designgeschichte.</p>
+
+        <ul class="rows rows--compact buero-film__plan">
+          <li><a href="https://fred.hochstrasser.com/fred.html#termine" target="_blank" rel="noopener"><span class="buero-film__dt">15.12.2026</span><span class="buero-film__ort">Stadthaus Ulm</span><span class="t-label">Premiere · Eintritt frei</span></a></li>
+          <li><a href="https://fred.hochstrasser.com/fred.html#film" target="_blank" rel="noopener"><span class="buero-film__dt">03.01.2027</span><span class="buero-film__ort">SRF</span><span class="t-label">Im Fernsehen</span></a></li>
+        </ul>
+
+        <p class="t-small buero-film__credits">Laufzeit: 60 Minuten<br>Regie: Sebastian Schrade<br>Produktion: hit &amp; run Film, Berlin</p>
+
+        <p class="buero-film__foot"><a class="link-arrow" href="https://fred.hochstrasser.com/fred.html" target="_blank" rel="noopener">Zur Filmseite <span aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </section>
