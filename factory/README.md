@@ -65,8 +65,9 @@ prototyp/
 
 - Links auf diese Seiten immer als `slug.html` (ggf. mit Anker). Profil-Anker: `profil.html#n-integral`, `#n-wirtschaft`, `#n-nachhaltigkeit`, `#n-bestand`, `#n-verantwortung`, Leitbild `#werte`.
 - „Zurück zu unseren Expertisen“ → `expertise.html`. Projektkacheln/-links → eigene Detailseite, falls vorhanden (Zuordnung Titel → Seite/Kachelbild in `assets/js/projektseiten.js`, erzeugt aus `projekte.json`), sonst → `projekt-flz-neuer-bau-ulm.html` (Beispielseite). „Alle Projekte“ → `projekte.html`. Kontakt/„Nachricht schreiben“ intern → `kontakt.html` (bzw. `mailto:` wo im Ausgangstext).
-- Ziele ohne Seite (Barrierefreiheit, Impressum, Datenschutz, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
+- Ziele ohne Seite (Barrierefreiheit, Datenschutz, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
 - Externe Links bleiben, wie sie sind (`target="_blank" rel="noopener"`).
+- Impressum (Footer) → Live-Seite `https://hochstrasser.com/impressum/`, öffnet in neuem Fenster.
 
 ## Bilder
 - Alle Bilder lokal unter `assets/img/`. Mapping für Hotlinks `https://hochstrasser.com/wp-content/uploads/JJJJ/MM/<datei>` → `assets/img/wp/<datei>`; Ausnahme `02_header-23.jpg` → `assets/img/flz/02_header-23.jpg`.
