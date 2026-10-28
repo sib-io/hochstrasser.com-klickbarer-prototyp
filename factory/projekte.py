@@ -7,7 +7,8 @@
 
 Vorlage ist die von Hand gebaute FLZ-Seite (projekt-flz-neuer-bau-ulm, "generate": false):
 Titelbild (ohne Beschnitt) · Einstieg mit Titel, Untertitel, erstem Kapitel und Kennwerten · Galerie ·
-weitere Kapitel · Pläne und Projektdaten · Weitere Projekte (vier Kacheln). Alle Projektseiten teilen pages/projekt.css.
+weitere Kapitel · Pläne und Projektdaten · Weitere Projekte (vier Kacheln). Alle Projektseiten teilen pages/projekt.css
+und pages/projekt.js (langer Kapiteltext endet nach einigen Zeilen, „Mehr lesen“ klappt ihn auf).
 Keine Sektionsköpfe (nur die Rubrik „Weitere Projekte“ und Zwischenüberschriften der Live-Seite), kein Zitat, kein Kontakt.
 
 Galerie im Raster über die volle Breite (12 Spalten):
@@ -156,10 +157,11 @@ def blocks_html(blocks):
 
 
 def chapter(ch, head='h2'):
-    """Kapitel als Rubrik (Zwischenüberschrift der Live-Seite) und Text; „Projekt“ bleibt ohne Rubrik"""
+    """Kapitel als Rubrik (Zwischenüberschrift der Live-Seite) und Text; „Projekt“ bleibt ohne Rubrik.
+    Langer Text endet nach einigen Zeilen und klappt per „Mehr lesen“ auf (.prj-more, pages/projekt.js)"""
     h = ch.get('h') or (ch['label'] if ch['label'] != 'Projekt' else '')
     rubric = f'        <{head} class="t-rubric">{t(h)}</{head}>\n' if h else ''
-    return f'      <div class="stack s-7">\n{rubric}{blocks_html(ch["blocks"])}\n      </div>'
+    return f'      <div class="stack s-7">\n{rubric}        <div class="prj-more">\n{blocks_html(ch["blocks"])}\n        </div>\n      </div>'
 
 
 def projektdaten(p, plan):
@@ -203,7 +205,7 @@ def page(p, by):
     photos, drawings = [x for x in pics if not x.plan], [x for x in pics if x.plan]
     cover = Pic(p, {'f': p['cover']}, 1)
     desc = (p['sub'] if p.get('sub') else f"{p['title']}, {facts.get('Standort', '')}") + '. Ein Projekt von hochstrasser., Architekturbüro in Ulm.'
-    meta = {'title': p['title'], 'description': desc, 'nav': 'projekte', 'css': ['pages/projekt.css']}
+    meta = {'title': p['title'], 'description': desc, 'nav': 'projekte', 'css': ['pages/projekt.css'], 'js': ['pages/projekt.js']}
     sub = f'\n        <p class="prj-sub">{t(p["sub"])}</p>' if p.get('sub') else ''
     dl = '\n'.join(f'        <div><dt>{t(k)}</dt><dd>{t(v)}</dd></div>' for k, v in p['facts'])
     chs = p['chapters']

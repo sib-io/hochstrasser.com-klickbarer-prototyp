@@ -44,6 +44,16 @@
 .prj-plans:has(+.prj-data--plan){padding-bottom:0}
 .prj-plans+.prj-data--plan{padding-top:var(--gutter)}
 
+/* Langer Kapiteltext endet nach einigen Zeilen und läuft nach unten ins Weiß aus;
+   „Mehr lesen“ klappt ihn auf (pages/projekt.js setzt Höhe, Klassen und Schalter) */
+.prj-more{position:relative;overflow:hidden;transition:max-height .6s var(--ease)}
+.prj-more::after{content:'';position:absolute;inset:auto 0 0;height:4.8em;background:linear-gradient(rgba(255,255,255,0),var(--paper));opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+.prj-more.is-closed::after{opacity:1}
+.stack>.prj-more__btn{margin-top:var(--sp-2)}
+.prj-more__btn:hover>span[aria-hidden]{transform:translateY(3px)}
+.prj-more__btn[aria-expanded="true"]:hover>span[aria-hidden]{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){.prj-more,.prj-more::after{transition:none}}
+
 /* Weitere Kapitel nach der Galerie: Rubrik und Text, linksbündig zum Einstiegstext */
 .prj-chapters{row-gap:var(--sp-6)}
 /* Aufzählung mit Kopf je Punkt, ohne Linien; Kopf fett in der Textschrift */
