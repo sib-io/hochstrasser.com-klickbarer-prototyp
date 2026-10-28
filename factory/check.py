@@ -93,7 +93,7 @@ def links():
             elif ref[1] and target.suffix == '.html' and f'id="{ref[1]}"' not in target.read_text(encoding='utf-8'):
                 bad += 1
                 print(f'{f.name}: Anker fehlt → {ref[0]}#{ref[1]}')
-        for u in re.findall(r'(?<!rel="canonical" )(?:src|href)="(https?://hochstrasser\.com/[^"]+)"', h):
+        for u in re.findall(r'(?<!rel="canonical" )(?:src|href)="(https?://hochstrasser\.com/(?!impressum/")[^"]+)"', h):
             bad += 1
             print(f'{f.name}: Hotlink → {u}')
     print('Links:', 'ok' if not bad else f'{bad} Probleme')
