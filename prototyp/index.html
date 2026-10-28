@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/pages/index.css">
+<link rel="stylesheet" href="assets/css/pages/film.css">
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -35,7 +36,52 @@
 </div>
 
 <main id="inhalt">
-<section class="wrap hero idx-hero idx-hero--px idx-hero--ink">
+<section class="band--dark film" aria-labelledby="filmTitel">
+    <div class="film__media">
+      <img src="assets/img/film-fred/archiv-hfg-besprechung.jpg" width="1920" height="878" alt="Archivaufnahme aus dem Film: Besprechung an der Hochschule für Gestaltung Ulm">
+      <div class="film__top">
+        <div class="wrap">
+          <div class="film__tc" aria-hidden="true">
+            <span class="film__tc-num" data-tc>00:00:00:00:00</span>
+            <span class="t-label">Bis zur Premiere</span>
+          </div>
+        </div>
+      </div>
+      <span class="film__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.4v13.2l11-6.6z"/></svg></span>
+      <div class="film__over">
+        <div class="wrap grid">
+          <h2 class="film__mark s-7" id="filmTitel"><img src="assets/img/film-fred/logo-fred-hochstrasser-architekt.svg" width="842" height="243" alt="fred hochstrasser architekt"></h2>
+          <p class="t-label film__credit s-3 o-10">Ein Film von Sebastian Schrade<span>hit &amp; run Film, Berlin 2025</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap grid film__body">
+      <span class="t-label film__cut s-12">60 Minuten</span>
+      <p class="t-lead film__lead s-10">Filmdokumentation über den Ulmer Architekten Fred Hochstrasser. Zeitzeugnis einer prägenden Persönlichkeit der Ulmer Architektur- und Designgeschichte.</p>
+      <ul class="grid film__dates s-12">
+        <li class="film__date s-6">
+          <a href="https://fred.hochstrasser.com/fred.html#termine" target="_blank" rel="noopener">
+            <span class="t-h3">Premiere.</span>
+            <span class="film__num">15.12.</span>
+            <span class="film__where">Stadthaus Ulm</span>
+            <span class="t-label">Eintritt frei</span>
+          </a>
+        </li>
+        <li class="film__date s-6">
+          <a href="https://fred.hochstrasser.com/fred.html#film" target="_blank" rel="noopener">
+            <span class="t-h3">Film ansehen.</span>
+            <span class="film__num">03.01.</span>
+            <span class="film__where">SRF</span>
+            <span class="t-label">Vorstellung des Films im Schweizer Fernsehen</span>
+          </a>
+        </li>
+      </ul>
+      <div class="s-12"><a class="link-arrow" href="https://fred.hochstrasser.com/fred.html" target="_blank" rel="noopener">Mehr erfahren <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+
+  <section class="wrap hero idx-hero idx-hero--px idx-hero--ink">
     <h1 class="t-display hero__title">architektur<em>.</em><br>verantwortung<em>.</em><br>lösungen<em>.</em></h1>
     <div class="grid hero__foot idx-hero-foot">
       <div class="s-6">
@@ -206,5 +252,6 @@
 <script src="assets/js/site.js"></script>
 <script src="assets/js/projektseiten.js"></script>
 <script src="assets/js/pages/index.js"></script>
+<script src="assets/js/pages/film.js"></script>
 </body>
 </html>
