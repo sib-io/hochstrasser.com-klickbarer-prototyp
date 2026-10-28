@@ -100,7 +100,7 @@ Bevorzugte Aufteilungen: **6 | 1 frei | 5** (`s-6` + `s-5 o-8`), **4 | 1 frei | 
 | H3 | `.t-h3` | Unterüberschriften, Kartenköpfe |
 | H4 | `.t-h4` | kleine Köpfe, Listentitel |
 | Rubrik | `.t-rubric` | kurzer Sektionstitel („Projekte“, „Was wir übernehmen“) |
-| Label | `.t-label` | Kategorie, Jahr, dt, Eyebrow, Nummern |
+| Label | `.t-label` | Kategorie, Jahr, dt, Nummern |
 | Lead | `.t-lead` | Einleitungsabsatz (im Hero automatisch Fließtextgröße und `--mute`) |
 | Prose | `.prose` | Fließtextblock |
 
@@ -109,7 +109,7 @@ Semantik (h1/h2/h3) und Optik (Klasse) sind getrennt: genau ein `<h1>` pro Seite
 **Farbe.** Nur Tokens: `--ink`, `--ink-2`, `--mute`, `--rule`, `--rule-tint`, `--shade`, `--paper`, `--on-dark*`, auf Digitales Bauen zusätzlich `--accent`/`--wash`. Keine neuen Grauwerte.
 
 **Komponenten aus `site.css` (wiederverwenden statt nachbauen):**
-`.hero` (+ `__eyebrow`, `__title`, `__sub`, `__foot`), `.sec-head` (+ `__title`, `__aside`), `.band`, `.band--s`, `.band--tint`, `.band--dark`, `.rule-top`, `.link-arrow` (+ `--back`), `.btn-row`, `a.ext`, `.rows` (+ `--compact`, `--marked`, `.rows__row`), `.facts` (dl), `.tags`/`.tag`, `.chip`, `.quote` (Zitat im Split: `__img`, `__field`, `__pill`, `__text`, `__foot`, `__who`, `__ctx`, `__link`), `.ph` (Bild-/Porträtplatzhalter), `.media` (+ `--16x9` …), `.tiles`/`.tile` (+ `__cap`, `__title`, `__year`, `__star`), `.contact-card` (+ `__body`), `.faq` (details/summary + `.faq__answer`), `.sources`, `.note`, `.rv`, `.stack`, `.sr-only`.
+`.hero` (+ `__title`, `__sub`, `__foot`), `.sec-head` (+ `__title`, `__aside`), `.band`, `.band--s`, `.band--tint`, `.band--dark`, `.rule-top`, `.link-arrow` (+ `--back`), `.btn-row`, `a.ext`, `.rows` (+ `--compact`, `--marked`, `.rows__row`), `.facts` (dl), `.tags`/`.tag`, `.chip`, `.quote` (Zitat im Split: `__img`, `__field`, `__pill`, `__text`, `__foot`, `__who`, `__ctx`, `__link`), `.ph` (Bild-/Porträtplatzhalter), `.media` (+ `--16x9` …), `.tiles`/`.tile` (+ `__cap`, `__title`, `__year`, `__star`), `.contact-card` (+ `__body`), `.faq` (details/summary + `.faq__answer`), `.sources`, `.note`, `.rv`, `.stack`, `.sr-only`.
 Links und Buttons immer als `.link-arrow` (unterstrichen, keine umrandeten Kästchen). Pfeile: `<span aria-hidden="true">→</span>`.
 Referenzbeispiele: `factory/pages/_system.html` (gebaut: `prototyp/_system.html`).
 
