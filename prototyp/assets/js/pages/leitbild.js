@@ -1,5 +1,6 @@
 /* Leitbild (Profil, Büro) als Akkordeon: beim Scrollen öffnet sich der Wert, der gerade in der
-   Bildschirmmitte steht; ein Klick wählt direkt (und hat kurz Vorrang vor dem Scrollen) */
+   Bildschirmmitte steht; ein Klick wählt direkt bzw. klappt den offenen Wert wieder zu
+   (und hat kurz Vorrang vor dem Scrollen) */
 (function () {
   var box = document.getElementById('leitbild');
   if (!box) return;
@@ -12,7 +13,10 @@
     });
   }
   items.forEach(function (it, i) {
-    it.querySelector('.leitbild-acc__btn').addEventListener('click', function () { open(i); locked = Date.now(); });
+    it.querySelector('.leitbild-acc__btn').addEventListener('click', function () {
+      open(it.classList.contains('is-on') ? -1 : i);
+      locked = Date.now();
+    });
   });
   if (!('IntersectionObserver' in window)) return;
   var io = new IntersectionObserver(function (es) {
