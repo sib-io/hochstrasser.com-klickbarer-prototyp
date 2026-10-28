@@ -31,8 +31,8 @@
 .film__cut::before{flex:0 0 var(--sp-3)}
 .band--dark .film__lead{color:var(--on-dark-2)}
 .film__dates{list-style:none;row-gap:var(--sp-4)}
-.film__date>a{display:grid;gap:var(--sp-1);align-content:start;border-top:1px solid var(--on-dark-rule);padding-top:var(--sp-2);transition:border-color .3s var(--ease)}
-.film__date>a:hover{border-top-color:var(--on-dark)}
-.film__date>a:hover .t-h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+.film__date>div{display:grid;gap:var(--sp-1);align-content:start;border-top:1px solid var(--on-dark-rule);padding-top:var(--sp-2);transition:border-color .3s var(--ease)}
+.film__date>div:hover{border-top-color:var(--on-dark)}
+.film__date>div:hover .t-h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
 .film__num{font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h1);line-height:1;letter-spacing:-.022em;color:var(--on-dark);margin-top:var(--sp-1)}
 .film__where{color:var(--on-dark-2)}
