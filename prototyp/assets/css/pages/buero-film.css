@@ -20,17 +20,13 @@
 .buero-film__mark img{width:100%;height:auto}
 .buero-film__lead{margin-top:var(--stack)}
 
-/* Termine: Datum, Ort, Status; Zeile rückt beim Überfahren ein */
+/* Termine: Datum, Ort, Status */
 .buero-film__plan{margin-top:var(--sp-4)}
-.buero-film__plan>li{padding-block:0}
-.buero-film__plan a{display:flex;flex-wrap:wrap;gap:2px var(--sp-2);align-items:baseline;padding-block:var(--sp-2);transition:padding-left .4s var(--ease)}
-.buero-film__plan a:hover{padding-left:var(--sp-1)}
+.buero-film__plan>li{display:flex;flex-wrap:wrap;gap:2px var(--sp-2);align-items:baseline}
 .buero-film__dt{font-family:var(--font-ui);font-size:var(--fs-ui);color:var(--on-dark)}
-.buero-film__plan a:hover .buero-film__dt{text-decoration:underline;text-underline-offset:.2em}
 .buero-film__ort{flex:1 0 auto}
 
 /* Laufzeit, Regie, Produktion: kleiner Text statt Tabelle */
 .buero-film__credits{margin-top:var(--sp-4);color:var(--on-dark-mute)}
 .buero-film__foot{margin-top:var(--sp-4)}
 
-@media (prefers-reduced-motion:reduce){.buero-film__plan a{transition:none}}
