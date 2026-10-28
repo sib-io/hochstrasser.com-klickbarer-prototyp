@@ -13,7 +13,6 @@ body[data-accent="rost"]{--accent:#8c3a1c;--wash:#f8f3f0}
 body[data-accent="ohne"]{--accent:var(--ink);--wash:var(--shade)}
 
 /* Hero */
-.hero__eyebrow{color:var(--accent)}
 .hero__title em{font-style:normal;color:var(--accent)}
 .xdb-anim .media{background:var(--wash);cursor:pointer}
 .xdb-anim video{width:100%;height:100%;object-fit:cover}
