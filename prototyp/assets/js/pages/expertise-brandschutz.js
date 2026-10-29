@@ -37,10 +37,10 @@
     },
     gk5: {
       name: 'Gebäudeklasse 5',
-      claim: 'Ab hier zählt jede Durchdringung.',
-      size: 'Alle übrigen Gebäude, auch unterirdische; ab 22 m gilt das Gebäude als Hochhaus und damit als Sonderbau',
+      claim: 'Höher, größer, anspruchsvoller.',
+      size: 'Alle übrigen Gebäude, auch unterirdische; größer 22 m gilt das Gebäude als Hochhaus und damit als Sonderbau',
       parts: 'Tragende und aussteifende Bauteile feuerbeständig, im Kellergeschoss feuerbeständig',
-      way: 'In der Regel baulich; Leiterrettung nur unter engen Voraussetzungen',
+      way: 'Über eine weitere notwendige Treppe oder eine für die Feuerwehr erreichbare Rettungsstelle; bei Sonderbauten ggf. höhere Anforderungen',
       plan: 'Brandabschnitte, Schächte, Aufzüge und die Haustechnik bestimmen die Konstruktion mit. Hier lohnt sich die integrale Planung am deutlichsten.'
     }
   };
