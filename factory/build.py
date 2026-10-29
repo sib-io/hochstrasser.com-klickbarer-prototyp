@@ -23,6 +23,7 @@ Optional für Suchmaschinen und KI-Suche:
 
 Header, Menü, Footer, Kopf und Skripte kommen ausschließlich aus
 factory/partials – dadurch ist die Navigation auf allen Seiten identisch.
+Alte Seitennamen leiten über REDIRECTS auf den neuen weiter (prototyp/<alt>.html).
 Aufruf: python3 factory/build.py [slug …]
 """
 import html as htmllib, json, re, sys
@@ -30,6 +31,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / 'prototyp'
+REDIRECTS = {'expertise-dgnb-zertifizierung': 'expertise-zertifizierungen'}  # alt -> neu
 SITE = 'https://hochstrasser.com/'  # Live-Domain: Canonical, JSON-LD, sitemap.xml
 ORG = {
     '@type': 'Organization', '@id': SITE + '#organization',
@@ -212,9 +214,23 @@ def sitemap():
     print('gebaut: prototyp/sitemap.xml', f'({len(rows)} Seiten)')
 
 
+def redirects():
+    """prototyp/<alt>.html – leitet umbenannte Seiten auf ihren neuen Namen weiter (Anker bleibt erhalten)."""
+    for old, new in REDIRECTS.items():
+        (OUT / f'{old}.html').write_text(
+            '<!DOCTYPE html>\n<html lang="de">\n<head>\n<meta charset="utf-8">\n'
+            f'<title>Weiterleitung — hochstrasser.</title>\n<meta name="robots" content="noindex">\n'
+            f'<meta http-equiv="refresh" content="0; url={new}.html">\n'
+            f'<script>location.replace("{new}.html" + location.hash)</script>\n</head>\n<body>\n'
+            f'<p>Diese Seite ist umgezogen: <a href="{new}.html">{new}.html</a></p>\n</body>\n</html>\n',
+            encoding='utf-8')
+        print('gebaut:', f'prototyp/{old}.html → {new}.html')
+
+
 if __name__ == '__main__':
     names = sys.argv[1:]
     files = [ROOT / 'pages' / f'{n}.html' for n in names] if names else sorted((ROOT / 'pages').glob('*.html'))
     for f in files:
         build(f)
     sitemap()
+    redirects()

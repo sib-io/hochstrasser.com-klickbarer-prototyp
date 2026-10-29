@@ -1,4 +1,4 @@
-/* DGNB / Zertifizierung: Inhalte der Auszeichnungsstufen für das Panel
+/* Zertifizierungen: Inhalte der Auszeichnungsstufen für das Panel
    (Interaktion: pages/expertise.js) */
 (function () {
   'use strict';

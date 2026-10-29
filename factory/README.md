@@ -56,7 +56,7 @@ prototyp/
 | Nachhaltigkeit | 08 | `expertise-nachhaltigkeit` |
 | Bauphysik | 09 | `expertise-bauphysik` |
 | Integralplanung (Ausgangstext: Generalplanung) | 10 | `expertise-integralplanung` |
-| DGNB / Zertifizierung | 11 | `expertise-zertifizierungen` |
+| Zertifizierungen (vorher DGNB / Zertifizierung) | 11 | `expertise-zertifizierungen` |
 | Digitales Bauen | 13b | `expertise-digitales-bauen` |
 | Architektur | 14 | `expertise-architektur` |
 | Kontakt | 24 | `kontakt` |
@@ -65,6 +65,7 @@ prototyp/
 | FAQs | Word-Datei hochstrasser_FAQs (Strukturbaum 26) | `faq` |
 
 - Links auf diese Seiten immer als `slug.html` (ggf. mit Anker). Profil-Anker: `profil.html#n-integral`, `#n-wirtschaft`, `#n-nachhaltigkeit`, `#n-bestand`, `#n-verantwortung`, Leitbild `#werte`.
+- Umbenannte Seiten: alter Slug → neuer Slug in `REDIRECTS` (`build.py`); der Build legt unter dem alten Namen eine Weiterleitungsseite an.
 - „Zurück zu unseren Expertisen“ → `expertise.html`. Projektkacheln/-links → eigene Detailseite, falls vorhanden (Zuordnung Titel → Seite/Kachelbild in `assets/js/projektseiten.js`, erzeugt aus `projekte.json`), sonst → `projekt-flz-neuer-bau-ulm.html` (Beispielseite). „Alle Projekte“ → `projekte.html`. Kontakt/„Nachricht schreiben“ intern → `kontakt.html` (bzw. `mailto:` wo im Ausgangstext).
 - Ziele ohne Seite (Barrierefreiheit, Impressum, Datenschutz, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
 - Externe Links bleiben, wie sie sind (`target="_blank" rel="noopener"`).
