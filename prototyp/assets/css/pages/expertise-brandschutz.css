@@ -2,5 +2,48 @@
    Brandschutz – nur Seitenspezifisches
    Die Gebäudeklassen-Zeichnung (viewBox 1280 × 300) nutzt die
    gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css.
-   Hier: Fußnote zur Messung der Höhe.
+   Hier: Akzentfarbe, Porträt mit Namen in der Kontaktkarte,
+   Aufzählung in den FAQs, aufklappbare Quellen.
    ============================================================ */
+
+/* Akzent: das Brandschutz-Rot der Expertise-Übersicht (--xp-brandschutz),
+   wie bei Digitales Bauen nur funktional eingesetzt – Satzpunkt im Hero,
+   Auswahl, Leistungsachse, zweiter Rettungsweg, Handlung, Aufklapp-Marken. */
+body{--accent:var(--xp-brandschutz)}
+
+.hero__title em{font-style:normal;color:var(--accent)}
+
+/* Handlung */
+.link-arrow:hover,.link-arrow:focus-visible{color:var(--accent)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
+
+/* Auswahl: Gebäudeklasse */
+.x-node.is-on .x-node__body,.x-node.is-on:hover .x-node__body{fill:var(--accent);stroke:var(--accent)}
+.x-node.is-on .x-node__cap{fill:var(--accent)}
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+
+/* Leistungsachse und zweiter Rettungsweg */
+.x-lph__bar{background:var(--accent)}
+.x-way__path2{stroke:var(--accent);stroke-width:1.5}
+
+/* Aufklapp-Marken (FAQs, Quellen) */
+.faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
+
+/* Porträt statt Platzhalter: gleiche Position wie .ph, Name und Funktion eng untereinander. */
+@media (min-width:900px){
+  .contact-card>.bs-person{grid-column:2/span 2}
+}
+.bs-person__who>*+*{margin-top:var(--sp-1)}
+
+/* Aufzählung in einer FAQ-Antwort: Gedankenstrich wie in .prose. */
+.faq__answer ul>li{position:relative;padding-left:1.1em}
+.faq__answer ul>li::before{content:'–';position:absolute;left:0;color:var(--mute)}
+.faq__answer ul>li+li{margin-top:.35em}
+
+/* Quellen zum Aufklappen: Rubrik als Schalter mit + wie bei den FAQs, Liste bleibt im HTML lesbar. */
+.bs-sources summary{display:inline-flex;align-items:baseline;gap:var(--sp-2);cursor:pointer;list-style:none}
+.bs-sources summary::-webkit-details-marker{display:none}
+.bs-sources summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.bs-sources[open] summary::after{transform:rotate(45deg)}
+.bs-sources summary:hover{color:var(--ink)}
+.bs-sources summary:hover::after,.bs-sources[open] summary::after{color:var(--accent)}
