@@ -1,5 +1,6 @@
 /* Nachhaltigkeit: Inhalte der Lebenszyklusphasen für das Panel
-   (Interaktion: pages/expertise.js) */
+   (Interaktion: pages/expertise.js; „info“ ist optional – fehlt es,
+   bleibt die Zeile „Wichtig zu wissen“ ausgeblendet) */
 (function () {
   'use strict';
   var LZ = {
@@ -17,7 +18,8 @@
       mods: 'Transport zur Baustelle, Bau- und Montageprozess, Baustellenabfälle',
       what: 'Lkw-Transporte, Energie auf der Baustelle, Verschnitt und Verpackung',
       lever: 'Regionale Bezugsquellen, Vorfertigung im Werk, durchdachte Baustellenlogistik, Abfalltrennung vor Ort',
-      plan: 'Der Anteil an der Bilanz ist vergleichsweise klein. Vorfertigung verkürzt aber zugleich Bauzeit und Störungen im Umfeld — hier trifft Nachhaltigkeit direkt auf den Terminplan.'
+      plan: 'Der Anteil an der Bilanz ist vergleichsweise klein. Vorfertigung verkürzt aber zugleich Bauzeit und Störungen im Umfeld — hier trifft Nachhaltigkeit direkt auf den Terminplan.',
+      info: 'Diese Module werden aktuell im Rahmen der Ökobilanzierung für Zertifizierungen in den Systemen von DGNB, BNB, BiRN und QNG nicht betrachtet.'
     },
     b1: {
       name: 'Instandhaltung und Ersatz, Module B1 bis B5',
@@ -25,7 +27,8 @@
       mods: 'Nutzung, Instandhaltung, Reparatur, Ersatz, Umbau',
       what: 'Jeder Austausch von Fassade, Dach, Fenstern und Gebäudetechnik innerhalb des Betrachtungszeitraums — jedes Mal mit neuer Herstellung',
       lever: 'Langlebige Bauteile, zugängliche und trennbare Schichten, Technik ohne einbetonierte Leitungen, Grundrisse, die andere Nutzungen zulassen',
-      plan: 'Die Gebäudetechnik wird in fünfzig Jahren oft mehrfach erneuert, das Tragwerk nie. Wer beides voneinander löst, spart bei jedem Austausch — und macht aus dem nächsten Umbau keinen Abriss.'
+      plan: 'Die Gebäudetechnik wird in fünfzig Jahren oft mehrfach erneuert, das Tragwerk nie. Wer beides voneinander löst, spart bei jedem Austausch — und macht aus dem nächsten Umbau keinen Abriss.',
+      info: 'Im Rahmen der Ökobilanzierung für Zertifizierungen in den Systemen von DGNB, BNB, BiRN und QNG wird aktuell nur das Modul B4 betrachtet.'
     },
     b6: {
       name: 'Betrieb, Module B6 und B7',
@@ -33,7 +36,8 @@
       mods: 'Energiebedarf im Betrieb, Wasserverbrauch',
       what: 'Heizung, Kühlung, Lüftung, Warmwasser, Beleuchtung — und die Frage, woher die Energie kommt',
       lever: 'Kompaktheit, gute Hülle, sommerlicher Wärmeschutz ohne Technik, Tageslicht, erneuerbare Energie vor Ort — in Baden-Württemberg ohnehin mit Photovoltaikpflicht',
-      plan: 'Ab 2030 wird jeder Neubau als Nullemissionsgebäude errichtet, neue öffentliche Nichtwohngebäude schon ab 2028. Je besser der Betrieb wird, desto größer wird der Anteil der Herstellung an der Bilanz.'
+      plan: 'Ab 2030 wird jeder Neubau als Nullemissionsgebäude errichtet, neue öffentliche Nichtwohngebäude schon ab 2028. Je besser der Betrieb wird, desto größer wird der Anteil der Herstellung an der Bilanz.',
+      info: 'Im Rahmen der Ökobilanzierung für Zertifizierungen in den Systemen von DGNB, BNB, BiRN und QNG wird aktuell nur das Modul B6 betrachtet.'
     },
     c1: {
       name: 'Rückbau, Module C1 bis C4',
@@ -41,7 +45,8 @@
       mods: 'Rückbau, Transport, Abfallbehandlung, Beseitigung',
       what: 'Abbruch, Sortierung, Deponie und Verbrennung — besonders dort, wo Baustoffe verklebt oder verschäumt sind',
       lever: 'Lösbare Verbindungen, sortenreine Schichten, dokumentierte Materialien, schadstofffreie Bauprodukte',
-      plan: 'Bau- und Abbruchabfälle machen mehr als die Hälfte des Abfallaufkommens in Deutschland aus. Ob ein Gebäude dazu beiträgt, entscheidet sich im Detail — geschraubt oder geklebt.'
+      plan: 'Bau- und Abbruchabfälle machen mehr als die Hälfte des Abfallaufkommens in Deutschland aus. Ob ein Gebäude dazu beiträgt, entscheidet sich im Detail — geschraubt oder geklebt.',
+      info: 'Im Rahmen der Ökobilanzierung für Zertifizierungen in den Systemen von DGNB, BNB, BiRN und QNG werden aktuell nur die Module C3 und C4 betrachtet.'
     },
     d: {
       name: 'Wiederverwendung und Recycling, Modul D',
@@ -49,7 +54,7 @@
       mods: 'Wiederverwendung, Recycling und Energierückgewinnung jenseits der Systemgrenze',
       what: 'Keine Emissionen, sondern Potenziale: Bauteile und Materialien, die im nächsten Gebäude Primärrohstoffe ersetzen',
       lever: 'Rückbaugerechtes Konstruieren, Materialpass, Bauteile aus dem Rückbau, Planung in Modulen und Rastern',
-      plan: 'Modul D wird getrennt ausgewiesen und nicht verrechnet. Eine gute Wiederverwendbarkeit entschuldigt also keine schlechte Herstellung — sie ist ein zusätzlicher Wert.'
+      plan: 'Modul D wird aktuell in der Bilanzierung getrennt ausgewiesen und nicht verrechnet. Eine gute Wiederverwendbarkeit entschuldigt also keine schlechte Herstellung — sie ist ein zusätzlicher Wert.'
     }
   };
   Expertise.drawPanel({ root: '#lebenszyklus', data: LZ, initial: 'a1' });
