@@ -6,8 +6,41 @@
    Rahmen), angebunden über den Stamm in der Mittelfuge. Darunter
    900 px übernimmt die gestapelte Liste .gp-stack.
    Leistungsphasen ohne Angabe: .x-lph__tbd statt Balken.
+   Akzentfarbe wie auf der Brandschutzseite (Überschrift, Linien,
+   farbiges Band, hochstrasser. im Organigramm).
    Alles andere kommt aus expertise.css / site.css.
    ============================================================ */
+
+/* Akzent: das Ocker der Expertise-Übersicht (--xp-integralplanung),
+   eingesetzt wie das Rot auf der Brandschutzseite: Überschrift im Hero,
+   obere Linien der großen Listen, Band „Verantwortung“ (statt Schwarz),
+   hochstrasser. als verantwortliche Stelle im Organigramm, Leistungsachse,
+   Handlung, Aufklapp-Marken.
+   Das Ocker selbst erreicht mit Weiß nur 3,3 : 1 – genug für Linien, Flächen
+   und die große Hero-Überschrift. Für kleine Schrift und weiße Schrift auf
+   Farbe gilt die dunklere Stufe --accent-deep (5,1 : 1, wie DGNB). */
+body{--accent:var(--xp-integralplanung);--accent-deep:color-mix(in srgb, var(--xp-integralplanung) 78%, black)}
+
+.hero__title,.hero__title em{font-style:normal;color:var(--accent)}
+
+/* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
+.x-aims,.x-lph,.x-risks,.x-areas,.faq{border-top-color:var(--accent)}
+.x-panel{border-top-color:var(--accent)}
+
+/* Farbiges Band statt Schwarz: Schrift weiß, Labels und Linien heller als auf Schwarz,
+   damit sie lesbar bleiben (Labels ≥ 4,5 : 1) */
+.band--dark{background:var(--accent-deep);--on-dark-2:var(--on-dark);--on-dark-mute:rgba(255,255,255,.92);--on-dark-rule:rgba(255,255,255,.36)}
+.band--dark a.ext:hover,.band--dark a.ext:focus-visible{border-bottom-color:var(--on-dark)}
+
+/* Handlung */
+.link-arrow:hover,.link-arrow:focus-visible{color:var(--accent-deep)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
+
+/* Leistungsachse */
+.x-lph__bar{background:var(--accent)}
+
+/* Aufklapp-Marken (FAQs) */
+.faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
 
 /* Organigramm ------------------------------------------------- */
 .gp-org{display:none;width:100%;height:auto;overflow:visible}
@@ -16,6 +49,7 @@
 .gp-org__box--top{fill:var(--shade)}
 .gp-org__box--mid{fill:var(--ink)}
 .gp-org__box--ext{stroke-width:2}
+.gp-org__box--hs{fill:var(--accent-deep);stroke:var(--accent-deep)}
 .gp-org__t{font-family:var(--font-ui);font-weight:400;font-size:15px;letter-spacing:.03em;fill:var(--ink)}
 .gp-org__t.is-inv{fill:var(--paper)}
 .gp-org__name{margin-bottom:var(--sp-2)}
@@ -24,7 +58,7 @@
 .gp-stack{display:grid;gap:var(--sp-1)}
 .gp-stack__top,.gp-stack__mid{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.03em;text-align:center;padding:var(--sp-2) var(--sp-3);border:1px solid var(--ink)}
 .gp-stack__top{background:var(--shade)}
-.gp-stack__mid{background:var(--ink);color:var(--paper)}
+.gp-stack__mid{background:var(--accent-deep);border-color:var(--accent-deep);color:var(--paper)}
 .gp-stack ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-1);padding-top:var(--sp-2);border-top:1px solid var(--ink)}
 .gp-stack li{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.03em;padding:var(--sp-2);border:1px solid var(--ink)}
 .gp-stack__own li{background:var(--ink);color:var(--paper)}
