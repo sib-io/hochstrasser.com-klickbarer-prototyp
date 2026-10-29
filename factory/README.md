@@ -36,6 +36,7 @@ prototyp/
 - `url`: Pfad der Seite auf hochstrasser.com (z. B. `"faq/"`, Startseite `""`) → Canonical, Open-Graph-Tags und Eintrag in `prototyp/sitemap.xml` (wird bei jedem Build neu geschrieben). Nur für Seiten mit feststehender Live-Adresse; Varianten und `_system` bekommen keine.
 - `modified`: Datum der letzten inhaltlichen Änderung (`JJJJ-MM-TT`) → `dateModified` im Schema und `<lastmod>` in der Sitemap. Sichtbares „Stand“-Datum auf der Seite mitpflegen.
 - `schema`: `"faq"` erzeugt FAQPage-JSON-LD im `<head>` aus den Fragen der Seite (`<details id="…"><summary>…</summary><div class="faq__answer">…</div></details>`, je Frage eine Zeile). Das Schema nie von Hand pflegen – so bleibt es deckungsgleich mit dem sichtbaren Text.
+- Ergänzungen zum Schema (Fachseiten, z. B. Integralplanung): `breadcrumb` (Zwischenstufen, z. B. `[["Expertise", "expertise/"]]`), `reviewed` (fachlich geprüft am `JJJJ-MM-TT` → `lastReviewed`/`reviewedBy`), `service` (`name`, `alternateName`, `serviceType`, `areaServed` → Service-Knoten; Leistungskatalog automatisch aus den `.x-lph`-Zeilen). Einträge eines `.sources`-Blocks werden automatisch zu `citation`.
 - **Kein** `<header>`, `<footer>`, Menü, `<html>`/`<head>` in der Seitenquelle. Keine Inline-`<style>`. Seitenskript entweder als Datei (`js`) oder als `<script>` am Ende der Seitenquelle.
 - `site.js` läuft nach dem Seiteninhalt und blendet alle `.rv` ein, die beim Laden im DOM sind. Per JS erzeugte Elemente bekommen **kein** `.rv` (oder das Skript steht inline in der Seitenquelle, dann läuft es vorher).
 
