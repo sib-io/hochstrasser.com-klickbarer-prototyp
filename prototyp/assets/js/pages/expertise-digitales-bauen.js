@@ -1,5 +1,4 @@
-/* Digitales Bauen: Informationslieferkette (Interaktion: pages/expertise.js)
-   und Umschalter der Akzentfarbe in der Prototyp-Leiste. */
+/* Digitales Bauen: Informationslieferkette (Interaktion: pages/expertise.js). */
 (function () {
   'use strict';
   var FLOW = {
@@ -45,44 +44,4 @@
     }
   };
   Expertise.drawPanel({ root: '#lieferkette', data: FLOW, initial: 'aia' });
-
-  /* Akzentfarbe vergleichen (nur Prototyp) */
-  var inner = document.querySelector('.proto__in');
-  var toggle = document.getElementById('notesToggle');
-  if (!inner) return;
-  var tools = document.createElement('div');
-  tools.className = 'xdb-tools';
-  var group = document.createElement('div');
-  group.className = 'xdb-acc';
-  group.setAttribute('role', 'group');
-  group.setAttribute('aria-label', 'Akzentfarbe wählen');
-  var current = document.body.getAttribute('data-accent') || 'blau';
-  [['blau', 'Blau'], ['petrol', 'Petrol'], ['rost', 'Rost'], ['ohne', 'Ohne']].forEach(function (a) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.setAttribute('data-a', a[0]);
-    b.setAttribute('aria-pressed', String(a[0] === current));
-    b.innerHTML = '<i class="accent-sw--' + a[0] + '"></i>' + a[1];
-    b.addEventListener('click', function () {
-      document.body.setAttribute('data-accent', a[0]);
-      group.querySelectorAll('button').forEach(function (x) {
-        x.setAttribute('aria-pressed', String(x === b));
-      });
-    });
-    group.appendChild(b);
-  });
-  tools.appendChild(group);
-  if (toggle) tools.appendChild(toggle);
-  inner.appendChild(tools);
-})();
-
-/* Hero-Video: spielt einmal und bleibt auf dem Schlussbild stehen (Vorschlag
-   aus den offenen Punkten). Klick spielt erneut ab. Bei „Bewegung reduzieren“
-   startet es nicht von selbst. */
-(function () {
-  var v = document.getElementById('xdbVideo');
-  if (!v) return;
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!still) { var go = v.play(); if (go && go.catch) go.catch(function () {}); }
-  v.addEventListener('click', function () { v.currentTime = 0; v.play(); });
 })();

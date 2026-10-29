@@ -1,48 +1,47 @@
 /* ============================================================
-   Digitales Bauen – die einzige farbige Expertiseseite
-   ------------------------------------------------------------
-   Akzent nur funktional: Auswahl (Glied der Lieferkette), Rückkopplung
-   (Rücklauf im Koordinationszyklus), Bestandteil der Leistungsachse
-   (Balken) und Handlung (Schaltflächen, Verweise).
-   --wash ersetzt --shade in getönten Bändern (site.css: .band--tint).
-   Hex-Werte stehen nur in den Akzent-Deklarationen.
+   Digitales Bauen – nur Seitenspezifisches
+   Die Lieferketten-Zeichnung (viewBox 1280 × 300) und das
+   Koordinationsschema nutzen die gemeinsamen Module .x-draw /
+   .x-node / .x-ref / .x-way aus expertise.css.
+   Hier: Akzentfarbe (Überschrift, Linien, farbiges Band, Auswahl),
+   Schriftgröße im Koordinationsschema.
    ============================================================ */
-body[data-accent]{--accent:#1e4b8f;--wash:#f1f4f9}
-body[data-accent="petrol"]{--accent:#12615f;--wash:#eef5f4}
-body[data-accent="rost"]{--accent:#8c3a1c;--wash:#f8f3f0}
-body[data-accent="ohne"]{--accent:var(--ink);--wash:var(--shade)}
 
-/* Hero */
-.hero__title em{font-style:normal;color:var(--accent)}
-.xdb-anim .media{background:var(--wash);cursor:pointer}
-.xdb-anim video{width:100%;height:100%;object-fit:cover}
+/* Akzent: das Digital-Braun der Expertise-Übersicht (--xp-digital),
+   eingesetzt wie das Rot auf der Brandschutzseite: Überschrift im Hero, obere
+   Linien der großen Listen, Band „Verantwortung“ (statt Schwarz), Auswahl,
+   Leistungsachse, Rücklauf im Koordinationszyklus, Handlung, Aufklapp-Marken.
+   Das Braun selbst erreicht mit Weiß nur 3,46 : 1 – genug für Linien, Flächen
+   und die große Hero-Überschrift. Für kleine Schrift und weiße Schrift auf
+   Farbe gilt die dunklere Stufe --accent-deep (5,1 : 1, wie das Brandschutz-Rot). */
+body{--accent:var(--xp-digital);--accent-deep:color-mix(in srgb, var(--xp-digital) 80%, black)}
+
+.hero__title,.hero__title em{font-style:normal;color:var(--accent)}
+
+/* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
+.x-aims,.x-lph,.x-risks,.x-areas,.faq{border-top-color:var(--accent)}
+.x-panel{border-top-color:var(--accent)}
+
+/* Farbiges Band statt Schwarz: Schrift weiß, Labels und Linien heller als auf Schwarz,
+   damit sie lesbar bleiben (Labels ≥ 4,5 : 1) */
+.band--dark{background:var(--accent-deep);--on-dark-2:var(--on-dark);--on-dark-mute:rgba(255,255,255,.92);--on-dark-rule:rgba(255,255,255,.36)}
+.band--dark a.ext:hover,.band--dark a.ext:focus-visible{border-bottom-color:var(--on-dark)}
 
 /* Handlung */
-.link-arrow:hover{color:var(--accent)}
+.link-arrow:hover,.link-arrow:focus-visible{color:var(--accent-deep)}
 a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 
 /* Auswahl: Glied der Lieferkette */
-.x-node:hover .x-node__body{fill:var(--wash)}
 .x-node.is-on .x-node__body,.x-node.is-on:hover .x-node__body{fill:var(--accent);stroke:var(--accent)}
-.x-node.is-on .x-node__cap{fill:var(--accent)}
-.chip:hover{background:var(--wash)}
-.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.x-node.is-on .x-node__cap{fill:var(--accent-deep)}
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--accent-deep);border-color:var(--accent-deep);color:var(--paper)}
 
-/* Leistungsachse und Rückkopplung */
+/* Leistungsachse und Rücklauf im Koordinationszyklus */
 .x-lph__bar{background:var(--accent)}
 .x-way__path2{stroke:var(--accent);stroke-width:1.5}
 
-/* Fußnote zur Zeichnung */
-
-/* Prototyp-Leiste: Umschalter der Akzentfarbe (Seiten-JS) */
-.xdb-tools{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-3);align-items:center}
-.xdb-acc{display:flex;flex-wrap:wrap;gap:var(--sp-1)}
-.xdb-acc button{display:inline-flex;align-items:center;gap:var(--sp-1)}
-.xdb-acc i{display:block;width:.625rem;height:.625rem;border:1px solid var(--on-dark-2)}
-.accent-sw--blau{background:#1e4b8f}
-.accent-sw--petrol{background:#12615f}
-.accent-sw--rost{background:#8c3a1c}
-.accent-sw--ohne{background:var(--ink)}
+/* Aufklapp-Marken (FAQs) */
+.faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
 
 /* Wege-Grafik: viewBox auf den Inhalt beschnitten (füllt die Spalte s-5);
    14 px ergeben dieselbe Darstellungsgröße wie 15 px im Brandschutz-Schema

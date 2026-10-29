@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="assets/css/pages/expertise.css">
 <link rel="stylesheet" href="assets/css/pages/expertise-digitales-bauen.css">
 </head>
-<body data-accent="blau">
+<body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 <div class="proto">
   <div class="wrap proto__in">
-    <span class="t-label">Prototyp Expertiseseite · Digitales Bauen · Farbvariante</span>
+    <span class="t-label">Prototyp Expertiseseite · Digitales Bauen</span>
     <button id="notesToggle" aria-pressed="false">Offene Punkte einblenden</button>
   </div>
 </div>
@@ -44,35 +44,8 @@
 <main id="inhalt">
 <!-- 01 Claim -->
   <section class="wrap hero">
-    <div class="grid grid--center">
-      <div class="s-6">
-        <h1 class="t-h1 hero__title">Jedes Gebäude entsteht zweimal<em>.</em></h1>
-        <p class="t-lead t-mute hero__sub">Einmal als digitales Modell, einmal auf der Baustelle. Damit aus dem einen das andere werden kann, braucht es die richtigen Informationen zur richtigen Zeit und klare Verantwortlichkeiten. Genau das koordinieren wir.</p>
-      </div>
-      <figure class="s-5 o-8 xdb-anim">
-        <div class="media media--1x1">
-          <video id="xdbVideo" src="assets/videos/projekt-detail-video.mp4" muted playsinline preload="auto" aria-label="Animation: aus einem Raster entsteht ein Geschossmodell, eine Kollision zwischen Träger und Leitung wird erkannt und umgeplant, daraus werden Aufgaben, Kennzahlen und ein Bauablauf"></video>
-        </div>
-        <figcaption class="t-label caption">Vom Raster zum Modell, von der Kollision zur Aufgabe — die Methode in zehn Sekunden</figcaption>
-      </figure>
-    </div>
-
-    <div class="note">
-      <b>Animation im Hero — drei Dinge zu klären</b>
-      <ul>
-        <li>Die Animation liegt als eigene Datei daneben (BIM_Animation.html) und wird über einen iframe eingebunden. Beide Dateien müssen im selben Verzeichnis liegen, sonst bleibt das Feld leer. Für die Produktion würde ich sie als MP4 oder WebM exportieren lassen: Die gebündelte Fassung wiegt rund 1,2 MB und lädt React mit, ein Video wäre ein Bruchteil davon.</li>
-        <li>Die Animation läuft in Endlosschleife. Wer die Seite liest, hat dauerhaft Bewegung im Augenwinkel — auf einer textlastigen Fachseite ist das ein echter Nachteil. Vorschlag: einmal abspielen und auf dem Schlussbild stehen bleiben, oder erst starten, wenn das Feld im Sichtfeld ist.</li>
-        <li>„Bewegung reduzieren“ in den Systemeinstellungen kann die Seite dem iframe nicht aufzwingen. Beim Video-Export ließe sich das sauber lösen: Standbild statt Schleife für alle, die diese Einstellung gesetzt haben.</li>
-      </ul>
-    </div>
-    <div class="note">
-      <b>Akzentfarbe der Animation angleichen</b>
-      Die Animation bringt ihr eigenes Blau mit (#2f5bff), die Seite verwendet ein ruhigeres #1e4b8f. Nebeneinander sieht man den Unterschied. Das Quellartefakt hat die Akzentfarbe als einstellbaren Parameter — bitte einmal auf den Seitenwert ziehen lassen, dann greifen Animation und Seite ineinander. Auch der Hintergrund der Animation (#f3f4f6) sollte auf den Grundton der Bänder gesetzt werden.
-    </div>
-    <div class="note">
-      <b>Zweiter Entwurf: Farbe</b>
-      Diese Fassung ist der Farbvorschlag, die erste Datei bleibt der schwarz-weiße Stand. Die Farbe wird hier nicht dekorativ eingesetzt, sondern nur an vier Stellen, an denen sie etwas bedeutet: das ausgewählte Glied der Lieferkette, der Rücklauf im Koordinationszyklus, die Balken der Leistungsachse und jede Handlung (Schaltflächen, externe Verweise). Dazu bekommen die getönten Bänder statt Neutralgrau einen minimal eingefärbten Grundton. Gedacht ist das als System, nicht als Einzelfall — jede Expertiseseite bekommt eine eigene Farbe derselben Helligkeit, der Brandschutz zum Beispiel Rost. In der Prototyp-Leiste oben lassen sich drei Varianten und der Zustand ohne Farbe direkt vergleichen.
-    </div>
+    <h1 class="t-h1 hero__title">Jedes Gebäude entsteht zweimal<em>.</em></h1>
+    <p class="t-lead t-mute hero__sub">Einmal als digitales Modell, einmal auf der Baustelle. Damit aus dem einen das andere werden kann, braucht es die richtigen Informationen zur richtigen Zeit und klare Verantwortlichkeiten. Genau das koordinieren wir.</p>
   </section>
 
   <!-- 02 Vier Fragen -->

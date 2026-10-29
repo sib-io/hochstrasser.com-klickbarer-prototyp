@@ -32,7 +32,7 @@ prototyp/
 ```
 - `nav`: `projekte` | `expertise` | `profil` | `buero` | `null` → setzt den aktiven Menüpunkt.
 - `proto`: nur setzen, wenn der Ausgangstext eine Prototyp-Leiste mit „offene Punkte einblenden“ hat. Die `.note`-Hinweise bleiben 1:1 erhalten (Markup `<div class="note"><b>Titel</b> Text</div>`), der Schalter kommt aus dem Build. Die Leiste ist im Prototyp verborgen und erscheint mit Alt+Shift+P (gilt für die Sitzung im Tab, `site.js`).
-- `body`: zusätzliche Attribute für `<body>` (nur Digitales Bauen: Akzentfarbe).
+- `body`: zusätzliche Attribute für `<body>` (derzeit ungenutzt).
 - `url`: Pfad der Seite auf hochstrasser.com (z. B. `"faq/"`, Startseite `""`) → Canonical, Open-Graph-Tags und Eintrag in `prototyp/sitemap.xml` (wird bei jedem Build neu geschrieben). Nur für Seiten mit feststehender Live-Adresse; Varianten und `_system` bekommen keine.
 - `modified`: Datum der letzten inhaltlichen Änderung (`JJJJ-MM-TT`) → `dateModified` im Schema und `<lastmod>` in der Sitemap. Sichtbares „Stand“-Datum auf der Seite mitpflegen.
 - `schema`: `"faq"` erzeugt FAQPage-JSON-LD im `<head>` aus den Fragen der Seite (`<details id="…"><summary>…</summary><div class="faq__answer">…</div></details>`, je Frage eine Zeile). Das Schema nie von Hand pflegen – so bleibt es deckungsgleich mit dem sichtbaren Text.
@@ -107,7 +107,7 @@ Bevorzugte Aufteilungen: **6 | 1 frei | 5** (`s-6` + `s-5 o-8`), **4 | 1 frei | 
 
 Semantik (h1/h2/h3) und Optik (Klasse) sind getrennt: genau ein `<h1>` pro Seite.
 
-**Farbe.** Nur Tokens: `--ink`, `--ink-2`, `--mute`, `--rule`, `--rule-tint`, `--shade`, `--paper`, `--on-dark*`, auf Digitales Bauen zusätzlich `--accent`/`--wash`. Keine neuen Grauwerte.
+**Farbe.** Nur Tokens: `--ink`, `--ink-2`, `--mute`, `--rule`, `--rule-tint`, `--shade`, `--paper`, `--on-dark*`, auf Expertise-Unterseiten zusätzlich `--accent` (aus `--xp-*`, im Seiten-CSS gesetzt). Keine neuen Grauwerte.
 
 **Komponenten aus `site.css` (wiederverwenden statt nachbauen):**
 `.hero` (+ `__title`, `__sub`, `__foot`), `.sec-head` (+ `__title`, `__aside`), `.band`, `.band--s`, `.band--tint`, `.band--dark`, `.rule-top`, `.link-arrow` (+ `--back`), `.btn-row`, `a.ext`, `.rows` (+ `--compact`, `--marked`, `.rows__row`), `.facts` (dl), `.tags`/`.tag`, `.chip`, `.quote` (Zitat im Split: `__img`, `__field`, `__pill`, `__text`, `__foot`, `__who`, `__ctx`, `__link`), `.ph` (Bild-/Porträtplatzhalter), `.media` (+ `--16x9` …), `.tiles`/`.tile` (+ `__cap`, `__title`, `__year`, `__star`), `.contact-card` (+ `__body`), `.faq` (details/summary + `.faq__answer`), `.sources`, `.note`, `.rv`, `.stack`, `.sr-only`.
