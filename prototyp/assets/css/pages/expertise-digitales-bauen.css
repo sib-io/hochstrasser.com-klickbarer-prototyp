@@ -4,7 +4,7 @@
    Koordinationsschema nutzen die gemeinsamen Module .x-draw /
    .x-node / .x-ref / .x-way aus expertise.css.
    Hier: Akzentfarbe (Überschrift, Linien, farbiges Band, Auswahl),
-   Schriftgröße im Koordinationsschema.
+   Schriftgröße im Koordinationsschema, aufklappbare Quellen.
    ============================================================ */
 
 /* Akzent: das Digital-Braun der Expertise-Übersicht (--xp-digital),
@@ -40,10 +40,21 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .x-lph__bar{background:var(--accent)}
 .x-way__path2{stroke:var(--accent);stroke-width:1.5}
 
-/* Aufklapp-Marken (FAQs) */
+/* Aufklapp-Marken (FAQs, Quellen) */
 .faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
+
+/* FAQs in vier Gruppen: Kopf in eigener Zeile, Gruppen darunter (Gruppentitel .o-1) */
+.xdb-faq-head{margin-bottom:var(--sp-4)}
 
 /* Wege-Grafik: viewBox auf den Inhalt beschnitten (füllt die Spalte s-5);
    14 px ergeben dieselbe Darstellungsgröße wie 15 px im Brandschutz-Schema
    und „Termin und Menge“ bleibt im Rahmen */
 .xdb-way .x-way__t{font-size:14px}
+
+/* Quellen zum Aufklappen: Rubrik als Schalter mit + wie bei den FAQs, Liste bleibt im HTML lesbar. */
+.xdb-sources summary{display:inline-flex;align-items:baseline;gap:var(--sp-2);cursor:pointer;list-style:none}
+.xdb-sources summary::-webkit-details-marker{display:none}
+.xdb-sources summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.xdb-sources[open] summary::after{transform:rotate(45deg)}
+.xdb-sources summary:hover{color:var(--ink)}
+.xdb-sources summary:hover::after,.xdb-sources[open] summary::after{color:var(--accent)}
