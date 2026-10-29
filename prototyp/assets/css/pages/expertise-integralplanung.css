@@ -1,8 +1,11 @@
 /* ============================================================
    Integralplanung – nur Seitenspezifisches
-   Organigramm (viewBox 1280 × 340, 1 Einheit = 1 px am Desktop):
-   sieben Disziplinen à 170 breit, 15 Abstand. Darunter 900 px
-   übernimmt die gestapelte Liste .gp-stack.
+   Organigramm (viewBox 1280 × 476, 1 Einheit = 1 px am Desktop,
+   auf dem 12-Spalten-Raster): sechs eigene Disziplinen à 2 Spalten
+   (schwarz), darunter vier externe Partner à 3 Spalten (weiß mit
+   Rahmen), angebunden über den Stamm in der Mittelfuge. Darunter
+   900 px übernimmt die gestapelte Liste .gp-stack.
+   Leistungsphasen ohne Angabe: .x-lph__tbd statt Balken.
    Alles andere kommt aus expertise.css / site.css.
    ============================================================ */
 
@@ -12,6 +15,7 @@
 .gp-org__box{fill:var(--paper);stroke:var(--ink);stroke-width:1}
 .gp-org__box--top{fill:var(--shade)}
 .gp-org__box--mid{fill:var(--ink)}
+.gp-org__box--ext{stroke-width:2}
 .gp-org__t{font-family:var(--font-ui);font-weight:400;font-size:15px;letter-spacing:.03em;fill:var(--ink)}
 .gp-org__t.is-inv{fill:var(--paper)}
 .gp-org__name{margin-bottom:var(--sp-2)}
@@ -23,6 +27,11 @@
 .gp-stack__mid{background:var(--ink);color:var(--paper)}
 .gp-stack ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-1);padding-top:var(--sp-2);border-top:1px solid var(--ink)}
 .gp-stack li{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.03em;padding:var(--sp-2);border:1px solid var(--ink)}
+.gp-stack__own li{background:var(--ink);color:var(--paper)}
+.gp-stack__ext li{border-width:2px}
+
+/* Leistungsphase noch offen ----------------------------------- */
+.x-lph__tbd{position:absolute;left:var(--sp-1);top:50%;transform:translateY(-50%)}
 .gp-stack .t-label{margin-top:var(--sp-1)}
 
 @media (min-width:900px){
