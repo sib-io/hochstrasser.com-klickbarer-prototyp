@@ -14,6 +14,12 @@ Optional für Suchmaschinen und KI-Suche:
   "modified": "JJJJ-MM-TT"  letzte inhaltliche Änderung → dateModified, <lastmod>
   "schema": "faq"        FAQPage als JSON-LD, erzeugt aus den <details id> der Seite
                          (Frage = <summary>, Antwort = .faq__answer) – nie von Hand pflegen
+  Ergänzungen zum Schema (nur mit "schema"):
+  "breadcrumb": [["Expertise", "expertise/"]]  Zwischenstufen der BreadcrumbList
+  "reviewed": "JJJJ-MM-TT"  fachlich geprüft → lastReviewed, reviewedBy
+  "service": {"name": …, "alternateName": […], "serviceType": …, "areaServed": […]}
+                         Leistung als Service; Katalog aus den .x-lph-Zeilen der Seite
+  Steht ein .sources-Block auf der Seite, werden seine Einträge zu citation.
 
 Header, Menü, Footer, Kopf und Skripte kommen ausschließlich aus
 factory/partials – dadurch ist die Navigation auf allen Seiten identisch.
@@ -66,6 +72,37 @@ def plain(fragment):
     return re.sub(r'\s+', ' ', htmllib.unescape(re.sub(r'<[^>]+>', '', fragment))).strip()
 
 
+def citations(body):
+    """Einträge des .sources-Blocks als CreativeWork – verlinkte einzeln, unverlinkte mit Namen."""
+    m = re.search(r'<div class="sources">(.*?)</ul>', body, re.S)
+    out = []
+    for li in re.findall(r'<li>(.*?)</li>', m.group(1), re.S) if m else []:
+        links = re.findall(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', li, re.S)
+        out += ([{'@type': 'CreativeWork', 'name': plain(t), 'url': htmllib.unescape(h)} for h, t in links]
+                or [{'@type': 'CreativeWork', 'name': plain(li)}])
+    return out
+
+
+def service(meta, body, url):
+    """Leistung der Fachseite; der Katalog kommt aus den sichtbaren .x-lph-Zeilen (Name + Beschreibung)."""
+    s = meta['service']
+    node = {'@type': 'Service', '@id': url + '#leistung', 'name': s['name'], 'url': url,
+            'description': meta.get('description', ''), 'provider': {'@id': ORG['@id']}}
+    for k in ('alternateName', 'serviceType'):
+        if s.get(k):
+            node[k] = s[k]
+    if s.get('areaServed'):
+        node['areaServed'] = [{'@type': 'Country' if a == 'Deutschland' else 'AdministrativeArea', 'name': a}
+                              for a in s['areaServed']]
+    rows = re.findall(r'<span class="t-h4 x-lph__name">(.*?)</span>\s*'
+                      r'<span class="x-lph__what t-mute">(.*?)</span>', body, re.S)
+    if rows:
+        node['hasOfferCatalog'] = {'@type': 'OfferCatalog', 'name': f"{s['name']}: Leistungen", 'itemListElement': [
+            {'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': plain(n), 'description': plain(d)}}
+            for n, d in rows]}
+    return node
+
+
 def faq_schema(src, meta, body, title):
     """FAQPage aus den sichtbaren Fragen – Schema und Seite bleiben deckungsgleich."""
     url = SITE + meta['url']
@@ -84,13 +121,22 @@ def faq_schema(src, meta, body, title):
     }
     if meta.get('modified'):
         page['dateModified'] = meta['modified']
+    if meta.get('reviewed'):
+        page['lastReviewed'] = meta['reviewed']
+        page['reviewedBy'] = {'@id': ORG['@id']}
+    cites = citations(body)
+    if cites:
+        page['citation'] = cites
+    crumbs = [('Startseite', SITE)] + [(n, SITE + u) for n, u in meta.get('breadcrumb', [])] + [(meta['title'], url)]
     graph = [ORG,
              {'@type': 'WebSite', '@id': SITE + '#website', 'url': SITE, 'name': 'hochstrasser.',
               'inLanguage': 'de-DE', 'publisher': {'@id': ORG['@id']}},
              page,
              {'@type': 'BreadcrumbList', '@id': url + '#breadcrumb', 'itemListElement': [
-                 {'@type': 'ListItem', 'position': 1, 'name': 'Startseite', 'item': SITE},
-                 {'@type': 'ListItem', 'position': 2, 'name': meta['title'], 'item': url}]}]
+                 {'@type': 'ListItem', 'position': i, 'name': n, 'item': u} for i, (n, u) in enumerate(crumbs, 1)]}]
+    if meta.get('service'):
+        graph.append(service(meta, body, url))
+        page['about'] = {'@id': url + '#leistung'}
     ld = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, indent=1)
     return '\n<script type="application/ld+json">\n' + ld.replace('</', '<\\/') + '\n</script>'
 
