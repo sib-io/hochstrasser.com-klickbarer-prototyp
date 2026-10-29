@@ -2,7 +2,8 @@
    Brandschutz – nur Seitenspezifisches
    Die Gebäudeklassen-Zeichnung (viewBox 1280 × 300) nutzt die
    gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css.
-   Hier: Porträt mit Namen in der Kontaktkarte, Aufzählung in den FAQs.
+   Hier: Porträt mit Namen in der Kontaktkarte, Aufzählung in den FAQs,
+   aufklappbare Quellen.
    ============================================================ */
 
 /* Porträt statt Platzhalter: gleiche Position wie .ph, Name und Funktion eng untereinander. */
@@ -15,3 +16,10 @@
 .faq__answer ul>li{position:relative;padding-left:1.1em}
 .faq__answer ul>li::before{content:'–';position:absolute;left:0;color:var(--mute)}
 .faq__answer ul>li+li{margin-top:.35em}
+
+/* Quellen zum Aufklappen: Rubrik als Schalter mit + wie bei den FAQs, Liste bleibt im HTML lesbar. */
+.bs-sources summary{display:inline-flex;align-items:baseline;gap:var(--sp-2);cursor:pointer;list-style:none}
+.bs-sources summary::-webkit-details-marker{display:none}
+.bs-sources summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.bs-sources[open] summary::after{transform:rotate(45deg)}
+.bs-sources summary:hover,.bs-sources summary:hover::after{color:var(--ink)}
