@@ -39,7 +39,7 @@
   --rule:#e4e5e7;           /* feine Trennlinie auf Weiß */
   --rule-tint:rgba(22,22,22,.14); /* Trennlinie auf getöntem Grund */
   --shade:#f2f2f2;          /* getönte Bänder, Bildplatzhalter */
-  --accent:var(--ink);      /* nur Digitales Bauen überschreibt */
+  --accent:var(--ink);      /* Expertise-Unterseiten überschreiben (Farbe der Übersicht, --xp-*) */
   --wash:var(--shade);
   /* auf dunklem Grund */
   --on-dark:#ffffff;
