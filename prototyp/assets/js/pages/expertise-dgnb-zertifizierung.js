@@ -7,7 +7,7 @@
       name: 'DGNB Bronze',
       claim: 'Nur für bestehende Gebäude.',
       size: 'Ab 35 %',
-      parts: 'Kein Mindesterfüllungsgrad je Themenfeld',
+      parts: 'Kein Mindesterfüllungsgrad je Themenfeld und Erfüllung der Mindestanforderungen',
       way: 'Gebäude im Betrieb und Bestandsbewertungen — im Neubau wird Bronze nicht vergeben',
       plan: 'Ein ehrlicher erster Befund für Bestandshalter. Er zeigt, wo Sanierung und Betrieb am meisten bewirken, und ist oft der Ausgangspunkt für eine Modernisierung.'
     },
@@ -15,17 +15,17 @@
       name: 'DGNB Silber',
       claim: 'Die solide Grundlage.',
       size: 'Ab 50 %',
-      parts: 'Ab 35 % in jedem der Themenfelder',
+      parts: 'Ab 35 % in jedem der Themenfelder und Erfüllung der Mindestanforderungen',
       way: 'Projekte, die Nachhaltigkeit gegenüber Mietern, Banken oder der öffentlichen Hand belegen müssen',
-      plan: 'Mit sauberer Planung und lückenloser Dokumentation gut erreichbar. Entscheidend ist, dass kein Themenfeld abfällt — eine schwache Prozessqualität lässt sich nicht mit guter Gebäudetechnik ausgleichen.'
+      plan: 'Mit sauberer Planung und lückenloser Dokumentation gut erreichbar. Entscheidend ist, dass kein Einzelthemenfeld abfällt — eine schwache Prozessqualität lässt sich nicht mit guter Gebäudetechnik ausgleichen.'
     },
     gold: {
       name: 'DGNB Gold',
       claim: 'Der Maßstab für anspruchsvolle Projekte.',
       size: 'Ab 65 %',
-      parts: 'Ab 50 % in jedem der Themenfelder',
+      parts: 'Ab 50 % in jedem der Themenfelder und Erfüllung der Mindestanforderungen',
       way: 'Büro-, Bildungs- und Wohnungsbau mit langfristigen Eigentümern und institutionellen Investoren',
-      plan: 'Erreichbar, wenn Nachhaltigkeit ab der Vorplanung mitläuft: Ökobilanz im Variantenvergleich, schadstoffarme Ausschreibung, Qualitätssicherung auf der Baustelle. Nachträglich wird es teuer.'
+      plan: 'Erreichbar, wenn Nachhaltigkeit ab der Vorplanung mitläuft: Ökobilanz im Variantenvergleich, schadstoffarme Ausschreibung, Qualitätssicherung auf der Baustelle. Nachträgliche Implementierung ist aufwändig.'
     },
     platin: {
       name: 'DGNB Platin',
