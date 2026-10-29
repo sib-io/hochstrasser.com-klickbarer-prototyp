@@ -76,7 +76,7 @@
       desc: 'Verleihung der Hugo-Häring-Auszeichnung 2023 für das Strohballenatelier von Dorothea Schrade (Foto: Conné van d’Grachten).' },
     { img: 'assets/img/news/haus-mk.jpg', alt: 'Sanierung Privat-Haus MK', href: 'projekt-haus-mk.html',
       kind: 'Fertigstellung', year: '2023', title: 'Fertigstellung Sanierung und Umbau Haus MK',
-      desc: 'Das denkmalgeschützte Einfamilienhaus mit Einliegerwohnung von uns energetisch saniert und umgebaut.' },
+      desc: 'Das denkmalgeschützte Einfamilienhaus mit Einliegerwohnung wurde von uns energetisch saniert und umgebaut.' },
     { img: 'assets/img/news/strohballenatelier.jpg', alt: 'Strohballenatelier hochstrasser Architekten',
       kind: 'Fertigstellung', year: '2022', title: 'Fertigstellung Strohballenatelier',
       desc: 'Ein Atelier aus Strohballen, alten Fenstern und Naturmaterialien. Das Ergebnis: Teamwork und eine Hugo-Häring-Auszeichnung 2023.' }
