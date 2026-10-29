@@ -24,7 +24,8 @@ body{--accent:var(--xp-integralplanung);--accent-deep:color-mix(in srgb, var(--x
 
 /* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
 .x-aims,.x-lph,.x-risks,.x-areas,.faq{border-top-color:var(--accent)}
-.x-panel{border-top-color:var(--accent)}
+/* Panel unter dem Organigramm ohne eigene Trennlinie – Abstand bleibt */
+.x-panel{border-top:0;padding-top:0}
 
 /* Farbiges Band statt Schwarz: Schrift weiß, Labels und Linien heller als auf Schwarz,
    damit sie lesbar bleiben (Labels ≥ 4,5 : 1) */
