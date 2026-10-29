@@ -3,9 +3,48 @@
    Die Auszeichnungsstufen-Zeichnung (viewBox 1280 × 320) nutzt die
    gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css;
    Knoten à drei Spalten (297,5 + 30 Gutter).
-   Hier: gestrichelte Mindestlinie, Fußnote, Gruppenköpfe,
+   Hier: Akzentfarbe (Überschrift, Linien, farbiges Band, Auswahl),
+   gestrichelte Mindestlinie, Fußnote, Gruppenköpfe,
    Qualifikation im Team, Porträt im Kontakt.
    ============================================================ */
+
+/* Akzent: das Zertifizierungs-Orange der Expertise-Übersicht (--xp-zertifizierung),
+   eingesetzt wie das Rot auf der Brandschutzseite: Überschrift im Hero, obere
+   Linien der großen Listen, Band „Haltung“ (statt Schwarz), Auswahl,
+   Leistungsachse, Aufwand einer Änderung, Handlung, Aufklapp-Marken.
+   Das Orange selbst erreicht mit Weiß nur 3,75 : 1 – genug für Linien, Flächen
+   und die große Hero-Überschrift. Für kleine Schrift und weiße Schrift auf
+   Farbe gilt die dunklere Stufe --accent-deep (5,1 : 1, wie das Brandschutz-Rot). */
+body{--accent:var(--xp-zertifizierung);--accent-deep:color-mix(in srgb, var(--xp-zertifizierung) 84%, black)}
+
+.hero__title,.hero__title em{font-style:normal;color:var(--accent)}
+
+/* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
+.x-aims,.x-lph,.x-risks,.x-areas,.faq{border-top-color:var(--accent)}
+.x-panel{border-top-color:var(--accent)}
+
+/* Farbiges Band statt Schwarz: Schrift weiß, Labels und Linien heller als auf Schwarz,
+   damit sie lesbar bleiben (Labels ≥ 4,5 : 1) */
+.band--dark{background:var(--accent-deep);--on-dark-2:var(--on-dark);--on-dark-mute:rgba(255,255,255,.92);--on-dark-rule:rgba(255,255,255,.36)}
+.band--dark a.ext:hover,.band--dark a.ext:focus-visible{border-bottom-color:var(--on-dark)}
+
+/* Handlung */
+.link-arrow:hover,.link-arrow:focus-visible{color:var(--accent-deep)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
+
+/* Auswahl: Auszeichnungsstufe */
+.x-node.is-on .x-node__body,.x-node.is-on:hover .x-node__body{fill:var(--accent);stroke:var(--accent)}
+.x-node.is-on .x-node__cap{fill:var(--accent-deep)}
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--accent-deep);border-color:var(--accent-deep);color:var(--paper)}
+
+/* Leistungsachse und Aufwand einer Änderung */
+.x-lph__bar{background:var(--accent)}
+.x-way__path2{stroke:var(--accent);stroke-width:1.5}
+
+/* Aufklapp-Marken (FAQs) */
+.faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
+
+/* Auszeichnungsstufen */
 .x-node__floor.dg-min{stroke:var(--mute);stroke-dasharray:4 4}
 .x-node.is-on .x-node__floor.dg-min{stroke:var(--paper);opacity:.6}
 .dg-note{display:none}
