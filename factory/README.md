@@ -56,7 +56,7 @@ prototyp/
 | Nachhaltigkeit | 08 | `expertise-nachhaltigkeit` |
 | Bauphysik | 09 | `expertise-bauphysik` |
 | Integralplanung (Ausgangstext: Generalplanung) | 10 | `expertise-integralplanung` |
-| DGNB / Zertifizierung | 11 | `expertise-dgnb-zertifizierung` |
+| DGNB / Zertifizierung | 11 | `expertise-zertifizierungen` |
 | Digitales Bauen | 13b | `expertise-digitales-bauen` |
 | Architektur | 14 | `expertise-architektur` |
 | Kontakt | 24 | `kontakt` |
