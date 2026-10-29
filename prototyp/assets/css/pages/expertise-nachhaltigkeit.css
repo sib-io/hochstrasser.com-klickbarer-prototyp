@@ -6,7 +6,7 @@
    Das Balkenschema nutzt .x-way aus expertise.css.
    Hier: Akzentfarbe (Überschrift, Linien, grünes Band, Auswahl),
    Systemgrenze, Balken, Kernbereich-Piktogramme, Panel-Zusatzzeile,
-   Ansprechpartnerin.
+   Ansprechpartnerin, aufklappbare Quellen.
    ============================================================ */
 
 /* Akzent: das Nachhaltigkeits-Grün der Expertise-Übersicht (--xp-nachhaltigkeit),
@@ -73,5 +73,11 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 @media (min-width:900px){
   .contact-card>.nh-person{grid-column:2/span 2}
 }
-/* Langer Mail-Link: darf im Handyformat umbrechen statt die Seite zu verbreitern */
-.nh-mail{white-space:normal}
+
+/* Quellen zum Aufklappen: Rubrik als Schalter mit + wie bei den FAQs, Liste bleibt im HTML lesbar. */
+.nh-sources summary{display:inline-flex;align-items:baseline;gap:var(--sp-2);cursor:pointer;list-style:none}
+.nh-sources summary::-webkit-details-marker{display:none}
+.nh-sources summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.nh-sources[open] summary::after{transform:rotate(45deg)}
+.nh-sources summary:hover{color:var(--ink)}
+.nh-sources summary:hover::after,.nh-sources[open] summary::after{color:var(--accent)}
