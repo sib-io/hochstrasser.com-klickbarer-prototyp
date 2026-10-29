@@ -9,6 +9,8 @@
      .x-draw         enthält .x-node[data-k]  (role=button, tabindex=0)
      .x-chips        enthält button.chip[data-k]
      .x-panel        enthält Felder mit [data-f="<feld>"]
+                     Zeilen mit [data-opt] werden ausgeblendet, wenn
+                     die gewählte Variante das Feld nicht hat
    data:    { <k>: { <feld>: 'Text', … }, … }
    initial: Schlüssel der zu Beginn gewählten Variante
    Script erst nach dem Markup einbinden (am Seitenende).
@@ -33,6 +35,8 @@
       panel.querySelectorAll('[data-f]').forEach(function (el) {
         var f = el.getAttribute('data-f');
         if (d[f] !== undefined) el.textContent = d[f];
+        var opt = el.closest('[data-opt]');
+        if (opt) opt.hidden = d[f] === undefined;
       });
     }
     function mark(key) {
