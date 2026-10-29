@@ -4,9 +4,43 @@
    gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css;
    Knoten sitzen auf dem 12er-Raster (Spalten 1–2 | 3 | 4–6 | 7–9 | 10–11 | 12).
    Das Balkenschema nutzt .x-way aus expertise.css.
-   Hier: Systemgrenze, Balken, Kernbereich-Piktogramme, Panel-Zusatzzeile,
+   Hier: Akzentfarbe (Überschrift, Linien, grünes Band, Auswahl),
+   Systemgrenze, Balken, Kernbereich-Piktogramme, Panel-Zusatzzeile,
    Ansprechpartnerin.
    ============================================================ */
+
+/* Akzent: das Nachhaltigkeits-Grün der Expertise-Übersicht (--xp-nachhaltigkeit),
+   eingesetzt wie das Rot auf der Brandschutzseite: Überschrift im Hero, obere
+   Linien der großen Listen, Band „Haltung“ (statt Schwarz), Auswahl,
+   Leistungsachse, Handlung, Aufklapp-Marken, Wege in den Piktogrammen.
+   Das Grün erreicht mit Weiß 5,1 : 1 – reicht auch für weiße Schrift auf Farbe. */
+body{--accent:var(--xp-nachhaltigkeit)}
+
+.hero__title,.hero__title em{font-style:normal;color:var(--accent)}
+
+/* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
+.x-aims,.x-lph,.x-risks,.faq{border-top-color:var(--accent)}
+.x-panel{border-top-color:var(--accent)}
+
+/* Grünes Band statt Schwarz: Schrift weiß, Labels und Linien heller als auf Schwarz,
+   damit sie auf dem Grün lesbar bleiben (Labels ≥ 4,5 : 1) */
+.band--dark{background:var(--accent);--on-dark-2:var(--on-dark);--on-dark-mute:rgba(255,255,255,.92);--on-dark-rule:rgba(255,255,255,.36)}
+.band--dark a.ext:hover,.band--dark a.ext:focus-visible{border-bottom-color:var(--on-dark)}
+
+/* Handlung */
+.link-arrow:hover,.link-arrow:focus-visible{color:var(--accent)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
+
+/* Auswahl: Lebenszyklusphase */
+.x-node.is-on .x-node__body,.x-node.is-on:hover .x-node__body{fill:var(--accent);stroke:var(--accent)}
+.x-node.is-on .x-node__cap{fill:var(--accent)}
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+
+/* Leistungsachse */
+.x-lph__bar{background:var(--accent)}
+
+/* Aufklapp-Marken (FAQs) */
+.faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
 
 /* Systemgrenze der Bilanz (gestrichelter Rahmen um A bis C) */
 .nh-sys{fill:none;stroke:var(--mute);stroke-width:1;stroke-dasharray:4 5;opacity:.75}
@@ -22,7 +56,9 @@
 .nh-pic{width:100%;max-width:12rem;height:auto;overflow:visible}
 .nh-pic__l{fill:none;stroke:var(--ink);stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
 .nh-pic__t{fill:none;stroke:var(--rule-tint);stroke-width:1;stroke-linecap:round}
-.nh-pic__d{stroke-dasharray:3 4}
+/* gestrichelte Wege (Kreislauf, Sonne, Regenwasser) samt Pfeilspitze im Akzent, wie der zweite Rettungsweg bei Brandschutz */
+.nh-pic__d{stroke:var(--accent);stroke-dasharray:3 4}
+.nh-pic__a{stroke:var(--accent)}
 
 
 /* Lebenszyklus-Panel: optionale Zeile „Wichtig zu wissen“ (nicht bei jeder Phase) */
