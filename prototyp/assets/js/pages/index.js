@@ -17,7 +17,8 @@
     { t: 'Kita Illerblick', y: 2009, aw: 0, img: 'assets/img/kita-illerblick/01_2_squared.jpg' },
     { t: 'Z4 Science Park 3', y: 2021, aw: 0, img: 'assets/img/z4-science-park-3/736_square-Fassase-Ecke-1.jpg' },
     { t: 'Infopunkt Citybahnhof', y: 2005, aw: 0, img: 'assets/img/infopunkt-citybahnhof/01_2_squared-3_500x500_acf_cropped.jpg' },
-    { t: 'Kriegsspital Neu-Ulm', y: 2024, aw: 0 }
+    { t: 'Kriegsspital Neu-Ulm', y: 2024, aw: 0 },
+    { t: 'Wohnbebauung Neu-Ulm', y: 2024, aw: 0 }
   ];
 
 
