@@ -63,11 +63,13 @@ prototyp/
 | Jobs | 25 | `jobs` |
 | Publikationen | 26 | entfällt – Liste auf `buero` (`buero.html#publikationen`) |
 | FAQs | Word-Datei hochstrasser_FAQs (Strukturbaum 26) | `faq` |
+| Impressum | Live-Seite hochstrasser.com/impressum (sachlich geprüft) | `impressum` |
+| Datenschutz | Live-Seite hochstrasser.com/datenschutz + Betriebskonzept (Hetzner, GoatCounter, OpenFreeMap) | `datenschutz` |
 
 - Links auf diese Seiten immer als `slug.html` (ggf. mit Anker). Profil-Anker: `profil.html#n-integral`, `#n-wirtschaft`, `#n-nachhaltigkeit`, `#n-bestand`, `#n-verantwortung`, Leitbild `#werte`.
 - Umbenannte Seiten: alter Slug → neuer Slug in `REDIRECTS` (`build.py`); der Build legt unter dem alten Namen eine Weiterleitungsseite an.
 - „Zurück zu unseren Expertisen“ → `expertise.html`. Projektkacheln/-links → eigene Detailseite, falls vorhanden (Zuordnung Titel → Seite/Kachelbild in `assets/js/projektseiten.js`, erzeugt aus `projekte.json`), sonst → `projekt-flz-neuer-bau-ulm.html` (Beispielseite). „Alle Projekte“ → `projekte.html`. Kontakt/„Nachricht schreiben“ intern → `kontakt.html` (bzw. `mailto:` wo im Ausgangstext).
-- Ziele ohne Seite (Barrierefreiheit, Impressum, Datenschutz, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
+- Ziele ohne Seite (Barrierefreiheit, BDA-Berufung, Leistungsphasen, Integralplanung, Bauen im Bestand, Film, Einzel-Auszeichnungen …) → `href="#"`.
 - Externe Links bleiben, wie sie sind (`target="_blank" rel="noopener"`).
 
 ## Bilder
@@ -115,7 +117,7 @@ Semantik (h1/h2/h3) und Optik (Klasse) sind getrennt: genau ein `<h1>` pro Seite
 Links und Buttons immer als `.link-arrow` (unterstrichen, keine umrandeten Kästchen). Pfeile: `<span aria-hidden="true">→</span>`.
 Referenzbeispiele: `factory/pages/_system.html` (gebaut: `prototyp/_system.html`).
 
-**Seiten-CSS** (`assets/css/pages/<slug>.css`, Expertise-Unterseiten teilen `pages/expertise.css`, alle Projektseiten `pages/projekt.css`): nur Dinge, die es in `site.css` nicht gibt (interaktive Zeichnungen, besondere Module). Klassen mit Seitenpräfix oder Modulnamen. `python3 factory/check.py lint` muss sauber sein.
+**Seiten-CSS** (`assets/css/pages/<slug>.css`, Expertise-Unterseiten teilen `pages/expertise.css`, alle Projektseiten `pages/projekt.css`, Impressum und Datenschutz `pages/rechtliches.css`): nur Dinge, die es in `site.css` nicht gibt (interaktive Zeichnungen, besondere Module). Klassen mit Seitenpräfix oder Modulnamen. `python3 factory/check.py lint` muss sauber sein.
 
 **Interaktionen** des Ausgangstexts (Filter, Zeichnungen mit Auswahl, Slider, Akkordeons, Hover-Namen …) bleiben funktional erhalten.
 
