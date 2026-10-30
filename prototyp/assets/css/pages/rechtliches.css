@@ -1,0 +1,7 @@
+/* Impressum und Datenschutz: Kopf links (s-4), Text rechts (s-7 o-6).
+   Gestapelt rückt der Text an seinen Kopf, der Abstand zwischen den Abschnitten bleibt. */
+
+@media (max-width:899px){
+  .recht>.grid{row-gap:var(--sp-2)}
+  .recht>.grid>h2:not(:first-child){margin-top:var(--sp-4)}
+}
