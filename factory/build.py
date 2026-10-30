@@ -47,9 +47,6 @@ NAV = [  # Reihenfolge der Hauptnavigation
     ('profil', 'profil.html', 'Profil'),
     ('buero', 'buero.html', 'Büro'),
 ]
-FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
-         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">')
 
 
 def esc(s):
@@ -179,7 +176,6 @@ def build(src):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(meta.get('description', ''))}">{seo}
-{FONTS}
 <link rel="stylesheet" href="assets/css/site.css">{css}
 </head>
 <body{body_attr}>
