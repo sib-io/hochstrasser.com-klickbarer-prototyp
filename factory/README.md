@@ -18,7 +18,7 @@ prototyp/
   assets/js/site.js      ← Menü, .rv-Einblenden, Hinweis-Schalter (nur Orchestrator)
   assets/js/pages/*.js   ← seitenspezifisches JS (Builder)
   assets/img/…           ← alle Bilder lokal (keine Hotlinks, kein base64)
-  assets/fonts/          ← PX Grotesk woff2
+  assets/fonts/          ← PX Grotesk und Carlito woff2 (lokal, keine Google Fonts)
 ```
 
 ## Seitenquelle
