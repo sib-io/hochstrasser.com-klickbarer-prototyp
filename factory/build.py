@@ -35,7 +35,7 @@ REDIRECTS = {'expertise-dgnb-zertifizierung': 'expertise-zertifizierungen'}  # a
 SITE = 'https://hochstrasser.com/'  # Live-Domain: Canonical, JSON-LD, sitemap.xml
 ORG = {
     '@type': 'Organization', '@id': SITE + '#organization',
-    'name': 'hochstrasser. Gesellschaft für Architektur mbH', 'alternateName': 'hochstrasser.',
+    'name': 'hochstrasser. gmbh', 'alternateName': 'hochstrasser.',
     'url': SITE, 'telephone': '+49 731 935110', 'email': 'info@hochstrasser.com',
     'address': {'@type': 'PostalAddress', 'streetAddress': 'Karpfengasse 5',
                 'postalCode': '89073', 'addressLocality': 'Ulm', 'addressCountry': 'DE'},
