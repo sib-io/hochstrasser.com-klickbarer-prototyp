@@ -7,7 +7,7 @@
       name: 'DGNB Bronze',
       claim: 'Nur für bestehende Gebäude.',
       size: 'Ab 35 %',
-      parts: 'Kein Mindesterfüllungsgrad je Themenfeld und Erfüllung der Mindestanforderungen',
+      parts: 'Kein Mindesterfüllungsgrad je Themenfeld, jedoch Erfüllung der Mindestanforderungen',
       way: 'Gebäude im Betrieb und Bestandsbewertungen — im Neubau wird Bronze nicht vergeben',
       plan: 'Ein ehrlicher erster Befund für Bestandshalter. Er zeigt, wo Sanierung und Betrieb am meisten bewirken, und ist oft der Ausgangspunkt für eine Modernisierung.'
     },
