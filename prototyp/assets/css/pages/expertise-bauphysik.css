@@ -1,8 +1,8 @@
 /* ============================================================
    Bauphysik – nur Seitenspezifisches
-   Die Wandaufbauten-Zeichnung (viewBox 1280 × 324) nutzt die
+   Die Wandaufbauten-Zeichnung (viewBox 1280 × 356) nutzt die
    gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css;
-   fünf Schnitte auf dem 12er-Raster (Spalten 1–2, 3–4, … 9–10),
+   fünf Schnitte in gleich breiten Feldern über die volle Breite,
    alle im gleichen Maßstab. Das Sommer-Schema nutzt .x-way.
    Hier: Akzentfarbe (Überschrift, Linien, farbiges Band, Auswahl),
    Schraffuren und Schichten der Schnitte, Speichermasse,
@@ -22,7 +22,9 @@ body{--accent:var(--xp-bauphysik);--accent-deep:color-mix(in srgb, var(--xp-baup
 
 /* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
 .x-aims,.x-lph,.x-risks,.x-areas,.faq{border-top-color:var(--accent)}
-.x-panel{border-top-color:var(--accent)}
+/* Wandaufbauten-Panel: keine eigene Linie, dafür die Oberkante der Kennwerte im Akzent */
+.x-panel{border-top:0;padding-top:0}
+.x-panel .facts{border-top-color:var(--accent)}
 
 /* Farbiges Band statt Schwarz: Schrift weiß, Labels und Linien heller als auf Schwarz,
    damit sie lesbar bleiben (Labels ≥ 4,5 : 1) */
