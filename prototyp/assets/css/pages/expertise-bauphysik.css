@@ -72,7 +72,8 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
    Bezeichnung (PX Grotesk, Label) */
 .x-areas__body .facts>div,.x-panel .facts>div{grid-template-columns:minmax(0,1fr);row-gap:var(--sp-1)}
 .x-areas__body .facts dd,.x-panel .facts dd{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;line-height:1.5}
-.x-areas__body .facts dd .link-arrow{font-size:inherit;letter-spacing:inherit}
+/* Link im Kennwert: eigene Zeile unter dem Wert, mit Abstand */
+.x-areas__body .facts dd .link-arrow{display:table;margin-top:var(--sp-2);font-size:inherit;letter-spacing:inherit}
 
 /* Porträt statt Platzhalter: gleiche Position wie .ph, Name und Qualifikation darunter. */
 .bp-person{margin:0}
