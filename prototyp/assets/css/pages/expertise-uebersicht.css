@@ -8,7 +8,7 @@
 .xp-gw__lines{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
 .xp-gw__lines i{grid-column:span 3}
 .xp-gw__lines i:nth-child(n+5){display:none}
-.xp-gw__rows{position:relative;border-top:1px solid var(--ink);font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h2);line-height:1.18;letter-spacing:-.032em}
+.xp-gw__rows{position:relative;border-top:1px solid var(--rule-tint);font-family:var(--font-ui);font-weight:700;font-size:var(--fs-h2);line-height:1.18;letter-spacing:-.032em}
 .xp-gw__lines{position:absolute;inset:0;pointer-events:none}
 .xp-gw__lines i{position:relative;display:block}
 .xp-gw__lines i:not(:first-child)::before{content:'';position:absolute;top:0;bottom:0;left:calc(var(--gutter) / -2);border-left:1px solid var(--rule)}
