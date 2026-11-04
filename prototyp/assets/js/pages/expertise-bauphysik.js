@@ -8,16 +8,16 @@
       claim: 'Eine Schicht, die alles kann — ein bisschen.',
       u: 'U-Wert etwa 0,16 bis 0,20 W/(m²·K) bei 42,5 cm und einer Wärmeleitfähigkeit von 0,07 bis 0,08 W/(m·K)',
       m: 'Mittel — die Porosierung, die dämmt, senkt zugleich Rohdichte und Speicherfähigkeit',
-      f: 'Unkritisch: kapillaraktiv, diffusionsoffen, ohne Schichtwechsel, an dem Tauwasser anfällt',
-      s: 'Die Schwachstelle des Aufbaus — bei Außenlärm oder leichten Innenwänden früh prüfen statt spät verglasen',
-      l: 'Energieintensive Herstellung, dafür sortenrein und ohne Verbundstoffe rückbaubar',
-      p: 'Die ehrlichste Wand: eine Schicht, eine Laibung, ein Anschlussdetail. Der Preis ist die Konstruktionstiefe — rund 50 cm, die im Grundriss fehlen, und eine Laibung, die das Fassadenbild bestimmt.'
+      f: 'Diffusionsoffen mit Austrocknungspotenzial — bei abgestimmten Putzen, Beschichtungen und fachgerecht ausgeführten Anschlüssen',
+      s: 'Ziegel, Fenster und Anschlüsse wirken zusammen — den Schallschutz früh auf Nutzung und Lärmbelastung abstimmen',
+      l: 'Energieintensive Herstellung, dafür teilweise sortenrein und ohne Verbundstoffe rückbaubar',
+      p: 'Eine Schicht, eine Laibung, ein Anschlussdetail. Der Preis ist die Konstruktionstiefe — rund 45 cm, die im Grundriss fehlen, und eine Laibung, die das Fassadenbild bestimmt.'
     },
     aw2: {
       name: '02 Wärmedämmverbundsystem',
-      claim: 'Die dünnste Hülle, der schwierigste Rückbau.',
-      u: 'U-Wert etwa 0,14 bis 0,20 W/(m²·K) bei 16 bis 20 cm Dämmung auf einer tragenden Massivschale',
-      m: 'Hoch — die Speichermasse liegt innen, wo sie im Sommer arbeitet',
+      claim: 'Die Mischung der Materialien, der schwierigste Rückbau.',
+      u: 'U-Wert etwa 0,14 bis 0,24 W/(m²·K) bei 16 bis 20 cm Dämmung auf einer tragenden Massivschale',
+      m: 'Hoch — die Speichermasse liegt, sofern KS/Beton, innen, wo sie im Sommer arbeitet',
       f: 'Schichtabhängig: außen dampfbremsend (Polystyrol) oder diffusionsoffen (Mineralwolle, Holzfaser) — die Entscheidung fällt mit dem Innenklima, nicht mit dem Preis',
       s: 'Gut durch die schwere Schale; das Dämmsystem selbst wirkt als Masse-Feder-Masse-System und kann einzelne Frequenzen verschlechtern',
       l: 'Verbund aus Kleber, Dämmstoff, Gewebe und Putz — schwer trennbar. Der Entsorgungspfad ist heute das Hauptargument gegen das System',
@@ -31,13 +31,13 @@
       f: 'Sehr robust: Schlagregen wird vor der Dämmebene abgeführt, die Luftschicht trocknet rück — der Aufbau mit der größten Fehlertoleranz',
       s: 'Der beste Wert der fünf — zwei massive Schalen, konstruktiv entkoppelt',
       l: 'Hoher Materialeinsatz, dafür Nutzungsdauern jenseits von achtzig Jahren. Auf das Jahr gerechnet oft besser als die dünnere Variante',
-      p: 'Sichtbares Mauerwerk ist eine Entwurfshaltung, keine Bekleidung. Es verlangt früh entschiedene Fugenbilder, Stürze, Sockel und Dehnfugen — und 50 bis 55 cm Wandstärke im Grundriss.'
+      p: 'Sichtbares Massivbauwerk ist eine Entwurfshaltung, keine Bekleidung. Es verlangt früh entschiedene Fugenbilder, Stürze, Sockel und Dehnfugen — und 50 bis 55 cm Wandstärke im Grundriss.'
     },
     aw4: {
       name: '04 Holzrahmenbau',
       claim: 'Leicht, schnell, empfindlich an vier Stellen.',
-      u: 'U-Wert etwa 0,13 bis 0,18 W/(m²·K) bei 24 cm Gefachdämmung und dämmender Beplankung',
-      m: 'Gering — für den Sommer die Kernfrage. Schwere Dämmstoffe und massive Innenbauteile gleichen einen Teil aus',
+      u: 'U-Wert etwa 0,13 bis 0,22 W/(m²·K) bei 16–24 cm Gefachdämmung und dämmender Beplankung',
+      m: 'Gering — für den Sommer die Kernfrage. Massive Innenbauteile gleichen einen Teil aus',
       f: 'Der Nachweis, der wirklich gerechnet gehört: instationär statt mit dem vereinfachten Verfahren, inklusive Baufeuchte und Witterung während der Montage',
       s: 'Flankenübertragung und Trittschall entscheiden, nicht das Trennbauteil — der Nachweis ist deutlich aufwendiger als im Massivbau',
       l: 'Der beste Wert der fünf in der Herstellungsphase, mit im Bauteil gebundenem Kohlenstoff',
@@ -46,9 +46,9 @@
     aw5: {
       name: '05 Innendämmung im Bestand',
       claim: 'Der Fall, in dem die Norm nicht mehr weiterhilft.',
-      u: 'U-Wert etwa 0,30 bis 0,50 W/(m²·K) — begrenzt, und das ist beabsichtigt',
+      u: 'U-Wert etwa 0,30 bis 0,65 W/(m²·K) — begrenzt, und das ist beabsichtigt',
       m: 'Die Speichermasse liegt jetzt außerhalb der Dämmebene und steht dem Raum nicht mehr zur Verfügung',
-      f: 'Kritisch: Schlagregenschutz der Fassade, kapillaraktive Systeme, Anschlüsse und Balkenköpfe — jeder dieser Punkte kann den Aufbau kippen',
+      f: 'Kritisch: Schlagregenschutz der Fassade (weiterhin gewährleistet, sofern erhalten), kapillaraktive Systeme, Anschlüsse und Balkenköpfe — jeder dieser Punkte kann den Aufbau kippen',
       s: 'Unverändert gegenüber dem Bestand; Vorsatzschalen verbessern ihn, kosten aber wieder Raumtiefe',
       l: 'Wenig neues Material, erhaltene Substanz — im Lebenszyklus meist die günstigste Variante',
       p: 'Die einzige Lösung, wenn die Fassade bleiben muss. Sie wird nicht über die Dämmstärke optimiert, sondern über das Feuchteverhalten: lieber sechs Zentimeter kapillaraktiv und sicher als zwölf und ein Schaden hinter dem Balkenkopf.'

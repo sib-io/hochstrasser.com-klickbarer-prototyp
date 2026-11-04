@@ -4,9 +4,44 @@
    gemeinsamen Module .x-draw / .x-node / .x-ref aus expertise.css;
    fünf Schnitte auf dem 12er-Raster (Spalten 1–2, 3–4, … 9–10),
    alle im gleichen Maßstab. Das Sommer-Schema nutzt .x-way.
-   Hier: Schraffuren und Schichten der Schnitte, Speichermasse,
-   Feinheiten im getönten Band.
+   Hier: Akzentfarbe (Überschrift, Linien, farbiges Band, Auswahl),
+   Schraffuren und Schichten der Schnitte, Speichermasse,
+   Porträt im Kontakt, aufklappbare Quellen.
    ============================================================ */
+
+/* Akzent: das Bauphysik-Petrol der Expertise-Übersicht (--xp-bauphysik),
+   eingesetzt wie das Rot auf der Brandschutzseite: Überschrift im Hero, obere
+   Linien der großen Listen, Band „Verantwortung“ (statt Schwarz), Auswahl,
+   Leistungsachse, Wintersonne im Sommer-Schema, Handlung, Aufklapp-Marken.
+   Das Petrol selbst erreicht mit Weiß nur 3,8 : 1 – genug für Linien, Flächen
+   und die große Hero-Überschrift. Für kleine Schrift und weiße Schrift auf
+   Farbe gilt die dunklere Stufe --accent-deep (5,1 : 1, wie das Brandschutz-Rot). */
+body{--accent:var(--xp-bauphysik);--accent-deep:color-mix(in srgb, var(--xp-bauphysik) 84%, black)}
+
+.hero__title,.hero__title em{font-style:normal;color:var(--accent)}
+
+/* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
+.x-aims,.x-lph,.x-risks,.x-areas,.faq{border-top-color:var(--accent)}
+.x-panel{border-top-color:var(--accent)}
+
+/* Farbiges Band statt Schwarz: Schrift weiß, Labels und Linien heller als auf Schwarz,
+   damit sie lesbar bleiben (Labels ≥ 4,5 : 1) */
+.band--dark{background:var(--accent-deep);--on-dark-2:var(--on-dark);--on-dark-mute:rgba(255,255,255,.92);--on-dark-rule:rgba(255,255,255,.36)}
+.band--dark a.ext:hover,.band--dark a.ext:focus-visible{border-bottom-color:var(--on-dark)}
+
+/* Handlung */
+.link-arrow:hover,.link-arrow:focus-visible{color:var(--accent-deep)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
+
+/* Auswahl: Wandaufbau */
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--accent-deep);border-color:var(--accent-deep);color:var(--paper)}
+
+/* Leistungsachse und Wintersonne im Sommer-Schema */
+.x-lph__bar{background:var(--accent)}
+.x-way__path2{stroke:var(--accent);stroke-width:1.5}
+
+/* Aufklapp-Marken (FAQs, Quellen) */
+.faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
 
 /* Schnitt: Schichten, Schraffuren, Rahmen */
 .aw-hatch{stroke:var(--ink);stroke-width:.8;opacity:.55}
@@ -17,7 +52,9 @@
 .aw-mark{fill:none;stroke:var(--ink);stroke-width:1;transition:fill .3s var(--ease)}
 .aw-no{font-family:var(--font-ui);font-weight:400;font-size:18px;letter-spacing:.02em;fill:var(--ink)}
 .x-node:hover .aw-frame,.x-node:focus-visible .aw-frame,.x-node.is-on .aw-frame{stroke-width:2}
-.x-node.is-on .aw-mark{fill:var(--ink)}
+.x-node.is-on .aw-frame{stroke:var(--accent)}
+.x-node.is-on .aw-mark{fill:var(--accent);stroke:var(--accent)}
+.x-node.is-on .x-node__cap,.x-node.is-on .aw-no{fill:var(--accent-deep)}
 
 /* Sommer-Schema: Speichermasse in Decke und Boden */
 .bp-mass{fill:var(--ink);opacity:.12}
@@ -25,10 +62,26 @@
 /* zweites Label in der schmalen Spalte (Energieplanung) */
 .stack>.bp-sub{margin-top:var(--sp-5)}
 
-/* Bereiche auf getöntem Band: feine Tönungslinie */
-
 /* Creed: zweites Aussage-Textpaar mit mehr Luft */
 @media (min-width:900px){.bp-creed__next{margin-top:var(--sp-5)}}
 
 /* Kennwert-Zeile im Bereichstext: keine doppelte Schlusslinie */
 .x-areas__body .facts>div:last-child{border-bottom:0}
+
+/* Porträt statt Platzhalter: gleiche Position wie .ph, Name und Qualifikation darunter. */
+.bp-person{margin:0}
+.bp-person figcaption{margin-top:var(--sp-2)}
+.bp-person__name,.bp-person__role{display:block}
+.bp-person__name{font-family:var(--font-ui);font-size:var(--fs-ui);line-height:1.3;color:var(--ink)}
+.bp-person__role{margin-top:var(--sp-1);font-size:var(--fs-small);line-height:1.45;color:var(--mute)}
+@media (min-width:900px){
+  .contact-card>.bp-person{grid-column:2/span 2}
+}
+
+/* Quellen zum Aufklappen: Rubrik als Schalter mit + wie bei den FAQs, Liste bleibt im HTML lesbar. */
+.bp-sources summary{display:inline-flex;align-items:baseline;gap:var(--sp-2);cursor:pointer;list-style:none}
+.bp-sources summary::-webkit-details-marker{display:none}
+.bp-sources summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.bp-sources[open] summary::after{transform:rotate(45deg)}
+.bp-sources summary:hover{color:var(--ink)}
+.bp-sources summary:hover::after,.bp-sources[open] summary::after{color:var(--accent)}
