@@ -67,10 +67,11 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 
 /* Kennwert-Zeile im Bereichstext: keine doppelte Schlusslinie */
 .x-areas__body .facts>div:last-child{border-bottom:0}
-/* Kennwert-Zeile im Bereichstext: Wert auf allen Breiten unter der Bezeichnung
-   statt eingerückt daneben, in Schrift und Größe der Bezeichnung (PX Grotesk, Label) */
-.x-areas__body .facts>div{grid-template-columns:minmax(0,1fr);row-gap:var(--sp-1)}
-.x-areas__body .facts dd{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;line-height:1.5}
+/* Kennwert-Zeilen (Bereichstexte und Wandaufbauten-Panel): Wert auf allen Breiten
+   unter der Bezeichnung statt eingerückt daneben, in Schrift und Größe der
+   Bezeichnung (PX Grotesk, Label) */
+.x-areas__body .facts>div,.x-panel .facts>div{grid-template-columns:minmax(0,1fr);row-gap:var(--sp-1)}
+.x-areas__body .facts dd,.x-panel .facts dd{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;line-height:1.5}
 .x-areas__body .facts dd .link-arrow{font-size:inherit;letter-spacing:inherit}
 
 /* Porträt statt Platzhalter: gleiche Position wie .ph, Name und Qualifikation darunter. */
