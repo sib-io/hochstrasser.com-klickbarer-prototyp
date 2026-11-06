@@ -9,8 +9,7 @@
    6  Bänder / Sektionen
    7  Header, Menü, Footer
    8  Komponenten
-   9  Prototyp-Leiste und offene Punkte
-   10 Bewegung
+   9  Bewegung
    Regel: Seiten-CSS nutzt ausschließlich diese Tokens.
    ============================================================ */
 
@@ -492,24 +491,7 @@ a.ext,a.ext-in{-webkit-text-stroke:.01em currentColor}
 .sources ul{display:grid;gap:var(--sp-1);margin-top:var(--sp-3);max-width:82ch}
 .sources li{color:var(--mute);font-size:var(--fs-small);line-height:1.55}
 
-/* 9 Prototyp-Leiste und offene Punkte -------------------------
-   Die Leiste ist verborgen und erscheint mit Alt+Shift+P (site.js).
-   Redaktionelle Hinweise (.note) sind standardmäßig verborgen und
-   werden über die Leiste eingeblendet. */
-.proto{display:none;background:var(--ink);color:var(--on-dark-2)}
-body.show-proto .proto{display:block}
-.proto__in{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-3);align-items:center;justify-content:space-between;min-height:2.75rem;padding-block:var(--sp-1)}
-.proto .t-label{color:var(--on-dark-mute)}
-.proto button{font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.04em;border:1px solid var(--on-dark-rule);padding:.3rem .8rem;transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
-.proto button:hover{border-color:var(--on-dark)}
-.proto button[aria-pressed="true"]{background:var(--on-dark);color:var(--ink);border-color:var(--on-dark)}
-.note{display:none}
-body.show-notes .note{display:block;margin-top:var(--sp-3);padding:var(--sp-3);border:1px dashed var(--mute);color:var(--mute);font-size:var(--fs-small);max-width:66ch;grid-column:1/-1}
-body.show-notes .note b{display:block;margin-bottom:var(--sp-1);font-family:var(--font-ui);font-weight:400;font-size:var(--fs-label);letter-spacing:.04em;color:var(--ink)}
-.band--dark .note{border-color:var(--on-dark-mute)!important;color:var(--on-dark-mute)!important}
-.band--dark .note b{color:var(--on-dark)!important}
-
-/* 10 Bewegung ------------------------------------------------- */
+/* 9 Bewegung -------------------------------------------------- */
 .rv{opacity:0;transform:translateY(14px)}
 .rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
 @media (prefers-reduced-motion:reduce){
