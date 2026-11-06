@@ -26,7 +26,9 @@ body{--accent:var(--xp-architektur)}
 
 /* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
 .x-lph,.x-risks,.x-areas,.faq,.arch-triad,.arch-p0__gate{border-top-color:var(--accent)}
-.x-panel{border-top-color:var(--accent)}
+/* Leistungsphasen-Panel: keine eigene Linie, dafür die Oberkante der Angaben im Akzent */
+.x-panel{border-top:0;padding-top:0}
+.x-panel .facts{border-top-color:var(--accent)}
 
 /* Farbiges Band statt Schwarz: Labels und Linien heller als auf Schwarz */
 .band--dark{background:var(--accent);--on-dark-2:var(--on-dark);--on-dark-mute:rgba(255,255,255,.88);--on-dark-rule:rgba(255,255,255,.32)}
@@ -103,8 +105,8 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .band--tint .x-node.is-on .arch-open,.band--tint .x-node.is-on:hover .arch-open{fill:var(--accent)}
 
 /* Leistungsphase 0 */
-.arch-p0__why{margin-top:var(--sp-6);align-items:start}
-.arch-p0__rail{margin-top:var(--sp-6)}
+.arch-p0__why{margin-top:var(--sp-7);align-items:start}
+.arch-p0__rail{margin-top:var(--sp-7)}
 .arch-p0__out{display:grid;gap:2px;max-width:none;padding-top:var(--sp-2);border-top:1px solid var(--rule);color:var(--ink-2)}
 .arch-p0__gate{margin-top:var(--sp-6);padding-block:var(--sp-4);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
 .arch-p0__gate .t-label{max-width:none}
@@ -112,9 +114,8 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .arch-list{margin-top:var(--sp-2);border-top:1px solid var(--ink)}
 .arch-list>li{padding-block:var(--sp-2);border-bottom:1px solid var(--rule)}
 
-/* FAQ in 4 | 1 | 7 */
-.arch-faq{margin-top:var(--sp-5);align-items:start}
-.arch-faq a.ext-in{border-bottom:1px solid var(--rule-tint)}
+/* FAQ: interner Link in der Antwort */
+.faq a.ext-in{border-bottom:1px solid var(--rule-tint)}
 
 /* Leistungszeilen: Leitsatz der Beschreibung, Zusatz am Namen, Link */
 .arch-lph__lead{font-weight:400;color:var(--ink)}
