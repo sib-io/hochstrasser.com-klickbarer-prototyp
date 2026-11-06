@@ -10,7 +10,7 @@
    .arch-p0__*     Leistungsphase 0 (Ergebnis, Abschluss, Mitbringen)
    .arch-list      einfache Linienliste
    .arch-terms     Begriffe des heutigen Bauens (tauchen nacheinander auf)
-   .arch-quotes    zwei weitere Zitate unter der Zitat-Kette
+   .arch-cite      weitere Zitate in eigenen Bändern (Aicher, Alexander)
    .arch-keys      Stichworte im Band „Bauen im Bestand“
    .arch-person    Porträt im Kontakt  ·  .arch-sources  Quellen aufklappbar
    ============================================================ */
@@ -50,7 +50,8 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .arch-triad>div{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--sp-1);padding-block:var(--sp-3);border-bottom:1px solid var(--rule);align-items:baseline}
 .arch-triad dt,.arch-triad dd{grid-column:1/-1}
 .arch-triad dd{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-1)}
-.arch-triad>div+div dd{color:var(--mute)}
+/* Zeile „Heute dazu“ im Akzent */
+.arch-triad>div+div dt,.arch-triad>div+div dd{color:var(--accent)}
 .arch-triad dd>span{color:inherit}
 @media (min-width:600px){
   .arch-triad dd{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gutter)}
@@ -133,18 +134,17 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
   .rv.in .arch-terms>li{transition:none}
 }
 
-/* Weitere Zitate unter der Kette (4 | 1 | 7) */
-.arch-quotes{margin-top:var(--sp-6);row-gap:var(--sp-5);align-items:start}
-.arch-quote{margin:0;padding-top:var(--sp-3);border-top:1px solid var(--on-dark-rule)}
-.arch-quote blockquote{margin:0;color:var(--on-dark)}
-.arch-quote figcaption{margin-top:var(--sp-2);color:var(--on-dark-mute)}
+/* Weitere Zitate in eigenen Bändern, Stil wie die Zitat-Kette (ohne Einrückung) */
+.arch-cite{position:relative;margin:0;font-family:var(--font-ui);font-weight:300;font-size:var(--fs-display);line-height:1.05;letter-spacing:-.025em;color:var(--on-dark)}
+.arch-cite>p{max-width:none}
+.arch-cite>p+p{margin-top:.2em}
+.arch-cite--long{font-size:var(--fs-h1);line-height:1.15;letter-spacing:-.015em}
+@media (min-width:900px){.arch-cite--long>p{max-width:24em}}
 
 /* Stichworte im Band „Bauen im Bestand“ */
 .arch-keys{display:flex;flex-wrap:wrap;gap:var(--sp-1)}
 .arch-keys>li{border:1px solid var(--on-dark-rule);padding:.3rem .75rem;font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.02em;line-height:1.4;color:var(--on-dark)}
 
-/* Tradition: Jahreszahlen als Marke */
-.arch-years{margin-top:var(--sp-6)}
 
 /* Ansprechpartnerin im Kontaktkasten: Porträt mit Name und Funktion */
 .arch-person{margin:0}
