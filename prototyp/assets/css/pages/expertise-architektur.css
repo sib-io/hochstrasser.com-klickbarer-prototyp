@@ -7,9 +7,43 @@
                    Wort; Ausrichtung: expertise-architektur.js)
    .arch-hit / .arch-no / .arch-pct / .arch-open / .arch-curve
                    Ergänzungen zur Balkenzeichnung (Modul 7)
-   .arch-p0__*     Leistungsphase 0 (Ergebnis, Freigabe, Mitbringen)
+   .arch-p0__*     Leistungsphase 0 (Ergebnis, Abschluss, Mitbringen)
    .arch-list      einfache Linienliste
+   .arch-terms     Begriffe des heutigen Bauens (tauchen nacheinander auf)
+   .arch-quotes    zwei weitere Zitate unter der Zitat-Kette
+   .arch-keys      Stichworte im Band „Bauen im Bestand“
+   .arch-person    Porträt im Kontakt  ·  .arch-sources  Quellen aufklappbar
    ============================================================ */
+
+/* Akzent: das Architektur-Blau der Expertise-Übersicht (--xp-architektur),
+   eingesetzt wie das Grün auf der Nachhaltigkeitsseite: Überschrift im Hero,
+   obere Linien der großen Listen, farbige Bänder (statt Schwarz), Auswahl,
+   Leistungsachse, Handlung, Aufklapp-Marken.
+   Das Blau erreicht mit Weiß rund 11 : 1 – reicht für jede Schrift auf Farbe. */
+body{--accent:var(--xp-architektur)}
+
+.hero__title,.hero__title em{font-style:normal;color:var(--accent)}
+
+/* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
+.x-lph,.x-risks,.x-areas,.faq,.arch-triad,.arch-p0__gate{border-top-color:var(--accent)}
+.x-panel{border-top-color:var(--accent)}
+
+/* Farbiges Band statt Schwarz: Labels und Linien heller als auf Schwarz */
+.band--dark{background:var(--accent);--on-dark-2:var(--on-dark);--on-dark-mute:rgba(255,255,255,.88);--on-dark-rule:rgba(255,255,255,.32)}
+.band--dark a.ext:hover,.band--dark a.ext:focus-visible{border-bottom-color:var(--on-dark)}
+
+/* Handlung */
+.link-arrow:hover,.link-arrow:focus-visible{color:var(--accent)}
+a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
+
+/* Auswahl: Leistungsphase */
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+
+/* Leistungsachse */
+.x-lph__bar{background:var(--accent)}
+
+/* Aufklapp-Marken (FAQs) */
+.faq summary:hover::after,.faq details[open] summary::after{color:var(--accent)}
 
 /* Dreiklang */
 .arch-triad{margin-top:var(--sp-6);border-top:1px solid var(--ink)}
@@ -61,16 +95,18 @@
 .arch-curve__t{pointer-events:none}
 .band--tint .x-node__body{fill:var(--paper)}
 .band--tint .x-node:hover .x-node__body{fill:var(--rule)}
-.band--tint .x-node.is-on .x-node__body,.band--tint .x-node.is-on:hover .x-node__body{fill:var(--ink)}
+.band--tint .x-node.is-on .x-node__body,.band--tint .x-node.is-on:hover .x-node__body{fill:var(--accent);stroke:var(--accent)}
+.x-node.is-on .x-node__cap,.x-node.is-on .arch-no{fill:var(--accent)}
 .band--tint .arch-open{fill:none}
 .band--tint .x-node:hover .arch-open{fill:var(--rule)}
-.band--tint .x-node.is-on .arch-open,.band--tint .x-node.is-on:hover .arch-open{fill:var(--ink)}
+.band--tint .x-node.is-on .arch-open,.band--tint .x-node.is-on:hover .arch-open{fill:var(--accent)}
 
 /* Leistungsphase 0 */
 .arch-p0__why{margin-top:var(--sp-6);align-items:start}
 .arch-p0__rail{margin-top:var(--sp-6)}
 .arch-p0__out{display:grid;gap:2px;max-width:none;padding-top:var(--sp-2);border-top:1px solid var(--rule);color:var(--ink-2)}
 .arch-p0__gate{margin-top:var(--sp-6);padding-block:var(--sp-4);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.arch-p0__gate .t-label{max-width:none}
 .arch-p0__hand{margin-top:var(--sp-6)}
 .arch-list{margin-top:var(--sp-2);border-top:1px solid var(--ink)}
 .arch-list>li{padding-block:var(--sp-2);border-bottom:1px solid var(--rule)}
@@ -78,3 +114,52 @@
 /* FAQ in 4 | 1 | 7 */
 .arch-faq{margin-top:var(--sp-5);align-items:start}
 .arch-faq a.ext-in{border-bottom:1px solid var(--rule-tint)}
+
+/* Leistungszeilen: Leitsatz der Beschreibung, Zusatz am Namen, Link */
+.arch-lph__lead{font-weight:400;color:var(--ink)}
+.arch-lph__add{font-size:var(--fs-small);letter-spacing:0;color:var(--mute)}
+.arch-lph__more{display:table;margin-top:var(--sp-2)}
+
+/* Begriffe des heutigen Bauens: lose gesetzt in drei Größen, tauchen
+   nacheinander auf, sobald die Sektion eingeblendet wird (.rv.in, site.js).
+   Verzögerung je Begriff: --i aus expertise-architektur.js. */
+.arch-terms{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--sp-3);row-gap:var(--sp-2);padding-top:var(--sp-3);border-top:1px solid var(--accent);font-family:var(--font-ui);font-weight:300;font-size:var(--fs-h4);line-height:1.2;letter-spacing:-.005em;color:var(--ink-2)}
+.arch-terms>li{opacity:0;transform:translateY(6px)}
+.arch-terms>.arch-terms__l{font-size:var(--fs-h3);color:var(--accent)}
+.arch-terms>.arch-terms__s{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-label);letter-spacing:.04em;color:var(--mute)}
+.rv.in .arch-terms>li{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:calc(.25s + var(--i, 0) * 70ms)}
+@media (prefers-reduced-motion:reduce){
+  .arch-terms>li{opacity:1;transform:none}
+  .rv.in .arch-terms>li{transition:none}
+}
+
+/* Weitere Zitate unter der Kette (4 | 1 | 7) */
+.arch-quotes{margin-top:var(--sp-6);row-gap:var(--sp-5);align-items:start}
+.arch-quote{margin:0;padding-top:var(--sp-3);border-top:1px solid var(--on-dark-rule)}
+.arch-quote blockquote{margin:0;color:var(--on-dark)}
+.arch-quote figcaption{margin-top:var(--sp-2);color:var(--on-dark-mute)}
+
+/* Stichworte im Band „Bauen im Bestand“ */
+.arch-keys{display:flex;flex-wrap:wrap;gap:var(--sp-1)}
+.arch-keys>li{border:1px solid var(--on-dark-rule);padding:.3rem .75rem;font-family:var(--font-ui);font-size:var(--fs-label);letter-spacing:.02em;line-height:1.4;color:var(--on-dark)}
+
+/* Tradition: Jahreszahlen als Marke */
+.arch-years{margin-top:var(--sp-6)}
+
+/* Ansprechpartnerin im Kontaktkasten: Porträt mit Name und Funktion */
+.arch-person{margin:0}
+.arch-person figcaption{margin-top:var(--sp-2)}
+.arch-person__name,.arch-person__role{display:block}
+.arch-person__name{font-family:var(--font-ui);font-size:var(--fs-ui);line-height:1.3;color:var(--ink)}
+.arch-person__role{margin-top:var(--sp-1);font-size:var(--fs-small);line-height:1.45;color:var(--mute)}
+@media (min-width:900px){
+  .contact-card>.arch-person{grid-column:2/span 2}
+}
+
+/* Quellen zum Aufklappen: Rubrik als Schalter mit + wie bei den FAQs, Liste bleibt im HTML lesbar. */
+.arch-sources summary{display:inline-flex;align-items:baseline;gap:var(--sp-2);cursor:pointer;list-style:none}
+.arch-sources summary::-webkit-details-marker{display:none}
+.arch-sources summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.arch-sources[open] summary::after{transform:rotate(45deg)}
+.arch-sources summary:hover{color:var(--ink)}
+.arch-sources summary:hover::after,.arch-sources[open] summary::after{color:var(--accent)}
