@@ -25,7 +25,7 @@ body{--accent:var(--xp-architektur)}
 .hero__title,.hero__title em{font-style:normal;color:var(--accent)}
 
 /* Linien: die schwarze Oberkante der Listen, die einen Abschnitt tragen */
-.x-lph,.x-risks,.x-areas,.faq,.arch-triad,.arch-p0__gate{border-top-color:var(--accent)}
+.x-lph,.x-risks,.x-areas,.faq,.arch-triad{border-top-color:var(--accent)}
 /* Leistungsphasen-Panel: keine eigene Linie, dafür die Oberkante der Angaben im Akzent */
 .x-panel{border-top:0;padding-top:0}
 .x-panel .facts{border-top-color:var(--accent)}
@@ -108,10 +108,11 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .arch-p0__why{margin-top:var(--sp-7);align-items:start}
 .arch-p0__rail{margin-top:var(--sp-7)}
 .arch-p0__out{display:grid;gap:2px;max-width:none;padding-top:var(--sp-2);border-top:1px solid var(--rule);color:var(--ink-2)}
-.arch-p0__gate{margin-top:var(--sp-6);padding-block:var(--sp-4);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
-.arch-p0__gate .t-label{max-width:none}
-.arch-p0__hand{margin-top:var(--sp-6)}
-.arch-list{margin-top:var(--sp-2);border-top:1px solid var(--ink)}
+/* Schlusssatz der Schritte: ohne Rahmen, mit Luft davor und danach (wie der Folgesatz unter .x-risks) */
+.arch-p0__gate{margin-top:var(--sp-6)}
+.arch-p0__ref{margin-top:var(--sp-2);max-width:none}
+.arch-p0__hand{margin-top:var(--sp-7)}
+.arch-list{margin-top:var(--sp-3);border-top:1px solid var(--ink)}
 .arch-list>li{padding-block:var(--sp-2);border-bottom:1px solid var(--rule)}
 
 /* FAQ: interner Link in der Antwort */
