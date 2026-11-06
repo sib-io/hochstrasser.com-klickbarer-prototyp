@@ -6,7 +6,7 @@ nur den Inhalt von <main>:
 
   <!--meta {"title": "Brandschutz", "description": "…", "nav": "expertise",
              "css": ["pages/expertise.css"], "js": ["pages/brandschutz.js"],
-             "body": "data-accent=\\"blau\\"", "proto": "Prototyp Expertiseseite · Brandschutz"} -->
+             "body": "data-accent=\\"blau\\""} -->
   <section …>…</section>
 
 Optional für Suchmaschinen und KI-Suche:
@@ -150,12 +150,6 @@ def build(src):
     footer = (ROOT / 'partials/footer.html').read_text(encoding='utf-8')
     css = ''.join(f'\n<link rel="stylesheet" href="assets/css/{c}">' for c in meta.get('css', []))
     js = ''.join(f'\n<script src="assets/js/{j}"></script>' for j in meta.get('js', []))
-    proto = ''
-    if meta.get('proto'):
-        proto = ('<div class="proto">\n  <div class="wrap proto__in">\n'
-                 f'    <span class="t-label">{meta["proto"]}</span>\n'
-                 '    <button id="notesToggle" aria-pressed="false">Offene Punkte einblenden</button>\n'
-                 '  </div>\n</div>\n')
     body_attr = (' ' + meta['body']) if meta.get('body') else ''
     seo = ''
     if meta.get('url'):
@@ -180,7 +174,7 @@ def build(src):
 </head>
 <body{body_attr}>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
-{proto}{header}
+{header}
 <main id="inhalt">
 {body}
 </main>

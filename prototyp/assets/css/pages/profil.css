@@ -41,7 +41,6 @@
 .profil-panel{margin-top:var(--sp-6);padding-top:var(--sp-5);transition:opacity .25s var(--ease)}
 .profil-panel.is-fading{opacity:0}
 .profil-panel .link-arrow{margin-top:var(--sp-4)}
-#schema ~ .note,.profil-panel ~ .note{margin-top:var(--sp-4)}
 
 /* Expertise: Einleitungstext über den Gesichtern */
 .profil-expertise__intro{margin-bottom:var(--sp-7)}
