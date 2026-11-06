@@ -113,7 +113,7 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .arch-p0__rail{margin-top:var(--sp-7)}
 .arch-p0__out{display:grid;gap:2px;max-width:none;padding-top:var(--sp-2);border-top:1px solid var(--rule);color:var(--ink-2)}
 /* Schlusssatz der Schritte: ohne Rahmen, mit Luft davor und danach (wie der Folgesatz unter .x-risks) */
-.arch-p0__gate{margin-top:var(--sp-6)}
+.arch-p0__gate{margin-top:var(--sp-7)}
 .arch-p0__ref{margin-top:var(--sp-2);max-width:none}
 .arch-p0__hand{margin-top:var(--sp-7)}
 .arch-list{margin-top:var(--sp-3);border-top:1px solid var(--ink)}
