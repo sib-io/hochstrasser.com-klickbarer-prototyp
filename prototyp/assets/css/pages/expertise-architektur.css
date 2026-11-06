@@ -104,6 +104,11 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .band--tint .x-node:hover .arch-open{fill:var(--rule)}
 .band--tint .x-node.is-on .arch-open,.band--tint .x-node.is-on:hover .arch-open{fill:var(--accent)}
 
+/* Überschrift mit Einleitung darunter (frühe Entscheidungen, Was sich gerade ändert): mehr Luft zur Liste */
+.arch-head{margin-bottom:var(--sp-5)}
+/* Folgesatz unter der Liste: mehr Luft davor und danach */
+.arch-close{margin-block:var(--sp-5) var(--sp-4)}
+
 /* Leistungsphase 0 */
 .arch-p0__why{margin-top:var(--sp-7);align-items:start}
 .arch-p0__rail{margin-top:var(--sp-7)}
