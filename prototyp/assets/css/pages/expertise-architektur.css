@@ -110,7 +110,6 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .arch-close{margin-block:var(--sp-5) var(--sp-4)}
 
 /* Leistungsphase 0 */
-.arch-p0__why{margin-top:var(--sp-7);align-items:start}
 .arch-p0__rail{margin-top:var(--sp-7)}
 .arch-p0__out{display:grid;gap:2px;max-width:none;padding-top:var(--sp-2);border-top:1px solid var(--rule);color:var(--ink-2)}
 /* Schlusssatz der Schritte: ohne Rahmen, mit Luft davor und danach (wie der Folgesatz unter .x-risks) */
