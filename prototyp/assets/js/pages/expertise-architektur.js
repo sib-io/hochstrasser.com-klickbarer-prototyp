@@ -14,7 +14,7 @@
     l2: { name: 'Leistungsphase 2 · Vorplanung', claim: 'Die Idee, in Varianten.',
       a: 'Planungskonzept mit Untersuchung alternativer Lösungen, Zielkatalog, Vorabstimmung der Genehmigungsfähigkeit, Integration der Fachplanung',
       b: 'Vorentwurf mit Erläuterung, Terminplan für den Planungs- und Bauablauf',
-      c: 'Kostenschätzung nach DIN 276' },
+      c: 'Budgetrahmen nach DIN 276' },
     l3: { name: 'Leistungsphase 3 · Entwurfsplanung', claim: 'Das Haus, durchgearbeitet.',
       a: 'Durcharbeitung des Konzepts mit allen Fachplanungen: Tragwerk, Technik, Bauphysik, Brandschutz — bis zur zeichnerischen Darstellung im Maßstab 1:100',
       b: 'Entwurf als Grundlage für Genehmigung und Ausführung, fortgeschriebener Terminplan',
