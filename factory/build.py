@@ -107,7 +107,8 @@ def faq_schema(src, meta, body, title):
     url = SITE + meta['url']
     pairs = re.findall(r'<details id="([^"]+)"><summary>(.*?)</summary>'
                        r'<div class="faq__answer[^"]*">(.*?)</div></details>', body, re.S)
-    if not pairs or len(pairs) != body.count('<details'):
+    # aufklappbarer Quellenblock (<details class="…-sources">) zählt nicht als Frage
+    if not pairs or len(pairs) != body.count('<details') - len(re.findall(r'<details class="[\w-]*sources"', body)):
         sys.exit(f'{src.name}: FAQ-Schema – jede Frage als <details id="…"><summary>…</summary>'
                  '<div class="faq__answer">…</div></details> in einer Zeile')
     page = {
