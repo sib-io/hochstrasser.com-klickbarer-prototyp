@@ -135,6 +135,11 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .arch-terms>.arch-terms__l{font-size:var(--fs-h3);color:var(--accent)}
 .arch-terms>.arch-terms__s{font-family:var(--font-ui);font-weight:400;font-size:var(--fs-label);letter-spacing:.04em;color:var(--mute)}
 .rv.in .arch-terms>li{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:calc(.25s + var(--i, 0) * 70ms)}
+/* Ab Desktop so hoch wie der Text links: die Zeilen verteilen sich über die
+   ganze Höhe, die letzte schließt mit dem letzten Satz links ab. */
+@media (min-width:900px){
+  .arch-terms{align-self:stretch;align-content:space-between}
+}
 @media (prefers-reduced-motion:reduce){
   .arch-terms>li{opacity:1;transform:none}
   .rv.in .arch-terms>li{transition:none}
