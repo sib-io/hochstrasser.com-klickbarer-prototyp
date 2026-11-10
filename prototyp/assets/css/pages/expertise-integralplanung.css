@@ -3,7 +3,9 @@
    Organigramm (viewBox 1280 × 476, 1 Einheit = 1 px am Desktop,
    auf dem 12-Spalten-Raster): sechs eigene Disziplinen à 2 Spalten
    (schwarz), darunter vier externe Partner à 3 Spalten (weiß mit
-   Rahmen), angebunden über den Stamm in der Mittelfuge. Darunter
+   Rahmen), angebunden über den Stamm in der Mittelfuge. Die vollen
+   Kästchen (hochstrasser. und eigene Disziplinen) im Farbton der Seite
+   (--accent-deep, damit die weiße Schrift lesbar bleibt). Darunter
    900 px übernimmt die gestapelte Liste .gp-stack.
    Leistungsphasen ohne Angabe: .x-lph__tbd statt Balken.
    Akzentfarbe wie auf der Brandschutzseite (Überschrift, Linien,
@@ -47,7 +49,7 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .gp-org__l{stroke:var(--ink);stroke-width:1}
 .gp-org__box{fill:var(--paper);stroke:var(--ink);stroke-width:1}
 .gp-org__box--top{fill:var(--shade)}
-.gp-org__box--mid{fill:var(--ink)}
+.gp-org__box--mid{fill:var(--accent-deep);stroke:var(--accent-deep)}
 .gp-org__box--ext{stroke-width:2}
 .gp-org__t{font-family:var(--font-ui);font-weight:400;font-size:15px;letter-spacing:.03em;fill:var(--ink)}
 .gp-org__t.is-inv{fill:var(--paper)}
@@ -57,10 +59,10 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
 .gp-stack{display:grid;gap:var(--sp-1)}
 .gp-stack__top,.gp-stack__mid{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.03em;text-align:center;padding:var(--sp-2) var(--sp-3);border:1px solid var(--ink)}
 .gp-stack__top{background:var(--shade)}
-.gp-stack__mid{background:var(--ink);color:var(--paper)}
+.gp-stack__mid{background:var(--accent-deep);border-color:var(--accent-deep);color:var(--paper)}
 .gp-stack ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-1);padding-top:var(--sp-2);border-top:1px solid var(--ink)}
 .gp-stack li{font-family:var(--font-ui);font-size:var(--fs-small);letter-spacing:.03em;padding:var(--sp-2);border:1px solid var(--ink)}
-.gp-stack__own li{background:var(--ink);color:var(--paper)}
+.gp-stack__own li{background:var(--accent-deep);border-color:var(--accent-deep);color:var(--paper)}
 .gp-stack__ext li{border-width:2px}
 
 /* Leistungsphase noch offen ----------------------------------- */
@@ -71,3 +73,21 @@ a.ext:hover,a.ext:focus-visible{border-bottom-color:var(--accent)}
   .gp-org{display:block}
   .gp-stack{display:none}
 }
+
+/* Porträt statt Platzhalter: gleiche Position wie .ph, Name und Funktion darunter (wie Bauphysik). */
+.gp-person{margin:0}
+.gp-person figcaption{margin-top:var(--sp-2)}
+.gp-person__name,.gp-person__role{display:block}
+.gp-person__name{font-family:var(--font-ui);font-size:var(--fs-ui);line-height:1.3;color:var(--ink)}
+.gp-person__role{margin-top:var(--sp-1);font-size:var(--fs-small);line-height:1.45;color:var(--mute)}
+@media (min-width:900px){
+  .contact-card>.gp-person{grid-column:2/span 2}
+}
+
+/* Quellen zum Aufklappen: Rubrik als Schalter mit + wie bei den FAQs, Liste bleibt im HTML lesbar. */
+.gp-sources summary{display:inline-flex;align-items:baseline;gap:var(--sp-2);cursor:pointer;list-style:none}
+.gp-sources summary::-webkit-details-marker{display:none}
+.gp-sources summary::after{content:'+';font-family:var(--font-ui);font-weight:300;font-size:1.5em;line-height:.8;color:var(--mute);transition:transform .3s var(--ease)}
+.gp-sources[open] summary::after{transform:rotate(45deg)}
+.gp-sources summary:hover{color:var(--ink)}
+.gp-sources summary:hover::after,.gp-sources[open] summary::after{color:var(--accent)}
