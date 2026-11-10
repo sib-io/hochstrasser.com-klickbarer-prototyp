@@ -49,5 +49,13 @@ window.PROJEKTSEITEN = {
   "Haus MK": {
     "href": "projekt-haus-mk.html",
     "img": "assets/img/haus-mk/744_square_500x500_acf_cropped.jpg"
+  },
+  "Zentrum für Gestaltung HfG Ulm": {
+    "href": "projekt-zentrum-fuer-gestaltung-hfg-ulm.html",
+    "img": "assets/img/hfg-ulm/01_2_squared.jpg"
+  },
+  "Zentrum für Gestaltung HFG Ulm": {
+    "href": "projekt-zentrum-fuer-gestaltung-hfg-ulm.html",
+    "img": "assets/img/hfg-ulm/01_2_squared.jpg"
   }
 };

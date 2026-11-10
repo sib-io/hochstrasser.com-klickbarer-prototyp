@@ -49,7 +49,7 @@ prototyp/
 | Profil | 04 | `profil` |
 | Büro | 05a (Bildband aus 05b) | `buero` |
 | Projekt FLZ | 06 + Live-Seite | `projekt-flz-neuer-bau-ulm` |
-| Zehn neueste Projekte | Live-Seiten hochstrasser.com | `projekt-<name>` (erzeugt, siehe unten) |
+| Zehn neueste Projekte und Zentrum für Gestaltung HfG Ulm | Live-Seiten hochstrasser.com | `projekt-<name>` (erzeugt, siehe unten) |
 | Brandschutz | 07 | `expertise-brandschutz` |
 | Nachhaltigkeit | 08 | `expertise-nachhaltigkeit` |
 | Bauphysik | 09 | `expertise-bauphysik` |

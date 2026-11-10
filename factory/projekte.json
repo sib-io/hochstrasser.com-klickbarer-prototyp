@@ -216,6 +216,29 @@
                  "744_landscape_Aussenraum-2-scaled.jpg", "744_landscape-Wohnraum-3-scaled.jpg", "744_landscape_Bad-2-scaled.jpg", "744_landscape_Aussenraum-1-scaled.jpg"],
       "chapters": [],
       "related": ["projekt-kriegsspital-neu-ulm", "projekt-wohnbebauung-neu-ulm", "projekt-flz-neuer-bau-ulm", "projekt-wohnbebauung-laichingen"]
+    },
+    {
+      "slug": "projekt-zentrum-fuer-gestaltung-hfg-ulm", "dir": "hfg-ulm",
+      "title": "Zentrum für Gestaltung HfG Ulm", "titles": ["Zentrum für Gestaltung HFG Ulm"], "year": 2011, "group": "bestand",
+      "sub": "Konservatorische, energetische und brandschutztechnische Sanierung des Einzeldenkmals HfG Ulm",
+      "facts": [["Kategorie", "Arbeiten · Ausstellen · Beleben · Erhalten · Lernen · Umnutzen"], ["Standort", "Ulm"], ["Bauherr", "Stiftung HfG Ulm"], ["Fertigstellung", "2013"], ["Auszeichnung", "Beispielhaftes Bauen Ulm und Alb-Donau-Kreis 2013–2019"]],
+      "cover": "02_header.jpg",
+      "square": "01_2_squared.jpg",
+      "images": ["03_landscape.jpg", "04_landscape.jpg", "05_landscape.jpg", "06_landscape.jpg", "07_landscape.jpg", "08_landscape.jpg", "09_landscape.jpg", "10_landscape.jpg",
+                 "11_portrait.jpg", "12_landscape.jpg", "13_landscape.jpg", "14_landscape.jpg", "15_landscape.jpg", "16_landscape.jpg", "17_landscape.jpg", "18_landscape.jpg",
+                 "19_landscape.jpg", "20_landscape.jpg", "21_portrait.jpg", "22_landscape.jpg",
+                 {"f": "23_landscape_lageplan.jpg", "plan": true, "alt": "Lageplan"},
+                 {"f": "24_landscape_e0.jpg", "plan": true, "alt": "Grundriss Ebene 0"},
+                 {"f": "25_landscape_e1.jpg", "plan": true, "alt": "Grundriss Ebene 1"},
+                 {"f": "26_landscape_e2.jpg", "plan": true, "alt": "Grundriss Ebene 2"}],
+      "chapters": [
+        {"label": "Projekt", "blocks": [
+          {"p": "Die HfG Ulm gilt weltweit als die wegweisende Lehreinrichtung für Gestaltung nach dem 2. Weltkrieg. Der von Max Bill gestaltete Gebäudekomplex der HfG Ulm zählt zu den bedeutendsten baulichen Manifestationen in der jungen Bundesrepublik und ist ein exponiertes Beispiel für „konkrete Architektur“. Eine erste Sanierung des hochflexiblen Gebäudes ist ab 1974 erfolgt. Mit Auszug der Universität Ulm 2010 galt es, ein neues und der Bedeutung des Gebäudes angemessenes Nutzungskonzept für die stark sanierungsbedürftige Anlage zu finden und das Gebäude mit neuem öffentlichen Leben zu füllen. Das umgesetzte dreigliedrige Nutzungskonzept beinhaltet nun das städtische HfG-Archiv, welches an historischem Ort Flächen für Ausstellung, Depot, Bibliothek und Forschung nutzt. Designverwandte Unternehmen haben sich in variablen Mietflächen angesiedelt. Ein Veranstaltungszentrum mit angeschlossener Gastronomie bietet Raum für vielfältige Aktivitäten."},
+          {"p": "Die Konzeption bedingt im Rahmen einer Sanierung die Einbindung zeitgemäßer Anforderungen wie Energetik, Brandschutz, Sicherheit, Arbeitsplatzqualität, Nachhaltigkeit und Flexibilität. Dies wurde im Rahmen eines engen Zeitkorsetts und den eingeschränkten finanziellen Mitteln der privaten Stiftung HfG umgesetzt. Dabei wurden neben anderem historische Raumbezüge wieder hergestellt, die Bestandseinbauten sensibel restauriert, die Verglasung getauscht, das Dach gedämmt, die Beleuchtung originalgetreu nachgebaut, zeitgemäße Haustechnik nahezu unsichtbar integriert, neue Mieteinheiten definiert und das Gebäude einem breiten Publikum wieder zugänglich gemacht."},
+          {"p": "Die Leitgedanken zur Sanierung: Alles, was verändert wird, ist reversibel. Das Original bleibt bestehen. Alles Neue wird ablesbar eingeschrieben."}
+        ]}
+      ],
+      "related": ["projekt-kriegsspital-neu-ulm", "projekt-flz-neuer-bau-ulm", "projekt-haus-mk", "projekt-wohnbebauung-neu-ulm"]
     }
   ]
 }
