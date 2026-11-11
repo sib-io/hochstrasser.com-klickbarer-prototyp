@@ -2,8 +2,8 @@
 (function () {
   var KT = {
     einfach: {
-      img: 'assets/img/ba3-baubetriebshof-ulm/799_lanscape-03-scaled.jpg',
-      cap: 'Baubetriebshof Ulm: Fahrzeughalle mit Fassade aus Holzlatten',
+      img: 'assets/img/k5/02_header-1.jpg',
+      cap: 'K5 in Ulm: Wohn- und Geschäftshaus mit Sichtbetonfassade und Giebeldach',
       name: 'Einfach bauen.',
       claim: 'Komplexität ist nicht automatisch Qualität.',
       text: [
@@ -12,8 +12,8 @@
       ]
     },
     wirtschaft: {
-      img: 'assets/img/erweiterung-witec/757_landscape_SuedWest-Ecke.jpg',
-      cap: 'Erweiterung WITec: Büro- und Produktionsgebäude mit heller Betonfassade',
+      img: 'assets/img/wohnbebauung-neu-ulm/NU-Schwabenstr_0025-scaled.jpg',
+      cap: 'Wohnbebauung Neu-Ulm: sanierter Wohnblock mit orangefarbener Fassade und Balkonen',
       name: 'Wirtschaftlich denken.',
       claim: 'Gute Architektur muss auch wirtschaftlich überzeugen.',
       text: [
@@ -22,8 +22,8 @@
       ]
     },
     kreislauf: {
-      img: 'assets/img/strohballenatelier/atelier-innenraum.jpg',
-      cap: 'Strohballenatelier: Wände aus Strohballen, Holztragwerk und wiederverwendete Schlossfenster',
+      img: 'assets/img/strohballenatelier/864_landscape_aussenraum2-scaled.jpg',
+      cap: 'Strohballenatelier: Holzbau mit Fensterfront aus wiederverwendeten Schlossfenstern im Garten',
       name: 'Kreislaufgerecht bauen.',
       claim: 'Ressourcen sind wertvoll. Ihr verantwortungsvoller Einsatz ist entscheidend.',
       text: [
@@ -49,8 +49,8 @@
       ]
     },
     zukunft: {
-      img: 'assets/img/friesenhofen-saegemuehle/784_header.jpg',
-      cap: 'Wohnareal Sägemühle Friesenhofen: Visualisierung der Häuser am Fluss',
+      img: 'assets/img/parkhaus-am-rathaus/02_header-1.jpg',
+      cap: 'Parkhaus am Rathaus Ulm: Parkebene mit roter Fahrgasse',
       name: 'Zukunft gestalten.',
       claim: 'Was wir heute planen, prägt das Leben von morgen.',
       text: [
