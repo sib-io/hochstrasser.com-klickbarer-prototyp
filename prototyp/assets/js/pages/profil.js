@@ -104,6 +104,26 @@
     });
   });
   schema.classList.add('has-on');
+
+  /* Einstieg über Anker (z. B. Startseite → profil.html#n-bestand):
+     passendes Kernthema sofort wählen und Schema bzw. Auswahlknöpfe ins Bild holen */
+  function fromHash(scroll) {
+    var m = /^#n-([a-z]+)$/.exec(window.location.hash);
+    if (!m || !KT[m[1]]) return false;
+    current = m[1];
+    paint(current);
+    mark();
+    if (scroll) {
+      var target = schema.getBoundingClientRect().height ? schema : document.querySelector('.profil-chips');
+      if (target) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }
+    return true;
+  }
+  if (fromHash(true)) {
+    /* nach dem Laden von Schriften und Bildern Lage noch einmal korrigieren */
+    window.addEventListener('load', function () { fromHash(true); });
+  }
+  window.addEventListener('hashchange', function () { fromHash(true); });
   mark();
 })();
 
