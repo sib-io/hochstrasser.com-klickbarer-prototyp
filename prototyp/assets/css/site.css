@@ -426,6 +426,9 @@ a.ext,a.ext-in{-webkit-text-stroke:.01em currentColor}
 .media--1x1{aspect-ratio:1/1}
 .media--3x4{aspect-ratio:3/4}
 .media--2x3{aspect-ratio:2/3}
+/* Bildnachweis direkt im Foto: klein, um 90° gedreht am rechten Rand, liest von unten nach oben.
+   Elternelement braucht position:relative (.media hat es). */
+.img-credit{position:absolute;right:var(--sp-1);bottom:var(--sp-2);z-index:2;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-ui);font-size:.6875rem;line-height:1;letter-spacing:.04em;white-space:nowrap;color:var(--on-dark-2);text-shadow:0 0 6px rgba(22,22,22,.5);pointer-events:none}
 .band--tint .media{background:var(--paper)}
 .caption{margin-top:var(--sp-2)}
 
