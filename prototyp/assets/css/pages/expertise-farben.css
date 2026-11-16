@@ -1,5 +1,5 @@
 /* Expertise (Übersicht): jede Disziplin hat ihre Farbe (data-c an der Zeile, Tokens --xp-* in site.css).
-   Beim Überfahren färben sich Begriff, Unterstrich und Punkt (falls vorhanden). */
+   Beim Überfahren färben sich Begriff und Unterstrich. */
 .xp-row{--xc:var(--ink)}
 .xp-row[data-c=architektur]{--xc:var(--xp-architektur)}
 .xp-row[data-c=nachhaltigkeit]{--xc:var(--xp-nachhaltigkeit)}
@@ -10,10 +10,8 @@
 .xp-row[data-c=barrierefreiheit]{--xc:var(--xp-barrierefreiheit)}
 .xp-row[data-c=digital]{--xc:var(--xp-digital)}
 .xp-w{transition:color .25s var(--ease)}
-.xp-dot{transition:background-color .25s var(--ease)}
 
 .xp-w:hover,.xp-w:focus-visible{color:var(--xc)}
-.xp-w::after,
-.xp-row:has(.xp-w:hover,.xp-w:focus-visible) .xp-dot{background:var(--xc)}
+.xp-w::after{background:var(--xc)}
 
-@media (prefers-reduced-motion:reduce){.xp-w,.xp-dot{transition:none}}
+@media (prefers-reduced-motion:reduce){.xp-w{transition:none}}
