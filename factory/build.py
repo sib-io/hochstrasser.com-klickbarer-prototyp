@@ -39,7 +39,7 @@ ORG = {
     'url': SITE, 'telephone': '+49 731 935110', 'email': 'info@hochstrasser.com',
     'address': {'@type': 'PostalAddress', 'streetAddress': 'Karpfengasse 5',
                 'postalCode': '89073', 'addressLocality': 'Ulm', 'addressCountry': 'DE'},
-    'sameAs': ['https://www.instagram.com/hochstrasser.architekten'],
+    'sameAs': ['https://www.instagram.com/hochstrasser.architekten/', 'https://www.linkedin.com/company/101284848/'],
 }
 NAV = [  # Reihenfolge der Hauptnavigation
     ('expertise', 'expertise.html', 'Expertise'),
