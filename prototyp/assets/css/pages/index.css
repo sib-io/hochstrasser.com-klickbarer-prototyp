@@ -130,7 +130,12 @@
 .fh-streifen__go>span{display:inline-block;margin-left:.35em;transition:transform .3s var(--ease)}
 .fh-streifen:hover .fh-streifen__go>span{transform:translateX(5px)}
 .fh-streifen:focus-visible{outline:2px solid #ffe503;outline-offset:-2px}
-.fh-streifen .img-credit{z-index:1}
+/* Bildnachweis: senkrecht wäre er höher als der Streifen, daher waagerecht –
+   ab 600px unten links unter dem Logo (rechts sitzt „Zum Film“), mobil unten rechts */
+.fh-streifen .img-credit{z-index:1;writing-mode:horizontal-tb;transform:none;bottom:.375rem;font-size:.625rem}
+@media (min-width:600px){
+  .fh-streifen .img-credit{right:auto;left:max(var(--side),calc((100% - var(--container)) / 2))}
+}
 @media (min-width:900px){
   .fh-streifen__in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
   .fh-streifen .fh-logo{grid-column:1/span 3}
