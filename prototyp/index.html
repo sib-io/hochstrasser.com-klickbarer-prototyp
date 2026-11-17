@@ -7,6 +7,7 @@
 <meta name="description" content="Integraler Planungspartner aus Ulm. Wir verbinden Architektur, Technik und Wirtschaftlichkeit zu einer integralen Planung.">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/pages/index.css">
+<link rel="stylesheet" href="assets/css/pages/buero-film.css">
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -101,16 +102,31 @@
     <div class="btn-row idx-more rv"><a class="link-arrow" href="projekte.html">Alle Projekte ansehen <span aria-hidden="true">→</span></a></div>
   </section>
 
-  <section id="expertise">
-    <div class="quote idx-quote rv">
-      <div class="quote__img"><img src="assets/img/strohballenatelier/atelier-innenraum.jpg" width="1800" height="1013" alt="Innenraum des Ateliers: Wände aus Strohballen, Holztragwerk und eine Fensterfront aus alten Schlossfenstern zum Garten" loading="lazy"></div>
-      <div class="quote__field">
-        <p class="quote__pill">Hugo-Häring-Auszeichnung 2023</p>
-        <blockquote class="quote__text"><p>„Man fühlt sich, als betrete man eine Kathedrale.“</p></blockquote>
-        <div class="quote__foot">
-          <p><span class="quote__who">Dorothea Schrade, Bauherrin</span><span class="quote__ctx">Gebaut an fünf Wochenenden, in Eigenleistung</span></p>
-          <a class="link-arrow" href="projekt-flz-neuer-bau-ulm.html">Zum Projekt <span aria-hidden="true">→</span></a>
+  <!-- Film: Dokumentarfilm „Fred Hochstrasser – Architekt“, gleiches Element wie auf der Büro-Seite -->
+  <section class="band band--dark rv buero-film" id="film" aria-labelledby="filmTitel">
+    <div class="wrap grid grid--center">
+      <figure class="s-7 media media--16x9 buero-film__media">
+        <img src="assets/img/film-fred/vita-portrait.jpg" width="900" height="1272" alt="Fred Hochstrasser, Porträt" loading="lazy">
+        <small class="img-credit">©&nbsp;Hans&nbsp;G.&nbsp;Conrad, Ulm 1953</small>
+        <div class="buero-film__tc" aria-hidden="true">
+          <span class="buero-film__tc-num" data-tc>00:00:00:00:00</span>
+          <span class="t-label">bis zur Premiere</span>
         </div>
+        <span class="t-label buero-film__cut">Der Dokumentarfilm</span>
+      </figure>
+
+      <div class="s-4 o-9">
+        <h2 class="buero-film__mark" id="filmTitel"><img src="assets/img/film-fred/logo-fred-hochstrasser-architekt.svg" width="842" height="243" alt="Fred Hochstrasser – Architekt" loading="lazy"></h2>
+        <p class="buero-film__lead">Filmdokumentation über den Ulmer Architekten Fred Hochstrasser. Zeitzeugnis einer prägenden Persönlichkeit der Ulmer Architektur- und Designgeschichte.</p>
+
+        <ul class="rows rows--compact buero-film__plan">
+          <li><span class="buero-film__dt">15.12.2026</span><span class="buero-film__ort">Stadthaus Ulm</span><span class="t-label">Premiere · Eintritt frei</span></li>
+          <li><span class="buero-film__dt">03.01.2027</span><span class="buero-film__ort">SRF</span><span class="t-label">Im Fernsehen</span></li>
+        </ul>
+
+        <p class="t-small buero-film__credits">Laufzeit: 60 Minuten<br>Regie: Sebastian Schrade<br>Produktion: hit &amp; run Film, Berlin</p>
+
+        <p class="buero-film__foot"><a class="link-arrow" href="https://fred.hochstrasser.com" target="_blank" rel="noopener">Zur Filmseite <span aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </section>
@@ -216,5 +232,6 @@
 <script src="assets/js/site.js"></script>
 <script src="assets/js/projektseiten.js"></script>
 <script src="assets/js/pages/index.js"></script>
+<script src="assets/js/pages/buero-film.js"></script>
 </body>
 </html>
