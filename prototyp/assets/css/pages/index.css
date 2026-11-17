@@ -113,3 +113,38 @@
 .idx-hero--px .hero__title{font-family:var(--font-ui);letter-spacing:-.028em}
 /* Startseite: eckiger Punkt (Glyphe von PX Grotesk) in Schwarz statt Grau */
 .idx-hero--px.idx-hero--ink .hero__title em{color:var(--ink)}
+
+/* Startseite: Film „fred hochstrasser architekt“ als schmaler Bildstreifen über dem Hero */
+/* Schmaler Bildstreifen über dem Hero: Archivaufnahme als extrem flaches Breitbild,
+   Logo links, Termin rechts. Ganze Fläche ist der Link zur Filmseite. */
+.fh-streifen{position:relative;display:block;overflow:hidden;background:var(--ink);color:var(--on-dark)}
+.fh-streifen>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 18%;filter:grayscale(1) contrast(1.04) brightness(.66);transition:transform 1.2s var(--ease),filter .6s var(--ease)}
+.fh-streifen:hover>img{transform:scale(1.025);filter:grayscale(1) contrast(1.04) brightness(.72)}
+.fh-streifen::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,22,22,.72) 0%,rgba(22,22,22,.15) 45%,rgba(22,22,22,.15) 60%,rgba(22,22,22,.72) 100%)}
+.fh-streifen__in{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:clamp(7.5rem,5rem + 6vw,10.5rem);padding-block:var(--sp-2)}
+.fh-streifen .fh-logo{width:clamp(9rem,6rem + 9vw,15rem);height:auto;color:#ffe503}
+.fh-streifen__date{display:grid;justify-items:end;text-align:right;gap:.25rem;font-family:var(--font-ui)}
+.fh-streifen__num{font-weight:700;font-size:var(--fs-h2);line-height:1;letter-spacing:-.022em}
+.fh-streifen__where{font-size:var(--fs-small);color:var(--on-dark-2)}
+.fh-streifen__go{margin-top:var(--sp-1);font-size:var(--fs-small);border-bottom:1px solid var(--on-dark-rule);padding-bottom:2px}
+.fh-streifen__go>span{display:inline-block;margin-left:.35em;transition:transform .3s var(--ease)}
+.fh-streifen:hover .fh-streifen__go>span{transform:translateX(5px)}
+.fh-streifen:focus-visible{outline:2px solid #ffe503;outline-offset:-2px}
+.fh-streifen .img-credit{z-index:1}
+@media (min-width:900px){
+  .fh-streifen__in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
+  .fh-streifen .fh-logo{grid-column:1/span 3}
+  .fh-streifen__date{grid-column:10/span 3}
+}
+/* mobil: Bild stärker vergrößert, damit Fred rechts im Streifen sitzt; Logo und Termin links untereinander */
+@media (max-width:599px){
+  .fh-streifen__where{display:none}
+  .fh-streifen>img{inset:auto;left:-62vw;top:calc(4.75rem - 27.4vw);width:250vw;height:auto;max-width:none;object-fit:fill}
+  .fh-streifen::after{background:linear-gradient(90deg,rgba(22,22,22,.8) 0%,rgba(22,22,22,.45) 45%,rgba(22,22,22,0) 70%)}
+  .fh-streifen__in{flex-direction:column;align-items:flex-start;justify-content:center;gap:var(--sp-1);min-height:9.5rem}
+  .fh-streifen .fh-logo{width:8rem}
+  .fh-streifen__date{justify-items:start;text-align:left;gap:0}
+  .fh-streifen__num{font-size:var(--fs-h3)}
+  .fh-streifen__go{margin-top:.25rem}
+}
+@media (prefers-reduced-motion:reduce){.fh-streifen>img{transition:none}.fh-streifen:hover>img{transform:none}}
