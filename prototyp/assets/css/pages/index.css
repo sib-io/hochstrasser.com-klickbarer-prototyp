@@ -141,15 +141,14 @@
   .fh-streifen .fh-logo{grid-column:1/span 3}
   .fh-streifen__date{grid-column:10/span 3}
 }
-/* mobil: Bild stärker vergrößert, damit Fred rechts im Streifen sitzt; Logo und Termin links untereinander */
+/* mobil: Bild stärker vergrößert, damit Fred rechts im Streifen sitzt; nur Logo und „Zum Film“ links untereinander */
 @media (max-width:599px){
-  .fh-streifen__where{display:none}
+  .fh-streifen__where,.fh-streifen__num{display:none}
   .fh-streifen>img{inset:auto;left:-62vw;top:calc(4.75rem - 27.4vw);width:250vw;height:auto;max-width:none;object-fit:fill}
   .fh-streifen::after{background:linear-gradient(90deg,rgba(22,22,22,.8) 0%,rgba(22,22,22,.45) 45%,rgba(22,22,22,0) 70%)}
   .fh-streifen__in{flex-direction:column;align-items:flex-start;justify-content:center;gap:var(--sp-1);min-height:9.5rem}
   .fh-streifen .fh-logo{width:8rem}
   .fh-streifen__date{justify-items:start;text-align:left;gap:0}
-  .fh-streifen__num{font-size:var(--fs-h3)}
   .fh-streifen__go{margin-top:.25rem}
 }
 @media (prefers-reduced-motion:reduce){.fh-streifen>img{transition:none}.fh-streifen:hover>img{transform:none}}
